@@ -1,0 +1,2693 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/AccountCreation/CreateAccount.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/AccountCreation</a> CreateAccount.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.48% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>79/109</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">47.89% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>34/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>39/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>76/106</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">78x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">346x</span>
+<span class="cline-any cline-yes">346x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">358x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2937x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2937x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2937x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">451x</span>
+<span class="cline-any cline-yes">451x</span>
+<span class="cline-any cline-yes">451x</span>
+<span class="cline-any cline-yes">451x</span>
+<span class="cline-any cline-yes">451x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">924x</span>
+<span class="cline-any cline-yes">924x</span>
+<span class="cline-any cline-yes">924x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">924x</span>
+<span class="cline-any cline-yes">924x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">924x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import {
+	intlShape,
+	injectIntl,
+	FormattedMessage,
+	FormattedDate,
+	FormattedHTMLMessage
+} from 'react-intl';
+import { Link } from 'react-router';
+import { Form } from 'formsy-react';
+import moment from '../../TimeshifterMoment';
+import AppDispatcher from '../../Dispatchers/AppDispatcher';
+import ValidationsStore from '../../Stores/ValidationsStore';
+import AccountCreationUIStore from '../../Stores/AccountCreationUIStore';
+import ConfigStore from '../../Stores/ConfigStore';
+import AccountStore from '../../Stores/AccountStore';
+import AccountActions from '../../Actions/AccountActions.js';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import TextInput from '../../Components/Inputs/TextInput.jsx';
+import PasswordInput from '../../Components/Inputs/PasswordInput.jsx';
+import DateInput from '../../Components/Inputs/DateInput.jsx';
+import RadioInput from '../../Components/Inputs/RadioInput.jsx';
+import AddressInput from '../../Components/Inputs/AddressInput.jsx';
+import CheckBox from '../../Components/Inputs/CheckBox.jsx';
+import SegmentedControl from '../../Components/Inputs/SegmentedControl.jsx';
+import NumericInput from '../../Components/Inputs/NumericInput.jsx';
+import SocialSecurityInput from '../../Components/Inputs/SocialSecurityInput.jsx';
+import RecaptchaInput from '../../Components/Inputs/RecaptchaInput.jsx';
+import PhoneInput from '../../Components/Inputs/PhoneInput.jsx';
+import EmailInput from '../../Components/Inputs/EmailInput.jsx';
+import StringRequirements from '../../Components/StringRequirements.jsx';
+import { ConfirmModal } from '../../Components/Modal.jsx';
+import AddressConfirmationModal from '../../Components/Inputs/AddressConfirmationModal.jsx';
+&nbsp;
+class CreateAccount extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+&nbsp;
+		this.state = {
+			/* overall form validation state */
+			formIsValid: false,
+			/* overall formData storage, needed here to initialize the form. updated via AccountCreationUIStore after mount */
+			formData: AccountStore.getAccountDetails(),
+			/** username and password complexity requirements */
+			usernameRequirements: ValidationsStore.getUsernameRequirements(),
+			passwordRequirements: ValidationsStore.getPasswordRequirements()
+		};
+&nbsp;
+		// set the initial state of AccountCreationUIStore
+		// this store manages state and endpoint actions for this form
+		AccountCreationUIStore.silentSet({ formIsValid: false, formData: this.state.formData });
+&nbsp;
+		// store default dictionary word regex
+		// this must be stored outside state because the value is used in a Formsy validation rule
+		this.passwordDictionaryRegex = this.state.passwordRequirements[0].regex;
+&nbsp;
+		this.binds = {
+			handleFieldChange: this.handleFieldChange.bind(this),
+			handleFieldBlur: this.handleFieldBlur.bind(this),
+			onUIStoreChange: this.onUIStoreChange.bind(this),
+			onValidationsStoreChange: this.onValidationsStoreChange.bind(this)
+		};
+&nbsp;
+		// listen for change events from the store
+		AccountCreationUIStore.on('change', this.binds.onUIStoreChange);
+		// listen for changes from validations store to reset password validations
+		ValidationsStore.on('change', this.binds.onValidationsStoreChange);
+	}
+&nbsp;
+	/**
+	 * react lifecycle method called post-render
+	 *
+	 */
+	componentDidUpdate(prevProps, prevState) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (this.state.formIsValid === true &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.state.pendingSubmit === true)</span> {
+<span class="cstat-no" title="statement not covered" >			this.handleSubmitForm();</span>
+		}
+	}
+&nbsp;
+	componentDidMount() {
+		// validate password if potentially stored data is being used
+		AccountCreationUIStore.validatePassword();
+	}
+&nbsp;
+	componentWillUnmount() {
+		// stop listening for changes
+		AccountCreationUIStore.removeListener('change', this.binds.onUIStoreChange);
+		ValidationsStore.removeListener('change' , this.binds.onValidationsStoreChange);
+	}
+	/**
+	 * formsy lifecycle method
+	 */
+<span class="fstat-no" title="function not covered" >	on</span>FormValid() {
+<span class="cstat-no" title="statement not covered" >		AccountCreationUIStore.validateForm();</span>
+<span class="cstat-no" title="statement not covered" >		this.props.onFormValid();</span>
+	}
+&nbsp;
+	/**
+	 * formsy lifecycle method
+	 */
+	onFormInValid() {
+		AccountCreationUIStore.set({ formIsValid: false });
+		this.props.onFormInValid();
+	}
+&nbsp;
+	/**
+	 * passthrough for state from the UI store
+	 */
+	onUIStoreChange() {
+		this.setState(AccountCreationUIStore.getState());
+	}
+&nbsp;
+	/**
+	 * potentially update the password validation rules for dictionary word
+	 */
+<span class="fstat-no" title="function not covered" >	on</span>ValidationsStoreChange() {
+		let passwordRequirements = <span class="cstat-no" title="statement not covered" >ValidationsStore.getPasswordRequirements();</span>
+		// reset the dictionary word regex to the latest value
+<span class="cstat-no" title="statement not covered" >		this.passwordDictionaryRegex = passwordRequirements[0].regex;</span>
+		// set the current value of the password back into the input component to trigger the dictionary word validation message
+<span class="cstat-no" title="statement not covered" >		this.password.setValue(this.state.formData.password);</span>
+		// update state so that the StringRequirements component re-renders
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			usernameRequirements: ValidationsStore.getUsernameRequirements(),
+			passwordRequirements: passwordRequirements
+		});
+	}
+	/**
+	 * callback for any components whose value changes
+	 *
+	 * @param name
+	 * @param value
+	 */
+	handleFieldChange(name, value) {
+		AccountCreationUIStore.updateFormData(name, value);
+	}
+&nbsp;
+	/**
+	 * check field that was left to see if state should be invalidated
+	 * @param e
+	 */
+	handleFieldBlur(e) {
+		// potentially calls the password validation endpoint when the password field is blurred
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(e.target.getAttribute('name') === 'password') {
+<span class="cstat-no" title="statement not covered" >			AccountCreationUIStore.validatePassword();</span>
+		}
+		AccountCreationUIStore.verifyFieldState(e.target.getAttribute('name'), e.target.value);
+		this.validateDuplicateAccountFields();
+&nbsp;
+	}
+&nbsp;
+	/**
+	 * these fields need to be checked by their formsy isValid() state
+	 * if the test is passed, the collected data is sent to the store for processing
+	 */
+	validateDuplicateAccountFields() {
+		const fields = ['firstName', 'lastName', 'dob', 'prefModeOfComm'];
+		const commFields = { E: 'email', P: 'phone', M: 'accountAddress' };
+		let data = {};
+		// if any of the required fields for this check are invalid, do nothing.
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (fields.filter((field) =&gt; {
+			if (this[field].isValid() === false) return false;
+			data[field] = this.state.formData[field];
+			// retrieve the related field for prefModeOfComm or fail on its validation state
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (field === 'prefModeOfComm') {
+				let commField = commFields[this.state.formData.prefModeOfComm];
+				if ((this.prefModeOfComm.isValid()
+					&amp;&amp; this.state.formData.prefModeOfComm === 'M'
+					&amp;&amp; this.state.addressInputIsValid === false)
+					|| (this.state.formData.prefModeOfComm !== 'M'
+						&amp;&amp; this[commField].isValid() === false)
+				) return false;
+&nbsp;
+				data[commField] = this.state.formData[commField];
+			}
+			return true;
+		}).length !== fields.length) return;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (this.ssn.isValid()) {</span>
+<span class="cstat-no" title="statement not covered" >			data.ssn = this.state.formData.ssn;</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if ((typeof this.accessCode !== "undefined" &amp;&amp; this.accessCode != null) &amp;&amp; this.accessCode.isValid()) {</span>
+<span class="cstat-no" title="statement not covered" >			data.accessCode = this.state.formData.accessCode;</span>
+<span class="cstat-no" title="statement not covered" >			data.hasExistingCase = this.state.formData.hasExistingCase;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		AccountCreationUIStore.duplicateAccountCheck(data);</span>
+	}
+&nbsp;
+	/**
+	 * update status of aggregate validity state of AddressInput
+	 * @param isValid
+	 */
+	handleAddressValidCheck(isValid) {
+		AccountCreationUIStore.validateAddress(isValid);
+	}
+&nbsp;
+	/**
+	 * retrieve form values, possibly modifying the value to satisfy child component prop requirements
+	 * @param name
+	 * @returns {string}
+	 */
+	getFormValue(name) {
+		var val = typeof this.state.formData[name] !== 'undefined' ? this.state.formData[name] : '';
+&nbsp;
+		if (name === 'accountAddress' &amp;&amp; !val) val = {};
+&nbsp;
+		return val;
+	}
+&nbsp;
+	/**
+	 *
+	 * @param dateField
+	 * @returns {*}
+	 */
+	getDateValue(dateField) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (!this.state.formData[dateField] || <span class="branch-1 cbranch-no" title="branch not covered" >this.state.formData[dateField] === null </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >this.state.formData[dateField] === '')</span> return null;
+		var date = <span class="cstat-no" title="statement not covered" >moment(this.state.formData[dateField], 'L');</span>
+<span class="cstat-no" title="statement not covered" >		return date.isValid() ? date : null;</span>
+	}
+&nbsp;
+	/**
+	 *
+	 * @returns {*}
+	 */
+<span class="fstat-no" title="function not covered" >	ha</span>ndleSubmitForm() {
+		// don't allow moving to review if duplicate account hasn't been checked
+<span class="cstat-no" title="statement not covered" >		if (this.state.duplicateAccountFound !== true) {</span>
+<span class="cstat-no" title="statement not covered" >			if (this.state.duplicateAccountChecked !== true) {</span>
+<span class="cstat-no" title="statement not covered" >				this.validateDuplicateAccountFields();</span>
+			}
+		}
+		else {
+			// in this case the duplicate account has been checked but also not been changed since.
+			// previous warning still applies, cannot proceed.
+<span class="cstat-no" title="statement not covered" >			return AccountCreationUIStore.set({ duplicateAccountWarningModalIsOpen: true });</span>
+		}
+&nbsp;
+		// if duplicate account has been checked, make sure the whole form is valid before submitting
+<span class="cstat-no" title="statement not covered" >		if (this.state.formIsValid) {</span>
+<span class="cstat-no" title="statement not covered" >			AccountActions.saveCreateAccount(this.state.formData);</span>
+<span class="cstat-no" title="statement not covered" >			this.context.router.push('/account-creation/review');</span>
+		}
+	}
+&nbsp;
+&nbsp;
+	/**
+	 * reset the RecaptchaInput's validation state
+	 * This must be done outside the component becuase the Formsy
+	 * validation &amp; value methods are on the HOC wrapper, and not accessible inside the wrapped component. (see RecaptchaInput for more)
+	 */
+<span class="fstat-no" title="function not covered" >	ha</span>ndleExpiredRecaptcha() {
+		// doesn't reset the value in formData, just sets the input state to invalid.
+		// when the user verifies the recaptcha again, the token is updated
+<span class="cstat-no" title="statement not covered" >		this.recaptchaInput.resetValue();</span>
+	}
+&nbsp;
+	/**
+	 * close modal
+	 */
+<span class="fstat-no" title="function not covered" >	ha</span>ndleCloseDuplicateAccountWarningModal() {
+<span class="cstat-no" title="statement not covered" >		AccountCreationUIStore.set({ duplicateAccountWarningModalIsOpen: false });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleConfirmToLogin() {
+<span class="cstat-no" title="statement not covered" >		window.location.href = ConfigStore.getURL('portalLoginURL');</span>
+	}
+&nbsp;
+	render() {
+		var submitButtonI18nLabel = this.props.params.mode === 'edit' ? 'account-creation-create-done-button' : <span class="branch-1 cbranch-no" title="branch not covered" >'account-creation-create-next-button',</span>
+			recaptchaSiteKey = ConfigStore.get('recaptcha-sitekey'),
+			recaptchaEnabled = ConfigStore.get('recaptcha-enable'),
+			applicantFirstName = this.getFormValue('firstName') === '' ? this.props.intl.messageIfExists('applicant') : <span class="branch-1 cbranch-no" title="branch not covered" >this.getFormValue('firstName');</span>
+&nbsp;
+		return (
+			&lt;div className="account-creation-form" htmlFor="account creation form"&gt;
+				&lt;Form onValidSubmit={this.handleSubmitForm.bind(this)} onValid={this.onFormValid.bind(this)} onInvalid={this.onFormInValid.bind(this)}&gt;
+					&lt;div className="row"&gt;
+						&lt;div className="col-xs-12"&gt;
+							&lt;div className="form-header"&gt;
+								&lt;h1&gt;&lt;FormattedMessage id="account-creation-create-header" /&gt;&lt;/h1&gt;
+								&lt;p&gt;
+									&lt;FormattedMessage
+										id="account-creation-create-login-prompt-or" /&gt;
+									&lt;a href={ConfigStore.getURL('portalLoginURL')}&gt;
+										&lt;FormattedMessage id="account-creation-create-login-text" /&gt;
+									&lt;/a&gt;
+								&lt;/p&gt;
+							&lt;/div&gt;
+&nbsp;
+							&lt;TextInput
+								label={&lt;FormattedMessage id="account-creation-create-firstname-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-firstname-label')}
+								ref={(component) =&gt; {
+									this.firstName = component;
+								}}
+								innerRef={(component) =&gt; {
+									this.firstNameInput = component;
+								}}
+								name="firstName"
+								id="firstName"
+								htmlFor="firstName"
+								value={this.getFormValue('firstName')}
+								pattern="(?!\s)[a-zA-Z\.\'\s]{0,50}"
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								disabled={this.duplicateAccountCheckInProgress === true}
+								requiredError={this.props.intl.messageIfExists('account-creation-create-firstname-required-error')}
+								required
+								validations={{ 
+									matchRegexp: /^(?!\s)([a-z\'\s])[a-z\s\.\']{0,50}$/i
+								}}
+								validationErrors={{
+									matchRegexp: this.props.intl.messageIfExists('account-creation-create-firstname-required-error')
+								}}
+							/&gt;
+							&lt;TextInput
+								label={&lt;FormattedMessage id="account-creation-create-lastname-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-lastname-label')}
+								ref={(component) =&gt; {
+									this.lastName = component;
+								}}
+								innerRef={(component) =&gt; {
+									this.lastNameInput = component;
+								}}
+								name="lastName"
+								id="lastName"
+								htmlFor="lastName"
+								value={this.getFormValue('lastName')}
+								pattern="(?!\s)[a-zA-Z\.\'\s]{0,50}"
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								disabled={this.duplicateAccountCheckInProgress === true}
+								requiredError={this.props.intl.messageIfExists('account-creation-create-lastname-required-error')}
+								required
+								validations={{ 
+									matchRegexp: /^(?!\s)([a-z\'\s])[a-z\s\.\']{0,50}$/i
+								}}
+								validationErrors={{
+									matchRegexp: this.props.intl.messageIfExists('account-creation-create-lastname-required-error')
+								}}
+							/&gt;
+							&lt;DateInput
+								label={&lt;FormattedMessage id="account-creation-create-dob-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-dob-label')}
+								ref={(component) =&gt; {
+									this.dob = component;
+								}}
+								innerRef={(component) =&gt; {
+									this.dateInput = component;
+								}}
+								id="dob"
+								name="dob"
+								htmlFor="birthdate"
+								value={this.getDateValue('dob')}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								datepickerEnabled={false}
+								showIcon={false}
+								validations={{
+									dateIsTodayOrBefore: true,
+									dateIsSameOrAfter: '1900-01-01'
+								}}
+								validationErrors={{
+									dateIsTodayOrBefore: this.props.intl.messageIfExists('account-creation-create-dob-future-date-error'),
+									dateIsSameOrAfter: this.props.intl.messageIfExists('account-creation-create-dob-past-date-error')
+								}}
+								disabled={this.duplicateAccountCheckInProgress === true}
+								requiredError={this.props.intl.messageIfExists('account-creation-create-dob-required-error')}
+								required="requireValidationNullDate"
+							/&gt;
+							&lt;SocialSecurityInput
+								label={&lt;FormattedMessage
+									id="account-creation-create-ssn-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-ssn-label')}
+								ref={(component) =&gt; {
+									this.ssn = component;
+								}}
+								name="ssn"
+								id="ssn"
+								htmlFor="ssn"
+								value={this.getFormValue('ssn')}
+								optional={true}
+								disabled={this.duplicateAccountCheckInProgress === true}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								onCompleteValue={this.binds.handleFieldChange}
+								validations={{isValidSSN: true}}
+								validationErrors={{
+									isValidSSN: this.props.intl.messageIfExists('account-creation-create-ssn-error')
+								}}
+							/&gt;
+							&lt;RadioInput
+								label={this.props.intl.messageIfExists('account-creation-create-have-access-code-label')}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-have-access-code-label')}
+								id="hasExistingCase"
+								name="hasExistingCase"
+								htmlFor="hasExistingCase"
+								value={this.getFormValue('hasExistingCase')}
+								tooltip={this.props.intl.messageIfExists('account-creation-create-access-code-tooltip')}
+								options={{
+									Y: this.props.intl.messageIfExists('Yes'),
+									N: this.props.intl.messageIfExists('No')
+								}}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								required
+							/&gt;
+							&lt;ConditionalField condition={this.getFormValue('hasExistingCase') === 'Y'}&gt;
+								&lt;TextInput
+									label={&lt;FormattedMessage id="account-creation-create-access-code-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-access-code-label')}
+									name="accessCode"
+									id="accessCode"
+									htmlFor="accessCode"
+									ref={(component) =&gt; {
+										this.accessCode = component;
+									}}
+									value={this.getFormValue('accessCode')}
+									onChange={this.binds.handleFieldChange}
+									onBlur={this.binds.handleFieldBlur}
+									pattern="[a-zA-Z0-9]{0,6}"
+									requiredError={this.props.intl.messageIfExists("account-creation-create-access-code-required-error")}
+									required
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;SegmentedControl
+								className="preferred-contact-control"
+								label={&lt;FormattedMessage id="account-creation-create-contact-method-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-label')}
+								ref={(component) =&gt; {
+									this.prefModeOfComm = component;
+								}}
+								id="contact-method"
+								name="prefModeOfComm"
+								htmlFor="contact-method"
+								options={{
+									E: this.props.intl.messageIfExists('account-creation-create-contact-method-email-label'),
+									P: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-label'),
+									M: this.props.intl.messageIfExists('account-creation-create-contact-method-mail-label')
+								}}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								value={this.getFormValue('prefModeOfComm')}
+								disabled={this.duplicateAccountCheckInProgress === true}
+								required
+							/&gt;
+							&lt;ConditionalField condition={this.getFormValue('prefModeOfComm') === 'E'}&gt;
+								&lt;EmailInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-email-input-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-email-input-label')}
+									name="email"
+									id="email"
+									htmlFor="email"
+									ref={(component) =&gt; {
+										/* this is a ref to the EmailInput component instance, but needs to match the field name
+										* due to this.validateDuplicateAccountFields 
+										 */
+										this.email = component;
+									}}
+									innerRef={(component) =&gt; {
+										this.emailInput = component;
+									}}
+									value={this.getFormValue('email')}
+									onChange={this.binds.handleFieldChange}
+									onBlur={this.binds.handleFieldBlur}
+									validations="isValidEmail,maxLength:50"
+									validationErrors={{
+										"maxLength": this.props.intl.messageIfExists("account-creation-create-contact-method-email-error"),
+										"isValidEmail": this.props.intl.messageIfExists("account-creation-create-contact-method-email-error")
+									}}
+									requiredError={this.props.intl.messageIfExists("account-creation-create-contact-method-email-error")}
+									required
+								/&gt;
+								&lt;ConditionalField condition={typeof this.email !== "undefined" &amp;&amp; this.email !== null &amp;&amp; this.email.isValid() }&gt;
+									&lt;EmailInput
+										label={&lt;FormattedMessage id="account-creation-create-contact-method-email2-label" /&gt;}
+										aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-email2-label')}
+										name="email2"
+										id="email2"
+										htmlFor="email2"
+										value={this.getFormValue('email2')}
+										onChange={this.handleFieldChange}
+										onBlur={this.binds.handleFieldBlur}
+										allowCopyPaste={false}
+										maxLength="50"
+										validations="equalsField:email,isEmail"
+										validationErrors={{
+											equalsField: this.props.intl.messageIfExists('account-creation-create-contact-method-email2-match-error'),
+											isEmail: this.props.intl.messageIfExists('account-creation-create-contact-method-email2-match-error')
+										}}
+										requiredError={this.props.intl.messageIfExists('account-creation-create-contact-method-email2-match-error')}
+										required
+									/&gt;
+								&lt;/ConditionalField&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={this.getFormValue('prefModeOfComm') === 'P'}&gt;
+								&lt;PhoneInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-phone-input-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-phone-input-label')}
+									name="phone"
+									id="phone"
+									htmlFor="phone"
+									ref={(component) =&gt; {
+										this.phone = component;
+									}}
+									innerRef={(component) =&gt; {
+										this.phoneInput = component;
+									}}
+									value={this.getFormValue('phone')}
+									onChange={this.binds.handleFieldChange}
+									onBlur={this.binds.handleFieldBlur}
+									validations="minLength:10,maxLength:14,doesNotStartWith:0"
+									validationErrors={{
+										minLength: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+										maxLength: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+										doesNotStartWith: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+									}}
+									requiredError={this.props.intl.messageIfExists("account-creation-create-contact-method-phone-error")}
+									required
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={this.getFormValue('prefModeOfComm') === 'M'}&gt;
+								&lt;AddressInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-Mail-input-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-Mail-input-label')}
+									name="accountAddress"
+									id="mail"
+									htmlFor="accountAddress"
+									ref={(component) =&gt; {
+										this.accountAddress = component;
+									}}
+									value={this.getFormValue('accountAddress')}
+									onChange={this.binds.handleFieldChange}
+									onBlur={this.binds.handleFieldBlur}
+									onValidate={this.handleAddressValidCheck.bind(this)}
+									intl={this.props.intl}
+									required
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={this.getFormValue('prefModeOfComm') !== ''}&gt;
+								&lt;RadioInput
+									label={this.props.intl.messageIfExists('account-creation-create-contact-additional-label')}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-additional-label')}
+									id="additional-contact-method"
+									name="additional-contact-method"
+									htmlFor="additional-contact-method"
+									value={this.getFormValue('additional-contact-method')}
+									options={{ yes: this.props.intl.messageIfExists('Yes'), no: this.props.intl.messageIfExists('No') }}
+									onBlur={this.binds.handleFieldBlur}
+									onChange={this.handleFieldChange.bind(this)}
+									requiredError={this.props.intl.messageIfExists("account-creation-create-contact-additional-required-error")}
+									required
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={this.getFormValue('additional-contact-method') === 'yes' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.getFormValue('prefModeOfComm') != 'E'}</span>&gt;
+								&lt;EmailInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-email-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-email-label')}
+									name="email"
+									id="email"
+									htmlFor="email"
+									ref={<span class="fstat-no" title="function not covered" >(c</span>omponent) =&gt; {
+										/* this is a ref to the EmailInput component instance, but needs to match the field name
+										 * due to this.validateDuplicateAccountFields 
+										 * this is also assigned to the same property as the other email field, but they will never be rendered at the same time. 
+										 */
+<span class="cstat-no" title="statement not covered" >										this.email = component;</span>
+									}}
+									value={this.getFormValue('email')}
+									onBlur={this.binds.handleFieldBlur}
+									onChange={this.handleFieldChange.bind(this)}
+									validations="isValidEmail"
+									validationErrors={{
+										"isValidEmail": this.props.intl.messageIfExists("account-creation-create-contact-method-email-error")
+									}}
+									optional={true}
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={
+								this.getFormValue('additional-contact-method') === 'yes'
+								&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.getFormValue('prefModeOfComm') !== 'E'</span>
+								&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >typeof this.email !== "undefined" </span>
+								&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >this.email !== null</span>
+								&amp;&amp; <span class="branch-4 cbranch-no" title="branch not covered" >this.email.isValid()</span>
+								&amp;&amp; (<span class="branch-5 cbranch-no" title="branch not covered" >typeof this.state.formData.email !== "undefined" </span>&amp;&amp; <span class="branch-6 cbranch-no" title="branch not covered" >this.state.formData.email !== '')</span>
+							}&gt;
+								&lt;EmailInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-email2-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-email2-label')}
+									name="email2"
+									id="email2"
+									htmlFor="email2"
+									value={this.getFormValue('email2')}
+									onChange={this.handleFieldChange}
+									maxLength="50"
+									validations="equalsField:email,isEmail"
+									validationErrors={{
+										equalsField: this.props.intl.messageIfExists('account-creation-create-contact-method-email2-match-error'),
+										isEmail: this.props.intl.messageIfExists('account-creation-create-contact-method-email-error')
+									}}
+									requiredError={this.props.intl.messageIfExists('account-creation-create-contact-method-email-error')}
+									required
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={this.getFormValue('additional-contact-method') === 'yes' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.getFormValue('prefModeOfComm') != 'P'}</span>&gt;
+								&lt;PhoneInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-phone-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-phone-label')}
+									name="phone"
+									id="phone"
+									htmlFor="phone"
+									value={this.getFormValue('phone')}
+									onBlur={this.binds.handleFieldBlur}
+									onChange={this.handleFieldChange.bind(this)}
+									validations="minLength:10,maxLength:14,doesNotStartWith:0"
+									validationErrors={{
+										minLength: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+										maxLength: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+										doesNotStartWith: this.props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+									}}
+									optional={true}
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;ConditionalField condition={this.getFormValue('additional-contact-method') === 'yes' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.getFormValue('prefModeOfComm') != 'M'}</span>&gt;
+								&lt;AddressInput
+									label={&lt;FormattedMessage id="account-creation-create-contact-method-mail-label" /&gt;}
+									aria-label={this.props.intl.messageIfExists('account-creation-create-contact-method-mail-label')}
+									htmlFor="accountAddress"
+									name="accountAddress"
+									id="accountAddress"
+									ref={<span class="fstat-no" title="function not covered" >(c</span>omponent) =&gt; {
+<span class="cstat-no" title="statement not covered" >										this.accountAddress = component;</span>
+									}}
+									value={this.getFormValue('accountAddress')}
+									onChange={this.binds.handleFieldChange}
+									onBlur={this.binds.handleFieldBlur}
+									onValidate={this.handleAddressValidCheck.bind(this)}
+									intl={this.props.intl}
+									optional={true}
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;TextInput
+								label={&lt;FormattedMessage id="account-creation-create-username-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-username-label')}
+								name="username"
+								id="username"
+								htmlFor="username"
+								ref={(component) =&gt; {
+									this.username = component;
+								}}
+								innerRef={(component) =&gt; {
+									this.usernameInput = component;
+								}}
+								value={this.getFormValue('username')}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								beforeInput={
+									&lt;StringRequirements rules={this.state.usernameRequirements} value={this.getFormValue('username')} /&gt;
+								}
+								validations={{
+									matchesStringRequirements: (values, value) =&gt; {
+										var i = 0,
+											l = this.state.usernameRequirements.length;
+										for (; i &lt; l; i++) {
+											<span class="missing-if-branch" title="else path not taken" >E</span>if (this.state.usernameRequirements[i].regex.test(value) === false) {
+												return false;
+											}
+										}
+<span class="cstat-no" title="statement not covered" >										return true;</span>
+									}
+								}}
+								requiredError={this.props.intl.messageIfExists("account-creation-create-username-required-error")}
+								required
+							/&gt;
+							&lt;PasswordInput
+								label={&lt;FormattedMessage id="account-creation-create-password-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-password-label')}
+								name="password"
+								id="password"
+								htmlFor="password"
+								ref={(component) =&gt; {
+									this.password = component;
+								}}
+								value={this.getFormValue('password')}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								pattern={"[a-zA-Z0-9\!\@\#\$\%\^]{0,}"}
+								beforeInput={
+									&lt;StringRequirements rules={this.state.passwordRequirements} value={this.getFormValue('password')} /&gt;  
+								}
+								validations={{
+									matchesStringRequirements: (values, value) =&gt; {
+										// custom formsy validation rule, ensures all passwordRequirements are met
+										var i = 1,
+											l = this.state.passwordRequirements.length;
+										for (; i &lt; l; i++) {
+&nbsp;
+											<span class="missing-if-branch" title="else path not taken" >E</span>if (this.state.passwordRequirements[i].regex.test(value) === false) {
+												return false;
+											}
+										}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >										return true;</span>
+									},
+									// custom formsy validation rule, returns false if password fails to match the current dictionary regex
+									dictionaryWord: (values, value) =&gt; this.passwordDictionaryRegex.test(value)
+								}}
+&nbsp;
+								validationErrors={{
+									matchesStringRequirements: this.props.intl.messageIfExists("account-creation-create-password-requirements-error"),
+									dictionaryWord: this.props.intl.messageIfExists("account-creation-create-password-dictionary-word-error")
+								}}
+								requiredError={this.props.intl.messageIfExists("account-creation-create-password-requirements-error")}
+								required
+							/&gt;
+&nbsp;
+							&lt;PasswordInput
+								label={&lt;FormattedMessage id="account-creation-create-password2-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-password2-label')}
+								name="reEnterPassword"
+								id="password2"
+								htmlFor="reEnterPassword"
+								ref={(component) =&gt; {
+									this.password2 = component;
+								}}
+								value={this.getFormValue('reEnterPassword')}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								pattern={"[a-zA-Z0-9\!\@\#\$\%\^]{0,}"}
+								validations="equalsField:password"
+								validationErrors={{
+									equalsField: this.props.intl.messageIfExists('account-creation-create-password2-does-not-match-error')
+								}}
+								requiredError={this.props.intl.messageIfExists("account-creation-create-password2-does-not-match-error")}
+								required
+							/&gt;
+							&lt;NumericInput
+								className="pin"
+								label={&lt;FormattedMessage id="account-creation-create-pin-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-pin-label')}
+								name="pin"
+								id="pin"
+								htmlFor="pin"
+								ref={(component) =&gt; {
+									this.pin = component;
+								}}
+								value={this.getFormValue('pin')}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								beforeInput={
+									&lt;p&gt;&lt;FormattedMessage id="account-creation-create-pin-hint" /&gt;
+									&lt;/p&gt;
+								}
+								pattern="[0-9]{0,4}"
+								maxLength="4"
+								masked={true}
+								validations={{
+									isLength: 4
+								}}
+								validationErrors={{
+									isLength: this.props.intl.messageIfExists('account-creation-create-pin-required-error')
+								}}
+								requiredError={this.props.intl.messageIfExists("account-creation-create-pin-required-error")}
+								required
+							/&gt;
+							&lt;NumericInput
+								className="pin"
+								label={&lt;FormattedMessage id="account-creation-create-pin2-label" /&gt;}
+								aria-label={this.props.intl.messageIfExists('account-creation-create-pin2-label')}
+								name="reEnterPin"
+								id="pin2"
+								htmlFor="reEnterPin"
+								ref={(component) =&gt; {
+									this.pin2 = component;
+								}}
+								value={this.getFormValue('reEnterPin')}
+								onChange={this.binds.handleFieldChange}
+								onBlur={this.binds.handleFieldBlur}
+								pattern="[0-9]{0,4}"
+								maxLength="4"
+								masked={true}
+								validations="isLength:4,equalsField:pin"
+								validationErrors={{
+									isLength: this.props.intl.messageIfExists('account-creation-create-pin2-does-not-match-error'),
+									equalsField: this.props.intl.messageIfExists('account-creation-create-pin2-does-not-match-error')
+								}}
+								requiredError={this.props.intl.messageIfExists("account-creation-create-pin2-does-not-match-error")}
+								required
+							/&gt;
+							&lt;ConditionalField condition={recaptchaEnabled === true}&gt;
+								&lt;RecaptchaInput
+									id="recaptcha-container"
+									name="captchaRespTkn"
+									htmlFor="recaptcha"
+									siteKey={recaptchaSiteKey}
+									onChange={this.binds.handleFieldChange}
+									ref={(component) =&gt; {
+										this.recaptchaInput = component;
+									}}
+									onExpired={this.handleExpiredRecaptcha.bind(this)}
+									locale={this.props.intl.locale}
+									required
+								/&gt;
+							&lt;/ConditionalField&gt;
+							&lt;CheckBox
+								label={&lt;FormattedHTMLMessage id="account-creation-create-terms-and-conditions-label" /&gt;}
+								aria-label={&lt;FormattedHTMLMessage id="account-creation-create-terms-and-conditions-label" /&gt;}
+								name="termsAndConditions"
+								id="termsAndConditions"
+								htmlFor="termsAndConditions"
+								value={this.getFormValue('termsAndConditions')}
+								onChange={this.binds.handleFieldChange}
+								required
+							/&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div className="row"&gt;
+						&lt;div
+							className="col-xs-12 col-sm-4 col-sm-push-8 col-md-3 col-md-push-9 col-lg-3 col-lg-push-9"&gt;
+							&lt;button
+								id="submit-btn"
+								className="btn btn-primary btn-block"
+								type="submit"
+								htmlFor="submit"
+								disabled={
+									this.state.formIsValid === false || <span class="branch-1 cbranch-no" title="branch not covered" >!this.getFormValue('termsAndConditions')</span>
+								}
+							&gt;
+								&lt;FormattedMessage id={submitButtonI18nLabel} /&gt;
+							&lt;/button&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/Form&gt;
+&nbsp;
+				&lt;ConfirmModal
+					isOpen={this.state.duplicateAccountWarningModalIsOpen}
+					onRequestClose={this.handleConfirmToLogin.bind(this)}
+					onRequestConfirm={this.handleConfirmToLogin.bind(this)}
+					shouldCloseOnOverlayClick={false}
+					fullScreenMobile={false}
+					title={&lt;FormattedMessage
+						id="account-creation-duplicate-account-modal-header" /&gt;}
+					contentLabel={this.props.intl.formatMessage({ id: 'account-creation-duplicate-account-modal-header' })}
+					confirmText={this.props.intl.messageIfExists('account-creation-duplicate-account-modal-login')}
+					cancelText={this.props.intl.messageIfExists('account-creation-duplicate-account-model-cancel')}
+				&gt;
+					&lt;p&gt;
+						&lt;FormattedMessage id="account-creation-duplicate-account-modal-body" /&gt;
+					&lt;/p&gt;
+				&lt;/ConfirmModal&gt;
+			&lt;/div&gt;
+		)
+	}
+}
+&nbsp;
+CreateAccount.propTypes = {
+	intl: intlShape.isRequired,
+	onFormValid: React.PropTypes.func,
+	onFormInValid: React.PropTypes.func
+};
+&nbsp;
+CreateAccount.defaultProps = {
+	onFormValid: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+	},
+	onFormInValid: () =&gt; {
+	}
+};
+&nbsp;
+CreateAccount.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(CreateAccount);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

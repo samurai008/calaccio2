@@ -1,0 +1,2828 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/AccountCreation/AccountHome.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/AccountCreation</a> AccountHome.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.97% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/147</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.97% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>19/119</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.52% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.28% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/144</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">351x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import AppDispatcher from '../../Dispatchers/AppDispatcher.js';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import { Link } from 'react-router';
+import moment from '../../TimeshifterMoment';
+import { ContentCard, ContentIntro, CardNavigation } from '../../Components/Layout/Layout.jsx';
+import Modal, { ConfirmModal } from '../../Components/Modal.jsx';
+import RadioInput from '../../Components/Inputs/RadioInput.jsx';
+import ToolTip from '../../Components/ToolTip.jsx';
+import FooterLinks from './FooterLinks.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import UserHomeAction from '../../Actions/UserHomeAction';
+import HouseholdMemberActions from '../../Actions/HouseholdMemberActions';
+import ApplicationActions from '../../Actions/ApplicationActions';
+import UserHomeStore from '../../Stores/UserHomeStore';
+import PeopleStore from '../../Stores/PeopleStore';
+import ConfigStore from '../../Stores/ConfigStore';
+import AuthStore from '../../Stores/AuthStore';
+import AccountStore from '../../Stores/AccountStore';
+import ApplicationStore from '../../Stores/ApplicationStore';
+import BeginApplicationModal from './BeginApplicationModal.jsx';
+import RadioButtonChoiceModal from './RadioButtonChoiceModal.jsx';
+&nbsp;
+const generatePortalUrl = <span class="fstat-no" title="function not covered" >(k</span>ey) =&gt; {
+	var portalURL = <span class="cstat-no" title="statement not covered" >ConfigStore.getURL('portalURL'),</span>
+		pageURL = <span class="cstat-no" title="statement not covered" >ConfigStore.get(key);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return (portalURL &amp;&amp; pageURL !== null) ? pageURL</span>
+					.replace('{portalURL}', portalURL)
+					.replace('{encryptedId}', ApplicationStore.getPendingAppId()) : null;
+&nbsp;
+};
+&nbsp;
+class AccountHome extends Component {
+	constructor(props) {
+		super(props);
+		//SIR 97645 replaced Date usage with moment for Timeshifter support
+		this.state = {
+			userHomeData: false,
+			notCurrentYearApp: false,
+			beginAppModalIsOpen: false,
+			isSpecialEnrollmentPeriod: false,
+			isIntake: false,
+			isRenewal: false,
+			isRAC: false,
+			isIntakeStart: false,
+			isIntakeContinue: false,
+			isRACStart: false,
+			isRACContinue: false,
+			isContinueMode: false,
+			renewalIsMedicalAndCoveredCA: false,
+			confirmDisabled: true,
+			withdrawApplicationIsOpen: false,
+			cancelRACIsOpen: false,
+			caseClosedModalIsOpen: false,
+			keepOrSwitchModalIsOpen: false,
+			radioButtonConfirmButtonisDisabled: true,
+			reportAChangeModalIsOpen: false,
+			viewConfirmationIsOpen: false,
+			formerFostYouthModalIsOpen: false,
+			route: '',
+			formData: {
+				enrollmentYear: null,
+				coverageYear: null
+			},
+		};
+&nbsp;
+		this.state.i18nValues = {
+			firstName: '',
+			applicationCompletionDeadline: '',
+			openEnrollmentBeginningDate: '',
+			openEnrollmentEndDate: '',
+			upcomingEnrollmentYear: '',
+			currentEnrollmentYear: '',
+			renewalEndDate: ''
+		};
+&nbsp;
+		this.binds = {
+			userHomeDataChange: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+				let userData = <span class="cstat-no" title="statement not covered" >UserHomeStore.getUserHomeData();</span>
+				// format date in es locale per translations
+				let dateFormat = <span class="cstat-no" title="statement not covered" >this.props.intl.locale === 'en' ? 'MMM. D, YYYY' : 'Do [de] MMMM [de] YYYY';</span>
+<span class="cstat-no" title="statement not covered" >				this.setState({</span>
+					userHomeData: userData,
+					notCurrentYearApp: UserHomeStore.getNotCurrentYearAppData(),
+					i18nValues: Object.assign({},this.state.i18nValues, {
+						firstName: userData.userName,
+						// use moment.locale to trigger english/spanish versions of day &amp; date
+						applicationCompletionDeadline: moment.isMoment(UserHomeStore.getApplicationDeadlineDate()) ? UserHomeStore.getApplicationDeadlineDate().locale(this.props.intl.locale).format(dateFormat) : null,
+						openEnrollmentBeginningDate: moment.isMoment(UserHomeStore.getApplicationEnrollmentStartDate()) ? UserHomeStore.getApplicationEnrollmentStartDate().locale(this.props.intl.locale).format(dateFormat) : null,
+						openEnrollmentEndDate: moment.isMoment(UserHomeStore.getApplicationEnrollmentEndDate()) ? UserHomeStore.getApplicationEnrollmentEndDate().locale(this.props.intl.locale).format(dateFormat) : null,
+						upcomingEnrollmentYear: moment.isMoment(UserHomeStore.getCoverageStartDate()) ? UserHomeStore.getCoverageStartDate().locale(this.props.intl.locale).format(dateFormat) : null,
+						currentEnrollmentYear: moment.isMoment(UserHomeStore.getCoverageEndDate()) ? UserHomeStore.getCoverageEndDate().locale(this.props.intl.locale).format(dateFormat) : null,
+						renewalEndDate: moment.isMoment(UserHomeStore.getRenewalEndDate()) ? UserHomeStore.getRenewalEndDate().locale(this.props.intl.locale).format(dateFormat) : null
+					}),
+					isSpecialEnrollmentPeriod:    UserHomeStore.isSpecialEnrollmentPeriod(),
+					isIntake:                     UserHomeStore.isIntake(),
+					isIntakeStart:                (UserHomeStore.isIntake() &amp;&amp; UserHomeStore.applicationStartMode()),
+					isIntakeContinue:             (UserHomeStore.isIntake() &amp;&amp; UserHomeStore.applicationContinueMode()),
+					isRenewal:                    UserHomeStore.isRenewal(),
+					isRAC:                        UserHomeStore.isRAC(),
+					RACBtnDisabled:               UserHomeStore.isRAC() === false,
+					isRACStart:                   (UserHomeStore.isRAC() &amp;&amp; UserHomeStore.applicationStartMode()),
+					isRACContinue:                (UserHomeStore.isRAC() &amp;&amp; UserHomeStore.applicationContinueMode()),
+					renewalIsMedicalAndCoveredCA: UserHomeStore.isRenewalIsMedicalAndCoveredCA(),
+					renewalIsCoveredCalifornia:   UserHomeStore.isCoverCalifornia(),
+					renewalMediCalCover:          UserHomeStore.isMediCalCover(),
+					caseClosedModalIsOpen:        UserHomeStore.isCaseClosed(),
+					isContinueMode:               UserHomeStore.applicationContinueMode()
+				});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if(UserHomeStore.isRenewal()) {</span>
+<span class="cstat-no" title="statement not covered" >					setTimeout(<span class="fstat-no" title="function not covered" >()</span>=&gt;{<span class="cstat-no" title="statement not covered" >this.handleFormerFosterCareYouth()}</span>, 0);</span>
+				}
+			},
+			getUserData: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+				let accountOwner = <span class="cstat-no" title="statement not covered" >PeopleStore.getAccountOwner();</span>
+<span class="cstat-no" title="statement not covered" >				this.setState({singleMemberHousehold: PeopleStore.isSingleMemberHousehold()});</span>
+			},
+			getSpecialEnrollmentData: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >				this.setState({isSpecialEnrollmentPeriod: ConfigStore.isEnrollmentPeriod()});</span>
+			},
+			dashboardLink() {
+				return [
+					'admin',
+					'agent',
+					'cec',
+					'entity',
+					'broker',
+					'issuer',
+					'assisteradmin',
+					'entityadmin',
+					'planadmin',
+				].filter((role) =&gt; {
+					return AuthStore.userHasRole(role);
+				}).map(<span class="fstat-no" title="function not covered" >(r</span>ole) =&gt; {
+<span class="cstat-no" title="statement not covered" >					return(</span>
+						&lt;CardNavigation
+							text={&lt;FormattedMessage id={`account-home-${role}-dashboard`}/&gt;}
+							key={role}
+							onClick={
+								(<span class="fstat-no" title="function not covered" >e </span>=&gt; {
+									let url = <span class="cstat-no" title="statement not covered" >ConfigStore.getURL(`${role}DashboardURL`);</span>
+<span class="cstat-no" title="statement not covered" >									e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >									if(url !== null) {</span>
+<span class="cstat-no" title="statement not covered" >										window.location.href = url;</span>
+									}
+								})
+							}
+						/&gt;
+					);
+				});
+			},
+			closeViewConfirmationModal: this.closeViewConfirmationModal.bind(this),
+			cancelFormerFosterModal: this.cancelFormerFosterModal.bind(this),
+			goToHHMforFFYModal: this.goToHHMforFFYModal.bind(this),
+			reportAChangeCancel: this.reportAChangeCancel.bind(this),
+			reportAChangeAccept: this.reportAChangeAccept.bind(this),
+			updateButton: this.updateButton.bind(this),
+			keepOrSwitchSelectEnrollmentYear: this.keepOrSwitchSelectEnrollmentYear.bind(this),
+			keepOrSwitchCancel: this.keepOrSwitchCancel.bind(this),
+			caseCloseLogout: this.caseCloseLogout.bind(this),
+			caseClosedViewSummary: this.caseClosedViewSummary.bind(this),
+			caseClosegotoHomePage: this.caseClosegotoHomePage.bind(this),
+			closeCancelRACModalNo: this.closeCancelRACModalNo.bind(this),
+			closeCancelRACModalYes: this.closeCancelRACModalYes.bind(this),
+			closeWithdrawApplicationModalNo: this.closeWithdrawApplicationModalNo.bind(this),
+			closeWithdrawApplicationModalYes: this.closeWithdrawApplicationModalYes.bind(this),
+			onFormChange: this.onFormChange.bind(this),
+			closeBeginAppModal: this.closeBeginAppModal.bind(this),
+			confirmBeginAppModal: this.confirmBeginAppModal.bind(this),
+			cancelRACModal: this.cancelRACModal.bind(this),
+			keepOrSwitchModal: this.keepOrSwitchModal.bind(this),
+			withdrawApplicationModal: this.withdrawApplicationModal.bind(this),
+			racModal: this.racModal.bind(this),
+			handleBtnClick: this.handleBtnClick.bind(this),
+			openConsumerView: this.openConsumerView.bind(this),
+			openFlexAdminView: this.openFlexAdminView.bind(this),
+			notCurrentYearAppStart: this.notCurrentYearAppStart.bind(this),
+			notCurrentYearAppContinue: this.notCurrentYearAppContinue.bind(this)
+		};
+	}
+&nbsp;
+	componentDidMount() {
+		UserHomeAction.getAccountHomeDetails();
+		UserHomeStore.on('change', this.binds.userHomeDataChange);
+		PeopleStore.on('change', this.binds.getUserData);
+	}
+	componentWillUnmount() {
+		UserHomeStore.removeListener('change', this.binds.userHomeDataChange);
+		PeopleStore.removeListener('change', this.binds.getUserData);
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleIntake() {
+		// this will not handle special enrollment date
+		// * START APP Condition
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.applicationStartMode() === true) {</span>
+<span class="cstat-no" title="statement not covered" >			if(UserHomeStore.getPendingAppIdList().length &gt; 1 &amp;&amp; AuthStore.userHasRole('consumer') === false) {</span>
+<span class="cstat-no" title="statement not covered" >				this.setState({beginAppModalIsOpen: true});</span>
+<span class="cstat-no" title="statement not covered" >				return;</span>
+			}
+			else {
+<span class="cstat-no" title="statement not covered" >				this.viewConfirmationFilter("/application-start");</span>
+			}
+		}
+		// * CONTINUE Application
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.applicationContinueMode() === true) {</span>
+<span class="cstat-no" title="statement not covered" >			this.viewConfirmationFilter("/application-menu");</span>
+		}
+&nbsp;
+		// LOG ERROR
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.getPendingAppIdList().length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >			console.error("ERROR PENDING APPLICATION ID LIST should alway have 1 or more element");</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleRenewal() {
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.applicationStartMode() === true) {</span>
+<span class="cstat-no" title="statement not covered" >			this.viewConfirmationFilter("/renewal");</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.applicationContinueMode() === true) {</span>
+<span class="cstat-no" title="statement not covered" >			this.viewConfirmationFilter("/application-menu");</span>
+		}
+&nbsp;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleRAC() {
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.applicationStartMode() === true) {</span>
+			let cb = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >				ApplicationStore.removeListener('change', cb);</span>
+<span class="cstat-no" title="statement not covered" >				this.viewConfirmationFilter("/household/information/qualifying-life-event");</span>
+			};
+<span class="cstat-no" title="statement not covered" >			UserHomeAction.startRAC(ApplicationStore.getPendingAppId(), ConfigStore.get('enrollmentYear'));</span>
+<span class="cstat-no" title="statement not covered" >			ApplicationStore.on('change', cb);</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.applicationContinueMode() === true) {</span>
+			// 4. On click "Continue": navigate user to last visited application page.
+<span class="cstat-no" title="statement not covered" >			this.viewConfirmationFilter("/application-menu");</span>
+		}
+<span class="cstat-no" title="statement not covered" >		this.setState({RACBtnDisabled: true});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleBtnClick() {
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.getButtonLabel() === 'choose_plan' || UserHomeStore.getButtonLabel() === 'contine_health_plan') {</span>
+			let portalURL = <span class="cstat-no" title="statement not covered" >ConfigStore.getURL('portalURL'),</span>
+				pageURL = <span class="cstat-no" title="statement not covered" >ConfigStore.get('selectHealthAndDentalPlan'),</span>
+				url = <span class="cstat-no" title="statement not covered" >(portalURL &amp;&amp; pageURL !== null) ? pageURL</span>
+						.replace('{portalURL}', portalURL)
+						.replace('{encryptedId}', ApplicationStore.getPendingAppId()) : null;
+<span class="cstat-no" title="statement not covered" >			window.location.href = url;</span>
+<span class="cstat-no" title="statement not covered" >			return;</span>
+		}
+	// Intake Handle
+<span class="cstat-no" title="statement not covered" >		if(this.state.isIntake) {</span>
+<span class="cstat-no" title="statement not covered" >			this.handleIntake();</span>
+		}
+&nbsp;
+	// Renewal Handle
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.isRenewal()) {</span>
+<span class="cstat-no" title="statement not covered" >			this.handleRenewal();</span>
+		}
+	// Rac Handle
+<span class="cstat-no" title="statement not covered" >		if(this.state.isRAC) {</span>
+<span class="cstat-no" title="statement not covered" >			this.racModal();</span>
+		}
+&nbsp;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleFormerFosterCareYouth() {
+<span class="cstat-no" title="statement not covered" >		if(UserHomeStore.isFormerFosterYouth()){</span>
+			let person = <span class="cstat-no" title="statement not covered" >UserHomeStore.getUserHomeData(),</span>
+				turnedTwentySixIfExists = <span class="cstat-no" title="statement not covered" >person.impDates.formerFosterYouthDOB,</span>
+				turnedTwentySix = <span class="cstat-no" title="statement not covered" >moment.isMoment(turnedTwentySixIfExists) ? turnedTwentySixIfExists.format("MM/DD/YYYY") : this.props.intl.messageIfExists('individual-review-value-na');</span>
+				
+<span class="cstat-no" title="statement not covered" >			this.setState({</span>
+				formerFostYouthModalIsOpen: true,
+				turnedTwentySix: turnedTwentySix
+			});
+		}
+&nbsp;
+	}
+&nbsp;
+	/* WITHDRAW APPLICATION MODAL */
+	closeWithdrawApplicationModalNo() {
+		this.setState({withdrawApplicationIsOpen: false});
+	}
+&nbsp;
+	closeWithdrawApplicationModalYes() {
+		this.setState({withdrawApplicationIsOpen: false});
+		ApplicationActions.withdrawApplication(ApplicationStore.getPendingAppId());
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	wi</span>thdrawApplicationModal(){
+<span class="cstat-no" title="statement not covered" >		this.setState({withdrawApplicationIsOpen: true});</span>
+	}
+&nbsp;
+	/* WITHDRAW CHANGE REPORT MODAL */
+	closeCancelRACModalNo() {
+		this.setState({cancelRACIsOpen: false});
+	}
+&nbsp;
+	closeCancelRACModalYes() {
+		this.setState({cancelRACIsOpen: false});
+		ApplicationActions.withdrawRAC(ApplicationStore.getPendingAppId());
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ca</span>ncelRACModal(){
+<span class="cstat-no" title="statement not covered" >		this.setState({cancelRACIsOpen: true});</span>
+	}
+&nbsp;
+	/* CASE CLOSED MODAL */
+<span class="fstat-no" title="function not covered" >	ca</span>seClosegotoHomePage() {
+<span class="cstat-no" title="statement not covered" >		this.context.router.push("/account-home");</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({caseClosedModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ca</span>seClosedViewSummary() {
+<span class="cstat-no" title="statement not covered" >		window.location.href = generatePortalUrl('viewCaseHistoryURL');</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({caseClosedModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ca</span>seCloseLogout() {
+<span class="cstat-no" title="statement not covered" >		window.location.href = generatePortalUrl('logoutURL');</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({caseClosedModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ke</span>epOrSwitchSelectEnrollmentYear(enrollmentYear) {
+		let pendingAppId = <span class="cstat-no" title="statement not covered" >UserHomeStore.getKeepOrSwitchDetails().filter(<span class="fstat-no" title="function not covered" >de</span>tails =&gt; <span class="cstat-no" title="statement not covered" >enrollmentYear === details.enrlYear)</span>[0].pendingAppId;</span>
+<span class="cstat-no" title="statement not covered" >		this.keepOrSwitchGoToPage(pendingAppId);</span>
+	}
+	/* KEEP OR SWITCH MODAL */
+<span class="fstat-no" title="function not covered" >	ke</span>epOrSwitchGoToPage(pendingAppId) {
+		let appendStr = <span class="cstat-no" title="statement not covered" >`&amp;_pendingAppId=${pendingAppId}`;</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({keepOrSwitchModalIsOpen: false});</span>
+<span class="cstat-no" title="statement not covered" >		window.location.href = `${generatePortalUrl('keepOrSwitchCoverage')}${appendStr}`;</span>
+	}
+&nbsp;
+	keepOrSwitchCancel() {
+		this.setState({keepOrSwitchModalIsOpen: false});
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ke</span>epOrSwitchModal() {
+		let kosDetails = <span class="cstat-no" title="statement not covered" >UserHomeStore.getKeepOrSwitchDetails();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(Array.isArray(kosDetails) &amp;&amp; kosDetails.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >			return this.keepOrSwitchGoToPage(kosDetails[0].pendingAppId);</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+				keepOrSwitchModalIsOpen: true, 
+				radioButtonConfirmButtonisDisabled: true
+			});
+	}
+&nbsp;
+	/* REPORT A CHANGE MODAL */
+<span class="fstat-no" title="function not covered" >	re</span>portAChangeAccept(enrollmentYear) {
+<span class="cstat-no" title="statement not covered" >		UserHomeAction.setEnrollmentYear(enrollmentYear);</span>
+<span class="cstat-no" title="statement not covered" >		this.handleRAC();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({reportAChangeModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	re</span>portAChangeCancel() {
+<span class="cstat-no" title="statement not covered" >		this.setState({reportAChangeModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ra</span>cModal() {
+<span class="cstat-no" title="statement not covered" >		if(this.shouldRacModalShow()){</span>
+<span class="cstat-no" title="statement not covered" >			this.setState({</span>
+				reportAChangeModalIsOpen: true,
+				radioButtonConfirmButtonisDisabled: true
+			});
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			this.handleRAC();</span>
+		}
+	}
+&nbsp;
+	/* VIEW CONFIRMATION MODAL */
+<span class="fstat-no" title="function not covered" >	op</span>enConsumerView() {
+<span class="cstat-no" title="statement not covered" >		this.setState({viewConfirmationIsOpen: false});</span>
+<span class="cstat-no" title="statement not covered" >		this.context.router.push(this.state.route);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	op</span>enFlexAdminView() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ viewConfirmationIsOpen: false });</span>
+<span class="cstat-no" title="statement not covered" >		if (this.state.isIntakeContinue || this.state.isRAC || this.state.isRACContinue) {</span>
+			var url = <span class="cstat-no" title="statement not covered" >generatePortalUrl("navigation-flex-admin-rac-url");</span>
+<span class="cstat-no" title="statement not covered" >			url = url.replace('{lang}', this.props.intl.locale);</span>
+<span class="cstat-no" title="statement not covered" >			window.location.href = url;</span>
+		}
+		else <span class="cstat-no" title="statement not covered" >if (this.state.isRenewal) {</span>
+			let cb = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >				ApplicationStore.removeListener('change', cb);</span>
+				var url = <span class="cstat-no" title="statement not covered" >generatePortalUrl("navigation-flex-admin-rac-url");</span>
+<span class="cstat-no" title="statement not covered" >				url = url.replace('{lang}', this.props.intl.locale);</span>
+<span class="cstat-no" title="statement not covered" >				window.location.href = url;</span>
+			}
+<span class="cstat-no" title="statement not covered" >			UserHomeAction.startRenewal({});</span>
+<span class="cstat-no" title="statement not covered" >			ApplicationStore.on('change', cb);</span>
+		}
+		else {
+			var url = <span class="cstat-no" title="statement not covered" >generatePortalUrl("navigation-flex-admin-view");</span>
+<span class="cstat-no" title="statement not covered" >			url = url.replace('{lang}', this.props.intl.locale).replace('{year}', ConfigStore.get('enrollmentYear'));</span>
+<span class="cstat-no" title="statement not covered" >			window.location.href = url;</span>
+		}
+		
+		//add navigation to flex admin view
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	vi</span>ewConfirmationFilter(route) {
+<span class="cstat-no" title="statement not covered" >		if(!AuthStore.userHasRole('admin')){</span>
+<span class="cstat-no" title="statement not covered" >			return this.context.router.push(route);</span>
+		}
+<span class="cstat-no" title="statement not covered" >		this.setState({viewConfirmationIsOpen: true, beginAppModalIsOpen: false, route: route});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	cl</span>oseViewConfirmationModal() {
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			viewConfirmationIsOpen: false,
+			RACBtnDisabled: false
+		});
+	}
+&nbsp;
+	/* FORMER FOSTER YOUTH MODAL */
+<span class="fstat-no" title="function not covered" >	ca</span>ncelFormerFosterModal() {
+<span class="cstat-no" title="statement not covered" >		this.setState({formerFostYouthModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	go</span>ToHHMforFFYModal() {
+<span class="cstat-no" title="statement not covered" >		this.context.router.push("/household-menu")</span>
+	}
+&nbsp;
+	/* A MODAL */
+<span class="fstat-no" title="function not covered" >	co</span>nfirmBeginAppModal() {
+<span class="cstat-no" title="statement not covered" >		this.viewConfirmationFilter("/application-start");</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	cl</span>oseBeginAppModal() {
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			beginAppModalIsOpen: false,
+			confirmDisabled: true,
+			formData: Object.assign({}, this.state.formData, {enrollmentYear: null}),
+		});
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	no</span>tCurrentYearAppStart(enrollmentYear) {
+<span class="cstat-no" title="statement not covered" >		return <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			UserHomeAction.setEnrollmentYear(enrollmentYear);</span>
+<span class="cstat-no" title="statement not covered" >			this.viewConfirmationFilter("/application-start");</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	no</span>tCurrentYearAppContinue(enrollmentYear, pendingAppId) {
+<span class="cstat-no" title="statement not covered" >		return <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			UserHomeAction.setEnrollmentYear(enrollmentYear);</span>
+<span class="cstat-no" title="statement not covered" >			ApplicationActions.setApplicationId(pendingAppId);</span>
+<span class="cstat-no" title="statement not covered" >			this.viewConfirmationFilter("/application-menu");</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormChange(data) {
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			formData: Object.assign({}, this.state.formData, data),
+			confirmDisabled: false
+		});
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	up</span>dateButton(data) {
+<span class="cstat-no" title="statement not covered" >		this.setState({radioButtonConfirmButtonisDisabled: false, formData: data});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	sh</span>ouldRacModalShow() {
+		let individualAgentCec = <span class="cstat-no" title="statement not covered" >['consumer', 'agent', 'cec'].filter(<span class="fstat-no" title="function not covered" >ro</span>le =&gt; <span class="cstat-no" title="statement not covered" >AuthStore.userHasRole(role))</span>.length &gt; 0,</span>
+			// when next coverage year begins
+			cutOff = <span class="cstat-no" title="statement not covered" >UserHomeStore.getCoverageStartDate(),</span>
+			isBeforeCoveragePeriod = <span class="cstat-no" title="statement not covered" >moment().isBefore(cutOff),</span>
+			appIdList = <span class="cstat-no" title="statement not covered" >UserHomeStore.getPendingAppIdList(),</span>
+			hasMultiCoverageYears = (<span class="cstat-no" title="statement not covered" >Array.isArray(appIdList)</span>
+				&amp;&amp; appIdList.length === 2
+				&amp;&amp; appIdList.filter(<span class="fstat-no" title="function not covered" >(a</span>pp) =&gt; <span class="cstat-no" title="statement not covered" >app.isCurrentYear === false)</span>
+					.every(<span class="fstat-no" title="function not covered" >(a</span>pp) =&gt; {
+<span class="cstat-no" title="statement not covered" >						return (app.homeButtonLabel === 'begin_rac');</span>
+					}
+				)
+			);
+		// to display rac modal, for individual, agent or cec, it must be 12/31/&lt;previous coverage year&gt; or before, with multiple coverage years
+		// for admin users, mulitple coverage years is the only criteria
+<span class="cstat-no" title="statement not covered" >		return (individualAgentCec &amp;&amp; isBeforeCoveragePeriod &amp;&amp; hasMultiCoverageYears) || (hasMultiCoverageYears &amp;&amp; AuthStore.userHasRole('admin'));</span>
+	}
+&nbsp;
+	render() {
+		return (
+			&lt;div className="account-home"&gt;
+&nbsp;
+				{/*Intake mode*/}
+&nbsp;
+						&lt;ConditionalField condition={this.state.isIntake === true}&gt;
+							&lt;ContentIntro className="illustration-text"&gt;
+								&lt;div className="illustration ic_userhome hidden-xs" /&gt;
+								&lt;div className="illustration ic_userhome hidden-sm hidden-md hidden-lg" /&gt;
+								&lt;FormattedMessage
+									id={
+										(typeof this.state.i18nValues.firstName !== "string" || this.state.i18nValues.firstName.length &lt; 2)
+											? "account-home-admin-header"
+											: <span class="branch-1 cbranch-no" title="branch not covered" >"account-home-header"</span>
+									}
+									values={this.state.i18nValues} 
+									tagName="h1"
+								/&gt;
+								&lt;FormattedMessage
+									id={
+										(this.state.isContinueMode === true)
+											? <span class="branch-0 cbranch-no" title="branch not covered" >"account-home-sub-header-continue"</span>
+											: "account-home-sub-header"
+									}
+									tagName="h3"
+								/&gt;
+								&lt;FormattedMessage id="account-home-header-text" tagName="p"/&gt;
+						&lt;/ContentIntro&gt;
+						&lt;ContentCard&gt;
+							{
+								this.binds.dashboardLink()
+							}
+							&lt;div className="account-home-container row"&gt;
+								&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-paragraph"/&gt;&lt;/p&gt;
+								&lt;br /&gt;
+								&lt;ConditionalField  condition={this.state.isIntakeContinue === true}&gt;
+									&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-paragraph-application-not-complete" values={this.state.i18nValues} /&gt;&lt;/p&gt;
+									&lt;br /&gt;
+								&lt;/ConditionalField&gt;
+								&lt;ConditionalField  condition={this.state.isSpecialEnrollmentPeriod === true}&gt;
+									&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-paragraph-during-SPE" values={this.state.i18nValues}/&gt;&lt;/p&gt;
+								&lt;/ConditionalField&gt;
+									&lt;hr /&gt;
+								&lt;div className="header-icon-container"&gt;
+									&lt;div className="ic_important_dates icon"&gt;&lt;/div&gt;
+									&lt;h4 className="title"&gt;&lt;FormattedHTMLMessage id="account-home-important-date" /&gt;&lt;/h4&gt;
+								&lt;/div&gt;
+								&lt;div className="insurance-plans"&gt;
+									&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-covered-california-title" /&gt;&lt;/p&gt;
+									&lt;p&gt;
+										&lt;span className="text"&gt;&amp;bull;&lt;/span&gt;
+										&lt;FormattedHTMLMessage id={"account-home-covered-california-enrollment-began"} values={this.state.i18nValues} /&gt;
+									&lt;/p&gt;
+									&lt;p&gt;
+										&lt;span className="text"&gt;&amp;bull;&lt;/span&gt;
+										&lt;FormattedHTMLMessage id="account-home-covered-california-start-coverage" values={this.state.i18nValues} /&gt;
+									&lt;/p&gt;
+								&lt;/div&gt;
+								&lt;br/&gt;
+								&lt;br/&gt;
+								&lt;div className="insurance-plans"&gt;
+									&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-medi-cal-title" /&gt;&lt;/p&gt;
+									&lt;p&gt;&lt;span className="text"&gt;&amp;bull;&lt;/span&gt;&lt;FormattedMessage id="account-home-medi-cal-paragraph" /&gt; &lt;/p&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;br/&gt;
+								&lt;div className="row"&gt;
+									&lt;div className="col-xs-12 col-sm-6 col-sm-push-3 col-md-4 col-md-push-4"&gt;
+										&lt;button id="account-home-intake-continue-btn" onClick={this.binds.handleBtnClick} className="btn btn-primary btn-block btn-cta"&gt;&lt;FormattedMessage id={'account-home-button-' + UserHomeStore.getButtonLabel()} /&gt;&lt;/button&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+						&lt;/ContentCard&gt;
+					&lt;/ConditionalField&gt;
+&nbsp;
+			{/*Renewal*/}
+&nbsp;
+					&lt;ConditionalField condition={this.state.isRenewal === true}&gt;
+						&lt;ContentIntro className="illustration-text"&gt;
+							&lt;div className="illustration ic_userhome hidden-xs" /&gt;
+							&lt;div className="illustration ic_userhome hidden-sm hidden-md hidden-lg" /&gt;
+							&lt;FormattedMessage
+								id={
+									(typeof this.state.i18nValues.firstName !== "string" || this.state.i18nValues.firstName.length &lt; 2)
+										? "account-home-admin-header"
+										: <span class="branch-1 cbranch-no" title="branch not covered" >"account-home-header"</span>
+								}
+								values={this.state.i18nValues}
+								tagName="h1"
+							/&gt;
+							&lt;FormattedMessage
+								id="account-home-sub-header-continue"
+								tagName="h3"
+							/&gt;
+							&lt;FormattedMessage id="account-home-renewal-header-paragraph" tagName="p" /&gt;
+							&lt;FormattedHTMLMessage id="account-home-learn-more-link" tagName="p"/&gt;
+							&lt;/ContentIntro&gt;
+							&lt;ContentCard&gt;
+							{
+								this.binds.dashboardLink()
+							}
+								&lt;div className="account-home-container row"&gt;
+									&lt;ConditionalField condition={this.state.renewalIsCoveredCalifornia === true}&gt;
+										&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-now-time-renew"/&gt;&lt;/p&gt;
+										&lt;br /&gt;
+									&lt;/ConditionalField&gt;
+&nbsp;
+									&lt;ConditionalField condition={this.state.renewalIsCoveredCalifornia === true || this.state.renewalIsMedicalAndCoveredCA === true}&gt;
+										&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-renewal-shop-and-compare"/&gt;&lt;/p&gt;
+										&lt;br /&gt;
+									&lt;/ConditionalField&gt;
+&nbsp;
+									&lt;div className="header-icon-container-renewal"&gt;
+										&lt;div className="ic_userhome_renewal icon"&gt;&lt;/div&gt;
+										{ this.state.renewalIsCoveredCalifornia === true
+											&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;h4 className="title"&gt;&lt;FormattedHTMLMessage id="account-home-renewal-renew-cal-header" /&gt;&lt;/h4&gt;</span>
+										}
+										{ this.state.renewalMediCalCover === true
+											&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;h4 className="title"&gt;&lt;FormattedHTMLMessage id="account-home-renewal-medi-cal-coverage-header" /&gt;&lt;/h4&gt;</span>
+										}
+										{ this.state.renewalIsMedicalAndCoveredCA  === true
+											&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;h4 className="title"&gt;&lt;FormattedHTMLMessage id="account-home-renewal-medi-cal-covered-california-coverage-title" /&gt;&lt;/h4&gt;</span>
+										}
+									&lt;/div&gt;
+&nbsp;
+									&lt;div className="insurance-plans"&gt;
+										&lt;ConditionalField condition={this.state.renewalIsCoveredCalifornia === true }&gt;
+											&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-renewal-step-1-renew-cal-title" /&gt;&lt;/p&gt;
+											&lt;p className=""&gt;&lt;FormattedMessage id="account-home-renewal-step-1-renew-cal-content" /&gt;&lt;/p&gt;
+											&lt;br/&gt;
+											&lt;br/&gt;
+											&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-renewal-step-2-renew-cal-title" /&gt;&lt;/p&gt;
+											&lt;p className=""&gt;
+												&lt;FormattedMessage id="account-home-renewal-step-2-renew-cal-content" /&gt;
+												&amp;nbsp;
+												&lt;ToolTip id="renwal-isCoverCalifornia" text={this.props.intl.messageIfExists('account-home-renewal-step-2-renew-cal-content-toolpit')} /&gt;
+												&lt;br/&gt;
+												&lt;br/&gt;
+												&lt;FormattedMessage id="account-home-renewal-step-2-renew-cal-content-if" values={this.state.i18nValues} /&gt;
+										&lt;/p&gt;
+									&lt;/ConditionalField&gt;
+&nbsp;
+									&lt;ConditionalField condition={this.state.renewalMediCalCover === true}&gt;
+										&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-coverage-step-1-title" /&gt;&lt;/p&gt;
+										&lt;p className=""&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-coverage-step-1-content" /&gt;&lt;/p&gt;
+										&lt;br/&gt;
+										&lt;br/&gt;
+										&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-coverage-step-2-title" /&gt;&lt;/p&gt;
+										&lt;p className=""&gt;
+											&lt;FormattedHTMLMessage id="account-home-renewal-medi-cal-coverage-step-2-content" /&gt;
+										&lt;/p&gt;
+										&lt;a id="county-office-link" href="http://www.dhcs.ca.gov/services/medi-cal/Pages/CountyOffices.aspx" className="btn btn-external btn-link county-link" target="_blank"&gt;&lt;span&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-coverage-step-2-link"/&gt;&lt;/span&gt;&lt;/a&gt;
+									&lt;/ConditionalField&gt;
+&nbsp;
+									&lt;ConditionalField condition={this.state.renewalIsMedicalAndCoveredCA === true}&gt;
+										&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-1-title" /&gt;&lt;/p&gt;
+										&lt;p className=""&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-1-content" /&gt;&lt;/p&gt;
+										&lt;br/&gt;
+										&lt;br/&gt;
+										&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-2-title" /&gt;&lt;/p&gt;
+										&lt;p className="sub-title-cal"&gt;&lt;i&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-2-content-cover-cal-title" /&gt;&lt;/i&gt;&lt;/p&gt;
+										&lt;p className=""&gt;
+											&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-2-content-cover-cal" /&gt;
+											&amp;nbsp;
+											&lt;ToolTip id="renewal-isCoverCaliforniaAndMediCalx"text={this.props.intl.messageIfExists('account-home-renewal-medi-cal-covered-california-coverage-step-2-content-cover-cal-toolpit')} /&gt;
+											&lt;br/&gt;
+											&lt;br/&gt;
+											&lt;FormattedMessage id="account-home-renewal-step-2-renew-cal-content-if" values={this.state.i18nValues} /&gt;
+										&lt;/p&gt;
+										&lt;br /&gt;
+										&lt;p className=""&gt;&lt;i&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-2-content-medi-cal-title" /&gt;&lt;/i&gt;&lt;/p&gt;
+										&lt;p className=""&gt;&lt;FormattedHTMLMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-2-content-medi-cal" /&gt;&lt;/p&gt;
+										&lt;ConditionalField condition={this.state.singleMemberHousehold === true}&gt;
+											&lt;br/&gt;
+											&lt;p className=""&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-step-2-content-cover-cal-call" /&gt;&lt;/p&gt;
+											&lt;br/&gt;
+										&lt;/ConditionalField&gt;
+										&lt;br /&gt;
+										&lt;a id="county-office-link-2" href="http://www.dhcs.ca.gov/services/medi-cal/Pages/CountyOffices.aspx" className="btn btn-external btn-link county-link" target="_blank"&gt;&lt;span&gt;&lt;FormattedMessage id="account-home-renewal-medi-cal-covered-california-coverage-county-link"/&gt;&lt;/span&gt;&lt;/a&gt;
+									&lt;/ConditionalField&gt;
+								&lt;/div&gt;
+								&lt;br/&gt;
+								&lt;br/&gt;
+							&lt;/div&gt;
+							&lt;br/&gt;
+								&lt;div className="row"&gt;
+									&lt;div className="col-xs-12 col-sm-6 col-sm-push-3 col-md-4 col-md-push-4"&gt;
+										&lt;button id="account-home-renewal-continue-btn" onClick={this.binds.handleBtnClick} className="btn btn-primary btn-block btn-cta"&gt;&lt;FormattedMessage id={'account-home-button-' + UserHomeStore.getButtonLabel()} /&gt;&lt;/button&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+						&lt;/ContentCard&gt;
+					&lt;/ConditionalField&gt;
+&nbsp;
+			{/*RAC Mode*/}
+&nbsp;
+					&lt;ConditionalField condition={this.state.isRAC === true}&gt;
+						&lt;ContentIntro className="illustration-text"&gt;
+							&lt;div className="illustration ic_userhome hidden-xs" /&gt;
+							&lt;div className="illustration ic_userhome hidden-sm hidden-md hidden-lg" /&gt;
+							&lt;FormattedMessage
+								id={
+									(typeof this.state.i18nValues.firstName !== "string" || this.state.i18nValues.firstName.length &lt; 2)
+										? "account-home-admin-header"
+										: <span class="branch-1 cbranch-no" title="branch not covered" >"account-home-header"</span>
+								}
+								values={this.state.i18nValues}
+								tagName="h1"
+							/&gt;
+							&lt;FormattedMessage
+								id="account-home-sub-header-continue"
+								tagName="h3"
+							/&gt;
+							&lt;FormattedMessage id="account-home-rac-header-text" tagName="p" /&gt;
+						&lt;/ContentIntro&gt;
+						&lt;ContentCard&gt;
+							{
+								this.binds.dashboardLink()
+							}
+							&lt;div className="account-home-container row"&gt;
+								&lt;br /&gt;
+								&lt;ConditionalField condition={this.state.isRACStart === true}&gt;
+									&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-rac-if-medi-cal-text" values={this.state.i18nValues}/&gt;&lt;/p&gt;
+									&lt;br /&gt;
+								&lt;/ConditionalField&gt;
+								&lt;ConditionalField condition={this.state.isRACContinue === true}&gt;
+									&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-rac-if-medi-cal-report-change" values={this.state.i18nValues} /&gt;&lt;/p&gt;
+									&lt;br /&gt;
+								&lt;/ConditionalField&gt;
+								&lt;FormattedHTMLMessage id="account-home-rac-click-lean-about-rac"/&gt;
+								&lt;br /&gt;
+								&lt;hr /&gt;
+								&lt;div className="header-icon-container"&gt;
+									&lt;div className="ic_important_dates icon"&gt;&lt;/div&gt;
+									&lt;h4 className="title"&gt;&lt;FormattedHTMLMessage id="account-home-important-date" /&gt;&lt;/h4&gt;
+								&lt;/div&gt;
+								&lt;div className="insurance-plans"&gt;
+									&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-rac-content-cal-title" /&gt;&lt;/p&gt;
+									&lt;p&gt;
+										&lt;span className="text"&gt;&amp;bull;&lt;/span&gt;
+										&lt;FormattedHTMLMessage id="account-home-rac-content-covered-california-enrollment-begins" values={this.state.i18nValues} /&gt;
+									&lt;/p&gt;
+									&lt;p&gt;
+										&lt;span className="text"&gt;&amp;bull;&lt;/span&gt;
+										&lt;FormattedHTMLMessage id="account-home-rac-content-covered-california-start-coverage" values={this.state.i18nValues} /&gt;
+									&lt;/p&gt;
+								&lt;/div&gt;
+								&lt;br/&gt;
+								&lt;br/&gt;
+								&lt;div className="insurance-plans"&gt;
+									&lt;p className="titles"&gt;&lt;FormattedMessage id="account-home-rac-content-medi-cal-title" /&gt;&lt;/p&gt;
+									&lt;p&gt;&lt;span className="text"&gt;&amp;bull;&lt;/span&gt;&lt;FormattedMessage id="account-home-rac-content-medi-cal-paragraph" /&gt; &lt;/p&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;br/&gt;
+								&lt;div className="row"&gt;
+									&lt;div className="col-xs-12 col-sm-6 col-sm-push-3 col-md-4 col-md-push-4"&gt;
+										&lt;button
+											id="account-home-rac-continue-btn"
+											onClick={this.binds.handleBtnClick}
+											className="btn btn-primary btn-block btn-cta"
+											disabled={this.state.RACBtnDisabled}
+										&gt;
+											&lt;FormattedMessage id={'account-home-button-' + UserHomeStore.getButtonLabel()} /&gt;
+										&lt;/button&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+						&lt;/ContentCard&gt;
+					&lt;/ConditionalField&gt;
+				&lt;div className="container"&gt;
+					{this.state.userHomeData 
+						&amp;&amp;  <span class="branch-1 cbranch-no" title="branch not covered" >&lt;FooterLinks</span>
+								announcements={this.state.userHomeData.announcement}
+								manageApplication={this.state.userHomeData.manageApplication}
+								moreActions={this.state.userHomeData.moreAction}
+								withdrawApplicationModal={this.binds.withdrawApplicationModal}
+								cancelRACModal={this.binds.cancelRACModal}
+								keepOrSwitchModal={this.binds.keepOrSwitchModal}
+								racModal={this.binds.racModal}
+								userType={AuthStore.userHasRole}
+								notCurrentYearApp={this.state.notCurrentYearApp}
+								notCurrentYearAppStart={this.binds.notCurrentYearAppStart}
+								notCurrentYearAppContinue={this.binds.notCurrentYearAppContinue}
+							/&gt;
+					}
+				&lt;/div&gt;
+				{this.state.userHomeData 
+					&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;BeginApplicationModal</span>
+							openBeginAppModal={this.state.beginAppModalIsOpen}
+							className="begin-application-modal"
+							closeBeginAppModal={this.binds.closeBeginAppModal}
+							confirmBeginAppModal={this.binds.confirmBeginAppModal}
+							formData={this.state.formData}
+							onChange={this.binds.onFormChange}
+							pendingAppIdList={UserHomeStore.getPendingAppIdList()}
+							confirmDisabled={this.state.confirmDisabled}
+						/&gt;
+				}
+				&lt;ConfirmModal 
+					title={&lt;FormattedMessage id="account-home-footer-button-manageApplication-withdrawApplication-modal-header" /&gt;}
+					isOpen={this.state.withdrawApplicationIsOpen} 
+					onRequestClose={this.binds.closeWithdrawApplicationModalNo} 
+					onRequestConfirm={this.binds.closeWithdrawApplicationModalYes} 
+					cancelText={&lt;FormattedMessage id="No"/&gt;}
+					confirmText={&lt;FormattedMessage id="Yes"/&gt;}
+					warningIcon={true}
+					className="squish"
+					confirmButtonClassName="btn-default"
+					cancelButtonClassName="btn-danger"
+					contentLabel={this.props.intl.messageIfExists('account-home-footer-button-manageApplication-withdrawApplication-modal-header')}
+				&gt;
+					&lt;FormattedMessage id="account-home-footer-button-manageApplication-withdrawApplication-modal-paragraph" /&gt;
+				&lt;/ConfirmModal&gt;
+				&lt;ConfirmModal 
+					title={&lt;FormattedMessage id="account-home-footer-button-manageApplication-withdrawChangeReport-modal-header" /&gt;}
+					isOpen={this.state.cancelRACIsOpen} 
+					onRequestClose={this.binds.closeCancelRACModalNo} 
+					onRequestConfirm={this.binds.closeCancelRACModalYes} 
+					cancelText={&lt;FormattedMessage id="No"/&gt;}
+					confirmText={&lt;FormattedMessage id="Yes"/&gt;}
+					warningIcon={true}
+					className="squish"
+					confirmButtonClassName="btn-default"
+					cancelButtonClassName="btn-danger"
+					contentLabel={this.props.intl.messageIfExists('account-home-footer-button-manageApplication-withdrawChangeReport-modal-header')}
+				&gt;
+					&lt;FormattedMessage id="account-home-footer-button-manageApplication-withdrawChangeReport-modal-paragraph" /&gt;
+				&lt;/ConfirmModal&gt;
+				&lt;Modal 
+					isOpen={this.state.caseClosedModalIsOpen} 
+					title={&lt;FormattedHTMLMessage id="account-home-footer-button-manageApplication-caseClosed-modal-header"/&gt;}
+					contentLabel=""
+					&gt; 
+					&lt;p&gt;
+						{
+								AuthStore.userHasRole('consumer') ?
+								(<span class="branch-0 cbranch-no" title="branch not covered" >&lt;FormattedHTMLMessage id="account-home-footer-button-manageApplication-caseClosed-modal-paragraph-consumer"/&gt;)</span> : 
+								(&lt;FormattedHTMLMessage id="account-home-footer-button-manageApplication-caseClosed-modal-paragraph-admin"/&gt;)
+						}
+					&lt;/p&gt;
+					&lt;div className="modal-buttons"&gt;
+						{
+							AuthStore.userHasRole('consumer') ?
+								(<span class="branch-0 cbranch-no" title="branch not covered" >&lt;button id="case-closed-logout-btn" className="btn btn-primary" onClick={this.binds.caseCloseLogout}&gt;&lt;FormattedMessage id="global-element-user-idle-modal-logout" /&gt;&lt;/button&gt;)</span>
+								:
+								(&lt;section&gt;
+									&lt;button id="case-closed-summary-btn" className="btn btn-default" onClick={this.binds.caseClosedViewSummary}&gt;&lt;FormattedMessage id="account-home-footer-button-manageApplication-caseClosed-modal-button-case-summary" /&gt;&lt;/button&gt;
+									&lt;button id="case-closed-homepage-btn" className="btn btn-primary" onClick={this.binds.caseClosegotoHomePage}&gt;&lt;FormattedMessage id="account-home-footer-button-manageApplication-caseClosed-modal-button-back-to-home" /&gt;&lt;/button&gt;
+								&lt;/section&gt;)
+						}
+					&lt;/div&gt;
+				&lt;/Modal&gt;
+				&lt;RadioButtonChoiceModal
+					isOpen={this.state.keepOrSwitchModalIsOpen}
+					cancelModal={this.binds.keepOrSwitchCancel}
+					onConfirm={this.binds.keepOrSwitchSelectEnrollmentYear}
+					pendingAppIdList={UserHomeStore.getKeepOrSwitchDetails()}
+					formData={this.state.formData}
+					onChange={this.binds.updateButton}
+					confirmButtonState={this.state.radioButtonConfirmButtonisDisabled}
+					headerTextId="account-home-footer-button-manageApplication-keepOrSwitch-modal-title"
+					paragraphTextId="account-home-footer-button-manageApplication-keepOrSwitch-modal-paragraph"
+					radioLabel="account-home-modal-keep-or-switch-radio"
+					topMarginSpacing="55%"
+				/&gt;
+				&lt;RadioButtonChoiceModal
+					isOpen={this.state.reportAChangeModalIsOpen}
+					cancelModal={this.binds.reportAChangeCancel}
+					onConfirm={this.binds.reportAChangeAccept}
+					pendingAppIdList={UserHomeStore.getPendingAppIdList()}
+					confirmButtonState={this.state.radioButtonConfirmButtonisDisabled}
+					formData={this.state.formData}
+					onChange={this.binds.updateButton}
+					headerTextId="account-home-footer-button-manageApplication-rac-modal-title"
+					paragraphTextId="account-home-footer-button-manageApplication-rac-modal-paragraph"
+					radioLabel="account-home-modal-rac-radio"
+					topMarginSpacing="33%"
+				/&gt;
+				&lt;Modal 
+					title={&lt;div&gt;&lt;FormattedMessage id="account-home-modal-view-confirmation-header" /&gt;&lt;button className="btn btn-close" onClick={this.binds.closeViewConfirmationModal}&gt;&lt;FormattedMessage id="modals.header.close" /&gt;&lt;/button&gt;&lt;/div&gt;}
+					isOpen={this.state.viewConfirmationIsOpen}
+					contentLabel={this.props.intl.messageIfExists({id: 'account-home-modal-view-confirmation-header'})}
+					fullScreenMobile={true}
+					onRequestClose={this.binds.closeViewConfirmationModal}
+				&gt;
+					&lt;span&gt;
+						&lt;p className="text-center"&gt;
+							&lt;FormattedMessage id="account-home-modal-view-confirmation-paragraph" /&gt;
+						&lt;/p&gt;
+						&lt;br/&gt;
+						&lt;div className="footer modal-buttons text-center"&gt;
+							&lt;button id="consumer-view-btn" type="button" className="btn btn-default" onClick={this.binds.openConsumerView}&gt;
+								&lt;FormattedMessage id="account-home-modal-view-confirmation-consumer-view-button-text"/&gt;
+							&lt;/button&gt;
+							&lt;button id="flexi-view-btn" type="button" className="btn btn-default" onClick={this.binds.openFlexAdminView}&gt;
+								&lt;FormattedMessage id="account-home-modal-view-confirmation-flexadmin-view-button-text"/&gt;
+							&lt;/button&gt;
+						&lt;/div&gt;
+					&lt;/span&gt;
+				&lt;/Modal&gt;
+				&lt;ConfirmModal
+					isOpen={this.state.formerFostYouthModalIsOpen}
+					onRequestClose={this.binds.cancelFormerFosterModal}
+					onRequestConfirm={this.binds.goToHHMforFFYModal}
+					cancelButtonClassName="btn-default"
+					confirmButtonClassName="btn-primary"
+					warningIcon={true}
+					title={&lt;FormattedMessage id="account-home-modal-former-foster-youth-modal-header"/&gt;}
+					confirmText={this.props.intl.messageIfExists('account-home-modal-former-foster-youth-modal-confirm')}
+					cancelText={this.props.intl.messageIfExists('account-home-modal-former-foster-youth-modal-cancel')}
+					contentLabel={this.props.intl.messageIfExists('account-home-modal-former-foster-youth-modal-header')}
+					&gt;
+					&lt;span className="text-left"&gt;
+						&lt;p&gt;&lt;FormattedHTMLMessage id="account-home-modal-former-foster-youth-modal-paragraph" values={{birthday: this.state.turnedTwentySix}}/&gt;&lt;/p&gt;
+					&lt;/span&gt;
+				&lt;/ConfirmModal&gt;
+			&lt;/div&gt;
+		)
+	}
+}
+&nbsp;
+AccountHome.propTypes = {
+	intl: intlShape.isRequired
+};
+&nbsp;
+AccountHome.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(AccountHome);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

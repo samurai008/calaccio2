@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Review/TaxReviewContent.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Review</a> TaxReviewContent.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router';
+import MemberReview from '../MemberReview.jsx';
+import FormattedPhone from '../FormattedPhone.jsx';
+import { ReviewSection, ReviewRow, ReviewDT, ReviewDD } from '../ReviewSection.jsx';
+&nbsp;
+const TaxReviewContent = props =&gt; {
+	var primaryFiler = props.householdMembers.find(person =&gt; person.taxInfo &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >person.taxInfo.primaryTaxFiler === 'Y')</span>,
+		peopleWhoPlanToFile = props.householdMembers
+			.filter((person) =&gt; person.taxInfo &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >person.taxInfo.filingTaxes === 'Y')</span>
+			.map(<span class="fstat-no" title="function not covered" >(p</span>erson, i) =&gt; {
+<span class="cstat-no" title="statement not covered" >				return (</span>
+					&lt;MemberReview person={person} key={i}&gt;
+						&lt;div&gt;&lt;FormattedMessage id="tax-review-filer-status-label" tagName="b" /&gt;&lt;/div&gt;
+						{
+							person.taxInfo.taxFilingStatus
+							? (
+								&lt;FormattedMessage id={'tax-filing-status-' + person.taxInfo.taxFilingStatus} /&gt;
+							) : (
+								&lt;FormattedMessage id="tax-review-primary-filer-no-status" /&gt;
+							)
+						}
+					&lt;/MemberReview&gt;
+				);
+			}),
+&nbsp;
+		peopleRequiredToFile = props.householdMembers
+			.filter((person) =&gt; person.taxInfo &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >person.taxInfo.requiredToFileTax === 'Y')</span>
+			.map(<span class="fstat-no" title="function not covered" >(p</span>erson, i) =&gt; <span class="cstat-no" title="statement not covered" >&lt;MemberReview person={person} key={i} /&gt; </span>),
+&nbsp;
+		dependants = props.householdMembers
+			.filter((person) =&gt; person.taxInfo &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >person.taxInfo.taxClaimer === 'Y')</span>
+			.map(<span class="fstat-no" title="function not covered" >(p</span>erson, i) =&gt; {
+				var claimee = <span class="cstat-no" title="statement not covered" >props.householdMembers.find(<span class="fstat-no" title="function not covered" >me</span>mber =&gt; <span class="cstat-no" title="statement not covered" >member.personId === person.taxInfo.claimerPersonId)</span>;</span>
+				var custodialParentPhone = <span class="cstat-no" title="statement not covered" >person.taxInfo.custodialParentPhoneNum;</span>
+<span class="cstat-no" title="statement not covered" >				return (</span>
+					&lt;MemberReview person={person} key={i}&gt;
+						&lt;p&gt;&lt;FormattedMessage id="tax-review-dependant-claimee-header" tagName="b" values={person} /&gt;&lt;/p&gt;
+						{
+							claimee
+							? (
+								&lt;div&gt;
+									
+									&lt;MemberReview person={claimee} key={i}&gt;
+									&lt;/MemberReview&gt;
+								&lt;/div&gt;
+							) : custodialParentPhone ? &lt;FormattedPhone value={person.taxInfo.custodialParentPhoneNum} /&gt;
+								:(
+								&lt;FormattedMessage id="tax-review-dependants-no-claimee" /&gt;
+								)
+						}
+					&lt;/MemberReview&gt;
+				);
+			});
+&nbsp;
+	return (
+		&lt;ReviewSection&gt;
+			&lt;ReviewRow id={props.id + '-primary-filer'} linkUrl={props.editUrlBase + 'primary-filer'}&gt;
+				&lt;ReviewDT className={primaryFiler ? <span class="branch-0 cbranch-no" title="branch not covered" >'block' </span>: ''}&gt;&lt;FormattedMessage id="tax-review-primary-filer-label" /&gt;&lt;/ReviewDT&gt;
+				{ 
+					primaryFiler
+					? (
+<span class="branch-0 cbranch-no" title="branch not covered" >						&lt;div className="row"&gt;</span>
+							&lt;MemberReview person={primaryFiler}&gt;
+								&lt;div&gt;&lt;FormattedMessage id="tax-review-primary-filer-status" tagName="b" /&gt;&lt;/div&gt;
+								{
+									primaryFiler.taxInfo.taxFilingStatus
+									? (
+										&lt;FormattedMessage id={'tax-filing-status-' + primaryFiler.taxInfo.taxFilingStatus} /&gt;
+									) : (
+										&lt;FormattedMessage id="tax-review-primary-filer-no-status" /&gt;
+									)
+								}
+							&lt;/MemberReview&gt;
+						&lt;/div&gt;
+					) : (
+						&lt;ReviewDD&gt;&lt;FormattedMessage id="tax-review-primary-filer-nobody" /&gt;&lt;/ReviewDD&gt;
+					)
+				}
+			&lt;/ReviewRow&gt;
+			&lt;ReviewRow id={props.id + '-plan-to-file'} linkUrl={props.editUrlBase + 'plan-to-file'}&gt;
+				&lt;ReviewDT className={peopleWhoPlanToFile.length &gt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >'block' </span>: ''}&gt;&lt;FormattedMessage id="tax-review-plan-to-file-header" /&gt;&lt;/ReviewDT&gt;
+				{
+					peopleWhoPlanToFile.length &gt; 0 
+					? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;div className="row"&gt;{peopleWhoPlanToFile}&lt;/div&gt;</span>
+					: &lt;ReviewDD&gt;&lt;FormattedMessage id="tax-review-plan-to-file-nobody" /&gt;&lt;/ReviewDD&gt;
+				}
+				
+			&lt;/ReviewRow&gt;
+			&lt;ReviewRow id={props.id + '-required-to-file'} linkUrl={props.editUrlBase + 'required-to-file'}&gt;
+				&lt;ReviewDT className={peopleRequiredToFile.length &gt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >'block' </span>: ''}&gt;&lt;FormattedMessage id="tax-review-required-to-file-header" /&gt;&lt;/ReviewDT&gt;
+				{
+					peopleRequiredToFile.length &gt; 0 
+					? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;div className="row"&gt;{peopleRequiredToFile}&lt;/div&gt; </span>
+					: &lt;ReviewDD&gt;&lt;FormattedMessage id="tax-review-required-to-file-nobody" /&gt;&lt;/ReviewDD&gt;
+				}
+			&lt;/ReviewRow&gt;
+			&lt;ReviewRow id={props.id + '-dependents'} linkUrl={props.editUrlBase + 'dependents'}&gt;
+				&lt;ReviewDT className={dependants.length &gt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >'block' </span>: ''}&gt;&lt;FormattedMessage id="tax-review-dependants-header" tagName="h4" /&gt;&lt;/ReviewDT&gt;
+				{
+					dependants.length &gt; 0 
+					? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;div className="row"&gt;{dependants}&lt;/div&gt;</span>
+					: &lt;ReviewDD&gt;&lt;FormattedMessage id="tax-review-dependants-nobody" /&gt;&lt;/ReviewDD&gt;
+				}
+			&lt;/ReviewRow&gt;
+		&lt;/ReviewSection&gt;
+	);
+}
+&nbsp;
+TaxReviewContent.propTypes = {
+	householdMembers: React.PropTypes.array,
+	editUrlBase: React.PropTypes.string
+};
+&nbsp;
+TaxReviewContent.defaultProps = {
+	editUrlBase: '/household/tax-information/edit/'
+};
+&nbsp;
+export default TaxReviewContent;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Inputs/CurrencyInput.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Inputs</a> CurrencyInput.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.96% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>17/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import TextInput from './TextInput.jsx';
+import isInteger from 'is-integer';
+&nbsp;
+class CurrencyInput extends Component {
+	
+	constructor(props) {
+		super(props);
+	}
+&nbsp;
+	formatInput(val) {
+		var endsInZero = val &amp;&amp; (val.substr(val.length - 3).indexOf('.') &gt;= 0 &amp;&amp; val.substr(val.length - 1) === '0'),
+			hasPeriod = val &amp;&amp; val.substr(val.length - 3).indexOf('.') &gt;= 0,
+			simpleNum = val ? val.replace(this.props.allowNegativeValue ? <span class="branch-0 cbranch-no" title="branch not covered" >/([,])/g </span>: /([,-])/g, '') : '',
+			num = parseFloat(simpleNum),
+			formattedNum = this.props.allowNegativeValue &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >simpleNum === '-' </span>? <span class="branch-0 cbranch-no" title="branch not covered" >'-' </span>: (
+								isNaN(num) ? '' : (num.toLocaleString('en-US', { maximumFractionDigits: 2 }) + (isInteger(num) &amp;&amp; hasPeriod ? <span class="branch-0 cbranch-no" title="branch not covered" >'.' </span>: '')) + (endsInZero ? <span class="branch-0 cbranch-no" title="branch not covered" >'0' </span>: '')
+							);
+		return formattedNum;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleBlur(e) {
+		// Add a zero if there's only one decimal	
+		var num = <span class="cstat-no" title="statement not covered" >this.props.onBlur(e) || e.target.value;</span>
+<span class="cstat-no" title="statement not covered" >		if(num.substr(num.length - 2, 1) === '.') {</span>
+<span class="cstat-no" title="statement not covered" >			num = num + '0';</span>
+		}
+<span class="cstat-no" title="statement not covered" >		return num;</span>
+	}
+&nbsp;
+	render() {
+		var className = ['currency-input'].concat(
+							this.props.className ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.className.split(' ') </span>: []
+						);
+		
+		return (
+			&lt;TextInput 
+				{...this.props} 
+				className={className.join(' ')}
+				type="text" 
+				addOn="$"
+				formatInput={this.formatInput.bind(this)} 
+				onBlur={this.handleBlur.bind(this)}
+			/&gt;
+		);
+	}
+}
+&nbsp;
+CurrencyInput.PropTypes = {
+	allowNegativeValue: React.PropTypes.bool,
+	onBlur: React.PropTypes.func
+};
+&nbsp;
+CurrencyInput.defaultProps = {
+	className: '',
+	allowNegativeValue: false,
+	onBlur: <span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >e.target.value</span>
+};
+&nbsp;
+export default CurrencyInput;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

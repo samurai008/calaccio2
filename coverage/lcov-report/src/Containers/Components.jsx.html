@@ -1,0 +1,2006 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Components.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Containers</a> Components.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.93% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.15% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">45.83% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/24</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { injectIntl, FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import { Form } from 'formsy-react';
+import moment from '../TimeshifterMoment';
+import TextInput from '../Components/Inputs/TextInput.jsx';
+import CurrencyInput from '../Components/Inputs/CurrencyInput.jsx';
+import SegmentedControl from '../Components/Inputs/SegmentedControl.jsx';
+import NumericInput from '../Components/Inputs/NumericInput.jsx';
+import RadioInput from '../Components/Inputs/RadioInput.jsx';
+import CheckBox from '../Components/Inputs/CheckBox.jsx';
+import DateInput from '../Components/Inputs/DateInput.jsx';
+import DropDown from '../Components/Inputs/DropDown.jsx';
+import AddressInput from '../Components/Inputs/AddressInput.jsx';
+import PhoneInput from '../Components/Inputs/PhoneInput.jsx';
+import SocialSecurityInput from '../Components/Inputs/SocialSecurityInput.jsx';
+import ToolTip from '../Components/ToolTip.jsx';
+import Modal, { CancelModal, DeleteModal, NoticeModal, ConfirmModal } from '../Components/Modal.jsx';
+&nbsp;
+class Components extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+		this.state = {
+			genericModalIsOpen: false,
+			cancelModalIsOpen: false,
+			deleteModalIsOpen: false,
+			noticeModalIsOpen: false,
+			confirmModalIsOpen: false
+		};
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	op</span>enGenericModal(e) {
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ genericModalIsOpen: true });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	cl</span>oseGenericModal(e) {
+<span class="cstat-no" title="statement not covered" >		if(e) <span class="cstat-no" title="statement not covered" >e.preventDefault();</span></span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ genericModalIsOpen: false });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	op</span>enCancelModal(e) {
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ cancelModalIsOpen: true });</span>
+	}
+&nbsp;
+	closeCancelModal(e) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(e) <span class="cstat-no" title="statement not covered" >e.preventDefault();</span>
+		this.setState({ cancelModalIsOpen: false });
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	op</span>enDeleteModal(e) {
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ deleteModalIsOpen: true });</span>
+	}
+&nbsp;
+	closeDeleteModal(e) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(e) <span class="cstat-no" title="statement not covered" >e.preventDefault();</span>
+		this.setState({ deleteModalIsOpen: false });
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	op</span>enNoticeModal(e) {
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ noticeModalIsOpen: true });</span>
+	}
+&nbsp;
+	closeNoticeModal(e) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(e) <span class="cstat-no" title="statement not covered" >e.preventDefault();</span>
+		this.setState({ noticeModalIsOpen: false });
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	op</span>enConfirmModal(e) {
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ confirmModalIsOpen: true });</span>
+	}
+&nbsp;
+	closeConfirmModal(e) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(e) <span class="cstat-no" title="statement not covered" >e.preventDefault();</span>
+		this.setState({ confirmModalIsOpen: false });
+	}
+&nbsp;
+	render() {
+		return (
+			&lt;Form className="container"&gt;
+				&lt;div className="components-container row"&gt;
+					&lt;div className="col-xs-12"&gt;
+						&lt;div className="component-example"&gt;
+							&lt;TextInput
+								id="testTextInput"
+								name="testTextInput"
+								label="Test Input"
+								optional={true}
+								placeholder="ex. Example Placeholder"
+								tooltip="Sample Tool Tip"
+								value=""
+							/&gt;
+							&lt;pre&gt;&amp;lt;TextInput &lt;br/&gt;
+								&amp;nbsp;id="testTextInput"  &lt;br/&gt;
+								&amp;nbsp;name="testTextInput" &lt;br/&gt;
+								&amp;nbsp;label="Test Input"  &lt;br/&gt;
+								&amp;nbsp;optional=&amp;#123;true&amp;#125;  &lt;br/&gt;
+								&amp;nbsp;tooltip="Sample Tool Tip" &lt;br/&gt;
+								&amp;nbsp;/&amp;gt; &lt;br/&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;TextInput
+								id="testTextInput"
+								name="testTextInput"
+								label="Test Input (error state)"
+								placeholder="ex. Example Placeholder"
+								tooltip="Sample Tool Tip"
+								errorMessage="Please enter a value"
+								hasError={true}
+								value=""
+							/&gt;
+							&lt;pre&gt;&amp;lt;TextInput &lt;br/&gt;
+								&amp;nbsp;id="testTextInput"  &lt;br/&gt;
+								&amp;nbsp;name="testTextInput" &lt;br/&gt;
+								&amp;nbsp;label="Test Input"  &lt;br/&gt;
+								&amp;nbsp;tooltip="Sample Tool Tip" &lt;br/&gt;
+								&amp;nbsp;errorMessage="Please enter a value" &lt;br/&gt;
+								&amp;nbsp;hasError=&amp;#123;true&amp;#125; &lt;br/&gt;
+								&amp;nbsp;/&amp;gt; &lt;br/&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;TextInput
+								id="testTextInput"
+								name="testTextInput"
+								label="Disabled Text Input"
+								placeholder="ex. Example Placeholder"
+								tooltip="Sample Tool Tip"
+								disabled={true}
+								value=""
+							/&gt;
+							&lt;pre&gt;&amp;lt;TextInput &lt;br/&gt;
+								&amp;nbsp;id="testTextInput"  &lt;br/&gt;
+								&amp;nbsp;name="testTextInput" &lt;br/&gt;
+								&amp;nbsp;label="Disabled Text Input"  &lt;br/&gt;
+								&amp;nbsp;tooltip="Sample Tool Tip" &lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt; &lt;br/&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;CurrencyInput
+								id="testCurrencyInput"
+								name="testCurrencyInput"
+								label="Currency Input"
+								placeholder="ex. 1000"
+								inlineLabel="per hour"
+								value=""
+							/&gt;
+							&lt;pre&gt;&amp;lt;CurrencyInput &lt;br/&gt;
+								&amp;nbsp;id="testCurrencyInput"  &lt;br/&gt;
+								&amp;nbsp;name="testCurrencyInput"  &lt;br/&gt;
+								&amp;nbsp;label="Currency Input"  &lt;br/&gt;
+								&amp;nbsp;placeholder="ex. 1000" &lt;br/&gt;
+								&amp;nbsp;/&amp;gt; &lt;br/&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;CurrencyInput
+								id="testDisabledCurrencyInput"
+								name="testDisabledCurrencyInput"
+								label="Disabled Currency Input"
+								placeholder="ex. 1000"
+								inlineLabel="per hour"
+								disabled={true}
+								value=""
+							/&gt;
+							&lt;pre&gt;&amp;lt;CurrencyInput &lt;br/&gt;
+								&amp;nbsp;id="testCurrencyInput"  &lt;br/&gt;
+								&amp;nbsp;name="testCurrencyInput"  &lt;br/&gt;
+								&amp;nbsp;label="Currency Input"  &lt;br/&gt;
+								&amp;nbsp;placeholder="ex. 1000" &lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt; &lt;br/&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;SocialSecurityInput
+								id="testSocialSecurityInput"
+								name="testSocialSecurityInput"
+								label="Social Security Input"
+								value=""
+								onChange={<span class="fstat-no" title="function not covered" >(n</span>ame, val) =&gt; <span class="cstat-no" title="statement not covered" >console.log(val) </span>}
+							/&gt;
+							&lt;pre&gt;&amp;lt;SocialSecurityInput &lt;br/&gt;
+								&amp;nbsp;id="testSocialSecurityInput"  &lt;br/&gt;
+								&amp;nbsp;name="testSocialSecurityInput"  &lt;br/&gt;
+								&amp;nbsp;label="Social Security Input"  &lt;br/&gt;
+								&amp;nbsp;/&amp;gt; &lt;br/&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;SegmentedControl
+								label="Segmented Control"
+								options={{annually: 'annually', monthly: 'monthly', 'twice-a-month': 'twice-a-month', 'two-weeks': 'every two weeks', weekly: 'weekly', daily: 'daily', hourly: 'hourly'}}
+								value=""
+								id="disabled-segmented-control"
+								name="disabled-segmented-control"
+								/&gt;
+							&lt;pre&gt;&amp;lt;SegmentedControl &lt;br/&gt;
+								&amp;nbsp;label="Segmented Control"&lt;br/&gt;
+								&amp;nbsp;options=&amp;#123;&amp;#123;annually: 'annually', monthly: 'monthly', 'twice-a-month': 'twice-a-month', 'two-weeks': 'every two weeks', weekly: 'weekly', daily: 'daily', hourly: 'hourly'&amp;#125;&amp;#125;&lt;br/&gt;
+								&amp;nbsp;value=""&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;SegmentedControl
+								label="Disabled Segmented Control"
+								options={{annually: 'annually', monthly: 'monthly', 'twice-a-month': 'twice-a-month', 'two-weeks': 'every two weeks', weekly: 'weekly', daily: 'daily', hourly: 'hourly'}}
+								value="annually"
+								id="segmented-control"
+								name="segmented-control"
+								disabled={true}
+							/&gt;
+							&lt;pre&gt;&amp;lt;SegmentedControl &lt;br/&gt;
+								&amp;nbsp;label="Disabled Segmented Control"&lt;br/&gt;
+								&amp;nbsp;options=&amp;#123;&amp;#123;annually: 'annually', monthly: 'monthly', 'twice-a-month': 'twice-a-month', 'two-weeks': 'every two weeks', weekly: 'weekly', daily: 'daily', hourly: 'hourly'&amp;#125;&amp;#125;&lt;br/&gt;
+								&amp;nbsp;value="annually"&lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;NumericInput
+								label="Numeric Input"
+								min={0}
+								id="numericInput"
+								name="numericInput"
+								placeholder="ex. 5"
+								inlineLabel="days per month"
+								/&gt;
+							&lt;pre&gt;&amp;lt;NumericInput &lt;br/&gt;
+								&amp;nbsp;label="Numeric Input"&lt;br/&gt;
+								&amp;nbsp;id="numericInput"&lt;br/&gt;
+								&amp;nbsp;name="numericInput"&lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+						&lt;div className="component-example"&gt;
+							&lt;NumericInput
+								label="Disabled Numeric Input"
+								min={0}
+								id="disabledNumericInput"
+								name="disabledNumericInput"
+								placeholder="ex. 5"
+								inlineLabel="days per month"
+								disabled={true}
+							/&gt;
+							&lt;pre&gt;&amp;lt;NumericInput &lt;br/&gt;
+								&amp;nbsp;label="Disabled Numeric Input"&lt;br/&gt;
+								&amp;nbsp;id="numericInput"&lt;br/&gt;
+								&amp;nbsp;name="numericInput"&lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;RadioInput
+								label="Radio Input"
+								id="radioTest"
+								name="radioTest"
+								options={{yes: 'Yes', no: 'No'}}
+								/&gt;
+							&lt;pre&gt;&amp;lt;RadioInput &lt;br/&gt;
+								&amp;nbsp;label="Radio Input"&lt;br/&gt;
+								&amp;nbsp;id="radioTest"&lt;br/&gt;
+								&amp;nbsp;name="radioTest"&lt;br/&gt;
+								&amp;nbsp;options=&amp;#123;&amp;#123;yes: 'Yes', no: 'No'&amp;#125;&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;RadioInput
+								label="Disabled Radio Input"
+								id="disabledRadioTest"
+								name="disabledRadioTest"
+								options={{yes: 'Yes', no: 'No'}}
+								value="yes"
+								disabled={true}
+							/&gt;
+							&lt;pre&gt;&amp;lt;RadioInput &lt;br/&gt;
+								&amp;nbsp;label="Disabled Radio Input"&lt;br/&gt;
+								&amp;nbsp;id="disabledRadioTest"&lt;br/&gt;
+								&amp;nbsp;name="disabledRadioTest"&lt;br/&gt;
+								&amp;nbsp;options=&amp;#123;&amp;#123;yes: 'Yes', no: 'No'&amp;#125;&amp;#125;&lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;CheckBox
+								label="Checkbox Input"
+								id="CheckBoxTest"
+								name="CheckBoxTest"
+								/&gt;
+							&lt;pre&gt;&amp;lt;CheckBox &lt;br/&gt;
+								&amp;nbsp;label="Checkbox Input"&lt;br/&gt;
+								&amp;nbsp;id="CheckBoxTest"&lt;br/&gt;
+								&amp;nbsp;name="CheckBoxTest"&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;CheckBox
+								label="Disabled Checkbox Input"
+								id="disabledCheckBoxTest"
+								name="disabledCheckBoxTest"
+								disabled={true}
+							/&gt;
+							&lt;pre&gt;&amp;lt;CheckBox &lt;br/&gt;
+								&amp;nbsp;label="Disabled Checkbox Input"&lt;br/&gt;
+								&amp;nbsp;id="disabledCheckBoxTest"&lt;br/&gt;
+								&amp;nbsp;name="disabledCheckBoxTest"&lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;DateInput
+								id="date-input"
+								label="Date Input"
+								name="date-input"
+								value={moment()}
+								/&gt;
+							&lt;pre&gt;&amp;lt;DateInput &lt;br/&gt;
+								&amp;nbsp;label="Date Input"&lt;br/&gt;
+								&amp;nbsp;name="date-input"&lt;br/&gt;
+								&amp;nbsp;value=&amp;#123;moment()&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;DateInput
+								id="disabled-date-input"
+								label="Disabled Date Input"
+								name="disabled-date-input"
+								value={moment()}
+								disabled={true}
+							/&gt;
+							&lt;pre&gt;&amp;lt;DateInput &lt;br/&gt;
+								&amp;nbsp;label="Disabled Date Input"&lt;br/&gt;
+								&amp;nbsp;name="disabled-date-input"&lt;br/&gt;
+								&amp;nbsp;value=&amp;#123;moment()&amp;#125;&lt;br/&gt;
+								&amp;nbsp;disabled=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;ToolTip
+								text="TOOLTIP!!!"
+								id="tooltip"
+								/&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;ToolTip &lt;br/&gt;
+									&amp;nbsp;text="TOOLTIP!!!"&lt;br/&gt;
+									&amp;nbsp;/&amp;gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;DropDown
+								optional={true} 
+								label="Dropdown label"
+								name="dropdown"
+								id="dropdown"
+								customFor="other"
+								customPlaceholder="Please specify"
+								customAriaLabel="Please specify"
+								options={[
+									{ value: 'tvad', label: "TV Ad" },
+									{ value: 'internet', label: "Internet Search" },
+									{ value: 'agent', label: "Enrollment Counselor or Agent" },
+									{ value: 'other', label: "Other" }
+								]}
+							/&gt;
+							&lt;pre&gt;&amp;lt;DropDown &lt;br/&gt;
+								&amp;nbsp;optional=&amp;#123;true&amp;#125;&lt;br/&gt;
+								&amp;nbsp;label="Dropdown label"&lt;br/&gt;
+								&amp;nbsp;name="dropdown"&lt;br/&gt;
+								&amp;nbsp;id="dropdown"&lt;br/&gt;
+								&amp;nbsp;customFor="other"&lt;br/&gt;
+								&amp;nbsp;customPlaceholder="Please specify"&lt;br/&gt;
+								&amp;nbsp;customAriaLabel="Please specify"&lt;br/&gt;
+								&amp;nbsp;options=&amp;#123;[&lt;br/&gt;
+								&amp;nbsp;&amp;nbsp;&amp;#123;	value: 'tvad', label: "TV Ad"&amp;nbsp;&amp;#125;,&lt;br/&gt;
+								&amp;nbsp;&amp;nbsp;&amp;#123;	value: 'internet', label: "Internet Search"&amp;nbsp;&amp;#125;,&lt;br/&gt;
+								&amp;nbsp;&amp;nbsp;&amp;#123;	value: 'agent', label: "Enrollment Counselor or Agent"&amp;nbsp;&amp;#125;,&lt;br/&gt;
+								&amp;nbsp;&amp;nbsp;&amp;#123;	value: 'other', label: "Other"&amp;nbsp;&amp;#125;&lt;br/&gt;
+								&amp;nbsp;]&amp;#125;&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;AddressInput
+								label="Address Input"
+								name="address-input"
+							/&gt;
+							&lt;pre&gt;&amp;lt;AddressInput &lt;br/&gt;
+								&amp;nbsp;label="Address Input"&lt;br/&gt;
+								&amp;nbsp;name="address-input"&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;PhoneInput
+								label="Phone Input"
+								name="phone-input"
+								value=""
+							/&gt;
+							&lt;pre&gt;&amp;lt;PhoneInput &lt;br/&gt;
+								&amp;nbsp;label="Phone Input"&lt;br/&gt;
+								&amp;nbsp;name="address-input"&lt;br/&gt;
+								&amp;nbsp;/&amp;gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example buttons"&gt;
+							&lt;h4&gt;Buttons&lt;/h4&gt;
+							&lt;p&gt;
+								&lt;button type="button" className="btn btn-default"&gt;Default&lt;/button&gt;
+								&lt;button type="button" className="btn btn-primary"&gt;Primary&lt;/button&gt;
+								&lt;button type="button" className="btn btn-primary" disabled={true}&gt;Disabled Primary&lt;/button&gt;
+								&lt;button type="button" className="btn btn-success"&gt;Success&lt;/button&gt;
+								&lt;button type="button" className="btn btn-info"&gt;Info&lt;/button&gt;
+								&lt;button type="button" className="btn btn-warning"&gt;Warning&lt;/button&gt;
+								&lt;br /&gt;&lt;br /&gt;
+								&lt;button type="button" className="btn btn-danger"&gt;Danger&lt;/button&gt;
+								&lt;button type="button" className="btn btn-danger" disabled={true}&gt;Disabled Danger&lt;/button&gt;
+								&lt;button type="button" className="btn btn-link"&gt;Link&lt;/button&gt;
+								&lt;button type="button" className="btn btn-pill"&gt;Pill&lt;/button&gt;
+								&lt;button type="button" className="btn btn-pill" disabled={true}&gt;Disabled Pill&lt;/button&gt;
+								&lt;br /&gt;&lt;br /&gt;
+								&lt;button type="button" className="btn btn-pill btn-add"&gt;Add&lt;/button&gt;
+								&lt;button type="button" className="btn btn-pill btn-add" disabled={true}&gt;Disabled Add&lt;/button&gt;
+								&lt;button type="button" className="btn btn-pill btn-edit"&gt;Edit&lt;/button&gt;
+								&lt;button type="button" className="btn btn-pill btn-edit" disabled={true}&gt;Disabled Edit&lt;/button&gt;
+								&lt;button type="button" className="btn btn-link btn-external"&gt;External Link&lt;/button&gt;
+							&lt;/p&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;button type="button" className="btn btn-default"&amp;gt;Default&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-primary"&amp;gt;Primary&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-primary" disabled=&amp;#123;true&amp;#125;&amp;gt;Disabled Primary&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-success"&amp;gt;Success&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-info"&amp;gt;Info&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-warning"&amp;gt;Warning&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-danger"&amp;gt;Danger&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-danger" disabled=&amp;#123;true&amp;#125;&amp;gt;Disabled Danger&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-link"&amp;gt;Link&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-pill"&amp;gt;Pill&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-pill" disabled=&amp;#123;true&amp;#125;&amp;gt;Disabled Pill&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-pill btn-add"&amp;gt;Add&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-pill btn-add" disabled=&amp;#123;true&amp;#125;&amp;gt;Disabled Add&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-pill btn-edit"&amp;gt;Edit&amp;lt;/button&amp;gt;&lt;br/&gt;
+									&amp;lt;button type="button" className="btn btn-pill btn-edit" disabled=&amp;#123;true&amp;#125;&amp;gt;Disabled Add&amp;lt;/button&amp;gt;&lt;br/&gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;h4&gt;Modal&lt;/h4&gt;
+							&lt;p&gt;
+								&lt;button className="btn btn-default" onClick={this.openGenericModal.bind(this)}&gt;Open Modal&lt;/button&gt;
+							&lt;/p&gt;
+							&lt;Modal
+								isOpen={this.state.genericModalIsOpen}
+								title="Modal Title"
+								contentLabel="Modal Title"
+							&gt;
+								&lt;div className="text-center"&gt;
+									&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dolor sem, ornare nec risus in, feugiat rutrum augue. Curabitur vel diam urna. Phasellus fermentum justo ac purus porttitor tincidunt. Sed id bibendum massa, non consectetur erat. Nunc in suscipit neque. Quisque vehicula, nunc vitae tempus sagittis, mi ipsum vehicula quam, sit amet aliquet ligula mauris eu leo. Aliquam erat volutpat.&lt;/p&gt;
+									&lt;p&gt;Vestibulum condimentum elit ac interdum placerat. Mauris rhoncus diam at mattis blandit. Sed id lacinia justo, eget aliquam tellus. Donec luctus laoreet nunc ut pellentesque. Donec lacinia ante at lorem rutrum, ac bibendum lectus blandit. Duis suscipit faucibus est, sit amet varius nisl laoreet eu. Suspendisse ultrices odio vestibulum dolor scelerisque vestibulum.&lt;/p&gt;
+								&lt;/div&gt;
+								&lt;div className="modal-buttons"&gt;
+									&lt;button className="btn btn-danger" onClick={this.closeGenericModal.bind(this)}&gt;Delete&lt;/button&gt;
+									&lt;button className="btn btn-primary" onClick={this.closeGenericModal.bind(this)}&gt;Save&lt;/button&gt;
+								&lt;/div&gt;
+							&lt;/Modal&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;a href="#" className="btn btn-default" onClick=&amp;#123;this.openGenericModal.bind(this)&amp;#125;&amp;gt;Open Modal&amp;lt;/a&amp;gt; &lt;br/&gt;
+									&amp;lt;Modal &lt;br/&gt;
+									&amp;nbsp;isOpen=&amp;#123;this.state.genericModalIsOpen&amp;#125; &lt;br/&gt;
+									&amp;nbsp;title="Modal Title"&amp;gt; &lt;br/&gt;
+									&amp;nbsp;&amp;lt;div className="text-center"&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dolor sem, ornare nec risus in, feugiat rutrum augue. Curabitur vel diam urna. Phasellus fermentum justo ac purus porttitor tincidunt. Sed id bibendum massa, non consectetur erat. Nunc in suscipit neque. Quisque vehicula, nunc vitae tempus sagittis, mi ipsum vehicula quam, sit amet aliquet ligula mauris eu leo. Aliquam erat volutpat.&amp;lt;/p&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;Vestibulum condimentum elit ac interdum placerat. Mauris rhoncus diam at mattis blandit. Sed id lacinia justo, eget aliquam tellus. Donec luctus laoreet nunc ut pellentesque. Donec lacinia ante at lorem rutrum, ac bibendum lectus blandit. Duis suscipit faucibus est, sit amet varius nisl laoreet eu. Suspendisse ultrices odio vestibulum dolor scelerisque vestibulum.&amp;lt;/p&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;lt;/div&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;lt;div className="modal-buttons"&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;nbsp;&amp;lt;a href="#" className="btn btn-danger" onClick=&amp;#123;this.closeGenericModal.bind(this)&amp;#125;&gt;Delete&amp;lt;/a&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;nbsp;&amp;lt;a href="#" className="btn btn-primary" onClick=&amp;#123;this.closeGenericModal.bind(this)&amp;#125;&gt;Save&amp;lt;/a&amp;gt;&lt;br/&gt;
+									&amp;nbsp;&amp;lt;/div&amp;gt;&lt;br/&gt;
+									&amp;lt;Modal/&amp;gt; &lt;br/&gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;h4&gt;Confirm Modal&lt;/h4&gt;
+							&lt;p&gt;
+								&lt;button className="btn btn-default" onClick={this.openConfirmModal.bind(this)}&gt;Open Modal&lt;/button&gt;
+							&lt;/p&gt;
+							&lt;ConfirmModal
+								title="Are you sure?"
+								contentLabel="Are you sure?"
+								isOpen={this.state.confirmModalIsOpen}
+								onRequestClose={this.closeConfirmModal.bind(this)}
+								onRequestConfirm={this.closeConfirmModal.bind(this)}
+								cancelText="No, go back"
+								confirmText="Yes, do it"&gt;
+								Vestibulum condimentum elit ac interdum placerat. Mauris rhoncus diam at mattis blandit. Sed id lacinia justo, eget aliquam tellus.
+							&lt;/ConfirmModal&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;a href="#" className="btn btn-default" onClick=&amp;#123;this.openCancelModal.bind(this)&amp;#125;&amp;gt;Open Modal&amp;lt;/a&amp;gt; &lt;br/&gt;
+									&amp;lt;ConfirmModal &lt;br/&gt;
+									&amp;nbsp;title="Are you sure?" &lt;br/&gt;
+									&amp;nbsp;isOpen=&amp;#123;this.state.confirmModalIsOpen&amp;#125; &lt;br/&gt;
+									&amp;nbsp;onRequestClose=&amp;#123;this.state.closeConfirmModal.bind(this)&amp;#125; &lt;br/&gt;
+									&amp;nbsp;onRequestConfirm=&amp;#123;this.state.closeConfirmModal.bind(this)&amp;#125; &lt;br/&gt;
+									&amp;nbsp;cancelText="No, go back" &lt;br/&gt;
+									&amp;nbsp;confirmText="Yes, go ahead" &lt;br/&gt;
+									/&amp;gt; &lt;br/&gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;h4&gt;Cancel Modal&lt;/h4&gt;
+							&lt;p&gt;
+								&lt;button className="btn btn-default" onClick={this.openCancelModal.bind(this)}&gt;Open Modal&lt;/button&gt;
+							&lt;/p&gt;
+							&lt;CancelModal
+								isOpen={this.state.cancelModalIsOpen}
+								onRequestClose={this.closeCancelModal.bind(this)}
+								onRequestConfirm={this.closeCancelModal.bind(this)}
+								contentLabel="Cancel Modal"
+								title="Are you sure?"
+								cancelText="No, go back"
+								confirmText="Yes, I'm sure"
+							&gt;
+								Are you sure you want to cancel?
+							&lt;/CancelModal&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;a href="#" className="btn btn-default" onClick=&amp;#123;this.openCancelModal.bind(this)&amp;#125;&amp;gt;Open Modal&amp;lt;/a&amp;gt; &lt;br/&gt;
+									&amp;lt;CancelModal &lt;br/&gt;
+									&amp;nbsp;isOpen=&amp;#123;this.state.cancelModalIsOpen&amp;#125; &lt;br/&gt;
+									&amp;nbsp;onRequestClose=&amp;#123;this.state.closeCancelModal.bind(this)&amp;#125; &lt;br/&gt;
+									&amp;nbsp;onRequestConfirm=&amp;#123;this.state.closeCancelModal.bind(this)&amp;#125; &lt;br/&gt;
+									/&amp;gt; &lt;br/&gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;h4&gt;Delete Modal&lt;/h4&gt;
+							&lt;p&gt;
+								&lt;button className="btn btn-default" onClick={this.openDeleteModal.bind(this)}&gt;Open Modal&lt;/button&gt;
+							&lt;/p&gt;
+							&lt;DeleteModal
+								isOpen={this.state.deleteModalIsOpen}
+								onRequestClose={this.closeDeleteModal.bind(this)}
+								onRequestConfirm={this.closeDeleteModal.bind(this)}
+								contentLabel="Delete Modal"
+								title="Are you sure?"
+								cancelText="No, go back"
+								confirmText="Yes, I'm sure"
+							/&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;a href="#" className="btn btn-default" onClick=&amp;#123;this.openDeleteModal.bind(this)&amp;#125;&amp;gt;Open Modal&amp;lt;/a&amp;gt; &lt;br/&gt;
+									&amp;lt;DeleteModal &lt;br/&gt;
+									&amp;nbsp;isOpen=&amp;#123;this.state.deleteModalIsOpen&amp;#125; &lt;br/&gt;
+									&amp;nbsp;onRequestClose=&amp;#123;this.state.closeDeleteModal.bind(this)&amp;#125; &lt;br/&gt;
+									&amp;nbsp;onRequestConfirm=&amp;#123;this.state.closeDeleteModal.bind(this)&amp;#125; &lt;br/&gt;
+									/&amp;gt; &lt;br/&gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="component-example"&gt;
+							&lt;h4&gt;Notice Modal&lt;/h4&gt;
+							&lt;p&gt;
+								&lt;button className="btn btn-default" onClick={this.openNoticeModal.bind(this)}&gt;Open Modal&lt;/button&gt;
+							&lt;/p&gt;
+							&lt;NoticeModal
+								isOpen={this.state.noticeModalIsOpen}
+								onRequestClose={this.closeNoticeModal.bind(this)}
+								title={&lt;FormattedMessage id="modals.cmiNotice.title" /&gt;}
+								contentLabel={this.props.intl.formatMessage({ id: 'modals.cmiNotice.title' })}
+								confirmText={&lt;FormattedMessage id="modals.cmiNotice.confirmText" /&gt;}
+								&gt;
+								&lt;FormattedHTMLMessage id="modals.cmiNotice.body" /&gt;
+							&lt;/NoticeModal&gt;
+							&lt;pre&gt;
+								&lt;code&gt;
+									&amp;lt;a href="#" className="btn btn-default" onClick=&amp;#123;this.openNoticeModal.bind(this)&amp;#125;&amp;gt;Open Modal&amp;lt;/a&amp;gt; &lt;br/&gt;
+									&amp;lt;NoticeModal&lt;br/&gt;
+										&amp;nbsp;isOpen=&amp;#123;this.state.noticeModalIsOpen&amp;#125;&lt;br/&gt;
+										&amp;nbsp;onRequestClose=&amp;#123;this.closeNoticeModal.bind(this)&amp;#125;&lt;br/&gt;
+										&amp;nbsp;title=&amp;#123;&amp;lt;FormattedMessage id="modals.cmiNotice.title" /&amp;gt;&amp;#125;&lt;br/&gt;
+										&amp;nbsp;confirmText=&amp;#123;&amp;lt;FormattedMessage id="modals.cmiNotice.confirmText" /&amp;gt;&amp;#125;&lt;br/&gt;
+									&amp;gt;&lt;br/&gt;
+										&amp;nbsp;&amp;lt;FormattedHTMLMessage id="modals.cmiNotice.body" /&amp;gt;&lt;br/&gt;
+									&amp;lt;/NoticeModal&amp;gt;
+								&lt;/code&gt;
+							&lt;/pre&gt;
+						&lt;/div&gt;
+&nbsp;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/Form&gt;
+		);
+	}
+}
+&nbsp;
+export default injectIntl(Components);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

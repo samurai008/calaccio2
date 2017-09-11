@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/AccountCreation/ReenterAccessCodeModal.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/AccountCreation</a> ReenterAccessCodeModal.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.25% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import AppDispatcher from '../../Dispatchers/AppDispatcher';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import Formsy from 'formsy-react';
+import ValidationsStore from '../../Stores/ValidationsStore';
+import ConfigStore from '../../Stores/ConfigStore';
+import AccountActions from '../../Actions/AccountActions';
+import Modal, { ModalHeader } from '../Modal.jsx';
+import TextInput from '../Inputs/TextInput.jsx';
+import RecaptchaInput from '../../Components/Inputs/RecaptchaInput.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import StringRequirements from '../StringRequirements.jsx';
+&nbsp;
+let newAccessCodeValid = true;
+&nbsp;
+/**
+ * custom Formsy rule to validate whether the looked up zipcode is within CA
+ * @type {boolean}
+ */
+Formsy.addValidationRule('newAccessCodeValid', () =&gt; newAccessCodeValid);
+&nbsp;
+class ReenterAccessCodeModal extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+		this.state = {
+			formIsValid: false,
+			formData: {
+				accessCode: ''
+			}
+		};
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleFieldChange(name, value) {
+		var delta = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >		delta[name] = value;</span>
+<span class="cstat-no" title="statement not covered" >		newAccessCodeValid = true;</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ formData: Object.assign(this.state.formData, delta) });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleSubmitForm(data) {
+<span class="cstat-no" title="statement not covered" >		AccountActions.reSubmitAccessCode(Object.assign({}, this.props.accountDetails, data));</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormValid() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsValid: true });</span>
+<span class="cstat-no" title="statement not covered" >		this.props.onFormValid();</span>
+	}
+&nbsp;
+	onFormInValid() {
+		this.setState({ formIsValid: false });
+		this.props.onFormInValid();
+	}
+	componentDidMount() {
+		this.dispatcherId = AppDispatcher.register(payload =&gt; {
+			switch(payload.action.type) {
+				case 'CREATE_ACCOUNT_ACCESS_CODE_INVALID':
+					// only handle this event if the submission was made here
+					<span class="missing-if-branch" title="if path not taken" >I</span>if(this.state.formIsValid) {
+<span class="cstat-no" title="statement not covered" >						newAccessCodeValid = false;</span>
+<span class="cstat-no" title="statement not covered" >						this.accessCode.setValue(this.state.formData.accessCode);</span>
+<span class="cstat-no" title="statement not covered" >						if(typeof this.recaptchaInner !== "undefined") <span class="cstat-no" title="statement not covered" >this.recaptchaInner.reset();</span></span>
+					}
+					break;
+				default:
+					break;
+			}
+		});
+	}
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >		AppDispatcher.unregister(this.dispatcherId);</span>
+	}
+	render() {
+		let recaptchaSiteKey = ConfigStore.get('recaptcha-sitekey'),
+			recaptchaEnabled = ConfigStore.get('recaptcha-enable');
+&nbsp;
+		return (
+			&lt;Modal
+				className="username-modal"
+				isOpen={this.props.isOpen}
+				contentLabel={this.props.intl.messageIfExists('account-creation-access-code-invalid-modal-header')}
+				onRequestClose={this.props.onRequestClose}
+				shouldCloseOnOverlayClick={false}
+			&gt;
+				&lt;div className="text-center"&gt;
+					&lt;h1&gt;&lt;FormattedMessage id="account-creation-access-code-invalid-modal-header" /&gt;&lt;/h1&gt;
+				&lt;/div&gt;
+				&lt;p&gt;
+					&lt;FormattedHTMLMessage id="account-creation-access-code-invalid-modal-body"/&gt;
+				&lt;/p&gt;
+				&lt;Formsy.Form onValidSubmit={this.handleSubmitForm.bind(this)} onValid={this.onFormValid.bind(this)} onInvalid={this.onFormInValid.bind(this)}&gt;
+					&lt;TextInput
+						label={&lt;FormattedMessage id="account-creation-create-access-code-label" /&gt;}
+						aria-label={this.props.intl.messageIfExists('account-creation-create-access-code-label')}
+						name="accessCode"
+						id="accessCode"
+						ref={component =&gt; this.accessCode = component}
+						value={this.state.formData.accessCode}
+						onChange={this.handleFieldChange.bind(this)}
+						pattern="[a-zA-Z0-9]{6}"
+						validations={{ 
+							newAccessCodeValid: true, 
+							isLength: 6 
+						}}
+						validationErrors={{
+							newAccessCodeValid: this.props.intl.messageIfExists('account-creation-access-code-invalid-modal-error')
+						}}
+						requiredError={this.props.intl.messageIfExists("account-creation-create-access-code-required-error")}
+						required
+					/&gt;
+&nbsp;
+					&lt;ConditionalField condition={recaptchaEnabled === true} &gt;
+						&lt;RecaptchaInput
+							name="captchaRespTkn"
+							ref={<span class="fstat-no" title="function not covered" >co</span>mponent =&gt;	<span class="cstat-no" title="statement not covered" >this.recaptcha = component </span>}
+							innerRef={<span class="fstat-no" title="function not covered" >co</span>mponent =&gt;	<span class="cstat-no" title="statement not covered" >this.recaptchaInner = component </span>}
+							siteKey={recaptchaSiteKey}
+							onChange={this.handleFieldChange.bind(this)}
+							required
+						/&gt;
+					&lt;/ConditionalField&gt;
+&nbsp;
+					&lt;div className="login-button-row row"&gt;
+						&lt;div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2"&gt;
+							&lt;button
+								id="account-creation-access-code-invalid-modal-button-cancel"
+								className="btn btn-cancel btn-block"
+								onClick={this.props.onRequestClose}
+							&gt;
+								&lt;FormattedMessage id="account-creation-access-code-invalid-modal-button-cancel" /&gt;
+							&lt;/button&gt;
+						&lt;/div&gt;
+						&lt;div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2"&gt;
+							&lt;button
+								id="account-creation-access-code-invalid-modal-button"
+								type="submit"
+								className="btn btn-primary btn-block"
+								disabled={!this.state.formIsValid}
+							&gt;
+								&lt;FormattedMessage id="account-creation-access-code-invalid-modal-button" /&gt;
+							&lt;/button&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/Formsy.Form&gt;
+			&lt;/Modal&gt;
+		);
+	}
+}
+&nbsp;
+ReenterAccessCodeModal.propTypes = {
+	intl: intlShape.isRequired,
+	onFormValid: React.PropTypes.func,
+	onFormInValid: React.PropTypes.func
+};
+&nbsp;
+ReenterAccessCodeModal.defaultProps = {
+	onFormValid: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	onFormInValid: () =&gt; {}
+};
+&nbsp;
+export default injectIntl(ReenterAccessCodeModal);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

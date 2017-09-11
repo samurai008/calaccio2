@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Forms/FormHOC.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Forms</a> FormHOC.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>17/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">247x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">253x</span>
+<span class="cline-any cline-yes">253x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">175x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1585x</span>
+<span class="cline-any cline-yes">1585x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">149x</span>
+<span class="cline-any cline-yes">129x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">175x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">247x</span>
+<span class="cline-any cline-yes">2052x</span>
+<span class="cline-any cline-yes">3722x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2052x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">247x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">247x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { Form } from 'formsy-react';
+import moment from '../../TimeshifterMoment';
+&nbsp;
+/*
+	Basic form shape and reusable props
+*/
+&nbsp;
+&nbsp;
+const FormHOC = Component =&gt; {
+	// in some cases the form needs to provide additional validation state
+	// in addition to the form fields simply being valid
+	let pendingInternalFormValidation = false;
+	return (
+		componentProps =&gt; {
+			var props = Object.assign({}, componentProps, {
+&nbsp;
+				handleFieldChange: (name, value) =&gt; {
+					// Set the value on a copy of props.formData
+					let formData = deepSetObj(name, value, Object.assign({}, props.formData));
+					componentProps.onChange(formData);
+				},
+				getFormValue: (name, defaultValue = '') =&gt; {
+					let val = deepGet(name, props.formData);
+					return typeof val !== 'undefined' ? val : defaultValue;
+				},
+&nbsp;
+				getDateValue: (dateField, defaultValue = null) =&gt; {
+					let data = deepGet(dateField, props.formData);
+					<span class="missing-if-branch" title="else path not taken" >E</span>if(!data || <span class="branch-1 cbranch-no" title="branch not covered" >data === null </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >data === "")</span> return defaultValue;
+					let dateValue = <span class="cstat-no" title="statement not covered" >moment(data, 'L');</span>
+<span class="cstat-no" title="statement not covered" >					return dateValue.isValid() ? dateValue : defaultValue;</span>
+				},
+&nbsp;
+				onFormValid: () =&gt; {
+					<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof componentProps.requireInternalFormValidation === "boolean"
+						&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >componentProps.requireInternalFormValidation === true</span>
+						&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >pendingInternalFormValidation === true</span>
+					) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+					if(typeof componentProps.onFormValid === 'function') {
+						componentProps.onFormValid();
+					}
+				},
+&nbsp;
+				onFormInValid: () =&gt; {
+					if(typeof componentProps.onFormInValid === 'function') {
+						componentProps.onFormInValid();
+					}
+				},
+				onInternalFormValid: <span class="fstat-no" title="function not covered" >(v</span>alid) =&gt; {
+<span class="cstat-no" title="statement not covered" >					pendingInternalFormValidation = !valid;</span>
+				},
+&nbsp;
+				handleSubmitForm: <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
+					// console.log('handleSubmitForm', data);
+				}
+&nbsp;
+			});
+			return (
+				&lt;Form
+					onValidSubmit={props.handleSubmitForm}
+					onValid={props.onFormValid}
+					onInvalid={props.onFormInValid}
+				&gt;
+					{
+						React.createElement(Component, props)
+					}
+				&lt;/Form&gt;
+			)
+		}
+	);
+};
+&nbsp;
+export default FormHOC;
+&nbsp;
+export const deepGet = (path, obj) =&gt; {
+	const nested = path.split('.').reduce(function(prev, curr) {
+		return prev ? prev[curr] : undefined
+	}, obj);
+	// fallback to flat objects
+	return (typeof nested !== "undefined") ? nested : obj[path];
+};
+export const deepSet = <span class="fstat-no" title="function not covered" >(p</span>ath, val) =&gt; {
+	let obj = <span class="cstat-no" title="statement not covered" >{};</span>
+	const keys = <span class="cstat-no" title="statement not covered" >path.split('.');</span>
+<span class="cstat-no" title="statement not covered" >	if(keys.length &gt; 0) {</span>
+		const lastKey = <span class="cstat-no" title="statement not covered" >keys.pop();</span>
+		const lastObj = <span class="cstat-no" title="statement not covered" >keys.reduce(<span class="fstat-no" title="function not covered" >(o</span>bj, key) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >				obj[key] = obj[key] || {},</span>
+			obj);
+<span class="cstat-no" title="statement not covered" >		lastObj[lastKey] = val;</span>
+<span class="cstat-no" title="statement not covered" >		return obj;</span>
+	}
+	// fallback to flat path
+<span class="cstat-no" title="statement not covered" >	obj[path] = val;</span>
+<span class="cstat-no" title="statement not covered" >	return obj;</span>
+};
+&nbsp;
+export const deepSetObj = (path, val, obj) =&gt; {
+	let keys = path.split('.'),
+		lastKey = keys.pop(),
+		ref = keys.reduce((prev, next) =&gt; {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if( ! prev[next]) <span class="cstat-no" title="statement not covered" >prev[next] = {};</span>
+			return prev[next];
+		}, obj);
+	
+	ref[lastKey] = val;
+&nbsp;
+	// console.log(val, ref, obj);
+	return obj;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/IncomeApp/IncomeCategoryOverview.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/IncomeApp</a> IncomeCategoryOverview.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.86% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.62% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage, FormattedHTMLMessage, FormattedDate } from 'react-intl';
+import IncomeCategoriesStore from '../../Stores/IncomeApp/IncomeCategoriesStore.js';
+import IncomeTypesStore from '../../Stores/IncomeApp/IncomeTypesStore.js';
+import HouseholdMemberActions from '../../Actions/HouseholdMemberActions.js';
+import { ContentCard } from '../../Components/Layout/Layout.jsx';
+import IncomeType from '../../Components/IncomeApp/IncomeType.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import EditIncomeModal from './EditIncomeModal.jsx';
+import { DeleteModal } from '../../Components/Modal.jsx';
+import { ForwardBack } from '../../Components/ActionsRow.jsx';
+import ContentHeader from '../../Components/ContentHeader.jsx';
+import moment from '../../TimeshifterMoment';
+&nbsp;
+class IncomeCategoryOverview extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+&nbsp;
+		// Set initial state
+		this.state = {
+			totalCategories: IncomeCategoriesStore.getAllCategories().length,
+			editIncomeModalIsOpen: false,
+			confirmDeleteIncomeModalIsOpen: false,
+			editIncomeId: null,
+			editIncomeType: null
+		};
+&nbsp;
+		this.state = Object.assign(this.state, this.getCategoryState(this.props.params.categoryType));
+	}
+&nbsp;
+	componentWillReceiveProps(nextProps) {
+		this.setState(this.getCategoryState(nextProps.params.categoryType));
+	}
+&nbsp;
+	getCategoryState(categoryType) {
+		var category = categoryType
+						? IncomeCategoriesStore.getCategoryByType(categoryType)
+						: <span class="branch-1 cbranch-no" title="branch not covered" >IncomeCategoriesStore.getFirstCategory();</span>
+		return {
+			category: category,
+			previousCategory: IncomeCategoriesStore.getPreviousCategory(category.categoryType),
+			nextCategory: IncomeCategoriesStore.getNextCategory(category.categoryType),
+			incomeTypes: IncomeTypesStore.getAllByCategory(category.categoryType),
+			currentPage: IncomeCategoriesStore.getCategoryKey(category.categoryType) + 1
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>Back() {
+<span class="cstat-no" title="statement not covered" >		this.context.router.push(this.state.previousCategory ? '/income/person/' + this.props.person.personId + '/income/' + this.state.previousCategory.categoryType : '/income/review');</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>Forward() {
+<span class="cstat-no" title="statement not covered" >		this.context.router.push('/income/person/' + this.props.person.personId + (</span>
+									this.state.nextCategory
+										? '/income/' + this.state.nextCategory.categoryType
+										: '/deductions'
+							));
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleAddIncome(typeCode) {
+<span class="cstat-no" title="statement not covered" >		if(this.props.viewOnlyMode === true) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >		this.context.router.push('/income/person/' + this.props.params.personId + '/income/add-income/' + typeCode);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleEditIncome(incomeType, incomeId) {
+<span class="cstat-no" title="statement not covered" >		this.setState({ editIncomeId: incomeId, editIncomeType: incomeType, editIncomeModalIsOpen: true});</span>
+	}
+&nbsp;
+	handleCloseEditIncomeModal() {
+		this.setState({ editIncomeId: null, editIncomeType: null, editIncomeModalIsOpen: false});
+	}
+&nbsp;
+	requestConfirmDeleteIncome(onConfirm) {
+		this.onConirmDeleteIncome = onConfirm;
+		this.setState({ editIncomeModalIsOpen: false, confirmDeleteIncomeModalIsOpen: true });
+	}
+&nbsp;
+	cancelDeleteIncome() {
+		this.setState({ editIncomeModalIsOpen: true, confirmDeleteIncomeModalIsOpen: false });
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>nfirmDeleteIncome() {
+<span class="cstat-no" title="statement not covered" >		this.onConirmDeleteIncome();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ confirmDeleteIncomeModalIsOpen: false });</span>
+	}
+&nbsp;
+	render() {
+		const classNames = ['income-overview'],
+			incomeTypes = this.state.incomeTypes.map(<span class="fstat-no" title="function not covered" >(c</span>at, key) =&gt; {
+				/* don't display special types unless the user is a member of the group, or if the member is, and the type is PC which doesn't get displayed */
+<span class="cstat-no" title="statement not covered" >				if((this.props.person &amp;&amp; (!this.props.person.memberOfIndianTribeIndicator || this.props.person.memberOfIndianTribeIndicator === 'N') &amp;&amp;	cat.incomeType == 'AA')</span>
+					|| cat.incomeType == 'PC') {
+<span class="cstat-no" title="statement not covered" >					return;</span>
+				}
+&nbsp;
+				var incomes = <span class="cstat-no" title="statement not covered" >this.props.person &amp;&amp; Array.isArray(this.props.person.incomes) ?</span>
+								this.props.person.incomes.filter(<span class="fstat-no" title="function not covered" >(i</span>ncome) =&gt; {
+<span class="cstat-no" title="statement not covered" >									return income.incomeType === cat.incomeType</span>
+										/** show PC income entries with AA */
+										|| (this.props.person &amp;&amp; this.props.person.memberOfIndianTribeIndicator === 'Y' &amp;&amp; cat.incomeType == 'AA' &amp;&amp; income.incomeType == 'PC')
+								})
+								: [];
+<span class="cstat-no" title="statement not covered" >				return (</span>
+					&lt;li key={key}&gt;
+						&lt;IncomeType
+							id={'income-overview-type-' + cat.incomeType}
+							item={cat}
+							incomes={incomes}
+							onAdd={this.handleAddIncome.bind(this)}
+							onEdit={this.handleEditIncome.bind(this)}
+							showSummaryRow={true}
+							person={this.props.person}
+							viewOnlyMode={this.props.viewOnlyMode}
+						/&gt;
+					&lt;/li&gt;
+				)
+			});
+&nbsp;
+		// Add category specific classes
+		classNames.push(this.state.category.categoryType);
+&nbsp;
+		return (
+			&lt;div className={classNames.join(' ')}&gt;
+				&lt;ContentCard&gt;
+					&lt;ContentHeader
+						text={
+							this.props.person
+							? &lt;FormattedMessage
+								id="2.1-employment-&amp;-self-employment-income-header-dynamic"
+								values={{
+									firstName: this.props.person.firstName
+								}}
+								/&gt;
+							: ''
+						}
+					/&gt;
+&nbsp;
+					&lt;div className="content"&gt;
+						&lt;div className="intro"&gt;
+							&lt;h5 className="category-count"&gt;
+								&lt;FormattedMessage
+									id="category-page-of-page-count"
+									values={{
+										currentPage: this.state.currentPage,
+										totalPages: this.state.totalCategories
+									}}
+									/&gt;
+							&lt;/h5&gt;
+							&lt;h2&gt;
+								&lt;FormattedHTMLMessage
+									id={this.state.category.categoryType + '-category-title'}
+									/&gt;
+							&lt;/h2&gt;
+							&lt;p&gt;
+								&lt;FormattedMessage
+									id={this.state.category.categoryType + '-category-instructions'}
+									values={{
+										firstName: this.props.person ? this.props.person.firstName : '',
+										currentYear: &lt;FormattedDate value={moment().year(this.props.enrollmentYear)} year="numeric" /&gt;
+									}}
+								/&gt;
+							&lt;/p&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;div className="income-categories"&gt;
+							&lt;ul&gt;{incomeTypes}&lt;/ul&gt;
+						&lt;/div&gt;
+&nbsp;
+						&lt;ConditionalField condition={
+							this.props.intl.doesMessageExist(this.state.category.categoryType + '-category-disclaimer')
+						}&gt;
+							&lt;div className="disclaimer"&gt;
+								&lt;FormattedHTMLMessage
+									tagName="div"
+									id={this.state.category.categoryType + '-category-disclaimer'}
+									/&gt;
+							&lt;/div&gt;
+						&lt;/ConditionalField&gt;
+					&lt;/div&gt;
+&nbsp;
+					&lt;ForwardBack
+						id="income-category-forwardback"
+						forwardText={&lt;FormattedMessage id="2.1-employment-&amp;-self-employment-income-button7" /&gt;}
+						backText={&lt;FormattedMessage id="2.1-employment-&amp;-self-employment-income-button8" /&gt;}
+						onForward={this.onForward.bind(this)}
+						onBack={this.onBack.bind(this)}
+					/&gt;
+&nbsp;
+				&lt;/ContentCard&gt;
+&nbsp;
+				&lt;EditIncomeModal
+					isOpen={this.state.editIncomeModalIsOpen}
+					person={this.props.person}
+					onSave={this.handleCloseEditIncomeModal.bind(this)}
+					onCancel={this.handleCloseEditIncomeModal.bind(this)}
+					onRequestConfirmDelete={this.requestConfirmDeleteIncome.bind(this)}
+					incomeId={this.state.editIncomeId}
+					incomeType={this.state.editIncomeType}
+					intl={this.props.intl}
+					enrollmentYear={this.props.enrollmentYear}
+					viewOnlyMode={this.props.viewOnlyMode}
+				/&gt;
+&nbsp;
+				&lt;DeleteModal
+					isOpen={this.state.confirmDeleteIncomeModalIsOpen}
+					onRequestClose={this.cancelDeleteIncome.bind(this)}
+					onRequestConfirm={this.confirmDeleteIncome.bind(this)}
+					contentLabel={this.props.intl.messageIfExists('modals.delete.header')}
+					title={this.props.intl.messageIfExists('modals.delete.header')}
+					confirmText={this.props.intl.messageIfExists('modals.delete.confirmButtonText')}
+					cancelText={this.props.intl.messageIfExists('modals.delete.cancelButtonText')}
+				&gt;
+					&lt;FormattedHTMLMessage id="modals.delete.text" /&gt;
+				&lt;/DeleteModal&gt;
+&nbsp;
+			&lt;/div&gt;
+		);
+	}
+}
+&nbsp;
+IncomeCategoryOverview.propTypes = {
+	intl: intlShape.isRequired,
+	person: React.PropTypes.object,
+	params: React.PropTypes.object,
+	enrollmentYear: React.PropTypes.number.isRequired,
+	viewOnlyMode: React.PropTypes.bool
+};
+&nbsp;
+IncomeCategoryOverview.defaultProps = {
+	viewOnlyMode: false
+};
+&nbsp;
+IncomeCategoryOverview.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(IncomeCategoryOverview);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

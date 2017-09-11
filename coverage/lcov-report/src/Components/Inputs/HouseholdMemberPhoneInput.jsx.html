@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Inputs/HouseholdMemberPhoneInput.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Inputs</a> HouseholdMemberPhoneInput.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/4</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import PhoneInput from '../../Components/Inputs/PhoneInput.jsx';
+import RadioInput from '../../Components/Inputs/RadioInput.jsx';
+import NumericInput from '../../Components/Inputs/NumericInput.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+const HouseholdMemberPhoneInput = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+	&lt;span className="multiple-phone-input"&gt;
+		&lt;PhoneInput
+			label={props.intl.messageIfExists('household-add-member-contact-home-phone-label', props.i18nValues)}
+			aria-label={props.intl.messageIfExists('household-add-member-contact-home-phone-label', props.i18nValues)}
+			id="homephone"
+			name={(props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'homePhoneNumber'}
+			value={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'homePhoneNumber')}
+			onChange={props.handleFieldChange}
+			validations="minLength:10,maxLength:14,doesNotStartWith:0"
+			validationErrors={{
+				minLength: props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+				maxLength: props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+				doesNotStartWith:  props.intl.messageIfExists('account-creation-create-contact-method-phone-error')
+			}}
+			optional={
+				props.phoneNumbersOptional === true
+				|| (props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'workPhoneNumber').length &gt;= 10
+				|| props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber').length &gt;= 10)}
+			required={
+				props.phoneNumbersOptional === false
+				&amp;&amp; props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'workPhoneNumber').length &lt; 10
+				&amp;&amp; props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber').length &lt; 10
+			}
+			requiredError={props.intl.messageIfExists('account-creation-create-contact-method-phone-error')}
+		/&gt;
+		&lt;PhoneInput
+			label={props.intl.messageIfExists('household-add-member-contact-cell-phone-label', props.i18nValues)}
+			aria-label={props.intl.messageIfExists('household-add-member-contact-cell-phone-label', props.i18nValues)}
+			id="cellphone"
+			name={(props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber'}
+			value={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber')}
+			onChange={props.handleFieldChange}
+			validations="minLength:10,maxLength:14,doesNotStartWith:0"
+			validationErrors={{
+				minLength: props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+				maxLength: props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+				doesNotStartWith:  props.intl.messageIfExists('account-creation-create-contact-method-phone-error') 
+			}}
+			optional={
+				props.phoneNumbersOptional === true
+				|| (props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'workPhoneNumber').length &gt;= 10
+				|| props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'homePhoneNumber').length &gt;= 10)
+			}
+			required={
+				props.phoneNumbersOptional === false
+				&amp;&amp; props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'workPhoneNumber').length &lt; 10
+				&amp;&amp; props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'homePhoneNumber').length &lt; 10
+			}
+			requiredError={props.intl.messageIfExists('account-creation-create-contact-method-phone-error')}
+		/&gt;
+		&lt;ConditionalField condition={
+			props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber').length &gt;= 10
+			&amp;&amp; props.dataObjPrefix === "primaryContactData.contact"
+		}&gt;
+			&lt;RadioInput
+				label={props.intl.messageIfExists('household-add-member-contact-phone-consent-label', props.i18nValues)}
+				aria-label={props.intl.formatMessage({ id: 'household-add-member-contact-phone-consent-label' }, props.i18nValues)}
+				id={'isCoverageDetailsRequired'}
+				name={(props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'isCoverageDetailsRequired'}
+				onChange={props.handleFieldChange}
+				options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				value={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'isCoverageDetailsRequired')}
+				requiredError={props.intl.messageIfExists('household-add-member-contact-phone-consent-required-error')}
+				required={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber').length &gt;= 10}
+			/&gt;
+			&lt;ConditionalField condition={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'isCoverageDetailsRequired') === "Y"}&gt;
+				&lt;FormattedHTMLMessage id="household-add-member-contact-phone-consent-hint" tagName="p" /&gt;
+				&lt;br /&gt;
+				&lt;br /&gt;
+			&lt;/ConditionalField&gt;
+		&lt;/ConditionalField&gt;
+		&lt;PhoneInput
+			label={props.intl.messageIfExists('household-add-member-contact-work-phone-label', props.i18nValues)}
+			aria-label={props.intl.messageIfExists('household-add-member-contact-work-phone-label', props.i18nValues)}
+			id="workphone"
+			name={(props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'workPhoneNumber'}
+			value={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'workPhoneNumber')}
+			onChange={props.handleFieldChange}
+			validations="minLength:10,maxLength:14,doesNotStartWith:0"
+			validationErrors={{
+				minLength: props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+				maxLength: props.intl.messageIfExists('account-creation-create-contact-method-phone-error'),
+				doesNotStartWith:  props.intl.messageIfExists('account-creation-create-contact-method-phone-error') 
+			}}
+			optional={
+				props.phoneNumbersOptional === true
+				|| (props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'homePhoneNumber').length &gt;= 10
+				|| props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber').length &gt;= 10)
+			}
+			required={
+				props.phoneNumbersOptional === false
+				&amp;&amp; props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'cellPhoneNumber').length &lt; 10
+				&amp;&amp; props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'homePhoneNumber').length &lt; 10
+			}
+			requiredError={props.intl.messageIfExists('account-creation-create-contact-method-phone-error')}
+		/&gt;
+&nbsp;
+		&lt;NumericInput
+			className="extension"
+			label={props.intl.messageIfExists('household-add-member-contact-extension-label', props.i18nValues)}
+			aria-label={props.intl.messageIfExists('household-add-member-contact-extension-label', props.i18nValues)}
+			id="extension"
+			name={(props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'extension'}
+			value={props.getFormValue((props.dataObjPrefix ? props.dataObjPrefix + '.' : '') + 'extension')}
+			onChange={props.handleFieldChange}
+			pattern="[0-9]{0,5}"
+			maxLength="5"
+			optional={true}
+		/&gt;
+	&lt;/span&gt;
+	);
+};
+&nbsp;
+HouseholdMemberPhoneInput.propTypes = {
+	intl: React.PropTypes.object,
+	handleFieldChange: React.PropTypes.func,
+	getFormValue: React.PropTypes.func,
+	phoneNumbersOptional: React.PropTypes.bool,
+	dataObjPrefix: React.PropTypes.string
+};
+&nbsp;
+HouseholdMemberPhoneInput.defaultProps = {
+	phoneNumbersOptional: true
+};
+&nbsp;
+export default HouseholdMemberPhoneInput;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

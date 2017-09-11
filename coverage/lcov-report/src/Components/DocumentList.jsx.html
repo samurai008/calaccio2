@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/DocumentList.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Components</a> DocumentList.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.91% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44.44% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/18</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Component} from 'react';
+import { FormattedMessage, injectIntl } from 'react-intl';
+import RadioInput from './Inputs/RadioInput.jsx';
+import FileDrop from './Inputs/FileDrop.jsx';
+import Accordion, { Panel } from './Accordion.jsx';
+&nbsp;
+class DocumentList extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+		this.state = {
+			seeMoreVisible: false,
+			activeRow: -1
+		};
+	}
+&nbsp;
+	handleClick(e) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (e.target.tagName !== "A") {
+			this.props.handleDocumentClick(this.props.listType);
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			e.stopPropagation();</span>
+		}
+	}
+&nbsp;
+	handleAccordionToggle(row) {
+		this.setState({ activeRow: row });
+	}
+&nbsp;
+	render() {
+		var className = [].concat(
+				this.props.className ? <span class="branch-0 cbranch-no" title="branch not covered" >this.props.className.split(' ') </span>: [],
+				"doc-checklist",
+				this.props.selectedType === this.props.listType ? <span class="branch-0 cbranch-no" title="branch not covered" >"selected" </span>: [],
+				this.props.selectedType !== '' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.props.selectedType !== this.props.listType </span>? <span class="branch-0 cbranch-no" title="branch not covered" >"inactive" </span>: []
+			);
+&nbsp;
+		var displayNames = this.props.list.map(<span class="fstat-no" title="function not covered" >fu</span>nction(item){ <span class="cstat-no" title="statement not covered" >return item.label;}</span>);
+		var mobileDisplayNames = this.props.mobileList.map(<span class="fstat-no" title="function not covered" >fu</span>nction(item){ <span class="cstat-no" title="statement not covered" >return item.label;}</span>)
+&nbsp;
+		var choices = displayNames.map(<span class="fstat-no" title="function not covered" >(i</span>tem, key) =&gt; <span class="cstat-no" title="statement not covered" >&lt;li key={item} &gt;{item}&lt;/li&gt;)</span>;
+		var half_length = Math.ceil(choices.length / 2); 
+		var choicesA = choices.slice(0, half_length);
+		var choicesB = choices.slice(half_length + 1);
+&nbsp;
+		var mobileChoices =  mobileDisplayNames.slice(0,3).map(<span class="fstat-no" title="function not covered" >(i</span>tem, key) =&gt; <span class="cstat-no" title="statement not covered" >&lt;li key={item} &gt;{item}&lt;/li&gt;)</span>;
+		var mobileHiddenChoices =  mobileDisplayNames.slice(3).map(<span class="fstat-no" title="function not covered" >(i</span>tem, key) =&gt; <span class="cstat-no" title="statement not covered" >&lt;li key={item} &gt;{item}&lt;/li&gt;)</span>;
+&nbsp;
+		return (
+			&lt;div className={className.join(' ')} onClick={this.handleClick.bind(this)}&gt;
+				&lt;div className="list-title"&gt;
+					&lt;FormattedMessage id="household-primary-confirm-identity-document-title" tagName="h3" values={{list: this.props.listType}} /&gt;
+					&lt;FormattedMessage id="household-primary-confirm-identity-document-upload" tagName="p" values={{num: this.props.docsRequired}} /&gt;
+					&lt;div className="radio-icon"&gt;&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div className="row hidden-xs"&gt;
+					&lt;div className="col-sm-6 col-md-12"&gt;
+						&lt;ul&gt;{choicesA}&lt;/ul&gt;
+					&lt;/div&gt;
+					&lt;div className="col-sm-6 col-md-12"&gt;
+						&lt;ul&gt;{choicesB}&lt;/ul&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div className="row hidden-sm hidden-md hidden-lg"&gt;
+					&lt;div className="col-xs-12"&gt;
+						&lt;ul&gt;{mobileChoices}&lt;/ul&gt;
+&nbsp;
+						&lt;Accordion
+							id="mobile-upload-accordon"
+							activeRow={this.state.activeRow}
+							onToggle={this.handleAccordionToggle.bind(this)}
+						&gt;
+							&lt;Panel key="0" control={this.props.intl.messageIfExists('household-primary-confirm-identity-document-drop-seemore', this.props.i18nValues)}&gt;
+								&lt;ul className="hidden-choices"&gt;{mobileHiddenChoices}&lt;/ul&gt;
+							&lt;/Panel&gt;						
+						&lt;/Accordion&gt;
+&nbsp;
+						&lt;FileDrop 
+							className="confirm-file-drop" 
+							intl={this.props.intl}
+							documentType={this.props.listType} 
+							documents={this.props.list}
+							requiredNum={this.props.docsRequired}
+							onUpload={this.props.onUpload.bind(this)} 
+							onDelete={this.props.onDelete.bind(this)} 
+							uploadedDocs={this.props.uploadedDocs}
+							disableClick={false}&gt;
+						&lt;/FileDrop&gt;
+&nbsp;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		);
+	}
+};
+&nbsp;
+DocumentList.propTypes = {
+	list: React.PropTypes.array,
+	mobileList: React.PropTypes.array,
+	listType: React.PropTypes.string,
+	docsRequired: React.PropTypes.string,
+	intl: React.PropTypes.object,
+	selectedType: React.PropTypes.string,
+	handleDocumentClick: React.PropTypes.func,
+	onDelete: React.PropTypes.func,
+	onUpload: React.PropTypes.func,
+	uploadedDocs: React.PropTypes.array
+};
+&nbsp;
+DocumentList.defaultProps = {
+	color: '',
+	list: [],
+	mobileList: [],
+	listType: "A",
+	intl: {},
+	docsRequired: "1",
+	selectedType: "",
+	uploadedDocs: []
+};
+&nbsp;
+export default DocumentList;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

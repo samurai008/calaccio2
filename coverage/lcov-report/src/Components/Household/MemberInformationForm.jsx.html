@@ -1,0 +1,1793 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Household/MemberInformationForm.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Household</a> MemberInformationForm.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.03% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/59</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.85% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.41% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import moment from '../../TimeshifterMoment';
+import Formsy from 'formsy-react';
+import FormHOC from '../../Components/Forms/FormHOC.jsx';
+import FormColumn from '../Inputs/FormColumn.jsx';
+import TextInput from '../../Components/Inputs/TextInput.jsx';
+import RadioInput from '../../Components/Inputs/RadioInput.jsx';
+import DropDown from '../../Components/Inputs/DropDown.jsx';
+import DateInput from '../../Components/Inputs/DateInput.jsx';
+import SegmentedControl from '../../Components/Inputs/SegmentedControl.jsx';
+import MultiSelectCheckBoxes from '../../Components/Inputs/MultiSelectCheckBoxes.jsx';
+import EmailInput from '../../Components/Inputs/EmailInput.jsx';
+import PhoneInput from '../../Components/Inputs/PhoneInput.jsx';
+import HouseholdMemberPhoneInput from '../Inputs/HouseholdMemberPhoneInput.jsx';
+import Accordion, { Panel } from '../../Components/Accordion.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import ConfigStore from '../../Stores/ConfigStore.js';
+&nbsp;
+export const MemberInformationForm = injectIntl(FormHOC((props) =&gt; {
+		
+	var suffixDropdownOptions = [
+		{ value: 'JR', label: props.intl.messageIfExists('household-review--person-suffix--value-JR') },
+		{ value: 'SR', label: props.intl.messageIfExists('household-review--person-suffix--value-SR') },
+		{ value: 'I', label: props.intl.messageIfExists('household-review--person-suffix--value-I') },
+		{ value: 'II', label: props.intl.messageIfExists('household-review--person-suffix--value-II') },
+		{ value: 'III', label: props.intl.messageIfExists('household-review--person-suffix--value-III') },
+		{ value: 'IV', label: props.intl.messageIfExists('household-review--person-suffix--value-IV') },
+		{ value: 'V', label: props.intl.messageIfExists('household-review--person-suffix--value-V') },
+		{ value: 'VI', label: props.intl.messageIfExists('household-review--person-suffix--value-VI') },
+		{ value: 'VII', label: props.intl.messageIfExists('household-review--person-suffix--value-VII') },
+		{ value: 'VIII', label: props.intl.messageIfExists('household-review--person-suffix--value-VIII') },
+		{ value: 'IX', label: props.intl.messageIfExists('household-review--person-suffix--value-IX') },
+		{ value: 'X', label: props.intl.messageIfExists('household-review--person-suffix--value-X') }
+	];
+&nbsp;
+	return (
+		&lt;FormColumn columnClassName="col-sm-8"&gt;
+			&lt;TextInput
+				label={props.intl.messageIfExists('household-add-member-first-name-label')}
+				id="firstName"
+				name="firstName"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('firstName')}
+				pattern="(?!\s)[a-zA-Z'\s\.]{0,50}"
+				validations={{
+					matchRegexp: /^(?!\s)[a-zA-Z'\s\.]{0,50}$/
+				}}
+				validationErrors={{
+					matchRegexp: props.intl.messageIfExists('household-add-member-first-name-format-error')
+				}}
+				requiredError={props.intl.messageIfExists('household-add-member-first-name-required-error')}
+				required
+			/&gt;
+			&lt;TextInput
+				label={props.intl.messageIfExists('household-add-member-middle-name-label')}
+				id="middleName"
+				name="middleName"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('middleName')}
+				pattern="(?!\s)[a-zA-Z'\s\.]{0,50}"
+				validations={{
+					matchRegexp:	/^(?!\s)[a-zA-Z'\s\.]{0,50}$/
+				}}
+				validationErrors={{
+					matchRegexp: props.intl.messageIfExists('household-add-member-middle-name-format-error')
+				}}
+				optional={true}
+			/&gt;
+			&lt;TextInput
+				label={props.intl.messageIfExists('household-add-member-last-name-label')}
+				id="lastName"
+				name="lastName"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('lastName')}
+				pattern="(?!\s)[a-zA-Z'\s\.]{0,50}"
+				validations={{
+					matchRegexp:	/^(?!\s)[a-zA-Z'\s\.]{0,50}$/
+				}}
+				validationErrors={{
+					matchRegexp: props.intl.messageIfExists('household-add-member-last-name-format-error')
+				}}
+				requiredError={props.intl.messageIfExists('household-add-member-last-name-required-error')}
+				required
+			/&gt;
+			&lt;DropDown
+				optional={true}
+				label={props.intl.messageIfExists('household-add-member-suffix-label')}
+				name="suffix"
+				id="suffix"
+				value={props.getFormValue('suffix')}
+				customAriaLabel={props.intl.messageIfExists('application-start-how-hear-custom-placeholder')}
+				options={suffixDropdownOptions}
+				onChange={props.handleFieldChange}
+			/&gt;
+			&lt;DateInput
+				label={props.intl.messageIfExists('household-add-member-dob-label')}
+				aria-label={props.intl.messageIfExists('household-add-member-dob-label')}
+				id="dob"
+				name="dob"
+				value={props.getDateValue('dob')}
+				onChange={props.handleFieldChange}
+				showIcon={false}
+				datepickerEnabled={false}
+				validations={{
+					dateIsBeforeToday: true,
+					dateIsSameOrAfter: '1900-01-01'
+				}}
+				validationErrors={{
+					dateIsBeforeToday: props.intl.messageIfExists('household-add-member-dob-future-date-error'),
+					dateIsSameOrAfter: props.intl.messageIfExists('household-add-member-dob-past-date-error')
+				}}
+				requiredError={props.intl.messageIfExists('household-add-member-dob-required-error')}
+				required="requireValidationNullDate"
+				disabled={props.getFormValue('isVerified') === "Y"}
+			/&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const MemberInformationForm2 = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn&gt;
+			&lt;RadioInput
+				label={props.intl.messageIfExists('household-add-member-school-radio-label', props.i18nValues)}
+				id="schoolAttendingStatus"
+				name="schoolAttendingStatus"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('schoolAttendingStatus')}
+				options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				required
+				requiredError={props.intl.messageIfExists('household-add-member-student-required-error')}
+			/&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const MemberInformationSex = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn&gt;
+			&lt;SegmentedControl
+				label={props.intl.messageIfExists('household-add-member-sex-label', props.i18nValues)}
+				id="genderCd"
+				name="genderCd"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('genderCd')}
+				options={{
+					F: props.intl.messageIfExists('household-add-member-female-label'),
+					M: props.intl.messageIfExists('household-add-member-male-label'),
+					G: props.intl.messageIfExists('household-add-member-tgfm-label'),
+					T: props.intl.messageIfExists('household-add-member-tgmf-label')
+				}}
+				inline={false}
+				required
+			/&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const MemberInformationMarriage = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn&gt;
+			&lt;SegmentedControl
+				label={props.intl.messageIfExists('household-add-member-marital-label', props.i18nValues)}
+				id="maritalStatus"
+				name="maritalStatus"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('maritalStatus','SI')}
+				options={{
+					SI: props.intl.messageIfExists('household-add-member-single-label'),
+					NM: props.intl.messageIfExists('household-add-member-mever-married-label'),
+					MR: props.intl.messageIfExists('household-add-member-married-label'),
+					WD: props.intl.messageIfExists('household-add-member-widowed-label'),
+					DV: props.intl.messageIfExists('household-add-member-divorced-label'),
+					RP: props.intl.messageIfExists('household-add-member-rdp-label')
+				}}
+				inline={false}
+				required
+			/&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+const languageOptions = [
+	{ value: 'EN', label: &lt;FormattedMessage id="household-add-member-English-label" /&gt; },
+	{ value: 'AC', label: &lt;FormattedMessage id="household-add-member-Arabic-label" /&gt; },
+	{ value: 'AR', label: &lt;FormattedMessage id="household-add-member-Armenian-label" /&gt; },
+	{ value: 'CM', label: &lt;FormattedMessage id="household-add-member-Cambodian-label" /&gt; },
+	{ value: 'FA', label: &lt;FormattedMessage id="household-add-member-Farsi-label" /&gt; },
+	{ value: 'HM', label: &lt;FormattedMessage id="household-add-member-Hmong-label" /&gt; },
+	{ value: 'KO', label: &lt;FormattedMessage id="household-add-member-Korean-label" /&gt; },
+	{ value: 'RU', label: &lt;FormattedMessage id="household-add-member-Russian-label" /&gt; },
+	{ value: 'SP', label: &lt;FormattedMessage id="household-add-member-Spanish-label" /&gt; },
+	{ value: 'TA', label: &lt;FormattedMessage id="household-add-member-Tagalog-label" /&gt; },
+	{ value: 'CH', label: &lt;FormattedMessage id="household-add-member-Traditional-Chinese-character-label" /&gt; },
+	{ value: 'VI', label: &lt;FormattedMessage id="household-add-member-Vietnamese-label" /&gt; }
+];
+const spokenLanguageOptions = [
+	{ value: 'EN', label: &lt;FormattedMessage id="household-add-member-English-label" /&gt; },
+	{ value: 'AC', label: &lt;FormattedMessage id="household-add-member-Arabic-label" /&gt; },
+	{ value: 'AR', label: &lt;FormattedMessage id="household-add-member-Armenian-label" /&gt; },
+	{ value: 'CM', label: &lt;FormattedMessage id="household-add-member-Cambodian-label" /&gt; },
+	{ value: 'CA', label: &lt;FormattedMessage id="household-add-member-Cantonese-label" /&gt; },
+	{ value: 'FA', label: &lt;FormattedMessage id="household-add-member-Farsi-label" /&gt; },
+	{ value: 'HM', label: &lt;FormattedMessage id="household-add-member-Hmong-label" /&gt; },
+	{ value: 'KO', label: &lt;FormattedMessage id="household-add-member-Korean-label" /&gt; },
+	{ value: 'MA', label: &lt;FormattedMessage id="household-add-member-Mandarin-label" /&gt; },
+	{ value: 'RU', label: &lt;FormattedMessage id="household-add-member-Russian-label" /&gt; },
+	{ value: 'SP', label: &lt;FormattedMessage id="household-add-member-Spanish-label" /&gt; },
+	{ value: 'TA', label: &lt;FormattedMessage id="household-add-member-Tagalog-label" /&gt; },
+	{ value: 'VI', label: &lt;FormattedMessage id="household-add-member-Vietnamese-label" /&gt; }
+];
+export const MemberInformationLanguage = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn&gt;
+			&lt;HouseholdMemberPhoneInput {...props} 
+				dataObjPrefix="contact" 
+				/&gt;
+			&lt;EmailInput
+				label={props.intl.messageIfExists('household-add-member-contact-email-label', props.i18nValues)}
+				aria-label={props.intl.messageIfExists('household-add-member-contact-email-label', props.i18nValues)}
+				name="contact.email"
+				id="contact.email"
+				value={props.getFormValue('contact.email')}
+				maxLength="50"
+				onChange={props.handleFieldChange}
+				onBlur={props.handleFieldBlur}
+				validations="isValidEmail"
+				validationErrors={{
+					"isValidEmail": props.intl.messageIfExists("household-add-member-contact-email-error")
+				}}
+				optional={true}
+			/&gt;
+			&lt;ConditionalField condition={ props.getFormValue('contact.email') !== '' }&gt;
+				&lt;EmailInput
+					label={props.intl.messageIfExists('household-primary-contact-form-email2-label', props.i18nValues)}
+					aria-label={props.intl.messageIfExists('household-primary-contact-form-email2-label', props.i18nValues)}
+					name="email2"
+					id="email2"
+					value={props.getFormValue('email2')}
+					onChange={props.handleFieldChange}
+					maxLength="50"
+					validations="equalsField:contact.email,isEmail"
+					validationErrors={{
+						equalsField: props.intl.messageIfExists('household-primary-contact-form-email2-match-error'),
+						isEmail: props.intl.messageIfExists('household-primary-contact-form-email-error')
+					}}
+					requiredError={props.intl.messageIfExists('household-primary-contact-form-email-error')}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const MemberContactPreferencesForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
+	let ahbxLocale = <span class="cstat-no" title="statement not covered" >document.cookie.match(/(^|;)\s*ahbx_locale\s*=\s*([^;]+)/),</span>
+		currentLocale = <span class="cstat-no" title="statement not covered" >(ahbxLocale) ? ahbxLocale.pop() : 'en',</span>
+		showSpanishAppHint = <span class="cstat-no" title="statement not covered" >false,</span>
+		isMobile = <span class="cstat-no" title="statement not covered" >ConfigStore.get('isMobile');</span>
+&nbsp;
+		// If in the english app and they haven't chosen their language prefs, and they choose spanish,
+		// show a hint that app is available in spanish
+<span class="cstat-no" title="statement not covered" >		if(currentLocale === 'en' </span>
+		&amp;&amp; props.getFormValue('langPrefsChosen') === false
+		&amp;&amp; (props.getFormValue('contact.preferWrittenLang') === 'SP' 
+		|| props.getFormValue('contact.preferSpokenLang') === 'SP')) {
+<span class="cstat-no" title="statement not covered" >				showSpanishAppHint = true;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn&gt;
+			&lt;DropDown
+				label={props.intl.messageIfExists('household-add-member-written-language-label', props.i18nValues)}
+				tooltip={props.intl.messageIfExists('household-add-member-written-language-tooltip', props.i18nValues)}
+				customAriaLabel={props.intl.messageIfExists('household-add-member-written-language-label', props.i18nValues)}
+				id="languagewritten"
+				name="contact.preferWrittenLang"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('contact.preferWrittenLang')}
+				optional={true}
+				placeholder={props.intl.messageIfExists('household-add-member-spoken-language-placeholder', props.i18nValues)}
+				options={languageOptions}
+			/&gt;
+			&lt;DropDown
+				label={props.intl.messageIfExists('household-add-member-spoken-language-label', props.i18nValues)}
+				tooltip={props.intl.messageIfExists('household-add-member-spoken-language-tooltip', props.i18nValues)}
+				customAriaLabel={props.intl.messageIfExists('household-add-member-spoken-language-label', props.i18nValues)}
+				id="languagespoken"
+				name="contact.preferSpokenLang"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('contact.preferSpokenLang')}
+				optional={true}
+				placeholder={props.intl.messageIfExists('household-add-member-spoken-language-placeholder', props.i18nValues)}
+				options={spokenLanguageOptions}
+			/&gt;
+			&lt;ConditionalField condition={showSpanishAppHint === true &amp;&amp; isMobile === true}&gt;
+				&lt;p&gt;&lt;em&gt;{props.intl.messageIfExists('household-add-member-spanish-app-hint-mobile', props.i18nValues)}&lt;/em&gt;&lt;/p&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={showSpanishAppHint === true &amp;&amp; isMobile === false}&gt;
+				&lt;p&gt;&lt;em&gt;{props.intl.messageIfExists('household-add-member-spanish-app-hint', props.i18nValues)}&lt;/em&gt;&lt;/p&gt;
+			&lt;/ConditionalField&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+/**
+ * the keys in this object must not be strings that resolve to integers 
+ * otherwise JS will reorder the keys in numeric order, rather than preserving entry order.
+ * the "X" is stripped out before sending the payload, and added before assigning
+ **/
+const relationships = [
+	{
+		category: 'relationship-category-header-spouse',
+		options: {
+			'x15': 'relationship-value-15',
+			'x07': 'relationship-value-07',
+			'x10': 'relationship-value-10'
+		},
+		test: <span class="fstat-no" title="function not covered" >(p</span>1, p2) =&gt; {
+<span class="cstat-no" title="statement not covered" >			return parseInt(p1.age) &gt; 16 &amp;&amp; parseInt(p2.age) &gt; 16;</span>
+		}
+	},
+	{
+		category: 'relationship-category-header-parent',
+		options: {
+			'x19': 'relationship-value-19',
+			'x14': 'relationship-value-14',
+			'x25': 'relationship-value-25',
+			'x20': 'relationship-value-20',
+			'x30': 'relationship-value-30',
+			'x08': 'relationship-value-08',
+			'x06': 'relationship-value-06',
+			'x27': 'relationship-value-27'
+		},
+		test: <span class="fstat-no" title="function not covered" >(p</span>1, p2) =&gt; {
+<span class="cstat-no" title="statement not covered" >			return parseInt(p2.age) &gt; 12 &amp;&amp; parseInt(p2.age) &gt; parseInt(p1.age);</span>
+		}
+	},
+	{
+		category: 'relationship-category-header-dependent',
+		options: {
+			'x21': 'relationship-value-21',
+			'x26': 'relationship-value-26',
+			'x11': 'relationship-value-11',
+			'x04': 'relationship-value-04',
+			'x22': 'relationship-value-22',
+			'x29': 'relationship-value-29',
+			'x23': 'relationship-value-23'
+		},
+		test: <span class="fstat-no" title="function not covered" >(p</span>1, p2) =&gt; {
+<span class="cstat-no" title="statement not covered" >			return parseInt(p1.age) &gt; 12 &amp;&amp; parseInt(p1.age) &gt; parseInt(p2.age);</span>
+		}
+	},
+	{
+		category: 'relationship-category-header-sibling',
+		options: {
+			'x02': 'relationship-value-02',
+			'x24': 'relationship-value-24',
+			'x03': 'relationship-value-03'
+		}
+	},
+	{
+		category: 'relationship-category-header-family',
+		options: {
+			'x28': 'relationship-value-28',
+			'x16': 'relationship-value-16',
+			'x09': 'relationship-value-09',
+			'x13': 'relationship-value-13',
+			'x12': 'relationship-value-12'
+		}
+	},
+	{
+		category: 'relationship-category-header-other',
+		options: {
+			'x17': 'relationship-value-17',
+			'x18': 'relationship-value-18'
+		}
+	}
+];
+&nbsp;
+class MemberRelationshipsFormBase extends Component {
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >		super(props);</span>
+<span class="cstat-no" title="statement not covered" >		this.state = {</span>
+			activeRow: props.currentRelationshipPerson ? this.findActiveRow(props.currentRelationshipPerson) : null
+		};
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleFieldChange(name, value) {
+<span class="cstat-no" title="statement not covered" >		this.props.handleFieldChange(name, value);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleAccordionToggle(row) {
+<span class="cstat-no" title="statement not covered" >		this.setState({ activeRow: row });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	fi</span>ndActiveRow(currentRelationshipPerson) {
+		var personId = <span class="cstat-no" title="statement not covered" >currentRelationshipPerson.personId,</span>
+			activeRow = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >		relationships</span>
+			.filter(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {
+<span class="cstat-no" title="statement not covered" >				return typeof item.test !== 'function' || item.test(currentRelationshipPerson, this.props.formData);</span>
+			})
+			.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem, r) =&gt; {
+<span class="cstat-no" title="statement not covered" >				Object.keys(item.options).forEach(<span class="fstat-no" title="function not covered" >(k</span>ey, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >					if (this.props.getFormValue('relationTypeCd[' + personId + ']') === key) {</span>
+<span class="cstat-no" title="statement not covered" >						activeRow = r;</span>
+					}
+				});
+			});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return activeRow;</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillReceiveProps(nextProps) {
+<span class="cstat-no" title="statement not covered" >		if (</span>
+			nextProps.currentRelationshipPerson
+			&amp;&amp; (!this.props.currentRelationshipPerson
+				|| (
+					Object.keys(nextProps.currentRelationshipPerson).length !== Object.keys(this.props.currentRelationshipPerson).length
+					|| nextProps.currentRelationshipPerson.personId !== this.props.currentRelationshipPerson.personId
+				)
+			)
+		) {
+<span class="cstat-no" title="statement not covered" >			setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >this.setState({ activeRow: this.findActiveRow(nextProps.currentRelationshipPerson) }) </span>});</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	re</span>nder() {
+		var radioName = <span class="cstat-no" title="statement not covered" >'relationTypeCd[' + (</span>
+			this.props.currentRelationshipPerson
+				? this.props.currentRelationshipPerson.personId
+				: ''
+		) + ']',
+			panels = <span class="cstat-no" title="statement not covered" >this.props.currentRelationshipPerson</span>
+				? relationships
+					.filter(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {
+<span class="cstat-no" title="statement not covered" >						return typeof item.test !== 'function' || item.test(this.props.currentRelationshipPerson, this.props.formData);</span>
+					})
+					.map(<span class="fstat-no" title="function not covered" >(i</span>tem, i) =&gt; {
+						var options = <span class="cstat-no" title="statement not covered" >{};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						Object.keys(item.options).forEach(<span class="fstat-no" title="function not covered" >(k</span>ey, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >							options[key] = this.props.intl.messageIfExists(item.options[key]);</span>
+						});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						return (</span>
+							&lt;Panel key={i} control={this.props.intl.messageIfExists(item.category)}&gt;
+								&lt;RadioInput
+									id="relationship"
+									name={radioName}
+									onChange={this.handleFieldChange.bind(this)}
+									value={this.props.getFormValue(radioName)}
+									options={options}
+									inline={false}
+									required
+								/&gt;
+							&lt;/Panel&gt;
+						);
+					})
+				: [],
+			selectedValue = <span class="cstat-no" title="statement not covered" >this.props.getFormValue(radioName),</span>
+			selectedDisplayKey = <span class="cstat-no" title="statement not covered" >selectedValue</span>
+				? relationships.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, next) =&gt; {
+<span class="cstat-no" title="statement not covered" >					return typeof next.options[selectedValue] === 'string' ? next.options[selectedValue] : prev</span>
+				}, '')
+				: 'household-add-member-relationship-header-no-value',
+			selectedDisplayValue = <span class="cstat-no" title="statement not covered" >this.props.intl.messageIfExists(selectedDisplayKey);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return (</span>
+			&lt;FormColumn className="relationship-info-form" columnClassName="col-md-12"&gt;
+				&lt;h4 className={selectedDisplayKey}&gt;
+					&lt;FormattedHTMLMessage
+						id="household-add-member-relationship-header"
+						values={{
+							relationshipFirstName: this.props.currentRelationshipPerson ? this.props.currentRelationshipPerson.firstName : '',
+							firstName: this.props.getFormValue('firstName'),
+							selectedValue: selectedDisplayValue
+						}}
+					/&gt;
+				&lt;/h4&gt;
+				&lt;Accordion
+					activeRow={this.state.activeRow}
+					onToggle={this.handleAccordionToggle.bind(this)}
+				&gt;
+					{panels}
+				&lt;/Accordion&gt;
+			&lt;/FormColumn&gt;
+		);
+	}
+}
+&nbsp;
+const MemberRelationshipsForm = injectIntl(FormHOC(MemberRelationshipsFormBase));
+export { MemberRelationshipsForm };
+&nbsp;
+export const MemberInformationOptionalQuestions = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+	let options = <span class="cstat-no" title="statement not covered" >{</span>
+		ethnicities: {
+			'CU': 'household-add-optional-origin-Cuban',
+			'GU': 'household-add-optional-origin-Guatemalan',
+			'MX': 'household-add-optional-origin-Mexican',
+			'PR': 'household-add-optional-origin-PuertoRican',
+			'SV': 'household-add-optional-origin-Salvadoran',
+			'OH': 'household-add-optional-origin-Other'
+		},
+		races: {
+			'AI': 'household-add-optional-race-aian',
+			'IN': 'household-add-optional-race-ai',
+			'BL': 'household-add-optional-race-baa',
+			'CA': 'household-add-optional-race-camb',
+			'CH': 'household-add-optional-race-ch',
+			'FL': 'household-add-optional-race-filipino',
+			'GC': 'household-add-optional-race-guamanian',
+			'HM': 'household-add-optional-race-hmong',
+			'JP': 'household-add-optional-race-japanese',
+			'KO': 'household-add-optional-race-korean',
+			'LA': 'household-add-optional-race-laotian',
+			'NH': 'household-add-optional-race-native',
+			'SA': 'household-add-optional-race-samoan',
+			'VT': 'household-add-optional-race-vietnamese',
+			'WH': 'household-add-optional-race-white',
+			'OT': 'household-add-optional-race-other'
+		}
+	};
+<span class="cstat-no" title="statement not covered" >		Object.keys(options).forEach(<span class="fstat-no" title="function not covered" >op</span>tion =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >		Object.keys(options[option]).forEach(<span class="fstat-no" title="function not covered" >(c</span>ode) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			options[option][code] = props.intl.messageIfExists(options[option][code]);</span>
+		});
+	});
+	
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn&gt;
+			&lt;FormattedMessage id="household-add-optional-questions-header" tagName="h3" /&gt;
+			&lt;FormattedMessage id="household-add-optional-questions-text" tagName="p" /&gt;
+			&lt;br /&gt;
+			&lt;RadioInput
+				label={props.intl.messageIfExists('household-add-optional-latino-origin-label', props.i18nValues)}
+				id="isHispanicOrigin"
+				name="personal.isHispanicOrigin"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('personal.isHispanicOrigin')}
+				options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+			/&gt;
+			&lt;ConditionalField condition={props.getFormValue('personal.isHispanicOrigin') === 'Y'}&gt;
+			&lt;MultiSelectCheckBoxes
+					label={props.intl.messageIfExists('household-add-optional-origin-label', props.i18nValues)}
+					id="origin"
+					name="personal.ethnicity"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('personal.ethnicity', [])}
+					options={options.ethnicities}
+					inline={false}
+					multiSelect={true}
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;MultiSelectCheckBoxes
+				label={props.intl.messageIfExists('household-add-optional-race-label', props.i18nValues)}
+				id="race"
+				name="personal.race"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('personal.race', [])}
+				options={options.races}
+				inline={false}
+				multiSelect={true}
+			/&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+/** household information forms moved to HouseholdInformationForm.jsx **/
+/** tax forms moved to TaxInformationForm.jsx **/
+/** individual info forms moved to IndividualInformationForm.jsx **/
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

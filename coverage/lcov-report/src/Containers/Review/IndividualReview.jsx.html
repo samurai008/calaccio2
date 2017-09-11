@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Review/IndividualReview.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/Review</a> IndividualReview.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.5% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.73% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>11/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import { ContentIntro, ContentCard, CardNavigation } from '../../Components/Layout/Layout.jsx';
+import MemberAvatar from '../../Components/MemberAvatar.jsx';
+import MemberReview from '../../Components/MemberReview.jsx';
+import MaskedSSN from '../../Components/MaskedSSN.jsx';
+import FormattedAddress from '../../Components/FormattedAddress.jsx';
+import MemberReviewIndividualInformation from '../../Components/MemberReviewIndividualInformation.jsx';
+import { ForwardBack } from '../../Components/ActionsRow.jsx';
+import { DynamicConfirmModal ,ProgressModal} from '../../Components/Modal.jsx';
+import DynamicPendingQuestionActions from '../../Actions/DynamicPendingQuestionAction'; 
+import DynamicPendingQuestionStore from '../../Stores/DynamicPendingQuestionStore';
+import ReviewPendingQuestionLayout from './ReviewPendingQuestionLayout.jsx';
+import DynamicSubsidizedStatusApplicationStore from '../../Stores/DynamicSubsidizedStatusApplicationStore';
+import ApplicationStore from '../../Stores/ApplicationStore.js';
+class IndividualReview extends Component {
+	/**
+	 *
+	 * @param props
+	 */
+	constructor(props) {
+		super(props);
+		
+		// Set initial state, modal is not open by default
+		this.state = {
+				pendingQuestionModalIsOpen: false,
+				dynamicPendingQuestionsForPerson : {},
+				progressModalIsOpen: false
+&nbsp;
+		};
+&nbsp;
+		this.binds = {
+			onDynamicQuestionsRetrieved : this.onDynamicQuestionsRetrieved.bind(this)
+		};
+		
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ch</span>eckSinglePersonFosterCare() {
+		let persons = <span class="cstat-no" title="statement not covered" >this.props.dynamicQuestionsForPerson.persons;</span>
+<span class="cstat-no" title="statement not covered" >		return typeof persons !== "undefined" &amp;&amp; Array.isArray(persons) &amp;&amp; persons.length === 1 &amp;&amp; persons[0].outputpersonlistname[0] === 'CP2' &amp;&amp; persons[0].outputpersonlisttype[0] === '5';</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>DynamicQuestionsRetrieved() {
+		var response = <span class="cstat-no" title="statement not covered" >DynamicPendingQuestionStore.getDynamicQuestions();</span>
+<span class="cstat-no" title="statement not covered" >		if (response.persons != undefined &amp;&amp; response.persons != []){</span>
+			var checkPendingFields = <span class="cstat-no" title="statement not covered" >response.persons.map(<span class="fstat-no" title="function not covered" >(p</span>erson) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >					if (person.pendingFields != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >						for (var index = 0; index &lt; person.pendingFields.length; index++) {</span>
+<span class="cstat-no" title="statement not covered" >							this.setState({ dynamicPendingQuestionsForPerson: response });</span>
+<span class="cstat-no" title="statement not covered" >								return person.pendingFields[index];</span>
+						}
+					}
+				}),
+				//it checks if all pendingFields are empty and return true or false 
+				containsHiddenFileds= <span class="cstat-no" title="statement not covered" >checkPendingFields.every(<span class="fstat-no" title="function not covered" >x </span>=&gt; <span class="cstat-no" title="statement not covered" >x == undefined)</span>;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (containsHiddenFileds != true) {</span>
+<span class="cstat-no" title="statement not covered" >				DynamicPendingQuestionStore.updateEligibilityConfirmFlag(true);</span>
+<span class="cstat-no" title="statement not covered" >				this.setState({ pendingQuestionModalIsOpen: true });</span>
+			}
+			else <span class="cstat-no" title="statement not covered" >if (DynamicPendingQuestionStore.getEligibilityConfirmFlag() =='' &amp;&amp; DynamicPendingQuestionStore.getEligibilityConfirmFlag() != true ) {</span>
+				
+<span class="cstat-no" title="statement not covered" >					this.context.router.push('/review/voter-registration');</span>
+			
+			}
+			else{
+				
+				let noPendingFileds =<span class="cstat-no" title="statement not covered" >'noPendingFileds'</span>
+<span class="cstat-no" title="statement not covered" >				DynamicPendingQuestionStore.updateEligibilityConfirmFlag(noPendingFileds);</span>
+			}
+		}
+	}
+&nbsp;
+	isUnsubsidizedApplication() {
+		let persons = this.props.dynamicQuestionsForPerson;
+		return typeof persons !== "undefined" &amp;&amp; typeof persons === "object" &amp;&amp;  persons.outputglobalresname[0] === 'CP1' &amp;&amp; persons.outputglobalresvalue[0] === '1';
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>Forward() {
+<span class="cstat-no" title="statement not covered" >		if (DynamicPendingQuestionStore.getEligibilityConfirmFlag() != '' &amp;&amp; DynamicPendingQuestionStore.getEligibilityConfirmFlag() === 'noPendingFileds') {</span>
+<span class="cstat-no" title="statement not covered" >			this.context.router.push('/review/voter-registration');</span>
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			DynamicPendingQuestionActions.retrieveQuestions();</span>
+<span class="cstat-no" title="statement not covered" >			DynamicPendingQuestionStore.on('change', this.binds.onDynamicQuestionsRetrieved);</span>
+		}
+	}
+&nbsp;
+	onBack() {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (this.isUnsubsidizedApplication() || <span class="branch-1 cbranch-no" title="branch not covered" >this.checkSinglePersonFosterCare())</span> {
+				this.context.router.push('/review/household');
+			}
+			else{
+<span class="cstat-no" title="statement not covered" >			this.context.router.push('/review/income');</span>
+		}
+	}
+&nbsp;
+	onRequestCloseConfirmationModal() {
+		this.setState({ pendingQuestionModalIsOpen: false });
+	}
+&nbsp;
+	componentDidMount() {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (DynamicPendingQuestionStore.getEligibilityConfirmFlag() == true) {
+<span class="cstat-no" title="statement not covered" >			DynamicPendingQuestionActions.retrieveQuestions();</span>
+<span class="cstat-no" title="statement not covered" >			DynamicPendingQuestionStore.on('change', this.binds.onDynamicQuestionsRetrieved);</span>
+		}
+	}
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >		DynamicPendingQuestionStore.removeListener('change', this.binds.onDynamicQuestionsRetrieved);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ma</span>tchPersonid(person){
+		
+<span class="cstat-no" title="statement not covered" >			return person.personId == this;	</span>
+			
+	}
+	
+	/**
+	 * component output
+	 * @returns {XML}
+	 */
+	render() {
+&nbsp;
+		return (
+			&lt;div className="review-page application-review"&gt;
+				&lt;ContentIntro className="hidden-xs" /&gt;
+				&lt;ContentCard&gt;
+					{
+						ApplicationStore.isNewApplication() === true
+						?
+<span class="branch-0 cbranch-no" title="branch not covered" >							&lt;CardNavigation</span>
+								text={this.props.intl.messageIfExists('application-review-card-nav-link')}
+								link="/household/menu"
+							&gt;
+								&lt;em&gt;&lt;FormattedMessage id="application-review-card-nav-text" /&gt;&lt;/em&gt;
+							&lt;/CardNavigation&gt;	
+						: 
+							&lt;CardNavigation
+								text={this.props.intl.messageIfExists('household-review-header')}
+								link="/review/household"
+							&gt;
+								&lt;em&gt;&lt;FormattedMessage id="application-review-card-nav-text" /&gt;&lt;/em&gt;
+							&lt;/CardNavigation&gt;
+					}					
+					&lt;br/&gt;
+&nbsp;
+					{
+						this.props.householdMembers.map((member, i) =&gt; {
+							return &lt;MemberReviewIndividualInformation 
+										id={'individual-review-member-review-info-' + i} 
+										key={member.personId} 
+										person={member} 
+										dynamicQuestionsForPerson={
+											typeof this.props.dynamicQuestionsForPerson !== 'undefined' 
+											&amp;&amp; Array.isArray(this.props.dynamicQuestionsForPerson.persons) ?
+<span class="branch-0 cbranch-no" title="branch not covered" >											this.props.dynamicQuestionsForPerson.persons.find(this.matchPersonid,member.personId)</span>
+											: []
+										} 
+									/&gt;
+						})
+					}
+&nbsp;
+					&lt;ForwardBack
+						id="individual-review-forwardback"
+						forwardText={&lt;FormattedMessage id="application-review-btn-save" /&gt;}
+						backText={&lt;FormattedMessage id="application-review-btn-back" /&gt;}
+						showBack={true}
+						onForward={this.onForward.bind(this)}
+						onBack={this.onBack.bind(this)}
+					/&gt;
+				&lt;/ContentCard&gt;
+&nbsp;
+				&lt;DynamicConfirmModal
+					isOpen={this.state.pendingQuestionModalIsOpen}
+					confirmText={this.props.intl.messageIfExists('household-information-confirm')}
+					onRequestClose={this.onRequestCloseConfirmationModal.bind(this)}
+					contentLabel={this.props.intl.messageIfExists('application-review-subsidy-confirmation-modal-header')}
+				&gt;
+					&lt;ReviewPendingQuestionLayout
+						indivPersonId={this.props.householdMembers}
+						indivPersonPendingQuestion={this.state.dynamicPendingQuestionsForPerson}
+					/&gt;
+				&lt;ProgressModal 
+					isOpen={this.state.progressModalIsOpen} 
+				/&gt;
+				&lt;/DynamicConfirmModal&gt;
+				
+			&lt;/div&gt;
+		);
+	}
+}
+&nbsp;
+IndividualReview.propTypes = {
+	intl: intlShape.isRequired
+};
+&nbsp;
+IndividualReview.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(IndividualReview);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

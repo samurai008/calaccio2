@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Review/Main.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/Review</a> Main.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.55% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import HouseholdMemberActions from '../../Actions/HouseholdMemberActions.js';
+import IncomeActions from '../../Actions/IncomeApp/IncomeActions.js';
+import DynamicQuestionsActions from '../../Actions/DynamicQuestionsActions';
+import PeopleStore from '../../Stores/PeopleStore.js';
+import { ContentIntro, ContentCard, CardNavigation } from '../../Components/Layout/Layout.jsx';
+import ApplicationStore from '../../Stores/ApplicationStore.js';
+import DynamicQuestionsStore from '../../Stores/DynamicQuestionsStore';
+import { Modal, NoticeModal, ConfirmModal, ModalHeader, ProgressModal } from '../../Components/Modal.jsx';
+import AppDispatcher from '../../Dispatchers/AppDispatcher.js';
+&nbsp;
+class Main extends Component {
+	constructor(props) {
+		super(props);
+&nbsp;
+		// Set initial state
+		this.state = {
+			householdMembers: PeopleStore.getAll(),
+			applicationDetails: ApplicationStore.getDetails(),
+			dynamicQuestionsForPerson: {}
+		};
+&nbsp;
+		this.binds = {
+			householdUpdate: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+				// update the local state list of household members from the store
+<span class="cstat-no" title="statement not covered" >				this.setState({ householdMembers: PeopleStore.getAll() });</span>
+			},
+			getAllHouseholdMembers: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+				// call the household members endpoint to update people in the store
+<span class="cstat-no" title="statement not covered" >				HouseholdMemberActions.getAll();</span>
+<span class="cstat-no" title="statement not covered" >				HouseholdMemberActions.getEnrollmentPeriodDetails();</span>
+			},
+			applicationUpdate: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >				this.setState({ applicationDetails: ApplicationStore.getDetails() });</span>
+			},
+			DynamicQuestionsRacRetrieved: <span class="fstat-no" title="function not covered" >()</span> =&gt;{
+<span class="cstat-no" title="statement not covered" >				this.setState({ dynamicQuestionsForPerson : DynamicQuestionsStore.getDynamicQuestions() });</span>
+				}
+		};
+	}
+&nbsp;
+	componentWillMount () {
+		DynamicQuestionsActions.retrieveQuestions();
+	}
+&nbsp;
+	componentDidMount() {
+		// listen to change events from PeopleStore to update household members on each store change.
+		PeopleStore.on('change', this.binds.householdUpdate);
+		// listen specifically for the income-list event which signals that PeopleStore's income data was updated
+		// this is to chain calls to income endpoint and people endpoint without their updates to PeopleStore colliding.
+		PeopleStore.on('income-list', this.binds.getAllHouseholdMembers);
+		// get the income data from the endpoint, which will update PeopleStore
+		IncomeActions.getAll();
+		DynamicQuestionsStore.on('change', this.binds.DynamicQuestionsRacRetrieved);
+		ApplicationStore.on('change', this.binds.applicationUpdate);
+		this.dispatcherId = AppDispatcher.register(data =&gt; {
+			switch (data.action.type) {
+				case 'SAVE_EXIT_REQUESTED':
+					setTimeout(<span class="fstat-no" title="function not covered" >fu</span>nction(){
+<span class="cstat-no" title="statement not covered" >						AppDispatcher.dispatch({</span>
+							action: {
+								type: 'GENERIC_SAVE_EXIT',
+								payload: {}
+							}
+						});
+					}, 1);
+					break;
+			}
+		});
+	}
+&nbsp;
+	componentWillUnmount() {
+		// remove listener for all store events on unmount
+		PeopleStore.removeListener('change', this.binds.householdUpdate);
+		PeopleStore.removeListener('income-list', this.binds.getAllHouseholdMembers);
+		ApplicationStore.removeListener('change', this.binds.applicationUpdate);
+		DynamicQuestionsStore.removeListener('change', this.binds.DynamicQuestionsRacRetrieved);
+		AppDispatcher.unregister(this.dispatcherId);
+	}
+&nbsp;
+	render() {
+		return (
+			&lt;div className="household"&gt;
+				{
+					React.cloneElement(this.props.children, {
+						householdMembers: this.state.householdMembers,
+						applicationDetails: this.state.applicationDetails,
+						dynamicQuestionsForPerson: this.state.dynamicQuestionsForPerson
+					})
+				}
+			&lt;/div&gt;
+		);
+	}
+}
+&nbsp;
+export default Main;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

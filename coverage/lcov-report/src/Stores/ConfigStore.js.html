@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Stores/ConfigStore.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Stores</a> ConfigStore.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.48% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>38/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.29% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>26/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.48% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>38/42</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276x</span>
+<span class="cline-any cline-yes">276x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276x</span>
+<span class="cline-any cline-yes">276x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">515x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5161x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">107x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">163x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">163x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1292x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1292x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1292x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">715x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">715x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">701x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { EventEmitter } from 'events';
+import AppDispatcher from '../Dispatchers/AppDispatcher';
+import uuidv4 from 'uuid/v4';
+&nbsp;
+// Object or array to save data to
+var config = window.__APP_CONFIG__;
+var pageIds = require('../../pageIds.json');
+&nbsp;
+//SIR 91108 routeChangeBasedUUIDCorrelationId holds the Correlation Id for REST requests from the current page
+//SIR 91112 currentPageId/currentPageName hold the current pageId and pageName for the operations headers and the dev console
+var operationsSupportData = {
+	routeChangeBasedUUIDCorrelationId : null,	
+	currentPageId : null,
+	currentPageName : null
+}
+&nbsp;
+//For unit tests, Import development config
+<span class="missing-if-branch" title="else path not taken" >E</span>if(process.env.NODE_ENV === 'test') {
+	config = require('../../app.development.config.json');
+}
+&nbsp;
+&nbsp;
+var ConfigStore = Object.assign({}, EventEmitter.prototype, {
+&nbsp;
+	setConfig: (configObj) =&gt; {
+		config = Object.assign(config, configObj);
+	},
+&nbsp;
+	get: (param) =&gt; {
+		return typeof config[param] !== 'undefined' ? config[param] : null;
+	},
+	getEnrollmentPeriod: () =&gt; config &amp;&amp; config['enrollmentPeriod'],
+	
+	isEnrollmentPeriod: <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >config &amp;&amp; config['enrollmentPeriod'] === 'SPE',</span>
+&nbsp;
+	/**
+	 * Returns the currently set correlationId set set by the last Router onChange
+	 */
+	getRouteChangeBasedUUIDCorrelationId: () =&gt; {
+		return operationsSupportData.routeChangeBasedUUIDCorrelationId;
+	},
+	/**
+	 * Creates a new Correlation Id triggered by a Router onChange
+	 */
+	createNewUUIDForRouteChange: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >		operationsSupportData.routeChangeBasedUUIDCorrelationId = uuidv4();</span>
+	},
+	/**
+	 * Lookup the current page ref data
+	 */
+	getPageRefData: (path) =&gt; {
+		return typeof pageIds[path] !== 'undefined' ? pageIds[path] : null;
+	},
+	/**
+	 * Returns the currently set pageId set set by the last Router onChange
+	 */
+	getPageId: () =&gt; {
+		return operationsSupportData.currentPageId;
+	},
+	/**
+	 * Returns the currently set pageId set set by the last Router onChange
+	 */
+	getPageName: () =&gt; {
+		return operationsSupportData.currentPageName;
+	},
+	/**
+	 * Set the current pageId and pageName propertied based on the most recent Route onChange
+	 */
+	setPageIdAndNameForRouteChange: (path) =&gt; {		
+		// Match and replace any digits (ids) in the Router path since these are variable parameters
+		// Note that a prefix of '/' is expected in the pattern to avoid replacing a 
+		// trailing digit in the path 
+		// e.g. #1: /household/add/1234/basic-info2 is expected to get replaced as:
+		// /household/add//basic-info2
+		// and not /household/add//basic-info (trailing digit incorrectly matched and removed)
+		// e.g. #2 /household/edit/1234/relationship-info/1234  expected to get replaced as:
+		// /household/edit//relationship-info/
+		//console.log("setPageIdAndNameForRouteChange called for path: " + path);
+		var pathWithIdsRemoved = path.replace(/\/[\d]+/g, "/");
+		var pageRefData = ConfigStore.getPageRefData(pathWithIdsRemoved);
+&nbsp;
+		if(pageRefData != null){
+			operationsSupportData.currentPageId = pageRefData.pageId != null 
+				&amp;&amp; pageRefData.pageId != "" ? pageRefData.pageId : <span class="branch-1 cbranch-no" title="branch not covered" >"[pageId not defined]";</span>
+			operationsSupportData.currentPageName = pageRefData.pageName != null 
+				&amp;&amp; pageRefData.pageName != "" ? pageRefData.pageName : <span class="branch-1 cbranch-no" title="branch not covered" >"[pageName not defined]";</span>
+		}
+		else{
+			// router path was not found in pageIds.json, so set to unknown
+			operationsSupportData.currentPageId = "[pageId not defined for route path]";
+			operationsSupportData.currentPageName = "[pageName not defined for route path]";
+		}
+		//console.log("pageId data:" + JSON.stringify(operationsSupportData));
+	},
+	/**
+	 * return URLs from config with hostname variable replaced
+	 *
+	 * @param url
+	 * @returns {string|null}
+	 */
+	getURL: (url) =&gt; {
+		var origin = window.location.origin;
+&nbsp;
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof origin === 'undefined') {
+<span class="cstat-no" title="statement not covered" >			origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '');</span>
+		}
+&nbsp;
+		//original code
+		return typeof config[url] !== 'undefined' &amp;&amp; origin !== null ? config[url].replace("{appURL}", origin) : null;
+	},
+&nbsp;
+	dispatcherId: AppDispatcher.register(payload =&gt; {
+		let action = payload.action;
+&nbsp;
+		switch(action.type) {
+			case 'AGENT_SEP_ENABLE':
+			case 'ENROLLMENT_PERIOD_DETAILS':
+				config = Object.assign(config, action.payload);
+				// Store only emits from dispatcher callbacks
+				ConfigStore.emit('change');
+				break;
+			case 'SET_ENROLLMENT_YEAR':
+				config = Object.assign(config, { enrollmentYear: action.payload });
+&nbsp;
+				// Store only emits from dispatcher callbacks
+				ConfigStore.emit('change');
+				break;
+			case 'TIMESHIFTER_REFRESH_FROM_SERVER' :
+				<span class="missing-if-branch" title="if path not taken" >I</span>if(process.env.appConfig === 'development') {
+<span class="cstat-no" title="statement not covered" >					console.log('ConfigStore: Timeshifter payload received: ' + JSON.stringify(action));</span>
+				}
+				config.timeshifter = {};
+				config.timeshifter.timeshifterEnabledForUser = action.payload.timeshifterEnabledForUser;
+				config.timeshifter.timeshifterOffsetMillis = action.payload.timeshifterOffsetMillis;
+				config.timeshifter.shiftedDateMillisFromEpoch = action.payload.shiftedDateMillisFromEpoch;
+				break;
+			default:
+				break;
+		}
+&nbsp;
+	})
+});
+&nbsp;
+export default ConfigStore;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

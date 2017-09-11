@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/AccountCreation/ReenterUsernameModal.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/AccountCreation</a> ReenterUsernameModal.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>27/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44.44% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52.94% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.78% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/45</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import AppDispatcher from '../../Dispatchers/AppDispatcher';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import Formsy from 'formsy-react';
+import ValidationsStore from '../../Stores/ValidationsStore';
+import ConfigStore from '../../Stores/ConfigStore';
+import AccountActions from '../../Actions/AccountActions';
+import Modal, { ModalHeader } from '../Modal.jsx';
+import TextInput from '../Inputs/TextInput.jsx';
+import RecaptchaInput from '../../Components/Inputs/RecaptchaInput.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import StringRequirements from '../StringRequirements.jsx';
+&nbsp;
+let usernameNotDuplicated = true;
+&nbsp;
+/**
+ * custom Formsy rule to validate whether the looked up username is still duplicated
+ * @type {boolean}
+ */
+Formsy.addValidationRule('usernameNotDuplicated', () =&gt; usernameNotDuplicated);
+&nbsp;
+class ReenterUsernameModal extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+		this.state = {
+			formIsValid: false,
+			isPopUpSubmitted: false,
+			formData: {
+				'username': ''
+			},
+			usernameRequirements: ValidationsStore.getUsernameRequirements()
+		};
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleFieldChange(name, value) {
+		var delta = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >		delta[name] = value;</span>
+<span class="cstat-no" title="statement not covered" >		usernameNotDuplicated = true;</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({ formData: Object.assign(this.state.formData, delta) });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleSubmitForm(data) {
+<span class="cstat-no" title="statement not covered" >		this.setState({ isPopUpSubmitted: true });</span>
+<span class="cstat-no" title="statement not covered" >		AccountActions.reSubmitUsername(Object.assign({}, this.props.accountDetails, data));</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormValid() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsValid: true });</span>
+<span class="cstat-no" title="statement not covered" >		this.props.onFormValid();</span>
+	}
+&nbsp;
+	onFormInValid() {
+		this.setState({ formIsValid: false });
+		this.props.onFormInValid();
+	}
+	componentDidMount() {
+		this.dispatcherId = AppDispatcher.register(payload =&gt; {
+			switch(payload.action.type) {
+				case 'CREATE_ACCOUNT_USERNAME_EXISTS':
+					// only handle this event if the submission was made here
+					<span class="missing-if-branch" title="if path not taken" >I</span>if(this.state.formIsValid) {
+<span class="cstat-no" title="statement not covered" >						usernameNotDuplicated = false;</span>
+<span class="cstat-no" title="statement not covered" >						this.username.setValue(this.state.formData.username);</span>
+						// reset the recaptcha completely
+<span class="cstat-no" title="statement not covered" >						if(typeof this.recaptcha !== "undefined") <span class="cstat-no" title="statement not covered" >this.recaptcha.resetValue();</span></span>
+<span class="cstat-no" title="statement not covered" >						if(typeof this.recaptchaInner !== "undefined") <span class="cstat-no" title="statement not covered" >this.recaptchaInner.reset();</span></span>
+<span class="cstat-no" title="statement not covered" >						this.setState({ isPopUpSubmitted: false });</span>
+					}
+					else {
+						usernameNotDuplicated = false;
+						// reset the recaptcha completely
+						<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof this.recaptcha !== "undefined") <span class="cstat-no" title="statement not covered" >this.recaptcha.resetValue();</span>
+						<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof this.recaptchaInner !== "undefined") <span class="cstat-no" title="statement not covered" >this.recaptchaInner.reset();</span>
+						// do something special for IE11, which wasn't working like other browsers were correctly working
+						<span class="missing-if-branch" title="if path not taken" >I</span>if (navigator.userAgent.indexOf("Trident") &gt; -1) {
+<span class="cstat-no" title="statement not covered" >							setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >								document.getElementById("username").focus();</span>
+							}, 200);
+						}
+					}
+					break;
+				default:
+					break;
+			}
+		});
+	}
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >		AppDispatcher.unregister(this.dispatcherId);</span>
+	}
+	render() {
+		let recaptchaSiteKey = ConfigStore.get('recaptcha-sitekey'),
+			recaptchaEnabled = ConfigStore.get('recaptcha-enable');
+&nbsp;
+		return (
+			&lt;Modal
+				className="username-modal"
+				isOpen={this.props.isOpen}
+				contentLabel={this.props.intl.messageIfExists('account-creation-username-exists-modal-header')}
+				onRequestClose={this.props.onRequestClose}
+				shouldCloseOnOverlayClick={false}
+			&gt;
+				&lt;div className="text-center"&gt;
+					&lt;h1&gt;&lt;FormattedMessage id="account-creation-username-exists-modal-header" /&gt;&lt;/h1&gt;
+				&lt;/div&gt;
+				&lt;Formsy.Form onValidSubmit={this.handleSubmitForm.bind(this)} onValid={this.onFormValid.bind(this)} onInvalid={this.onFormInValid.bind(this)}&gt;
+					&lt;TextInput
+						label={&lt;FormattedMessage id="account-creation-username-exists-modal-input-label" /&gt;}
+						aria-label={this.props.intl.messageIfExists('account-creation-username-exists-modal-input-label')}
+						name="username"
+						id="username"
+						placeholder=" " 
+						value={this.state.formData.username}
+						ref={(component) =&gt; {
+							this.username = component;
+						}}
+						onChange={this.handleFieldChange.bind(this)}
+						beforeInput={
+							&lt;StringRequirements rules={this.state.usernameRequirements} value={this.state.formData.username} /&gt;
+						}
+						validations={{
+							matchesStringRequirements: (values, value) =&gt; {
+								var i = 0,
+									l = this.state.usernameRequirements.length;
+								for(; i &lt; l; i++) {
+									<span class="missing-if-branch" title="else path not taken" >E</span>if(this.state.usernameRequirements[i].regex.test(value) === false) {
+										return false;
+									}
+								}
+<span class="cstat-no" title="statement not covered" >								return true;</span>
+							},
+							usernameNotDuplicated: true
+						}}
+						validationErrors={{
+							usernameNotDuplicated: this.props.intl.messageIfExists('account-creation-username-exists-modal-error')
+						}}
+						requiredError={this.props.intl.messageIfExists("account-creation-create-username-required-error")}
+						required
+					/&gt;
+&nbsp;
+					&lt;ConditionalField condition={recaptchaEnabled === true}&gt;
+						&lt;RecaptchaInput
+							name="captchaRespTkn"
+							ref={<span class="fstat-no" title="function not covered" >co</span>mponent =&gt;	<span class="cstat-no" title="statement not covered" >this.recaptcha = component </span>}
+							innerRef={<span class="fstat-no" title="function not covered" >co</span>mponent =&gt;	<span class="cstat-no" title="statement not covered" >this.recaptchaInner = component </span>}
+							siteKey={recaptchaSiteKey}
+							onChange={this.handleFieldChange.bind(this)}
+							required
+						/&gt;
+					&lt;/ConditionalField&gt;
+&nbsp;
+					&lt;div className="login-button-row row"&gt;
+						&lt;div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2"&gt;
+							&lt;button
+								className="btn btn-cancel btn-block"
+								onClick={this.props.onRequestClose}
+							&gt;
+								&lt;FormattedMessage id="account-creation-username-exists-modal-button-cancel" /&gt;
+							&lt;/button&gt;
+						&lt;/div&gt;
+						&lt;div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2"&gt;
+							&lt;button
+								id="account-creation-username-exists-modal-button"
+								type="submit"
+								className="btn btn-primary btn-block"
+								disabled={!this.state.formIsValid || <span class="branch-1 cbranch-no" title="branch not covered" >this.state.isPopUpSubmitted}</span>
+							&gt;
+								&lt;FormattedMessage id="account-creation-username-exists-modal-button" /&gt;
+							&lt;/button&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/Formsy.Form&gt;
+			&lt;/Modal&gt;
+		);
+	}
+}
+&nbsp;
+ReenterUsernameModal.propTypes = {
+	intl: intlShape.isRequired,
+	onFormValid: React.PropTypes.func,
+	onFormInValid: React.PropTypes.func
+};
+&nbsp;
+ReenterUsernameModal.defaultProps = {
+	onFormValid: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	onFormInValid: () =&gt; {}
+};
+&nbsp;
+export default injectIntl(ReenterUsernameModal);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

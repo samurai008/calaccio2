@@ -1,0 +1,731 @@
+{
+    "/": {
+        "pageId": "0.0.1.1.1",
+        "pageName": "ManualLogInModal"
+    },
+    "/account-creation/login": {
+        "pageId": "0.0.1.1.1",
+        "pageName": "ManualLogInModal"
+    },
+    "/account-creation/create": {
+        "pageId": "0.0.1",
+        "pageName": "CreateAccount"
+    },
+    "/account-creation/create/": {
+        "pageId": "0.0.1",
+        "pageName": "CreateAccount"
+    },
+    "/account-creation/review": {
+        "pageId": "0.0.1.1",
+        "pageName": "ReviewInformation"
+    },
+    "/account-creation/security-questions": {
+        "pageId": "0.0.1.2",
+        "pageName": "SecurityQuestions"
+    },
+    "/account-creation/password-recovery": {
+        "pageId": "",
+        "pageName": ""
+    },
+
+
+	"/application-start" : {
+        "pageId": "3.0",
+        "pageName": "AppStart"
+    },
+	"/application-start/opt-in" : {
+        "pageId": "3.1",
+        "pageName": "HelpWithCosts"
+    },
+    "application-start/opt-in" : {
+        "pageId": "3.1",
+        "pageName": "HelpWithCosts"
+    },
+	"/application-menu" : {
+        "pageId": "2.0",
+        "pageName": "AppMenu"
+    },
+    "/household" : {
+        "pageId": "4.0",
+        "pageName": "HouseholdMenu"
+    },
+	"/household/menu" : {
+        "pageId": "4.0",
+        "pageName": "HouseholdMenu"
+    },
+	"/household/build" : {
+        "pageId": "4.0.1",
+        "pageName": "BuildHH"
+    },
+    "/household/add/basic-info" : {
+        "pageId": "4.0.1.1",
+        "pageName": "Name/DOB"
+    },
+    "/household/edit//basic-info" : {
+        "pageId": "4.0.1.1",
+        "pageName": "Name/DOB"
+    },	
+    "/household/edit-review//basic-info" : {
+        "pageId": "4.0.1.1",
+        "pageName": "Name/DOB"
+    },	
+    "/household/edit-renewal//basic-info" : {
+        "pageId": "4.0.1.1",
+        "pageName": "Name/DOB"
+    },
+    "/household/add//basic-info2" : {
+        "pageId": "4.0.1.2",
+        "pageName": "Student"
+    },
+    "/household/edit//basic-info2" : {
+        "pageId": "4.0.1.2",
+        "pageName": "Student"
+    },    
+    "/household/edit-review//basic-info2" : {
+        "pageId": "4.0.1.2",
+        "pageName": "Student"
+    },	
+    "/household/edit-renewal//basic-info2" : {
+        "pageId": "4.0.1.2",
+        "pageName": "Student"
+    },
+    "/household/add//basic-info3" : {
+        "pageId": "4.0.1.3",
+        "pageName": "Sex"
+    },
+    "/household/edit//basic-info3" : {
+        "pageId": "4.0.1.3",
+        "pageName": "Sex"
+    },    
+    "/household/edit-review//basic-info3" : {
+        "pageId": "4.0.1.3",
+        "pageName": "Sex"
+    },	
+    "/household/edit-renewal//basic-info3" : {
+        "pageId": "4.0.1.3",
+        "pageName": "Sex"
+    }, 
+    "/household/add//basic-info4" : {
+        "pageId": "4.0.1.4",
+        "pageName": "MaritalStatus"
+    },
+    "/household/edit//basic-info4" : {
+        "pageId": "4.0.1.4",
+        "pageName": "MaritalStatus"
+    },
+    "/household/edit-review//basic-info4" : {
+        "pageId": "4.0.1.4",
+        "pageName": "MaritalStatus"
+    },    
+    "/household/edit-renewal//basic-info4" : {
+        "pageId": "4.0.1.4",
+        "pageName": "MaritalStatus"
+    },               
+    "/household/add//basic-info5" : {
+        "pageId": "4.0.1.5",
+        "pageName": "Contactnfo"
+    },
+    "/household/edit//basic-info5" : {
+        "pageId": "4.0.1.5",
+        "pageName": "Contactnfo"
+    },    
+    "/household/edit-review//basic-info5" : {
+        "pageId": "4.0.1.5",
+        "pageName": "Contactnfo"
+    },	
+    "/household/edit-renewal//basic-info5" : {
+        "pageId": "4.0.1.5",
+        "pageName": "Contactnfo"
+    },
+    "/household/add//basic-info6" : {
+        "pageId": "4.0.1.6",
+        "pageName": "ContactPreferences"
+    },
+    "/household/edit//basic-info6" : {
+        "pageId": "4.0.1.6",
+        "pageName": "ContactPreferences"
+    },    
+    "/household/edit-review//basic-info6" : {
+        "pageId": "4.0.1.6",
+        "pageName": "ContactPreferences"
+    },	
+    "/household/edit-renewal//basic-info6" : {
+        "pageId": "4.0.1.6",
+        "pageName": "ContactPreferences"
+    },        
+    "/household/add//relationship-info/" : {
+        "pageId": "4.0.1.7",
+        "pageName": "DefineRelationships"
+    },
+    "/household/edit//relationship-info/" : {
+        "pageId": "4.0.1.7",
+        "pageName": "DefineRelationships"
+    },    
+    "/household/edit-review//relationship-info/" : {
+        "pageId": "4.0.1.7",
+        "pageName": "DefineRelationships"
+    },	
+    "/household/edit-renewal//relationship-info/" : {
+        "pageId": "4.0.1.7",
+        "pageName": "DefineRelationships"
+    }, 
+    "/household/add//optional-questions" : {
+        "pageId": "4.0.1.8",
+        "pageName": "Origin/Race"
+    },
+    "/household/edit//optional-questions" : {
+        "pageId": "4.0.1.8",
+        "pageName": "Origin/Race"
+    },	    
+    "/household/edit-review//optional-questions" : {
+        "pageId": "4.0.1.8",
+        "pageName": "Origin/Race"
+    },	
+    "/household/edit-renewal//optional-questions" : {
+        "pageId": "4.0.1.8",
+        "pageName": "Origin/Race"
+    },     
+
+    "/household/review/" : {
+        "pageId": "4.0.1.9",
+        "pageName": "ReviewHouseholdInformation"
+    },     
+    "/household/begin" : {
+        "pageId": "",
+        "pageName": ""
+    },
+
+    "/household/information/review" : {
+        "pageId": "4.0.2.12",
+        "pageName": "Review"
+    },
+    "/household/information/qle" : {
+        "pageId": "4.0.2.1",
+        "pageName": "QLE"
+    },
+	"/household/information/edit/qle" : {
+        "pageId": "4.0.2.1",
+        "pageName": "QLE"
+    },
+	"/household/information/edit-renewal/qle" : {
+        "pageId": "4.0.2.1",
+        "pageName": "QLE"
+    },    
+	"/household/information/qualifying-life-event" : {
+        "pageId": "4.0.2.1",
+        "pageName": "QLE"
+    },    
+	"/household/information/edit/qualifying-life-event" : {
+        "pageId": "4.0.2.1",
+        "pageName": "QLE"
+    },
+	"/household/information/edit-renewal/qualifying-life-event" : {
+        "pageId": "4.0.2.1",
+        "pageName": "QLE"
+    },    
+	"/household/information/primary-contact" : {
+        "pageId": "4.0.2.2",
+        "pageName": "PrimaryContact"
+    },    
+	"/household/information/edit/primary-contact" : {
+        "pageId": "4.0.2.2",
+        "pageName": "PrimaryContact"
+    },
+	"/household/information/edit-renewal/primary-contact" : {
+        "pageId": "4.0.2.2",
+        "pageName": "PrimaryContact"
+    },    
+	"/household/information/confirm-identity" : {
+        "pageId": "4.0.2.3",
+        "pageName": "ConfirmIdentity"
+    },    
+	"/household/information/edit/confirm-identity" : {
+        "pageId": "4.0.2.3",
+        "pageName": "ConfirmIdentity"
+    },
+	"/household/information/edit-renewal/confirm-identity" : {
+        "pageId": "4.0.2.3",
+        "pageName": "ConfirmIdentity"
+    },    
+	"/household/information/household-member-addresses" : {
+        "pageId": "4.0.2.4",
+        "pageName": "WhoLivesWithPC"
+    },    
+	"/household/information/edit/household-member-addresses" : {
+        "pageId": "4.0.2.4",
+        "pageName": "WhoLivesWithPC"
+    },
+	"/household/information/edit-renewal/household-member-addresses" : {
+        "pageId": "4.0.2.4",
+        "pageName": "WhoLivesWithPC"
+    },    
+	"/household/information/primary-caretaker" : {
+        "pageId": "4.0.2.5",
+        "pageName": "PrimaryCaretaker"
+    },    
+	"/household/information/edit/primary-caretaker" : {
+        "pageId": "4.0.2.5",
+        "pageName": "PrimaryCaretaker"
+    },
+	"/household/information/edit-renewal/primary-caretaker" : {
+        "pageId": "4.0.2.5",
+        "pageName": "PrimaryCaretaker"
+    },    
+	"/household/information/whos-applying" : {
+        "pageId": "4.0.2.6",
+        "pageName": "ApplyingforHealthcare"
+    },    
+	"/household/information/edit/whos-applying" : {
+        "pageId": "4.0.2.6",
+        "pageName": "ApplyingforHealthcare"
+    },
+	"/household/information/edit-renewal/whos-applying" : {
+        "pageId": "4.0.2.6",
+        "pageName": "ApplyingforHealthcare"
+    },    
+	"/household/information/foster-care" : {
+        "pageId": "4.0.2.7",
+        "pageName": "FosterCare"
+    },    
+	"/household/information/edit/foster-care" : {
+        "pageId": "4.0.2.7",
+        "pageName": "FosterCare"
+    },
+	"/household/information/edit-renewal/foster-care" : {
+        "pageId": "4.0.2.7",
+        "pageName": "FosterCare"
+    },
+	"/household/information/medicare" : {
+        "pageId": "4.0.2.8",
+        "pageName": "Medicare"
+    },    
+	"/household/information/edit/medicare" : {
+        "pageId": "4.0.2.8",
+        "pageName": "Medicare"
+    },
+	"/household/information/edit-renewal/medicare" : {
+        "pageId": "4.0.2.8",
+        "pageName": "Medicare"
+    },    
+	"/household/information/citizenship" : {
+        "pageId": "4.0.2.9",
+        "pageName": "Citizenship"
+    },    
+	"/household/information/edit/citizenship" : {
+        "pageId": "4.0.2.9",
+        "pageName": "Citizenship"
+    },
+	"/household/information/edit-renewal/citizenship" : {
+        "pageId": "4.0.2.9",
+        "pageName": "Citizenship"
+    },    
+	"/household/information/pregnancy" : {
+        "pageId": "4.0.2.10",
+        "pageName": "Pregnancy"
+    },    
+	"/household/information/edit/pregnancy" : {
+        "pageId": "4.0.2.10",
+        "pageName": "Pregnancy"
+    },
+	"/household/information/edit-renewal/pregnancy" : {
+        "pageId": "4.0.2.10",
+        "pageName": "Pregnancy"
+    },    
+    "/household/information/ai-an" : {
+        "pageId": "4.0.2.11",
+        "pageName": "AI/AN"
+    },
+	"/household/information/edit/ai-an" : {
+        "pageId": "4.0.2.11",
+        "pageName": "AI/AN"
+    },
+	"/household/information/edit-renewal/ai-an" : {
+        "pageId": "4.0.2.11",
+        "pageName": "AI/AN"
+    },
+
+    "/household/tax-review" : {
+        "pageId": "4.0.3.5",
+        "pageName": "TaxReview"
+    },
+    "/household/tax-overview" : {
+        "pageId": "4.0.3",
+        "pageName": "HHTax Overview"
+    },
+	"/household/tax-information/primary-filer" : {
+        "pageId": "4.0.3.1",
+        "pageName": "PrimaryTaxFiler"
+    },    
+	"/household/tax-information/edit/primary-filer" : {
+        "pageId": "4.0.3.1",
+        "pageName": "PrimaryTaxFiler"
+    },
+	"/household/tax-information/edit-review/primary-filer" : {
+        "pageId": "4.0.3.1",
+        "pageName": "PrimaryTaxFiler"
+    },
+    "/household/tax-information/edit-renewal/primary-filer" : {
+        "pageId": "4.0.3.1",
+        "pageName": "PrimaryTaxFiler"
+    },
+	"/household/tax-information/plan-to-file" : {
+        "pageId": "4.0.3.2",
+        "pageName": "PlanToFile"
+    },    
+	"/household/tax-information/edit/plan-to-file" : {
+        "pageId": "4.0.3.2",
+        "pageName": "PlanToFile"
+    },
+    "/household/tax-information/edit-review/plan-to-file" : {
+        "pageId": "4.0.3.2",
+        "pageName": "PlanToFile"
+    },
+	"/household/tax-information/edit-renewal/plan-to-file" : {
+        "pageId": "4.0.3.2",
+        "pageName": "PlanToFile"
+    },    
+    "/household/tax-information/required-to-file" : {
+        "pageId": "4.0.3.3",
+        "pageName": "RequiredtoFile"
+    },
+	"/household/tax-information/edit/required-to-file" : {
+        "pageId": "4.0.3.3",
+        "pageName": "RequiredtoFile"
+    },
+    "/household/tax-information/edit-review/required-to-file" : {
+        "pageId": "4.0.3.3",
+        "pageName": "RequiredtoFile"
+    },
+    "/household/tax-information/edit-renewal/required-to-file" : {
+        "pageId": "4.0.3.3",
+        "pageName": "RequiredtoFile"
+    },
+	"/household/tax-information/edit/dependents" : {
+        "pageId": "4.0.3.4",
+        "pageName": "ClaimedAsDependent"
+    },
+	"/household/tax-information/edit-review/dependents" : {
+        "pageId": "4.0.3.4",
+        "pageName": "ClaimedAsDependent"
+    },
+    "/household/tax-information/edit-renewal/dependents" : {
+        "pageId": "4.0.3.4",
+        "pageName": "ClaimedAsDependent"
+    },
+
+    "/individual": {
+        "pageId": "5.0",
+        "pageName": "IndividualMenu"
+    },
+    "/individual/menu": {
+        "pageId": "5.0",
+        "pageName": "IndividualMenu"
+    },
+    "/individual/edit/": {
+        "pageId": "5.0.9",
+        "pageName": "IndividualReview"
+    },
+    "/individual/edit-review/": {
+        "pageId": "5.0.9",
+        "pageName": "IndividualReview"
+    },    
+    "/individual/edit-renewal/": {
+        "pageId": "5.0.9",
+        "pageName": "IndividualReview"
+    },
+    "/individual//current-enrollment": {
+        "pageId": "5.0.1",
+        "pageName": "CurrentEnrollmentEdit"
+    },
+    "/individual/edit//current-enrollment": {
+        "pageId": "5.0.1",
+        "pageName": "CurrentEnrollmentEdit"
+    },
+    "/individual/edit-review//current-enrollment": {
+        "pageId": "5.0.1",
+        "pageName": "CurrentEnrollmentReview"
+    },
+    "/individual/edit-renewal//current-enrollment": {
+        "pageId": "5.0.1",
+        "pageName": "CurrentEnrollmentRenewal"
+    },
+    "/individual//ai-an-plan": {
+        "pageId": "5.0.2",
+        "pageName": "AI/ANPlanEnrollment"
+    },
+    "/individual/edit//ai-an-plan": {
+        "pageId": "5.0.2",
+        "pageName": "AI/ANPlanEnrollment"
+    },
+    "/individual/edit-review//ai-an-plan": {
+        "pageId": "5.0.2",
+        "pageName": "AI/ANPlanEnrollment"
+    },
+    "/individual/edit-renewal//ai-an-plan": {
+        "pageId": "5.0.2",
+        "pageName": "AI/ANPlanEnrollment"
+    },
+    "/individual//help-with-past-medical-expenses": {
+        "pageId": "5.0.3",
+        "pageName": "Helpw/pastmedicalexpenses"
+    },    
+    "/individual/edit//help-with-past-medical-expenses": {
+        "pageId": "5.0.3",
+        "pageName": "Helpw/pastmedicalexpenses"
+    },
+    "/individual/edit-review//help-with-past-medical-expenses": {
+        "pageId": "5.0.3",
+        "pageName": "Helpw/pastmedicalexpenses"
+    },
+    "/individual/edit-renewal//help-with-past-medical-expenses": {
+        "pageId": "5.0.3",
+        "pageName": "Helpw/pastmedicalexpenses"
+    },
+    "/individual//help-with-long-term-services": {
+        "pageId": "5.0.4",
+        "pageName": "HelpWithLongTermServices"
+    },    
+    "/individual/edit//help-with-long-term-services": {
+        "pageId": "5.0.4",
+        "pageName": "HelpWithLongTermServices"
+    },
+    "/individual/edit-review//help-with-long-term-services": {
+        "pageId": "5.0.4",
+        "pageName": "HelpWithLongTermServices"
+    },
+    "/individual/edit-renewal//help-with-long-term-services": {
+        "pageId": "5.0.4",
+        "pageName": "HelpWithLongTermServices"
+    },
+    "/individual//disabilities": {
+        "pageId": "5.0.5",
+        "pageName": "Disabilities"
+    },
+    "/individual/edit//disabilities": {
+        "pageId": "5.0.5",
+        "pageName": "Disabilities"
+    },
+    "/individual/edit-review//disabilities": {
+        "pageId": "5.0.5",
+        "pageName": "Disabilities"
+    },
+    "/individual/edit-renewal//disabilities": {
+        "pageId": "5.0.5",
+        "pageName": "Disabilities"
+    },
+    "/individual//third-party-liability": {
+        "pageId": "5.0.6",
+        "pageName": "ThirdPartyLiability"
+    },    
+    "/individual/edit//third-party-liability": {
+        "pageId": "5.0.6",
+        "pageName": "ThirdPartyLiability"
+    },
+    "/individual/edit-review//third-party-liability": {
+        "pageId": "5.0.6",
+        "pageName": "ThirdPartyLiability"
+    },
+    "/individual/edit-renewal//third-party-liability": {
+        "pageId": "5.0.6",
+        "pageName": "ThirdPartyLiability"
+    },
+    "/individual//social-security-number": {
+        "pageId": "5.0.7",
+        "pageName": "CitizenInfo"
+    },    
+    "/individual/edit//social-security-number": {
+        "pageId": "5.0.7",
+        "pageName": "CitizenInfo"
+    },
+    "/individual/edit-review//social-security-number": {
+        "pageId": "5.0.7",
+        "pageName": "CitizenInfo"
+    },
+    "/individual/edit-renewal//social-security-number": {
+        "pageId": "5.0.7",
+        "pageName": "CitizenInfo"
+    },
+    "/individual//immigration": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },    
+    "/individual/edit//immigration": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/edit-review//immigration": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/edit-renewal//immigration": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual//document-number": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },    
+    "/individual/edit//document-number": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/edit-review//document-number": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/edit-renewal//document-number": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual//document-information": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },    
+    "/individual/edit//document-information": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/edit-review//document-information": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/edit-renewal//document-information": {
+        "pageId": "5.0.8",
+        "pageName": "NonCitizenInfo"
+    },
+    "/individual/review/": {
+        "pageId": "5.0.9",
+        "pageName": "IndividualReview"
+    },
+
+    "/account-home": {
+        "pageId": "1.0",
+        "pageName": "LoggedInUserHome"
+    },
+
+    "/sogi": {
+        "pageId": "",
+        "pageName": ""
+    },
+
+
+	"/income/overview" : {
+        "pageId": "4.0.4",
+        "pageName": "IncomeOverview"
+    },
+	"/income/summary" : {
+        "pageId": "",
+        "pageName": ""
+    },
+	"/income/review" : {
+        "pageId": "4.0.4.1",
+        "pageName": "HHIncomeReview"
+    },
+	"/income/person/" : {
+        "pageId": "4.0.4.1.1",
+        "pageName": ""
+    },
+	"/income/person//income" : {
+        "pageId": "4.0.4.1.1",
+        "pageName": "IndividualIncomeReview"
+    },    
+	"/income/person//income/" : {
+        "pageId": "",
+        "pageName": "IndividualIncomeReview"
+    },      
+	"/income/person//income/add-income/" : {
+        "pageId": "4.0.4.1.2.1.1",
+        "pageName": "AddIncomeModal"
+    },						
+	"/income/person//deductions" : {
+        "pageId": "4.0.4.1.1.6.1",
+        "pageName": "Deductions"
+    },						
+	"/income/person//deductions/intro" : {
+        "pageId": "4.0.4.1.1.6",
+        "pageName": "DeductionsOverview"
+    },
+	"/income/person//deductions/overview" : {
+        "pageId": "4.0.4.1.1.6",
+        "pageName": "DeductionsOverview"
+    },
+    "/income/person//deductions/add-deduction/" : {
+        "pageId": "4.0.4.1.7.1",
+        "pageName": "AddDeductionModal"
+    }, 
+    "/income/person//review" : {
+        "pageId": "4.0.4.1.1",
+        "pageName": "IndividualIncomeReview"
+    }, 
+
+	"/review/application": {
+        "pageId": "6.0",
+        "pageName": "ReviewHHMs"
+    },
+	"/review/household": {
+        "pageId": "6.1",
+        "pageName": "ReviewHHInfo"
+    },
+	"/review/tax-information": {
+        "pageId": "6.2",
+        "pageName": "ReviewTaxInfo"
+    },
+	"/review/income": {
+        "pageId": "6.3",
+        "pageName": "ReviewIncomeInfo"
+    },
+	"/review/individual": {
+        "pageId": "6.4",
+        "pageName": "ReviewIndividualInfo"
+    },
+	"/review/voter-registration": {
+        "pageId": "6.5",
+        "pageName": "VoterReg"
+    },
+	"/review/application-signature": {
+        "pageId": "6.6",
+        "pageName": "Sign"
+    },
+
+    "/renewal": {
+        "pageId": "",
+        "pageName": ""
+    },
+
+	"/renewal/review": {
+        "pageId": "",
+        "pageName": ""
+    },
+	"/renewal/review/household": {
+        "pageId": "6.1",
+        "pageName": "RenewalReviewHHInfo"
+    },
+	"/renewal/review/tax-information": {
+        "pageId": "6.2",
+        "pageName": "RenewalReviewTaxInfo"
+    },
+	"/renewal/review/income": {
+        "pageId": "6.3",
+        "pageName": "RenewalReviewIncomeInfo"
+    },
+	"/renewal/review/individual/": {
+        "pageId": "6.4",
+        "pageName": "RenewalReviewIndividualInfo"
+    },
+	"/renewal/review/voter-registration": {
+        "pageId": "6.5",
+        "pageName": "RenewalVoterReg"
+    },
+	"/renewal/review/application-signature": {
+        "pageId": "6.6",
+        "pageName": "RenewalSign"
+    },
+    "/renewal/opt-in": {
+        "pageId": "",
+        "pageName": ""
+    },
+    "/logged-out": {
+        "pageId": "",
+        "pageNName": ""
+    }
+}

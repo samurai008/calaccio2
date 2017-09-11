@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Review/ReviewPendingQuestionLayout.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/Review</a> ReviewPendingQuestionLayout.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.05% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/8</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { Link } from 'react-router';
+import {
+	intlShape,
+	injectIntl,
+	FormattedMessage
+} from 'react-intl';
+&nbsp;
+class ReviewPendingQuestion extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+	}
+&nbsp;
+	render() {
+		var card = this.props.indivPersonPendingQuestion.persons.map((person) =&gt; {
+			var result = [];
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (person.pendingFields !== undefined) {
+				for (var index = 0; index &lt; person.pendingFields.length; index++) {
+					result.push(
+						&lt;div className="col-md-12"&gt;
+							&lt;div className="col-md-10"&gt;
+								&lt;FormattedMessage id={person.pendingFields[index]} 
+									values={{firstName: person.personfullname}}
+									tagName="h4" 
+								/&gt;
+							&lt;/div&gt;
+							{ person.router[index] === '/income' || <span class="branch-1 cbranch-no" title="branch not covered" >person.subrouter[index] === '/tax-overview' </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >person.subrouter[index] === '/begin' </span>|| <span class="branch-3 cbranch-no" title="branch not covered" >person.subrouter[index] === '/pregnancy' </span> || <span class="branch-4 cbranch-no" title="branch not covered" >person.subrouter[index] === '/foster-care' </span>?  ( &lt;div className="col-md-2 edit-top-margin"&gt;
+									&lt;Link className="col-md-2 pull-right edit" 
+										to={person.router[index] === '/income'? person.router[index] : (<span class="branch-1 cbranch-no" title="branch not covered" >person.subrouter[index] === '/tax-overview' ? person.router[index] + person.subrouter[index] : '/household/begin' || person.subrouter[index] === '/pregnancy' ? person.router[index] + person.subrouter[index] : person.subrouter[index] === '/foster-care'? person.router[index] + person.subrouter[index] :'' </span>)}&gt;
+										&lt;FormattedMessage id="household-review--generic--edit-member-linkText"/&gt;
+									&lt;/Link&gt;
+								&lt;/div&gt;):
+<span class="branch-1 cbranch-no" title="branch not covered" >								&lt;div className="col-md-2 edit-top-margin"&gt;</span>
+									&lt;Link className="col-md-2 pull-right edit"
+										to={person.router[index] + person.personId + person.subrouter[index]}&gt;
+										&lt;FormattedMessage id="household-review--generic--edit-member-linkText"/&gt;
+									&lt;/Link&gt;
+								&lt;/div&gt;
+&nbsp;
+							}
+&nbsp;
+						&lt;/div&gt;
+					)
+				}
+			}
+			return result;
+		});
+		
+		return (
+			&lt;div className="col-md-12"&gt;
+				&lt;div&gt;
+					&lt;FormattedMessage id="Dynamic-app-checkpoint-four-popup-title" tagName="h2" /&gt;
+				&lt;/div&gt;
+				&lt;FormattedMessage id="Dynamic-app-checkpoint-four-popup-prgraph" tagName="p" /&gt;
+				{card}
+			&lt;/div&gt;
+		);
+	}
+}
+&nbsp;
+export default injectIntl(ReviewPendingQuestion);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

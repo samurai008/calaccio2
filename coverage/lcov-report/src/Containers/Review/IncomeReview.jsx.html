@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Review/IncomeReview.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/Review</a> IncomeReview.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/8</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import PeopleStore from '../../Stores/PeopleStore';
+import { ContentIntro, ContentCard, CardNavigation } from '../../Components/Layout/Layout.jsx';
+import { ReviewSection, ReviewRow, ReviewDT, ReviewDD } from '../../Components/ReviewSection.jsx';
+import { ForwardBack } from '../../Components/ActionsRow.jsx';
+import MoneyValue from '../../Components/MoneyValue.jsx';
+import MemberReview from '../../Components/MemberReview.jsx';
+import HouseholdMemberIncomeSummary from '../../Components/IncomeApp/HouseholdMemberIncomeSummary.jsx';
+import ApplicationStore from '../../Stores/ApplicationStore.js';
+&nbsp;
+const IncomeReview = props =&gt; {
+	var phi = PeopleStore.getHouseholdNetIncome();
+&nbsp;
+	return (
+		&lt;div className="review-page household-income-review"&gt;
+			
+			&lt;ContentIntro className="hidden-xs" /&gt;
+			
+			&lt;ContentCard&gt;
+					{
+						ApplicationStore.isNewApplication() === true
+						?
+<span class="branch-0 cbranch-no" title="branch not covered" >							&lt;CardNavigation</span>
+								text={props.intl.messageIfExists('application-review-card-nav-link')}
+								link={props.cardNavLink}
+							&gt;
+								&lt;em&gt;&lt;FormattedMessage id="application-review-card-nav-text" /&gt;&lt;/em&gt;
+							&lt;/CardNavigation&gt;
+						: 
+							&lt;CardNavigation
+								text={props.intl.messageIfExists('household-review-header')}
+								link="/review/household"
+							&gt;
+								&lt;em&gt;&lt;FormattedMessage id="application-review-card-nav-text" /&gt;&lt;/em&gt;
+							&lt;/CardNavigation&gt;
+					}
+&nbsp;
+				&lt;FormattedMessage id="income-review-header" tagName="h1" /&gt;
+					
+				&lt;br/&gt;
+&nbsp;
+				&lt;ReviewSection&gt;
+					&lt;ReviewRow id="review-income-projected-household-income" linkUrl="/income/review"&gt;
+						&lt;div className="row money-row phi"&gt;
+							&lt;div className="col-xs-12"&gt;
+								&lt;ReviewDT&gt;&lt;FormattedMessage id="income-review-phi-label" /&gt;&lt;/ReviewDT&gt;
+								&lt;ReviewDD&gt;
+									&lt;MoneyValue
+										amount={phi}
+										timeframe="incomeSummary.timeframe.annually"
+										showTimeframeIfZero={true}
+										useSlash={props.currencyUseSlash}
+									/&gt;
+								&lt;/ReviewDD&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/ReviewRow&gt;
+				&lt;/ReviewSection&gt;
+				{
+					props.householdMembers.map((member, i) =&gt; {
+						var moneyValue = props.showMemberPAI &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >member.projectedAnnualIncome &gt;= 0</span>
+											? (
+<span class="branch-0 cbranch-no" title="branch not covered" >												&lt;ReviewDD className="total"&gt;</span>
+													&lt;MoneyValue
+														amount={member.projectedAnnualIncome}
+														timeframe="incomeSummary.timeframe.annually"
+														showTimeframeIfZero={true}
+														useSlash={true}
+													/&gt;
+												&lt;/ReviewDD&gt;
+											)
+											: null;
+&nbsp;
+						return (
+							&lt;ReviewSection key={member.personId}&gt;
+								&lt;ReviewRow id={'review-income-person-' + i} linkUrl={'/income/person/' + member.personId + '/review'}&gt;
+									&lt;div className="row money-row"&gt;
+										&lt;MemberReview 
+											className="col-xs-12 col-sm-12" 
+											person={member}
+											avatarChildren={moneyValue}
+										&gt;
+											&lt;HouseholdMemberIncomeSummary
+												incomes={member.incomes}
+												deductions={member.deductions}
+												currencyUseSlash={props.currencyUseSlash}
+											/&gt;
+										&lt;/MemberReview&gt;
+									&lt;/div&gt;
+								&lt;/ReviewRow&gt;
+								{
+									member.totalMonthlyIncome &gt; 0
+									?
+<span class="branch-0 cbranch-no" title="branch not covered" >										&lt;ReviewRow  id={'review-income-person-cmi' + i}&gt;</span>
+											&lt;div className="row money-row"&gt;
+												&lt;div className="col-xs-6"&gt;
+													&lt;ReviewDT&gt;&lt;FormattedMessage id="income-review-cmi-label" /&gt;&lt;/ReviewDT&gt;
+												&lt;/div&gt;
+												&lt;div className="col-xs-6"&gt;
+													&lt;ReviewDD&gt;
+														&lt;MoneyValue
+															amount={member.totalMonthlyIncome}
+															timeframe="incomeSummary.timeframe.monthly"
+															showTimeframeIfZero={true}
+															useSlash={props.currencyUseSlash}
+														/&gt;
+													&lt;/ReviewDD&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/ReviewRow&gt;
+									: null
+								}
+								{
+									member.projectedAnnualIncome &gt; 0
+									?
+<span class="branch-0 cbranch-no" title="branch not covered" >										&lt;ReviewRow  id={'review-income-person-pai' + i}&gt;</span>
+											&lt;div className="row money-row"&gt;
+												&lt;div className="col-xs-6"&gt;
+													&lt;ReviewDT&gt;&lt;FormattedMessage id="income-review-pai-label" /&gt;&lt;/ReviewDT&gt;
+												&lt;/div&gt;
+												&lt;div className="col-xs-6"&gt;
+													&lt;ReviewDD&gt;
+														&lt;MoneyValue
+															amount={member.projectedAnnualIncome}
+															timeframe="incomeSummary.timeframe.annually"
+															showTimeframeIfZero={true}
+															useSlash={props.currencyUseSlash}
+														/&gt;
+													&lt;/ReviewDD&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/ReviewRow&gt;
+									: null
+								}
+							&lt;/ReviewSection&gt;
+						);
+					})
+				}
+				
+				&lt;ForwardBack
+					id="review-income-review-forwardback"
+					forwardText={&lt;FormattedMessage id="application-review-btn-save" /&gt;}
+					backText={&lt;FormattedMessage id="application-review-btn-back" /&gt;}
+					showBack={true}
+					forwardLink={props.forwardLink}
+					backLink={props.backLink}
+				/&gt;
+			&lt;/ContentCard&gt;
+			
+		&lt;/div&gt;
+	);
+}
+&nbsp;
+IncomeReview.propTypes = {
+	intl: intlShape.isRequired,
+	householdMembers: React.PropTypes.array
+};
+&nbsp;
+IncomeReview.defaultProps = {
+	cardNavLink: '/household/menu',
+    forwardLink: '/review/individual',
+    backLink: '/review/tax-information',
+    showMemberPAI: false,
+    currencyUseSlash: false
+};
+&nbsp;
+IncomeReview.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(IncomeReview);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

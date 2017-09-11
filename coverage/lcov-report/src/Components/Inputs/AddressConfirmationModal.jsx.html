@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Inputs/AddressConfirmationModal.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Inputs</a> AddressConfirmationModal.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52.94% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52.94% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/17</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import { Form } from 'formsy-react';
+import AddressActions from '../../Actions/AddressActions';
+import Modal, { ConfirmModal, ModalHeader } from '../Modal.jsx';
+import FormattedAddress from '../FormattedAddress.jsx';
+import RadioInput from './RadioInput.jsx';
+import { addressShape } from '../../types.js';
+&nbsp;
+class AddressConfirmationModal extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+		this.state = {
+			accountAddress: this.props.addressOptions[0],
+			radioValue: "0"
+		};
+	}
+	componentWillReceiveProps(nextProps, nextState) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(nextProps.addressOptions.length &gt; 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof this.state.accountAddress === "undefined")</span> {
+<span class="cstat-no" title="statement not covered" >			this.setState({accountAddress: nextProps.addressOptions[0]});</span>
+		}
+	}
+<span class="fstat-no" title="function not covered" >	ha</span>ndleFieldChange(name, value) {
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			accountAddress: this.props.addressOptions[value],
+			radioValue: value
+		});
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleSubmitForm() {
+<span class="cstat-no" title="statement not covered" >		AddressActions.selectConfirmedAddress(this.props.addressInstanceId, this.state.accountAddress);</span>
+	}
+<span class="fstat-no" title="function not covered" >	on</span>FormValid() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsValid: true });</span>
+<span class="cstat-no" title="statement not covered" >		this.props.onFormValid();</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormInValid() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsValid: false });</span>
+<span class="cstat-no" title="statement not covered" >		this.props.onFormInValid();</span>
+	}
+&nbsp;
+	render() {
+		let addressOptions = {};
+		let addressOptionsList = this.props.addressOptions.concat(this.props.currentAddress);
+		(addressOptionsList.length &gt; 1 ) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >addressOptionsList.map(<span class="fstat-no" title="function not covered" >(a</span>ddress, key) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			addressOptions[key] = (</span>
+				&lt;div key={key}&gt;
+				  &lt;div&gt;
+				    &lt;FormattedMessage id={(key === addressOptionsList.length - 1) ? "address-input-address-confirmation-modal-body-original-addr" : "address-input-address-confirmation-modal-suggested-address" } 
+					values={{ 'addressNumber': key + 1 }}
+					/&gt;
+				  &lt;/div&gt;
+				  &lt;FormattedAddress	address={address} countyLabel={this.props.intl.messageIfExists("address-input-address-county-label")}/&gt;
+				&lt;/div&gt;
+			);
+		});
+&nbsp;
+		return (
+			(this.props.lookupSuccess === true)
+				?
+				(
+<span class="branch-0 cbranch-no" title="branch not covered" >					&lt;Modal</span>
+						className="address-confirmation-modal"
+						isOpen={this.props.isOpen}
+						contentLabel={this.props.intl.messageIfExists('address-input-address-confirmation-modal-header')}
+						shouldCloseOnOverlayClick={false}
+						fullScreenMobile={false}
+						onRequestClose={this.props.onRequestClose}
+					&gt;
+						&lt;div className="text-center"&gt;
+							&lt;h1&gt;&lt;FormattedMessage
+								id="address-input-address-confirmation-modal-header"/&gt;
+							&lt;/h1&gt;
+						&lt;/div&gt;
+						&lt;span&gt;
+							&lt;p&gt;
+								&lt;FormattedMessage id={"address-input-address-confirmation-modal-body"}/&gt;
+							&lt;/p&gt;
+&nbsp;
+							&lt;Form onValidSubmit={this.handleSubmitForm.bind(this)} onValid={this.onFormValid.bind(this)} onInvalid={this.onFormInValid.bind(this)}&gt;
+								&lt;RadioInput
+									label={this.props.intl.messageIfExists('address-input-address-confirmation-suggested-addresses-label',)}
+									aria-label={this.props.intl.messageIfExists('address-input-address-confirmation-suggested-addresses-label')}
+									id="addressConfirmationOptions"
+									name="accountAddress"
+									className="addressModal"
+									inline={false}
+									options={addressOptions}
+									value={this.state.radioValue}
+									onChange={this.handleFieldChange.bind(this)}
+									required
+								/&gt;
+								&lt;div className="footer modal-buttons text-center"&gt;
+									&lt;button id="address-confirmation-btn-cancel" className="btn btn-default" onClick={this.props.onRequestClose}&gt;
+										&lt;FormattedMessage id="address-input-address-confirmation-modal-cancel"/&gt;
+									&lt;/button&gt;
+									&lt;button id="address-confirmation-btn-confirm" className="btn btn-primary" type="submit" disabled={!this.state.formIsValid} &gt;
+										&lt;FormattedMessage id="address-input-address-confirmation-modal-confirm"/&gt;
+									&lt;/button&gt;
+								&lt;/div&gt;
+							&lt;/Form&gt;
+						&lt;/span&gt;
+					&lt;/Modal&gt;
+				)
+				:
+				(
+					&lt;ConfirmModal
+						className="address-confirmation-modal"
+						isOpen={this.props.isOpen}
+						contentLabel={this.props.intl.messageIfExists('address-input-address-confirmation-modal-header')}
+						shouldCloseOnOverlayClick={false}
+						fullScreenMobile={false}
+						onRequestConfirm={this.handleSubmitForm.bind(this)}
+						onRequestClose={this.props.onRequestClose}
+						confirmText={this.props.intl.messageIfExists('address-input-address-confirmation-modal-confirm')}
+						cancelText={this.props.intl.messageIfExists('address-input-address-confirmation-modal-cancel')}
+					&gt;
+						&lt;div className="text-center"&gt;
+							&lt;h1&gt;&lt;FormattedMessage
+								id="address-input-address-confirmation-modal-header"/&gt;
+							&lt;/h1&gt;
+						&lt;/div&gt;
+						&lt;span&gt;
+							&lt;FormattedMessage id={"address-input-address-confirmation-modal-body-error"}/&gt;
+						&lt;/span&gt;
+					&lt;/ConfirmModal&gt;
+				))
+	}
+}
+&nbsp;
+AddressConfirmationModal.propTypes = {
+	intl: intlShape.isRequired,
+	onRequestClose: React.PropTypes.func.isRequired,
+	onFormValid: React.PropTypes.func,
+	onFormInValid: React.PropTypes.func,
+	lookupSuccess: React.PropTypes.bool,
+	addressOptions: React.PropTypes.arrayOf(addressShape),
+	addressInstanceId: React.PropTypes.string.isRequired,
+	currentAddress: addressShape
+};
+&nbsp;
+AddressConfirmationModal.defaultProps = {
+	onFormValid: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	onFormInValid: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	lookupSuccess: false,
+	addressOptions: [],
+	currentAddress: {}
+};
+&nbsp;
+export default injectIntl(AddressConfirmationModal);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

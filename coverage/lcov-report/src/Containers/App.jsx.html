@@ -1,0 +1,2027 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/App.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Containers</a> App.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.3% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>106/185</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.09% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>59/128</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.57% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.89% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>106/180</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">17135x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">17046x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">160x</span>
+<span class="cline-any cline-yes">160x</span>
+<span class="cline-any cline-yes">158x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">161x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">47x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">103x</span>
+<span class="cline-any cline-yes">103x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-yes">1528x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-yes">158x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">158x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">158x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import AppDispatcher from '../Dispatchers/AppDispatcher';
+import ConfigStore from '../Stores/ConfigStore';
+import LayoutStore from '../Stores/LayoutStore';
+import AuthStore from '../Stores/AuthStore';
+import ApplicationStore from '../Stores/ApplicationStore.js';
+import PeopleStore from '../Stores/PeopleStore';
+import Header from '../Components/Header.jsx';
+import Navigation from '../Components/Navigation/Navigation.jsx';
+import PortalAuthActions from '../Actions/PortalAuthActions.js';
+import HouseholdMemberActions from '../Actions/HouseholdMemberActions.js';
+import ApplicationActions from '../Actions/ApplicationActions.js';
+import NavActions from '../Actions/NavActions.js';
+import { Modal, NoticeModal, ConfirmModal, ModalHeader, ProgressModal } from '../Components/Modal.jsx';
+import UserHomeActions from '../Actions/UserHomeAction.js';
+import UserHomeStore from '../Stores/UserHomeStore.js';
+import moment from '../TimeshifterMoment';
+&nbsp;
+/**
+ * store idle time in ms and reference to idle interval
+ * not kept in state, because setting state calls componentDidUpdate
+ * @type {number}
+ */
+let userIdleTime = 0;
+let userIdleInterval = null;
+/** store a flag to determine whether to attempt to focus a header for screenreaders */
+let	documentHeaderNeedsFocus = false;
+&nbsp;
+class App extends Component {
+&nbsp;
+	constructor(props, context) {
+		super(props);
+&nbsp;
+		this.state = {
+			globalServerErrorModalIsOpen: false,
+			globalServerErrorCode: null,
+			globalServerErrorNumber: null,
+			globalServerErrorMessage: null,
+			globalSessionErrorModalIsOpen: false,
+			globalConfirmSaveAndExitModalIsOpen: false,
+			globalMultitabErrorModalIsOpen: false,
+			globalUserIdleModalIsOpen: false,
+			safeToExit: true,
+			recordEntryType: null,
+			enrollmentYear: ConfigStore.get('enrollmentYear'),
+			viewOnlyMode: false,
+			applicationDetails: ApplicationStore.getDetails(),
+			expirationDate: ''
+		};
+&nbsp;
+		this.binds = {
+			onLayoutStoreChange: this.onLayoutStoreChange.bind(this),
+			onAuthStoreChange: this.onAuthStoreChange.bind(this),
+			addUserIdleTime: this.addUserIdleTime.bind(this),
+			onPeopleStoreChange: this.onPeopleStoreChange.bind(this),
+			handleRouteChange: <span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >documentHeaderNeedsFocus = true; </span>},
+			handleApplicationUpdate: this.onApplicationUpdate.bind(this),
+			handleCloseGlobalServerErrorModal: this.handleCloseGlobalServerErrorModal.bind(this),
+			handleCloseGlobalMultitabErrorModal: this.handleCloseGlobalMultitabErrorModal.bind(this),
+			handleCloseGlobalUserIdleModal: this.handleCloseGlobalUserIdleModal.bind(this),
+			redirectToPortal: this.redirectToPortal.bind(this),
+			redirectToPortalSignout: this.redirectToPortalSignout.bind(this),
+			logOutUser: this.logOutUser.bind(this),
+			// will be assigned when router listener is enabled
+			routerUnlistener: null
+		};
+&nbsp;
+		// Intl helper to see if a message exists...
+		// formatMessage will fallback to the messageId if it can't be found, or it's blank
+		this.props.intl.doesMessageExist = (messageId) =&gt; {
+			return typeof this.props.intl.messages[messageId] === 'string';
+		};
+&nbsp;
+		this.props.intl.messageIfExists = (messageId, values) =&gt; {
+			return this.props.intl.doesMessageExist(messageId) ? this.props.intl.formatMessage({ id: messageId }, values) : '';
+		};
+&nbsp;
+		// changes to app behavior/appearance based on URL params
+		// Set initial app id &amp; initial enrollmentYear
+		var appIdGetParam = ConfigStore.get('appIdGetParam'),
+			enrollmentYearGetParam = ConfigStore.get('enrollmentYearGetParam'),
+			viewOnlyModeGetParam = ConfigStore.get('viewOnlyModeGetParam'),
+			enrollmentYear,
+			query;
+			
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (this.props.location &amp;&amp; this.props.location.query) {
+			query = this.props.location.query;
+		}
+		
+		if (typeof query[appIdGetParam] !== 'undefined') {
+			ConfigStore.setConfig({appId: query[appIdGetParam]});
+			ApplicationActions.setApplicationId(query[appIdGetParam]);
+			_setCookie(appIdGetParam, query[appIdGetParam]);
+			//		console.log('appId set to ', query[appIdGetParam]);
+		}
+		else {
+			// let storedAppId = _getCookie(appIdGetParam);
+			// if (storedAppId !== null &amp;&amp; /application-start/.test(this.props.location.pathname) === false) {
+			// 	ConfigStore.setConfig({appId: storedAppId});
+			// 	ApplicationActions.setApplicationId(storedAppId);
+			// }
+			// else {
+			// 	if (!/^\/(account-creation|application-start)/.test(this.props.location.pathname)) {
+			// 		console.log('appId is not set. Cannot initialize the application');
+			// 	}
+			// }
+		}
+		
+		// assign the value from configstore if set and not present in URL params
+		enrollmentYear = ConfigStore.get('enrollmentYear');
+		if(enrollmentYear === null) {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof query[enrollmentYearGetParam] !== "undefined") {
+				// set the enrollmentYear into config
+<span class="cstat-no" title="statement not covered" >				enrollmentYear = parseInt(query[enrollmentYearGetParam]);</span>
+<span class="cstat-no" title="statement not covered" >				ConfigStore.setConfig({enrollmentYear: enrollmentYear});</span>
+<span class="cstat-no" title="statement not covered" >				_setCookie(enrollmentYearGetParam, query[enrollmentYearGetParam]);</span>
+			} 
+			else {
+				// enrollmentYear = _getCookie(enrollmentYearGetParam);
+				// ConfigStore.setConfig({enrollmentYear: enrollmentYear});
+			}
+		}
+		this.state.enrollmentYear = enrollmentYear;
+&nbsp;
+		
+		// enable view only mode if the param is present and set to view
+		this.state.viewOnlyMode = (query[viewOnlyModeGetParam] &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >query[viewOnlyModeGetParam] === "view")</span>;
+		
+		/** 
+		 *  allow setting user role in development mode only.
+		 *  has no effect on production builds, roles are no longer read via ConfigStore
+		 */
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(process.env.appConfig === "development") {
+			let devUserRole = <span class="cstat-no" title="statement not covered" >ConfigStore.get('devUserRole');</span>
+<span class="cstat-no" title="statement not covered" >			if (devUserRole === null) <span class="cstat-no" title="statement not covered" >devUserRole = 'consumer';</span></span>
+<span class="cstat-no" title="statement not covered" >			if (typeof query['usertype'] !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >				devUserRole = query['usertype'];</span>
+			}
+<span class="cstat-no" title="statement not covered" >			ConfigStore.setConfig({devUserRole: devUserRole});</span>
+		}
+&nbsp;
+		/**
+		 * CONTINGENCY MODE for 17.7
+		 * 
+		 */
+		
+		let ssApp = 'ssapp';
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof query[ssApp] !== "undefined") {
+<span class="cstat-no" title="statement not covered" >			ConfigStore.setConfig({ ssAppEnabled: query[ssApp] });</span>
+<span class="cstat-no" title="statement not covered" >			_setCookie(ssApp, query[ssApp]);</span>
+		} 
+		else {
+			let ssappFlag = _getCookie(ssApp);
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (ssappFlag) {
+<span class="cstat-no" title="statement not covered" >				ConfigStore.setConfig({ ssAppEnabled: ssappFlag });</span>
+			}
+		}
+		
+		/**
+		 * avoid these startup actions if creating an account or logged out
+		 */
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(/^\/account-creation|login|logged-out/.test(this.props.location.pathname) === false) {
+&nbsp;
+			/**
+			 * start refresh of auth token; get immediately, and every 14 minutes.
+			 */
+			PortalAuthActions.refreshAuthToken();
+			setInterval(PortalAuthActions.refreshAuthToken.bind(PortalAuthActions), 840000);
+		}
+&nbsp;
+		// Log dispatch events in development modes for easier debugging of flux events
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(process.env.appConfig === 'development' || process.env.appConfig === 'vpn') {
+<span class="cstat-no" title="statement not covered" >			AppDispatcher.register(<span class="fstat-no" title="function not covered" >pa</span>yload =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >				console.log('AppDispatcher: ', payload.action.type, payload.action);</span>
+			});
+		}
+&nbsp;
+		// Apply Layout State
+		Object.assign(this.state, LayoutStore.getState());
+		LayoutStore.on('change', this.binds.onLayoutStoreChange);
+&nbsp;
+		// look for mobile and tablet sizes, to layout/handle items differently on different devices
+		var isMobile = window.matchMedia("only screen and (max-width: 767px)");
+		var isTablet = window.matchMedia("only screen and (max-width: 992px) and (min-width: 768px)");
+		ConfigStore.setConfig({isMobile: isMobile.matches});
+		ConfigStore.setConfig({isTable: isTablet.matches});
+&nbsp;
+		// handle auth token processing
+		AuthStore.on('change', this.binds.onAuthStoreChange);
+		ApplicationStore.on('change', this.binds.handleApplicationUpdate);
+		
+	}
+&nbsp;
+&nbsp;
+	componentWillMount() {
+		if(typeof this.context.router !== 'undefined') {
+			// router.listen returns the unlistener method to use in unmount
+			this.binds.routerUnlisten = this.context.router.listen(this.binds.handleRouteChange);
+		}
+&nbsp;
+		this.modalListener = AppDispatcher.register((payload) =&gt; {
+&nbsp;
+			var action = payload.action;
+&nbsp;
+			switch (action.type) {
+				case 'SERVER_ERROR':
+					<span class="missing-if-branch" title="if path not taken" >I</span>if(this.state.globalMultitabErrorModalIsOpen) <span class="cstat-no" title="statement not covered" >return;</span>
+					this.setState({
+						globalServerErrorModalIsOpen: true,
+						globalServerErrorCode: (action.payload !== null) ? action.payload.errorCode : <span class="branch-1 cbranch-no" title="branch not covered" >'N/A',</span>
+						globalServerErrorNumber: (action.payload !== null) ? action.payload.errorNumber : <span class="branch-1 cbranch-no" title="branch not covered" >'N/A',</span>
+						globalServerErrorMessage: (action.payload !== null) ? action.payload.errorMessage : <span class="branch-1 cbranch-no" title="branch not covered" >''</span>
+					});
+					break;
+<span class="branch-1 cbranch-no" title="branch not covered" >				case 'OTHER_ERROR':</span>
+<span class="cstat-no" title="statement not covered" >					if(this.state.globalMultitabErrorModalIsOpen) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >					this.setState({globalServerErrorModalIsOpen: false, globalSessionErrorModalIsOpen: true});</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+<span class="branch-2 cbranch-no" title="branch not covered" >				case 'GENERIC_SAVE_EXIT':</span>
+<span class="cstat-no" title="statement not covered" >					this.setState({confirmSaveAndExitModalIsOpen: true });</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+				case 'REDIRECT_TO_PORTAL':
+					this.redirectToPortal(action.payload);
+					break;
+<span class="branch-4 cbranch-no" title="branch not covered" >				case 'LOG_OUT_USER':</span>
+<span class="cstat-no" title="statement not covered" >					this.logOutUser();</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+<span class="branch-5 cbranch-no" title="branch not covered" >				case 'APPLICATION_CREATE_SUCCESS':</span>
+<span class="branch-6 cbranch-no" title="branch not covered" >				case 'APPLICATION_LOAD':</span>
+<span class="cstat-no" title="statement not covered" >					_setCookie('pendingAppId', action.payload.pendingAppId);</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+				case 'APPLICATION_SET_ID':
+					//_setCookie('pendingAppId', action.payload);
+					ApplicationActions.loadApplication();
+					break;
+<span class="branch-8 cbranch-no" title="branch not covered" >				case 'SET_ENROLLMENT_YEAR':</span>
+					//_setCookie('enrollmentYear', action.payload);
+<span class="cstat-no" title="statement not covered" >					this.setState({enrollmentYear: action.payload});</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+				default:
+					break;
+			}
+		});
+	}
+&nbsp;
+	componentDidMount() {
+		/* force focus just after mount of the full app */
+		this.forceHeaderFocusForScreenreader();
+&nbsp;
+		var multitabWarningWillDisplay = false;
+&nbsp;
+		// avoid starting up these checks during account creation
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof this.context.router !== "undefined" &amp;&amp; this.context.router.isActive({pathname: '/account-creation'}) === false) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			PeopleStore.on('change', this.binds.onPeopleStoreChange);</span>
+			/* check for a value in window.name to have been set by portal in production builds.
+			 * if not present, window has been opened out of history or other means,
+			 * and the user cannot proceed
+			 * todo: the need for this should be revisited in phase 2
+			 */
+			// forced window.name to be a non-blank value for when we return back into Portal
+			//window.name = "CalHEERS-Income";
+			//Uncommenting the below code for enabling multi tab error message
+			/*if (window.name == "") {
+				multitabWarningWillDisplay = true;
+				this.setState({
+					globalMultitabErrorModalIsOpen: true
+				});
+			}*/
+&nbsp;
+			/**
+			 * start a timer to check for user idle state once per minute, if it hasn't been started before and multi-tab error isn't visible
+			 */
+<span class="cstat-no" title="statement not covered" >			if (userIdleTime === 0 &amp;&amp; !multitabWarningWillDisplay) {</span>
+<span class="cstat-no" title="statement not covered" >				userIdleInterval = setInterval(this.binds.addUserIdleTime, 60000);</span>
+			}
+		}
+	}
+&nbsp;
+	componentWillUnmount() {
+		LayoutStore.removeListener('change', this.binds.onLayoutStoreChange);
+		AuthStore.removeListener('change', this.binds.onAuthStoreChange);
+		PeopleStore.removeListener('change', this.binds.onPeopleStoreChange);
+		ApplicationStore.removeListener('change', this.binds.handleApplicationUpdate);
+		AppDispatcher.unregister(this.modalListener);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof this.binds.routerUnlistener === "function") {
+<span class="cstat-no" title="statement not covered" >			this.binds.routerUnlistener();</span>
+		}
+		clearInterval(userIdleInterval);
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>PeopleStoreChange() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ enrollmentYear: PeopleStore.getEnrollmentYear(), viewOnlyMode: PeopleStore.getViewOnlyFlag() });</span>
+	}
+&nbsp;
+	onLayoutStoreChange() {
+		this.setState(LayoutStore.getState());
+	}
+&nbsp;
+	/**
+	 * event handler method responding to change events from AuthStore
+	 * this is executed after the AuthStore receives a JWT token, enabling authenticated requests to proceed.
+	 */
+<span class="fstat-no" title="function not covered" >	on</span>AuthStoreChange() {
+<span class="cstat-no" title="statement not covered" >		if (ConfigStore.get('ssAppEnabled') !== "false" &amp;&amp; this.props.location.pathname !== '/sogi') {</span>
+&nbsp;
+			// try to hit the user home endpoint if enrollmentYear couldn't be located
+<span class="cstat-no" title="statement not covered" >			if (this.state.enrollmentYear === null) {</span>
+<span class="cstat-no" title="statement not covered" >				this.newUserHomeLoaded = true;</span>
+				// load the details of the current application from the endpoint after user home endpoint loads
+				let oneTimeAppLoad = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >					UserHomeStore.removeListener('change', oneTimeAppLoad);</span>
+<span class="cstat-no" title="statement not covered" >					if(UserHomeStore.getPendingAppIdList.length &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >						return this.context.router.push('/account-home');</span>
+					}
+<span class="cstat-no" title="statement not covered" >					ApplicationActions.loadApplication();</span>
+				};
+<span class="cstat-no" title="statement not covered" >				UserHomeStore.on('change', oneTimeAppLoad);</span>
+				// call the user home endpoint to load the initial state of the account
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if(typeof this.context.router !== "undefined" &amp;&amp; this.context.router.isActive({pathname: '/account-home'}) === false) {</span>
+<span class="cstat-no" title="statement not covered" >					UserHomeActions.getAccountHomeDetails();</span>
+				}
+			} 
+			else {
+<span class="cstat-no" title="statement not covered" >				ApplicationActions.loadApplication();</span>
+			}
+		}
+	}
+&nbsp;
+	onApplicationUpdate() {
+		let applicationDetails = ApplicationStore.getDetails(),
+		expirationDate = moment.isMoment(applicationDetails.applicationDate)
+		? <span class="branch-0 cbranch-no" title="branch not covered" >this.state.applicationDetails.applicationDate.add(30, 'days').format('L')</span>
+		: ''
+		this.setState({
+			applicationDetails: applicationDetails,
+			expirationDate: expirationDate
+		});
+	}
+&nbsp;
+	/**
+	 * Focus first important element, for screen reader
+	 */
+	forceHeaderFocusForScreenreader() {
+		var firstHeader = document.querySelectorAll('.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5');
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(firstHeader.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >			firstHeader[0].setAttribute('tabIndex', '-1');</span>
+<span class="cstat-no" title="statement not covered" >			firstHeader[0].focus();</span>
+		}
+		else if(this.refs.main) {
+			this.refs.main.setAttribute('tabIndex', '-1');
+			this.refs.main.focus();
+		}
+		/** reset the flag */
+		documentHeaderNeedsFocus = false;
+	}
+	/**
+	 * add to the cumulative idle time; if past threshold, prompt user
+	 */
+<span class="fstat-no" title="function not covered" >	ad</span>dUserIdleTime() {
+<span class="cstat-no" title="statement not covered" >		userIdleTime += 60000;</span>
+<span class="cstat-no" title="statement not covered" >		if(userIdleTime &gt; 600000) {</span>
+<span class="cstat-no" title="statement not covered" >			PortalAuthActions.refreshPortalSession();</span>
+		}
+		
+<span class="cstat-no" title="statement not covered" >		if(userIdleTime &gt; 770000) {</span>
+<span class="cstat-no" title="statement not covered" >			this.setState({globalUserIdleModalIsOpen: true});</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(userIdleTime &gt; 899000) {</span>
+<span class="cstat-no" title="statement not covered" >			clearInterval(userIdleInterval);</span>
+<span class="cstat-no" title="statement not covered" >			return this.redirectToPortalSignout();</span>
+		}
+		
+<span class="cstat-no" title="statement not covered" >		if(userIdleTime &gt; 909000) {</span>
+<span class="cstat-no" title="statement not covered" >            PortalAuthActions.refreshPortalSession();</span>
+<span class="cstat-no" title="statement not covered" >            PortalAuthActions.refreshAuthToken();</span>
+        }
+	}
+	componentDidUpdate(prevProps, prevState) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(process.env.appConfig === 'development') {
+		//	console.log('App did update');
+		}
+		// reset idle time on user action if the dialog isn't open
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(!this.state.globalUserIdleModalIsOpen) {
+			userIdleTime = 0;
+		}
+&nbsp;
+		// only update focus when needed to avoid forcing focus during event handling
+		// or other actions that cause App rerender without routing.
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(documentHeaderNeedsFocus) <span class="cstat-no" title="statement not covered" >this.forceHeaderFocusForScreenreader();</span>
+&nbsp;
+	}
+&nbsp;
+	/** close modals **/
+<span class="fstat-no" title="function not covered" >	ha</span>ndleCloseGlobalServerErrorModal(e) {
+<span class="cstat-no" title="statement not covered" >		this.setState({globalServerErrorModalIsOpen: false, globalServerErrorCode: null, globalServerErrorNumber: null });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleCloseGlobalMultitabErrorModal(e) {
+<span class="cstat-no" title="statement not covered" >		this.setState({globalMultitabErrorModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleConfirmSaveAndExitModal(e) {
+<span class="cstat-no" title="statement not covered" >		this.setState({confirmSaveAndExitModalIsOpen: false});</span>
+<span class="cstat-no" title="statement not covered" >		this.context.router.push('/account-home');</span>
+	}
+&nbsp;
+	/**
+	 * reset userIdleTime, refresh the session when closing modal.
+	 * @param e
+	 */
+<span class="fstat-no" title="function not covered" >	ha</span>ndleCloseGlobalUserIdleModal(e) {
+<span class="cstat-no" title="statement not covered" >		userIdleTime = 0;</span>
+<span class="cstat-no" title="statement not covered" >		PortalAuthActions.refreshPortalSession();</span>
+<span class="cstat-no" title="statement not covered" >		clearInterval(userIdleInterval);</span>
+<span class="cstat-no" title="statement not covered" >		userIdleInterval = setInterval(this.binds.addUserIdleTime, 60000);</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({globalUserIdleModalIsOpen: false});</span>
+	}
+&nbsp;
+	/**
+	 * redirects to passed page within the portal URL structure if portalURL has a config value
+	 * defaults to portal home if page is not passed.
+	 * @param page
+	 */
+	redirectToPortal(page) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(!page) <span class="cstat-no" title="statement not covered" >page = 'home';</span>
+		var portalURL = ConfigStore.get('portalURL'),
+			pageURL = ConfigStore.get('navigation-' + page + '-url'),
+			portalURLResolved = portalURL !== null ? portalURL.replace('{appURL}', window.location.origin) : <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+			redirectLinkHref =  (portalURL &amp;&amp; pageURL !== null) ? pageURL
+					.replace('{portalURL}', portalURLResolved)
+					.replace('{encryptedId}', this.state.applicationDetails.pendingAppId ) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+&nbsp;
+&nbsp;
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(redirectLinkHref !== null) {
+			window.location.href = redirectLinkHref;
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			console.log('redirects to portal:' + page + ' in production / if portalURL is set');</span>
+		}
+	}
+&nbsp;
+	/**
+	 * redirects to portal signout in production / if portalSignoutURL is set in config
+	 */
+<span class="fstat-no" title="function not covered" >	re</span>directToPortalSignout() {
+		var portalURL = <span class="cstat-no" title="statement not covered" >ConfigStore.get('portalSignoutURL'),</span>
+			portalURLResolved = <span class="cstat-no" title="statement not covered" >(portalURL) ? portalURL.replace('{appURL}', window.location.origin) : null;</span>
+<span class="cstat-no" title="statement not covered" >		if(portalURLResolved != null) {</span>
+<span class="cstat-no" title="statement not covered" >			window.location.href = portalURLResolved;</span>
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			console.log('redirects to portal signout in production / if portalSignoutURL is set');</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	lo</span>gOutUser() {
+		let portalURL = <span class="cstat-no" title="statement not covered" >ConfigStore.getURL('portalSignoutURL');</span>
+<span class="cstat-no" title="statement not covered" >		window.location.href = portalURL;</span>
+	}
+&nbsp;
+	render() {
+		var classNames = ['app-container'],
+			isApplicationPage = false,
+			isApplicationPagePaths = [
+				'/income',
+				'/application-start',
+				'/application-menu',
+				'/household',
+				'/individual',
+				'/review',
+				'/renewal'
+			],
+			showLogOutUser = this.props.location.pathname === '/account-home' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >AuthStore.userHasRole('consumer');</span>
+&nbsp;
+		// Determine whether to show save and exit based on the current path.
+		for(var i = 0, l = isApplicationPagePaths.length; i &lt; l; i++) {
+			if(this.props.location.pathname.indexOf(isApplicationPagePaths[i]) === 0) {
+				isApplicationPage = true;
+				break;
+			}
+		}
+&nbsp;
+		if(this.state.mobileNavOpen) {
+			classNames.push('mobile-nav-open');
+		}
+&nbsp;
+		return (
+			&lt;div id="app-container" className={classNames.join(' ')}&gt;
+&nbsp;
+				&lt;Header
+					fabIsOpen={this.state.fabIsOpen}
+					localeMenuIsOpen={this.state.localeMenuIsOpen}
+					showSaveAndExit={isApplicationPage}
+					showLogOutUser={showLogOutUser}
+				/&gt;
+&nbsp;
+				&lt;main className="main-content" role="main" ref="main"&gt;
+					{this.props.children &amp;&amp; React.cloneElement(this.props.children, {
+						enrollmentYear: this.state.enrollmentYear,
+						viewOnlyMode: this.state.viewOnlyMode,
+						safeToExit: this.state.safeToExit,
+						applicationDetails: this.state.applicationDetails
+					})}
+				&lt;/main&gt;
+&nbsp;
+				{ isApplicationPage
+					? (
+						&lt;div className="application-footer"&gt;
+							&lt;div className="container"&gt;
+								{ this.state.applicationDetails.primaryContactName
+									? (
+<span class="branch-0 cbranch-no" title="branch not covered" >										&lt;span&gt;{this.state.applicationDetails.primaryContactName}&lt;/span&gt;</span>
+									)
+									: null
+								}
+								{ this.state.applicationDetails.applicationId
+									? (
+<span class="branch-0 cbranch-no" title="branch not covered" >										&lt;FormattedMessage id="display-applicationId" values={{ applicationId: this.state.applicationDetails.applicationId }} /&gt;</span>
+									)
+									: null
+								}
+								{ this.state.applicationDetails.caseId
+									? (
+<span class="branch-0 cbranch-no" title="branch not covered" >										&lt;FormattedMessage id="display-caseId" values={{ caseId: this.state.applicationDetails.caseId }} /&gt;</span>
+									)
+									: null
+								}
+							&lt;/div&gt;
+						&lt;/div&gt;
+					)
+					: null
+				}
+&nbsp;
+				&lt;NoticeModal
+					isOpen={this.state.globalServerErrorModalIsOpen}
+					onRequestClose={this.binds.handleCloseGlobalServerErrorModal}
+					shouldCloseOnOverlayClick={false}
+					fullScreenMobile={true}
+					confirmText={&lt;FormattedMessage id="modals.header.close" /&gt;}
+					title={&lt;FormattedMessage id="global-element-server-error-message-modal-header" /&gt;}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-server-error-message-modal-header' })}
+				&gt;
+					&lt;FormattedHTMLMessage id="global-element-server-error-message-modal-body"
+						values={{
+							errorCode: this.state.globalServerErrorCode,
+							errorNumber: this.state.globalServerErrorNumber,
+							errorMessage: this.state.globalServerErrorMessage
+						}}
+					/&gt;
+				&lt;/NoticeModal&gt;
+&nbsp;
+				&lt;NoticeModal
+					isOpen={this.state.confirmSaveAndExitModalIsOpen === true}
+					onRequestClose={this.handleConfirmSaveAndExitModal.bind(this)}
+					shouldCloseOnOverlayClick={false}
+					fullScreenMobile={true}
+					title={&lt;FormattedMessage id="global-element-confirm-save-and-exit-modal-header" /&gt;}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-confirm-save-and-exit-modal-header' })}
+					confirmText={&lt;FormattedMessage id="sr-close"/&gt;}
+				&gt;
+					&lt;FormattedHTMLMessage id="global-element-confirm-save-and-exit-modal-body" 
+					values={{
+						expirationDate: ApplicationStore.getExpirationDate()
+						}}  
+					/&gt;
+				&lt;/NoticeModal&gt;
+&nbsp;
+				&lt;NoticeModal
+					isOpen={this.state.globalSessionErrorModalIsOpen}
+					title={&lt;FormattedMessage id="global-element-other-error-message-modal-header" /&gt;}
+					fullScreenMobile={true}
+					shouldCloseOnOverlayClick={false}
+					closeButton={false}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-other-error-message-modal-header' })}
+				&gt;
+					&lt;FormattedHTMLMessage id="global-element-other-error-message-modal-body" /&gt;
+				&lt;/NoticeModal&gt;
+&nbsp;
+				&lt;NoticeModal
+					isOpen={this.state.globalMultitabErrorModalIsOpen}
+					title=""
+					fullScreenMobile={true}
+					shouldCloseOnOverlayClick={false}
+					closeButton={false}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-multitab-error-message-modal-body'})}
+					&gt;
+					&lt;FormattedMessage id="global-element-multitab-error-message-modal-body"/&gt;
+				&lt;/NoticeModal&gt;
+&nbsp;
+				&lt;ConfirmModal
+					isOpen={this.state.globalUserIdleModalIsOpen}
+					onRequestConfirm={this.binds.handleCloseGlobalUserIdleModal}
+					onRequestClose={this.binds.redirectToPortalSignout}
+					shouldCloseOnOverlayClick={false}
+					fullScreenMobile={false}
+					title={&lt;FormattedMessage id="global-element-user-idle-modal-header" /&gt;}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-user-idle-modal-header' })}
+					cancelText={&lt;FormattedMessage id="global-element-user-idle-modal-logout" /&gt;}
+					confirmText={&lt;FormattedMessage id="global-element-user-idle-modal-confirm"/&gt;}
+				&gt;
+					&lt;FormattedMessage id="global-element-user-idle-modal-body" /&gt;
+				&lt;/ConfirmModal&gt;
+				&lt;ProgressModal 
+					isOpen={this.state.progressModalIsOpen}
+					loadingText={&lt;FormattedMessage id="global-element-progress-modal-loading"/&gt;}
+				/&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+/**
+ *
+ * @param name
+ * @private
+ */
+const _getCookie = function(name) {
+	let match = document.cookie.match(new RegExp('(^|;)\\s*ahbx_' + name + '\\s*=\\s*([^;]+)'));
+	return (match) ? <span class="branch-0 cbranch-no" title="branch not covered" >match.pop() </span>: null;
+};
+&nbsp;
+/**
+ *
+ * @param name
+ * @param value
+ * @private
+ */
+const _setCookie = function(name, value) {
+	let cookie = ['ahbx_', name, '=', value, ';path=/'].join('');
+&nbsp;
+	// don't set the domain to avoid creating multiple copies of the cookie at slightly different domain definitions, unless IE, which requires it.
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(/MSIE|Trident|Edge/.test(window.navigator.userAgent) === true) {
+<span class="cstat-no" title="statement not covered" >		cookie += 'domain=' + window.location.hostname;</span>
+	}
+	document.cookie = cookie;
+};
+&nbsp;
+export const _deleteCookie = <span class="fstat-no" title="function not covered" >fu</span>nction(name) {
+<span class="cstat-no" title="statement not covered" >	document.cookie = `ahbx_${name}=;expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/`;</span>
+};
+&nbsp;
+App.propTypes = {
+	intl: intlShape.isRequired
+};
+&nbsp;
+App.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(App);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Inputs/InputShape.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Inputs</a> InputShape.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>47/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">588x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">588x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-yes">85x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4284x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">230x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">230x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { HOC } from 'formsy-react';
+import { FormattedMessage } from 'react-intl';
+import ToolTip from '../ToolTip.jsx';
+&nbsp;
+class InputShape extends Component {
+&nbsp;
+	constructor(props) {
+		super(props);
+&nbsp;
+		this.state = {
+			hasFocus: false,
+			hadFirstFocus: false,
+			hadFirstBlur: false
+		};
+	}
+&nbsp;
+	handleInputFocus(e) {
+		this.setState({ hasFocus: true, hadFirstFocus: true });
+		this.props.onFocus(e);
+	}
+&nbsp;
+	handleInputBlur(e) {
+		this.setState({ hasFocus: false, hadFirstBlur: true });
+		var val = this.props.onBlur(e);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(val) {
+<span class="cstat-no" title="statement not covered" >			this.props.setValue(val);</span>
+		}
+	}
+&nbsp;
+	render() {
+		var className = ['form-group'].concat(
+							this.state.hasFocus ? 'has-focus' : [],
+							this.props.showRequired() ? 'required' : [],
+							this.state.hadFirstFocus ? 'had-first-focus' : [],
+							this.state.hadFirstBlur ? 'had-first-blur' : [],
+							this.props.disabled ? 'disabled' : [],
+							this.props.hasError || this.props.showError() || this.props.hasCustomError ? 'has-error' : [],
+							this.props.inlineLabel ? 'form-inline' : [],
+							this.props.className ? this.props.className.split(' ') : []
+						),
+			hypertext = this.props.labelhypertext ? (<span class="branch-0 cbranch-no" title="branch not covered" >&lt;a href={this.props.link} target={this.props.target}&gt;&lt;u&gt;{this.props.labelhypertext}&lt;/u&gt;&lt;/a&gt;)</span> : '',
+			optional = this.props.optional === true ? (
+					&lt;span className="optional"&gt; &lt;FormattedMessage id="form-optional-label" /&gt;&lt;/span&gt;
+				) : '',
+			tooltip = this.props.tooltip ? (
+					&lt;ToolTip direction={this.props.direction} text={this.props.tooltip} id={this.props.id} showOnHover={false} /&gt;
+				) : '',
+			label = this.props.useLabel &amp;&amp; (this.props.label || this.props.optional) ? (
+					&lt;label htmlFor={this.props.id}&gt;{this.props.label}{hypertext}{tooltip}{optional}&lt;/label&gt;
+				): '',
+			tag = !this.props.useLabel &amp;&amp; (this.props.label || this.props.optional) ? (
+					&lt;span className="simple-tag"&gt;{this.props.label}{hypertext}{tooltip}{optional}&lt;/span&gt;
+				): '',
+			errorMessage = this.props.requiredError &amp;&amp; this.props.showRequired() &amp;&amp; this.state.hadFirstBlur ? (
+					&lt;p className="error-message"&gt;{this.props.requiredError}&lt;/p&gt;
+				) : (
+				this.props.showError() ? (
+					&lt;p className="error-message" dangerouslySetInnerHTML={{__html: this.props.getErrorMessage()}}&gt;&lt;/p&gt;
+				) : ''),
+			inlineLabel = this.props.inlineLabel ? &lt;div className="form-control-static"&gt;{this.props.inlineLabel}&lt;/div&gt; : '',
+			inputChildren = this.props.children;
+			
+			// If a custom error has been provide, display it even if the formsy validation state does not have an error
+			<span class="missing-if-branch" title="if path not taken" >I</span>if(this.props.hasCustomError === true) {
+<span class="cstat-no" title="statement not covered" >				errorMessage = &lt;p className="error-message"&gt;{this.props.customErrorMessage}&lt;/p&gt;;</span>
+			}
+&nbsp;
+		if(this.props.addOn) {
+			inputChildren = (
+				&lt;div className="input-group"&gt;
+					&lt;span className="input-group-addon"&gt;{this.props.addOn}&lt;/span&gt;
+					{inputChildren}
+				&lt;/div&gt;
+			);
+		}
+&nbsp;
+		return (
+			&lt;div className={className.join(' ')}&gt;
+				{label}
+				{tag}
+				{inputChildren}
+				{inlineLabel}
+				{errorMessage}
+			&lt;/div&gt;
+		);
+	}
+}
+&nbsp;
+InputShape.propTypes = {
+	className: React.PropTypes.string,
+	value: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.object,
+		React.PropTypes.bool,
+		React.PropTypes.array
+	]),
+	id: React.PropTypes.string.isRequired,
+	name: React.PropTypes.string.isRequired,
+	type: React.PropTypes.string,
+	placeholder: React.PropTypes.string,
+	label: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element
+	]),
+	tag: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element
+	]),
+	inlineLabel: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element
+	]),
+	optional: React.PropTypes.bool,
+	hasError: React.PropTypes.bool,
+	addOn: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element
+	]),
+	tooltip: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element
+	]),
+	formatInput: React.PropTypes.func,
+	onChange: React.PropTypes.func,
+	onFocus: React.PropTypes.func,
+	onBlur: React.PropTypes.func,
+	hasCustomError: React.PropTypes.bool,
+	useLabel: React.PropTypes.bool
+};
+&nbsp;
+InputShape.defaultProps = {
+	className: '',
+	type: 'text',
+	placeholder: '',
+	required: null,
+	formatInput: <span class="fstat-no" title="function not covered" >va</span>l =&gt; <span class="cstat-no" title="statement not covered" >val,</span>
+	onChange: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	onFocus: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	onBlur: <span class="fstat-no" title="function not covered" >()</span> =&gt; {},
+	hasCustomError: false,
+	useLabel: true
+};
+&nbsp;
+export default InputShape;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

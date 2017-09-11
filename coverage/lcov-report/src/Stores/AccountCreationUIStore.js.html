@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Stores/AccountCreationUIStore.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Stores</a> AccountCreationUIStore.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.62% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>77/91</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.53% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>67/95</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.62% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>77/91</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">366x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">354x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">366x</span>
+<span class="cline-any cline-yes">366x</span>
+<span class="cline-any cline-yes">354x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { EventEmitter } from 'events';
+import AppDispatcher from '../Dispatchers/AppDispatcher';
+import AccountActions from '../Actions/AccountActions';
+&nbsp;
+let storage = {
+	/** modal states **/
+	duplicateAccountWarningModalIsOpen: false,
+	/** has a duplicate account been tested for - reset after changes **/
+	duplicateAccountChecked:            false,
+	/** tested and found duplicate - reset after changes */
+	duplicateAccountFound:              false,
+	// cache values of account fields that have already been checked
+	duplicateAccountCheckedFields: {},
+&nbsp;
+	// prevent multiple concurrent lookups
+	duplicateAccountCheckInProgress: false,
+&nbsp;
+	// stores aggregate state of AddressInput, managed internally by that component
+	addressInputIsValid: false,
+	passwordValidated: false,
+	formIsValid: false,
+	captchaIsValid: false,
+	formData: {},
+	lastFocusedField: ''
+};
+&nbsp;
+const AccountCreationUIStore = Object.assign({}, EventEmitter.prototype, {
+	getState: () =&gt; storage,
+	set: (value) =&gt; {
+		_setValue(value, true);
+	},
+	silentSet: (value) =&gt; {
+		_setValue(value, false);
+	},
+	updateFormData: function (name, value) {
+		let delta = {},
+			newState = {};
+		delta[name] = value;
+&nbsp;
+		newState.formData = Object.assign(storage.formData, delta);
+		let tempState = this.verifyFieldState(name, value);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(tempState !== null) {
+<span class="cstat-no" title="statement not covered" >			newState = Object.assign(newState, tempState);</span>
+		}
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (name === "prefModeOfComm" &amp;&amp; newState.formData["additional-contact-method"] === "no") {
+<span class="cstat-no" title="statement not covered" >			this.clearPreferredContactInfo(newState.formData);</span>
+		}
+		if (name === "additional-contact-method" &amp;&amp; value === "no") {
+			this.clearPreferredContactInfo(newState.formData);
+		}
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (name === "additional-contact-method" &amp;&amp; value === "yes") { //Handle empty optional address
+<span class="cstat-no" title="statement not covered" >			storage.addressInputIsValid = true;</span>
+		}
+		if(name === "hasExistingCase" &amp;&amp; value === "N"){
+			this.clearAccessCode(newState.formData);
+		}
+		// reset password validation state if password is changed
+		if (name === "password") {
+			storage.passwordValidated = false;
+		}
+		Object.assign(storage, newState);
+		AccountCreationUIStore.emit('change');
+	},
+	validateAddress: (isValid) =&gt; {
+		if(storage.addressInputIsValid !== isValid) {
+			storage.addressInputIsValid = isValid;
+			AccountCreationUIStore.emit('change');
+		}
+	},
+	validateForm: () =&gt; {
+		//if there is a captcha token, we can proceed
+		storage.captchaIsValid = typeof storage.formData.captchaRespTkn !== 'undefined';
+		// if account address is no longer in a valid state then delete it from formData.
+		if(typeof storage.formData.accountAddress !== "undefined" &amp;&amp; Object.keys(storage.formData.accountAddress).length === 1) {
+			delete storage.formData.accountAddress;
+		}
+		// if the addressInput is not valid, and the address has been entered as additional form of contact,
+		// mark the addressInput as valid temporarily since it has been cleared out
+		if (typeof storage.formData.prefModeOfComm === "string" &amp;&amp; storage.formData.prefModeOfComm !== 'M' &amp;&amp; storage.addressInputIsValid === false) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof storage.formData.accountAddress === "undefined" || <span class="branch-1 cbranch-no" title="branch not covered" >Object.keys(storage.formData.accountAddress).length === 1)</span> {
+				storage.addressInputIsValid = true;
+			}
+		}
+		// new valid state
+		let formIsValid = storage.duplicateAccountCheckInProgress === false 
+						&amp;&amp; storage.duplicateAccountFound === false
+						&amp;&amp; storage.duplicateAccountChecked === true
+						&amp;&amp; storage.passwordValidated === true
+						&amp;&amp; <span class="branch-4 cbranch-no" title="branch not covered" >storage.captchaIsValid === true;</span>
+&nbsp;
+		// overall validation depends on address validation
+		if(storage.formIsValid === true) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if((typeof storage.formData.prefModeOfComm === "string" &amp;&amp; storage.formData.prefModeOfComm === 'M')
+				|| (<span class="branch-2 cbranch-no" title="branch not covered" >typeof storage.formData['additional-contact-method'] === 'string' </span>&amp;&amp;  <span class="branch-3 cbranch-no" title="branch not covered" >storage.formData['additional-contact-method'] === 'yes')</span>) {
+				formIsValid = storage.addressInputIsValid; 
+			}
+		}
+		// only update the valid state and emit a change if it actually changed
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(formIsValid !== storage.formIsValid) {
+<span class="cstat-no" title="statement not covered" >			storage.formIsValid = formIsValid;</span>
+<span class="cstat-no" title="statement not covered" >			AccountCreationUIStore.emit('change');</span>
+		}
+	},
+	/**
+	 * reset checked state for certain fields when duplicate account or
+	 * zipcode verification has already been performed
+	 *
+	 * @param fieldName
+	 * @param value
+	 * @returns {*}
+	 */
+	verifyFieldState: (fieldName, value) =&gt; {
+		let stateDelta = {};
+		// reset duplicate account check status if these fields change.
+		// ssn may ultimately need to be checked separately because it's optional in the duplicate account check
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (storage.duplicateAccountChecked === true
+			&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >['firstName', 'lastName', 'dob', 'prefModeOfComm', 'ssn', 'email', 'email2', 'phone', 'accountAddress', 'accessCode'].indexOf(fieldName) &gt;= 0)</span> {
+<span class="cstat-no" title="statement not covered" >			stateDelta.duplicateAccountChecked = false;</span>
+<span class="cstat-no" title="statement not covered" >			stateDelta.duplicateAccountFound = false;</span>
+<span class="cstat-no" title="statement not covered" >			stateDelta.duplicateAccountCheckedFields = {};</span>
+		}
+		return (Object.keys(stateDelta).length &gt; 0) ? <span class="branch-0 cbranch-no" title="branch not covered" >stateDelta </span>: null;
+	},
+	/**
+	 * validates password against endpoint to ensure no dictionary words
+	 * @param fieldName
+	 * @param value
+	 */
+	validatePassword: () =&gt; {
+		if(typeof storage.formData.password !== "undefined" 
+			&amp;&amp; storage.formData.password.length &gt; 7 
+			&amp;&amp; storage.passwordValidated === false) {
+			AccountActions.validatePassword(storage.formData.username, storage.formData.password);
+		}
+	},
+&nbsp;
+	/**
+	 * verify whether duplicate account exists
+	 * does nothing if a check is already in progress or a duplicate has been found, and no changes made since
+	 * checks firstName, lastName, dob &amp; prefModeOfComm for validity, and adds SSN if it is in a valid state
+	 * if the former are invalid, no check is made
+	 * if they are valid, and no check has been performed, or fields changed since last check, check is made
+	 */
+	duplicateAccountCheck(data) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(storage.duplicateAccountCheckInProgress === true
+			|| storage.duplicateAccountChecked === true
+			|| storage.duplicateAccountFound === true
+			|| (<span class="branch-3 cbranch-no" title="branch not covered" >typeof storage.formData.prefModeOfComm === "string"</span>
+				&amp;&amp; <span class="branch-4 cbranch-no" title="branch not covered" >storage.formData.prefModeOfComm === 'M' </span>
+				&amp;&amp; <span class="branch-5 cbranch-no" title="branch not covered" >storage.addressInputIsValid === false)</span>
+			|| (<span class="branch-6 cbranch-no" title="branch not covered" >typeof data.ssn === "string"</span>
+				&amp;&amp; <span class="branch-7 cbranch-no" title="branch not covered" >data.ssn.length &gt; 0</span>
+				&amp;&amp; <span class="branch-8 cbranch-no" title="branch not covered" >data.ssn.length &lt; 9)</span>) return;
+&nbsp;
+		// if the check hasn't been done, or fields cache is invalidated
+<span class="cstat-no" title="statement not covered" >		if(storage.duplicateAccountChecked === false</span>
+			|| JSON.stringify(storage.duplicateAccountCheckedFields) !== JSON.stringify(data)
+		) {
+			// flag the check as in progress and cache the field data
+<span class="cstat-no" title="statement not covered" >			storage.duplicateAccountCheckInProgress = true;</span>
+<span class="cstat-no" title="statement not covered" >			storage.duplicateAccountCheckedFields = data;</span>
+<span class="cstat-no" title="statement not covered" >			if(AccountActions.checkForDuplicateAccount(data) === false) {</span>
+<span class="cstat-no" title="statement not covered" >				storage.duplicateAccountCheckInProgress = false;</span>
+			}
+		} 
+		else {
+<span class="cstat-no" title="statement not covered" >			AccountCreationUIStore.validateForm();</span>
+		}
+	},
+	/**
+	*
+	* @param Form Store Data
+	* Used to clear preferred contact information
+	*/
+&nbsp;
+	clearPreferredContactInfo(formData) {
+&nbsp;
+		if (formData["prefModeOfComm"] === "E") {
+			delete formData["accountAddress"];
+			delete formData["phone"];
+		}
+		else if (formData["prefModeOfComm"] === "P") {
+			delete formData["email"];
+			delete formData["email2"];
+			delete formData["accountAddress"];
+		}
+		else <span class="missing-if-branch" title="else path not taken" >E</span>if (formData["prefModeOfComm"] === "M") {
+			delete formData["email"];
+			delete formData["email2"];
+			delete formData["phone"];
+		}
+&nbsp;
+	},
+	clearAccessCode(formData) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (formData["hasExistingCase"] === "N") {
+			delete formData["accessCode"];			
+		} 
+	},
+&nbsp;
+	dispatcherId: AppDispatcher.register(payload =&gt; {
+		let action = payload.action;
+&nbsp;
+		//this.restoreInputFocus();
+		switch (action.type) {
+			case 'SERVER_ERROR':
+			case 'OTHER_ERROR':
+				storage.duplicateAccountCheckInProgress = false;
+				AccountCreationUIStore.emit('change');
+				break;
+			/** account details pass the duplicate account check **/
+			case 'CREATE_ACCOUNT_UNIQUE_ACCOUNT':
+				Object.assign(storage, {
+					duplicateAccountCheckInProgress: false,
+					duplicateAccountChecked: true,
+					duplicateAccountFound: false
+				});
+				AccountCreationUIStore.emit('change');
+				AccountCreationUIStore.validateForm();
+				break;
+			/** duplicate account found **/
+			case 'CREATE_ACCOUNT_DUPLICATE_ACCOUNT':
+				Object.assign(storage, {
+					duplicateAccountCheckInProgress: false,
+					duplicateAccountWarningModalIsOpen: true,
+					duplicateAccountChecked: true,
+					duplicateAccountFound: true
+				});
+				AccountCreationUIStore.emit('change');
+				break;
+&nbsp;
+			/* listen for password validation events to reset internal validation state
+			 * (to prevent repeated calls to the validation endpoint)  
+			 */
+			case 'PASSWORD_VALID':
+				Object.assign(storage, { passwordValidated: true });
+				AccountCreationUIStore.emit('change');
+				break;
+			case 'INVALID_PASSWORD':
+				Object.assign(storage, { passwordValidated: false });
+				AccountCreationUIStore.emit('change');
+				break;
+			default:
+				break;
+		}
+	})
+});
+&nbsp;
+/**
+ *
+ * @param {*} value
+ * @param {boolean} emitEvent
+ */
+function _setValue (value, emitEvent) {
+	Object.assign(storage,value);
+	if(emitEvent !== false) {
+		AccountCreationUIStore.emit('change');
+	}
+}
+&nbsp;
+&nbsp;
+export default AccountCreationUIStore;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

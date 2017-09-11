@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/MemberReviewIndividualInformation.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Components</a> MemberReviewIndividualInformation.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.23% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>46/198</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/15</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import {
+	intlShape,
+	injectIntl,
+	FormattedMessage
+} from 'react-intl';
+import { ReviewSection, ReviewRow } from './ReviewSection.jsx';
+import MemberAvatar from './MemberAvatar.jsx';
+import MaskedSSN from './MaskedSSN.jsx';
+import ApplicationStore from '../Stores/ApplicationStore.js';
+import moment from '../TimeshifterMoment.js';
+&nbsp;
+const MemberReviewIndividualInformation = props =&gt; {
+	let immigrationDocumentType = props.person.citizenship &amp;&amp; props.person.citizenship.immigrationDocumentType,
+	fields = {
+		documentDescription: {
+			immigrationDocumentType: ['W1', 'X1']
+		},
+		alienOrUSCISNumber: {
+			immigrationDocumentType: ['A', 'C', 'B', 'D', 'E', 'F', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X2']
+		},
+		receiptOrCardNumber: {
+			immigrationDocumentType: ['B', 'D', 'X2']
+		},
+		i94Number: {
+			immigrationDocumentType: ['G', 'I', 'J', 'K', 'L', 'X1', 'X2']
+		},
+		visaNumber: {
+			immigrationDocumentType: ['E', 'I', 'X2']
+		},
+		passportNumber: {
+			immigrationDocumentType: ['E', 'F', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2']
+		},
+		countryOfIssuance: {
+			immigrationDocumentType: ['E', 'F', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2']
+		},
+		sevisId: {
+			immigrationDocumentType: ['G', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2']
+		},
+		documentExpirationDate: {
+			immigrationDocumentType: ['A', 'C', 'B', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2']
+		}
+	};
+&nbsp;
+	var handleLableCheckPointTwoData = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+		let isLableHiden= <span class="cstat-no" title="statement not covered" >false</span>
+<span class="cstat-no" title="statement not covered" >			if (Array.isArray(props.dynamicQuestionsForPerson.outputpersonlistname) &amp;&amp; props.dynamicQuestionsForPerson.outputpersonlistname[0] == 'CP2' &amp;&amp; (Array.isArray(props.dynamicQuestionsForPerson.outputpersonlisttype)&amp;&amp; props.dynamicQuestionsForPerson.outputpersonlisttype[0] == 1 || props.dynamicQuestionsForPerson.outputpersonlisttype[0] == 2 || props.dynamicQuestionsForPerson.outputpersonlisttype[0] == 4)){</span>
+<span class="cstat-no" title="statement not covered" >				isLableHiden = true</span>
+			}
+					
+<span class="cstat-no" title="statement not covered" >		return isLableHiden;</span>
+	}
+		
+	return (
+		&lt;div&gt;
+			{
+				props.showAvatar ? (
+					&lt;div&gt;
+						&lt;MemberAvatar person={props.person} avatarSize="md" /&gt;
+						&lt;br/&gt;
+					&lt;/div&gt;
+				) : <span class="branch-1 cbranch-no" title="branch not covered" >null</span>
+			}
+			&lt;ReviewSection header={props.intl.messageIfExists('individual-review-header')}&gt;
+				&lt;ReviewRow
+					id={props.id + '-current-enrollment'}
+					linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'current-enrollment'}
+					items={[
+					].concat(
+						props.person.applyingForHealthCoverage === 'Y'
+							? <span class="branch-0 cbranch-no" title="branch not covered" >[</span>
+								{
+									label: props.intl.messageIfExists('individual-review-servedUSMilitary-label'),
+									value: props.person.healthCare &amp;&amp; props.person.healthCare.servedUSMilitary
+											? props.intl.messageIfExists('individual-review-value-' + props.person.healthCare.servedUSMilitary) 
+											: props.intl.messageIfExists('individual-review-value-na')
+								},
+								{
+									label: props.intl.messageIfExists('individual-review-spouseOrParentUSMilitary-label'),
+									value: props.person.healthCare &amp;&amp; props.person.healthCare.spouseOrParentUSMilitary
+											? props.intl.messageIfExists('individual-review-value-' + props.person.healthCare.spouseOrParentUSMilitary) 
+											: props.intl.messageIfExists('individual-review-value-na')
+								}
+							]
+							: []
+					).concat(
+						Array.isArray(props.dynamicQuestionsForPerson.hiddenFields) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.dynamicQuestionsForPerson.hiddenFields.indexOf('programs') &gt; -1 </span>? <span class="branch-0 cbranch-no" title="branch not covered" >"":</span>
+						{
+							label: props.intl.messageIfExists('individual-review-existingHealthCoveragePlans-label'),
+							value: props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.existingHealthCoveragePlans</span>
+										? <span class="branch-0 cbranch-no" title="branch not covered" >props.person.healthCare.existingHealthCoveragePlans.map(<span class="fstat-no" title="function not covered" >co</span>de =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >												return props.intl.messageIfExists('individual-coverage-' + code);</span>
+											})
+											.join(', ')
+										: props.intl.messageIfExists('individual-review-value-na')
+						},
+						props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.existingHealthCoveragePlans</span>
+							? <span class="branch-0 cbranch-no" title="branch not covered" >[</span>
+								Array.isArray(props.dynamicQuestionsForPerson.hiddenFields) &amp;&amp; props.dynamicQuestionsForPerson.hiddenFields.indexOf('ExpectedToEnd') &gt; -1 ? "":
+								{
+								label: props.intl.messageIfExists('individual-review-coverageEndDate-label'),
+								value: props.person.healthCare &amp;&amp; props.person.healthCare.coverageEndDate 
+												? props.person.healthCare.coverageEndDate.format('L')
+												: props.intl.messageIfExists('individual-review-value-na')
+							}
+							]
+							: [],
+							Array.isArray(props.dynamicQuestionsForPerson.hiddenFields) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.dynamicQuestionsForPerson.hiddenFields.indexOf('employerOfferedHealthCare') &gt; -1 </span>? <span class="branch-0 cbranch-no" title="branch not covered" >"":</span>
+							{
+								label: props.intl.messageIfExists('individual-review-employerHealthInsurance-label'),
+								value: props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.employerHealthInsurance</span>
+										&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >props.person.healthCare.employerHealthInsurance === 'Y'</span>
+											? <span class="branch-0 cbranch-no" title="branch not covered" >props.intl.messageIfExists('individual-review-value-Y') </span>
+											: props.intl.messageIfExists('individual-review-value-N') 
+							},
+						props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.employerHealthInsurance </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >props.person.healthCare.employerHealthInsurance === 'Y'</span>
+							? <span class="branch-0 cbranch-no" title="branch not covered" >[</span>
+								{
+									label: props.intl.messageIfExists('individual-review-meetsMinValueStandard-label'),
+									value: props.person.healthCare 
+											&amp;&amp; props.person.healthCare.meetsMinValueStandard
+											&amp;&amp; props.person.healthCare.meetsMinValueStandard === 'Y'
+												? props.intl.messageIfExists('individual-review-value-Y') 
+												: props.intl.messageIfExists('individual-review-value-N')
+								},
+								{
+									label: props.intl.messageIfExists('individual-review-meetsAffordabilityStandard-label'),
+									value: props.person.healthCare
+											&amp;&amp; props.person.healthCare.meetsAffordabilityStandard
+											&amp;&amp; props.person.healthCare.meetsAffordabilityStandard === 'Y'
+												? props.intl.messageIfExists('individual-review-value-Y') 
+												: props.intl.messageIfExists('individual-review-value-N')
+								}
+							]
+							: []
+&nbsp;
+					)}
+				/&gt;
+					
+				{
+					props.person.memberOfIndianTribeIndicator === 'Y'
+						? (
+&nbsp;
+<span class="branch-0 cbranch-no" title="branch not covered" >							handleLableCheckPointTwoData() || Array.isArray(props.dynamicQuestionsForPerson.hiddenFields) &amp;&amp; props.dynamicQuestionsForPerson.hiddenFields.indexOf('receivedServiceFromIHC') &gt; -1 ? '':</span>
+							&lt;ReviewRow
+								id={props.id + '-ai-an-plan'}
+								linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'ai-an-plan'}
+								items={[
+									{
+										label: props.intl.messageIfExists('individual-review-tribalHealthProgramReceived-label'),
+										value: props.person.healthCare
+												&amp;&amp; props.person.healthCare.tribalHealthProgramReceived
+												&amp;&amp; props.person.healthCare.tribalHealthProgramReceived === 'Y'
+													? props.intl.messageIfExists('individual-review-value-Y') 
+													: props.intl.messageIfExists('individual-review-value-N')
+									}
+								].concat(
+									! props.person.tribalHealthProgramReceived
+									|| props.person.tribalHealthProgramReceived === 'N'
+										? {
+											label: props.intl.messageIfExists('individual-review-tribalHealthProgramEligible-label'),
+											value: props.person.healthCare
+													&amp;&amp; props.person.healthCare.tribalHealthProgramEligible
+													&amp;&amp; props.person.healthCare.tribalHealthProgramEligible === 'Y'
+														? props.intl.messageIfExists('individual-review-value-Y') 
+														: props.intl.messageIfExists('individual-review-value-N')
+										}
+										: []
+								)}
+							/&gt;
+						)
+						: null
+				}
+&nbsp;
+				{
+					props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.helpWithMedicalExpenses </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >ApplicationStore.getDetails().subsidizedApplication === "Y"</span>
+						? (
+<span class="branch-0 cbranch-no" title="branch not covered" >							handleLableCheckPointTwoData() ? '':</span>
+							&lt;ReviewRow
+								id={props.id + '-help-with-past-medical-expenses'}
+								linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'help-with-past-medical-expenses'}
+								items={[
+									{
+										label: props.intl.messageIfExists('individual-review-helpWithMedicalExpenses-label'),
+										value: props.person.healthCare.helpWithMedicalExpenses === 'Y' ? props.intl.messageIfExists('individual-review-value-Y')
+											: props.intl.messageIfExists('individual-review-value-N')
+									}
+								]}
+							/&gt;
+					)
+					: null
+				}
+&nbsp;
+				{
+					props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.helpWithMedicalServices </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >ApplicationStore.getDetails().subsidizedApplication === "Y"</span>
+						? (
+<span class="branch-0 cbranch-no" title="branch not covered" >							handleLableCheckPointTwoData() ? '':</span>
+							&lt;ReviewRow
+								id={props.id + '-help-with-long-term-services'}
+								linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'help-with-long-term-services'}
+								items={[
+									{
+										label: props.intl.messageIfExists('individual-review-helpWithMedicalServices-label'),
+										value: props.person.healthCare.helpWithMedicalServices === 'Y' ? props.intl.messageIfExists('individual-review-value-Y') 
+													: props.intl.messageIfExists('individual-review-value-N')
+									}
+								]}
+							/&gt;
+					)
+					: null
+				}
+				
+				{
+					props.person.healthCare &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.healthCare.hasDisability</span>
+						? (
+<span class="branch-0 cbranch-no" title="branch not covered" >							handleLableCheckPointTwoData() ? '':</span>
+							&lt;ReviewRow
+								id={props.id + '-disabilities'}
+								linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'disabilities'}
+								items={[
+									{
+										label: props.intl.messageIfExists('individual-review-hasDisability-label'),
+										value: props.person.healthCare.hasDisability === 'Y' ? props.intl.messageIfExists('individual-review-value-Y') 
+													: props.intl.messageIfExists('individual-review-value-N')
+									}
+								]}
+							/&gt;
+					)
+					: null
+				}
+				
+				{
+					ApplicationStore.getDetails().subsidizedApplication === "Y"
+					? (
+<span class="branch-0 cbranch-no" title="branch not covered" >						handleLableCheckPointTwoData() </span>
+						|| Array.isArray(props.dynamicQuestionsForPerson.hiddenFields) 
+						&amp;&amp; props.dynamicQuestionsForPerson.hiddenFields.indexOf('thirdPartyLiability') &gt; -1 
+						? ''
+						:&lt;ReviewRow
+							id={props.id + '-third-party-liability'}
+							linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'third-party-liability'}
+							items={[
+								{
+									label: props.intl.messageIfExists('individual-review-thirdPartyLiability-label'),
+									value: props.person.healthCare &amp;&amp; props.person.healthCare.thirdPartyLiability 
+											? (props.person.healthCare.thirdPartyLiability === 'Y' 
+												? props.intl.messageIfExists('individual-review-value-Y') 
+												: props.intl.messageIfExists('individual-review-value-N')
+											) 
+											: props.intl.messageIfExists('individual-review-value-mdash')
+								}
+							]}
+						/&gt;
+					)
+					: null
+					
+				}
+					
+			&lt;/ReviewSection&gt;
+&nbsp;
+			&lt;ReviewSection header={props.intl.messageIfExists('individual-review-citizenship-header')}&gt;
+&nbsp;
+				&lt;ReviewRow
+					id={props.id + '-social-security'}
+					linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'social-security-number'}
+					items={[
+						{
+							label: props.intl.messageIfExists('individual-review-ssn-label'),
+							value: props.person.citizenship
+									&amp;&amp; props.person.citizenship.ssn
+									? (
+<span class="branch-0 cbranch-no" title="branch not covered" >										React.createElement(MaskedSSN, { value: props.person.citizenship.ssn })</span>
+									)
+									: props.intl.messageIfExists('individual-review-value-na')
+						}
+					].concat(
+						! (props.person.citizenship &amp;&amp; props.person.citizenship.ssn) || <span class="branch-1 cbranch-no" title="branch not covered" >props.person.citizenship.ssn === 'N'</span>
+							? [
+								{
+									label: props.intl.messageIfExists('individual-review-noSSNReason-label'),
+									value: props.person.citizenship &amp;&amp; props.person.citizenship.noSSNReason 
+											? <span class="branch-0 cbranch-no" title="branch not covered" >props.intl.messageIfExists('individual-citizenship-no-ssn-' + props.person.citizenship.noSSNReason) </span>
+											: props.intl.messageIfExists('individual-review-value-na')
+								},
+								{
+									label: props.intl.messageIfExists('individual-review-itinNumber-label'),
+									value: props.person.citizenship &amp;&amp; props.person.citizenship.itinNumber
+											? <span class="branch-0 cbranch-no" title="branch not covered" >props.person.citizenship.itinNumber</span>
+											: props.intl.messageIfExists('individual-review-value-na')
+								},
+								{
+									label: props.intl.messageIfExists('individual-review-atinNumber-label'),
+									value: props.person.citizenship &amp;&amp; props.person.citizenship.atinNumber
+											? <span class="branch-0 cbranch-no" title="branch not covered" >props.person.citizenship.atinNumber</span>
+											: props.intl.messageIfExists('individual-review-value-na')
+								}
+							]
+							: <span class="branch-1 cbranch-no" title="branch not covered" >[]</span>
+&nbsp;
+					)}
+				/&gt;
+					
+				{
+					props.person.isUSNational === 'N' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.applyingForHealthCoverage === 'Y'</span>
+					? (
+<span class="branch-0 cbranch-no" title="branch not covered" >						&lt;ReviewRow</span>
+							id={props.id + '-immigration'}
+							linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'immigration'}
+							items={[
+								{
+									label: props.intl.messageIfExists('individual-review-immigrationDocumentType-label'),
+									value: props.person.citizenship &amp;&amp; props.person.citizenship &amp;&amp; props.person.citizenship.immigrationDocumentType !== "X2"
+											? props.intl.messageIfExists('individual-non-citizenship-immigration-doc-type-' + props.person.citizenship.immigrationDocumentType) 
+											: props.intl.messageIfExists('individual-review-value-na')
+								},
+								{
+									label: props.intl.messageIfExists('individual-review-immigrationStatusType-label'),
+									value: props.person.citizenship &amp;&amp; props.person.citizenship.immigrationStatusType &amp;&amp; props.person.citizenship.immigrationStatusType !== "A16"
+											? props.intl.messageIfExists('individual-non-citizenship-immigration-status-' + props.person.citizenship.immigrationStatusType) 
+											: props.intl.messageIfExists('individual-review-value-na')
+								},
+							]}
+								/&gt;
+					) : null
+&nbsp;
+				}
+				
+				{
+					props.person.isUSNational === 'N' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.applyingForHealthCoverage === 'Y'</span>
+					? (
+<span class="branch-0 cbranch-no" title="branch not covered" >						&lt;ReviewRow</span>
+							id={props.id + '-document-information'}
+							linkUrl={'/individual/edit-review/' + props.person.personId + '/document-information'}
+							items={[												
+							{
+								label: props.intl.messageIfExists('individual-review-firstNameAsPerDocument-label'),
+								value: props.person.citizenship &amp;&amp; props.person.citizenship.firstNameAsPerDocument
+										? props.person.citizenship.firstNameAsPerDocument
+										: props.intl.messageIfExists('individual-review-value-na')
+							},
+							{
+								label: props.intl.messageIfExists('individual-review-middleNameAsPerDocument-label'),
+								value: props.person.citizenship &amp;&amp; props.person.citizenship.middleNameAsPerDocument
+										? props.person.citizenship.middleNameAsPerDocument
+										: props.intl.messageIfExists('individual-review-value-na')
+							},
+							{
+								label: props.intl.messageIfExists('individual-review-lastNameAsPerDocument-label'),
+								value: props.person.citizenship &amp;&amp; props.person.citizenship.lastNameAsPerDocument
+										? props.person.citizenship.lastNameAsPerDocument 
+										: props.intl.messageIfExists('individual-review-value-na')
+							},
+							{
+								label: props.intl.messageIfExists('individual-review-suffixAsPerDocument-label'),
+								value: props.person.citizenship &amp;&amp; props.person.citizenship.suffixAsPerDocument
+										? props.person.citizenship.suffixAsPerDocument
+										: props.intl.messageIfExists('individual-review-value-na')
+							}
+							]}
+						/&gt;
+					)
+					: null
+				}
+&nbsp;
+				{
+					props.person.isUSNational === 'N' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.person.applyingForHealthCoverage === 'Y'</span>
+					? (
+<span class="branch-0 cbranch-no" title="branch not covered" >						&lt;ReviewRow</span>
+							id={props.id + '-document-number'}
+							linkUrl={props.editUrlBase.replace('{personId}', props.person.personId) + 'document-number'}
+							items={Object.keys(fields)
+									.filter(<span class="fstat-no" title="function not covered" >fi</span>eldName =&gt; {
+<span class="cstat-no" title="statement not covered" >										return fields[fieldName].immigrationDocumentType &amp;&amp; fields[fieldName].immigrationDocumentType.indexOf(immigrationDocumentType) &gt;= 0</span>
+									})
+									.map(<span class="fstat-no" title="function not covered" >(f</span>ieldName, i) =&gt; {
+										let val = <span class="cstat-no" title="statement not covered" >props.person.citizenship &amp;&amp; props.person.citizenship[fieldName]</span>
+											? props.person.citizenship[fieldName]
+											: props.intl.messageIfExists('individual-review-value-na');
+<span class="cstat-no" title="statement not covered" >										return {</span>
+											label: props.intl.messageIfExists('individual-review-' + fieldName + '-label-' + immigrationDocumentType, props.i18nValues) || props.intl.messageIfExists('individual-review-' + fieldName + '-label', props.i18nValues),
+											value: (fieldName === 'documentExpirationDate' &amp;&amp; moment.isMoment(val)) ? val.format('L') : val.toString()
+										};
+									})
+							}
+						/&gt;
+					) : null
+&nbsp;
+				}
+			&lt;/ReviewSection&gt;
+		&lt;/div&gt;
+	);
+};
+&nbsp;
+MemberReviewIndividualInformation.propTypes = {
+	person: React.PropTypes.object,
+	intl: intlShape.isRequired,
+	editUrlBase: React.PropTypes.string
+};
+&nbsp;
+MemberReviewIndividualInformation.defaultProps = {
+    dynamicQuestionsForPerson: {},
+	showAvatar: true,
+	editUrlBase: '/individual/edit-review/{personId}/'
+};
+&nbsp;
+export default injectIntl(MemberReviewIndividualInformation);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

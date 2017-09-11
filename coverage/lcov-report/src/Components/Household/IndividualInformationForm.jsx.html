@@ -1,0 +1,2465 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Household/IndividualInformationForm.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Household</a> IndividualInformationForm.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.2% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/87</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.14% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.38% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/74</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">297x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import moment from '../../TimeshifterMoment';
+import Formsy from 'formsy-react';
+import PeopleStore from '../../Stores/PeopleStore.js';
+import CountriesStore from '../../Stores/CountriesStore.js';
+import IndividualInfoActions from '../../Actions/IndividualInfoActions.js';
+import FormHOC from '../../Components/Forms/FormHOC.jsx';
+import TextInput from '../../Components/Inputs/TextInput.jsx';
+import RadioInput from '../../Components/Inputs/RadioInput.jsx';
+import DropDown from '../../Components/Inputs/DropDown.jsx';
+import DateInput from '../../Components/Inputs/DateInput.jsx';
+import SegmentedControl from '../../Components/Inputs/SegmentedControl.jsx';
+import MultiSelectCheckBoxes from '../../Components/Inputs/MultiSelectCheckBoxes.jsx';
+import SocialSecurityInput from '../../Components/Inputs/SocialSecurityInput.jsx';
+import AddressInput from '../../Components/Inputs/AddressInput.jsx';
+import NumericInput from '../../Components/Inputs/NumericInput.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import FormColumn from '../Inputs/FormColumn.jsx';
+&nbsp;
+export const CurrentEnrollment = injectIntl(FormHOC((props) =&gt; {
+	var options = {
+			healthCoveragePlans: {
+				'SP': 'individual-coverage-SP',
+				'SH': 'individual-coverage-SH',
+				'TC': 'individual-coverage-TC',
+				'VH': 'individual-coverage-VH',
+				'CO': 'individual-coverage-CO',
+				'RP': 'individual-coverage-RP',
+				'ES': 'individual-coverage-ES',
+				'MC': 'individual-coverage-MC',
+				'PC': 'individual-coverage-PC',
+				'NO': 'individual-coverage-NO',
+				'NA': 'individual-coverage-NA'
+			}
+		},
+		handleProgamsChange = <span class="fstat-no" title="function not covered" >(n</span>ame, value) =&gt; {
+<span class="cstat-no" title="statement not covered" >			if (value[value.length - 1] === 'NA') {</span>
+<span class="cstat-no" title="statement not covered" >				value = ['NA'];</span>
+			}
+			else <span class="cstat-no" title="statement not covered" >if (value.indexOf('NA') &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >				value.splice(value.indexOf('NA'), 1);</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			props.handleFieldChange(name, value);</span>
+		};
+&nbsp;
+	Object.keys(options).forEach(option =&gt; {
+		Object.keys(options[option]).forEach((code) =&gt; {
+			options[option][code] = props.intl.messageIfExists(options[option][code]);
+		});
+	});
+	return (
+		&lt;FormColumn columnClassName="col-sm-12"&gt;
+			&lt;ConditionalField condition={props.getFormValue('applyingForHealthCoverage') === 'Y'}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-military-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-military-tooltip')}
+					direction="down"
+					id="servedInTheMilitary"
+					name="healthCare.servedUSMilitary"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.servedUSMilitary')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				/&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-spouse-parent-military-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-spouse-parent-military-tooltip')}
+					id="spouseParentServedInTheMilitary"
+					name="healthCare.spouseOrParentUSMilitary"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.spouseOrParentUSMilitary')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={true} dynamicQuestions={props.dynamicQuestionsForPerson} 
+				personId={props.personId} 
+				dynamicQuestionId="programs"&gt;
+			&lt;MultiSelectCheckBoxes
+				label={props.intl.messageIfExists('individual-form-enrolled-in-programs-label', props.i18nValues)}
+				tooltip={props.intl.messageIfExists('individual-form-enrolled-in-programs-tooltip')}
+				id="programs"
+				name="healthCare.existingHealthCoveragePlans"
+				onChange={handleProgamsChange}
+				value={props.getFormValue('healthCare.existingHealthCoveragePlans', [])}
+				options={options.healthCoveragePlans}
+				inline={false}
+				multiSelect={true}
+				required="requireValidationArray"
+			/&gt;	
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField 
+				condition={
+				['CO', 'ES', 'PC', 'RP', 'TC', 'VH', 'MC', 'NO', 'SP', 'SH'].some(item =&gt; props.getFormValue('healthCare.existingHealthCoveragePlans').indexOf(item) &gt;= 0)
+					&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.getFormValue('applyingForHealthCoverage') === 'Y'</span>
+				} 
+        dynamicQuestions={props.dynamicQuestionsForPerson} 
+				personId={props.personId} 
+				dynamicQuestionId="ExpectedToEnd"&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-programs-expected-to-end-label', props.i18nValues)}
+					id="ExpectedToEnd"
+					name="healthCare.coverageEndsInSixtyDays"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.coverageEndsInSixtyDays', props.getDateValue('healthcare.coverageEndDate') ? <span class="branch-0 cbranch-no" title="branch not covered" >'Y' </span>: '')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={['CO', 'ES', 'PC', 'RP', 'TC', 'VH', 'MC', 'NO', 'SP', 'SH'].some(item =&gt; props.getFormValue('healthCare.existingHealthCoveragePlans').indexOf(item) &gt;= 0)
+			&amp;&amp; (<span class="branch-1 cbranch-no" title="branch not covered" >props.getFormValue('healthCare.coverageEndsInSixtyDays') === 'Y'</span>
+			|| <span class="branch-2 cbranch-no" title="branch not covered" >props.getDateValue('healthCare.coverageEndDate') !== null)</span>
+			}&gt;
+				&lt;DateInput
+					label={props.intl.messageIfExists('individual-form-healthcare-expected-to-end-date', props.i18nValues)}
+					aria-label={props.intl.messageIfExists('individual-form-healthcare-expected-to-end-date', props.i18nValues)}
+					id="healthCareExpectedToEndDate"
+					name="healthCare.coverageEndDate"
+					value={props.getDateValue('healthCare.coverageEndDate')}
+					onChange={props.handleFieldChange}
+					showIcon={true}
+					datepickerEnabled={true}
+					validations={{
+						dateIsNowOrFuture: true,
+						dateIsLessThan60DaysInFuture: true
+					}}
+					validationErrors={{
+						dateIsNowOrFuture: props.intl.messageIfExists('individual-form-healthcare-expected-to-end-date-error-past-date'),
+						dateIsLessThan60DaysInFuture: props.intl.messageIfExists('individual-form-healthcare-expected-to-end-date-error-60-days')
+					}}
+					required="requireValidationNullDate"
+					requiredError={props.intl.messageIfExists('individual-form-healthcare-expected-to-end-date-error-format')}
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={['CO', 'ES', 'PC', 'RP', 'TC', 'VH', 'MC', 'NO', 'SP', 'SH'].some(item =&gt; props.getFormValue('healthCare.existingHealthCoveragePlans').indexOf(item) &gt;= 0) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.getFormValue('healthCare.coverageEndsInSixtyDays') === 'N'}</span>&gt;
+				&lt;FormattedHTMLMessage id="individual-form-healthcare-expected-to-end-hint" /&gt;
+				&lt;br /&gt;
+				&lt;br /&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={props.getFormValue('applyingForHealthCoverage') === 'Y' &amp;&amp; props.getFormValue('eligibleMedicarePartA') !== 'Y'}
+			dynamicQuestions={props.dynamicQuestionsForPerson} personId={props.personId} dynamicQuestionId="employerOfferedHealthCare"&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-employer-offered-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-employer-offered-tooltip')}
+					id="employerOfferedHealthCare"
+					name="healthCare.employerHealthInsurance"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.employerHealthInsurance')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={props.getFormValue('healthCare.employerHealthInsurance') === 'Y'}
+				dynamicQuestions={props.dynamicQuestionsForPerson} personId={props.personId} dynamicQuestionId="planMeetsMinStandards"&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-plan-meets-min-standards-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-plan-meets-min-standards-tooltip')}
+					id="planMeetsMinStandards"
+					name="healthCare.meetsMinValueStandard"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.meetsMinValueStandard')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={!(['MC'].some(item =&gt; props.getFormValue('healthCare.existingHealthCoveragePlans').indexOf(item) &gt;= 0))
+				&amp;&amp; props.getFormValue('healthCare.employerHealthInsurance') === 'Y'
+				&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >props.getFormValue('healthCare.meetsMinValueStandard') === 'Y'</span>
+			} dynamicQuestions={props.dynamicQuestionsForPerson} personId={props.personId} dynamicQuestionId="planMeetsAffordabilityStandards"&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-plan-meets-affordability-label')}
+					labelhypertext={props.intl.messageIfExists('individual-form-plan-meets-affordability-label-hiperlink')}
+					tooltip={props.intl.messageIfExists('individual-form-plan-meets-affordability-tooltip')}
+					id="planMeetsAffordabilityStandards"
+					link="https://www.coveredca.com/PDFs/paper-application/CA-SingleStreamApp_92MAX.pdf"
+					target="_blank"
+					name="healthCare.meetsAffordabilityStandard"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.meetsAffordabilityStandard')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const AiAnPlan = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;ConditionalField condition={props.getFormValue('applyingForHealthCoverage') === 'Y'}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-received-service-from-ihc-label', props.i18nValues)}
+					id="receivedServiceFromIHC"
+					name="healthCare.tribalHealthProgramReceived"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.tribalHealthProgramReceived')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required={props.getFormValue('nativeAmerican.isNativeAmerican') === 'Y' &amp;&amp; props.getFormValue('nativeAmerican.isTribeMember') === 'Y'}
+					optional={props.getFormValue('nativeAmerican.isNativeAmerican') !== 'Y' &amp;&amp; props.getFormValue('nativeAmerican.isTribeMember') !== 'Y'}
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={props.getFormValue('applyingForHealthCoverage') === 'Y'
+			&amp;&amp; props.getFormValue('healthCare.tribalHealthProgramReceived') === 'N'}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-elligible-service-from-ihc-label', props.i18nValues)}
+					id="eligibleServiceFromIHC"
+					name="healthCare.tribalHealthProgramEligible"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.tribalHealthProgramEligible')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required={props.getFormValue('nativeAmerican.isNativeAmerican') === 'Y' &amp;&amp; props.getFormValue('nativeAmerican.isTribeMember') === 'Y'}
+					optional={props.getFormValue('nativeAmerican.isNativeAmerican') !== 'Y' &amp;&amp; props.getFormValue('nativeAmerican.isTribeMember') !== 'Y'}
+				/&gt;
+			&lt;/ConditionalField&gt;
+&nbsp;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const HelpWithExpensesForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;ConditionalField condition={true}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-help-with-expenses-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-help-with-expenses-tooltip')}
+					id="helpWithExpenses"
+					name="helpWithExpenses"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('helpWithExpenses')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+&nbsp;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const HelpWithPastMedicalExpensesForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;ConditionalField condition={true}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-help-with-expenses-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-help-with-expenses-tooltip')}
+					direction="down"
+					id="helpWithExpenses"
+					name="healthCare.helpWithMedicalExpenses"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.helpWithMedicalExpenses')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+&nbsp;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const HelpWithLongTermServicesForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;ConditionalField condition={true}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-help-with-long-term-care-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-help-with-long-term-care-tooltip')}
+					direction="down"
+					id="helpWithLongTermServices"
+					name="healthCare.helpWithMedicalServices"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.helpWithMedicalServices')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+&nbsp;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const DisabilitiesForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;ConditionalField condition={true}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-disability-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-disability-tooltip')}
+					direction="down"
+					id="hasDisabilities"
+					name="healthCare.hasDisability"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.hasDisability')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+					required
+				/&gt;
+			&lt;/ConditionalField&gt;
+&nbsp;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const ThirdPartyLiabilityForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;ConditionalField condition={true}&gt;
+				&lt;RadioInput
+					label={props.intl.messageIfExists('individual-form-third-party-liability-label', props.i18nValues)}
+					tooltip={props.intl.messageIfExists('individual-form-third-party-liability-tooltip')}
+					direction="down"
+					id="thirdPartyLiability"
+					name="healthCare.thirdPartyLiability"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('healthCare.thirdPartyLiability')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				/&gt;
+			&lt;/ConditionalField&gt;
+&nbsp;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const CitizenshipSocialSecurityNumber = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+	var noSSNOptions = <span class="cstat-no" title="statement not covered" >{</span>
+		'R2': props.intl.messageIfExists('individual-citizenship-no-ssn-R2'),
+		'ITIN': props.intl.messageIfExists('individual-citizenship-no-ssn-ITIN'),
+		'ATIN': props.intl.messageIfExists('individual-citizenship-no-ssn-ATIN'),
+		'R3': props.intl.messageIfExists('individual-citizenship-no-ssn-R3'),
+		'R6': props.intl.messageIfExists('individual-citizenship-no-ssn-R6')
+	};
+&nbsp;
+	var ss_numbers = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >	PeopleStore.getAll().forEach(<span class="fstat-no" title="function not covered" >fu</span>nction(x){</span>
+<span class="cstat-no" title="statement not covered" >		if (x.citizenship &amp;&amp; x.citizenship.ssn !== '' &amp;&amp; props.formData.personId !== x.personId){</span>
+<span class="cstat-no" title="statement not covered" >			ss_numbers.push(x.citizenship.ssn);</span>
+		}
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-8"&gt;
+			&lt;RadioInput
+				label={props.intl.messageIfExists('individual-citizenship-has-ssn-label', props.i18nValues)}
+				id="citizenship.isSSNAvailable"
+				name="citizenship.isSSNAvailable"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('citizenship.isSSNAvailable')}
+				options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				required
+			/&gt;
+			&lt;ConditionalField condition={props.getFormValue('applyingForHealthCoverage') === 'Y'}&gt;
+				&lt;FormattedMessage id="individual-citizenship-ssn-applicant-text" tagName="p" /&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={props.getFormValue('applyingForHealthCoverage') !== 'Y'}&gt;
+				&lt;FormattedMessage id="individual-citizenship-ssn-non-applicant-text" tagName="p" /&gt;
+			&lt;/ConditionalField&gt;
+			&lt;br /&gt;
+			&lt;br /&gt;
+			&lt;ConditionalField condition={props.getFormValue('citizenship.isSSNAvailable') === 'Y'}&gt;
+				&lt;SocialSecurityInput
+					label={props.intl.messageIfExists('individual-citizenship-ssn-label', props.i18nValues)}
+					aria-label={props.intl.messageIfExists('individual-citizenship-ssn-label', props.i18nValues)}
+					id="citizenship.ssn"
+					name="citizenship.ssn"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('citizenship.ssn')}
+					optional={props.getFormValue('applyingForHealthCoverage') !== 'Y'}
+					required={props.getFormValue('applyingForHealthCoverage') === 'Y'}
+					requiredError={props.intl.messageIfExists('individual-citizenship-ssn-error', props.i18nValues)}
+					validations={{isValidSSN: true, noSSNDupes: <span class="fstat-no" title="function not covered" >(v</span>alues, value) =&gt; <span class="cstat-no" title="statement not covered" >ss_numbers.indexOf(value) === -1 </span>}}
+					validationErrors={{
+						isValidSSN: props.intl.messageIfExists('individual-citizenship-ssn-error'),
+						noSSNDupes: props.intl.messageIfExists('account-creation-create-ssn-dupe-error')
+					}}
+				/&gt;
+			&lt;/ConditionalField&gt;
+			&lt;ConditionalField condition={props.getFormValue('citizenship.isSSNAvailable') === 'N'}&gt;
+				&lt;SegmentedControl
+					label={props.intl.messageIfExists('individual-citizenship-why-no-ssn-label', props.i18nValues)}
+					id="citizenship.noSSNReason"
+					name="citizenship.noSSNReason"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('citizenship.noSSNReason')}
+					options={noSSNOptions}
+					inline={false}
+					optional={props.getFormValue('applyingForHealthCoverage') !== 'Y'}
+					required={props.getFormValue('applyingForHealthCoverage') === 'Y'}
+				/&gt;
+				&lt;ConditionalField condition={['ITIN', 'ATIN'].indexOf(props.getFormValue('citizenship.noSSNReason')) &gt;= 0}&gt;
+					&lt;SocialSecurityInput
+						label={props.intl.messageIfExists('individual-citizenship-ITIN-label', props.i18nValues)}
+						aria-label={props.intl.messageIfExists('individual-citizenship-ITIN-label', props.i18nValues)}
+						tooltip={props.intl.messageIfExists('individual-citizenship-ITIN-tooltip')}
+						id="ITIN"
+						name="citizenship.itinNumber"
+						value={props.getFormValue('citizenship.itinNumber')}
+						onChange={props.handleFieldChange}
+						required={!!(!props.getFormValue('citizenship.atinNumber'))}
+						validations={{isValidATINOrITIN: true}}
+						validationErrors={{
+							isValidATINOrITIN: props.intl.messageIfExists('individual-citizenship-ITIN-ATIN-invalid-error')
+						}}
+						requiredError={props.intl.messageIfExists('individual-citizenship-ITIN-ATIN-required-error')}
+					/&gt;
+					&lt;SocialSecurityInput
+						label={&lt;FormattedHTMLMessage id="individual-citizenship-ATIN-label" values={props.i18nValues} /&gt;}
+						aria-label={props.intl.messageIfExists('individual-citizenship-ATIN-label', props.i18nValues)}
+						tooltip={props.intl.messageIfExists('individual-citizenship-ATIN-tooltip')}
+						id="ATIN"
+						name="citizenship.atinNumber"
+						value={props.getFormValue('citizenship.atinNumber' || 'citizenship.itinNumber')}
+						onChange={props.handleFieldChange}
+						required={!!(!props.getFormValue('citizenship.itinNumber'))}
+						validations={{isValidATINOrITIN: true}}
+						validationErrors={{
+							isValidATINOrITIN: props.intl.messageIfExists('individual-citizenship-ITIN-ATIN-invalid-error')
+						}}
+						requiredError={props.intl.messageIfExists('individual-citizenship-ITIN-ATIN-required-error')}
+					/&gt;
+				&lt;/ConditionalField&gt;
+			&lt;/ConditionalField&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+export const NonCitizenshipImmigrationForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+	var options = <span class="cstat-no" title="statement not covered" >{</span>
+			immigrationDocTypes: {
+				'A': 'individual-non-citizenship-immigration-doc-type-A',
+				'B': 'individual-non-citizenship-immigration-doc-type-B',
+				'C': 'individual-non-citizenship-immigration-doc-type-C',
+				'D': 'individual-non-citizenship-immigration-doc-type-D',
+				'E': 'individual-non-citizenship-immigration-doc-type-E',
+				'F': 'individual-non-citizenship-immigration-doc-type-F',
+				'G': 'individual-non-citizenship-immigration-doc-type-G',
+				'H': 'individual-non-citizenship-immigration-doc-type-H',
+				'I': 'individual-non-citizenship-immigration-doc-type-I',
+				'J': 'individual-non-citizenship-immigration-doc-type-J',
+				'K': 'individual-non-citizenship-immigration-doc-type-K',
+				'L': 'individual-non-citizenship-immigration-doc-type-L',
+				'M': 'individual-non-citizenship-immigration-doc-type-M',
+				'N': 'individual-non-citizenship-immigration-doc-type-N',
+				'O': 'individual-non-citizenship-immigration-doc-type-O',
+				'P': 'individual-non-citizenship-immigration-doc-type-P',
+				'Q': 'individual-non-citizenship-immigration-doc-type-Q',
+				'X3': 'individual-non-citizenship-immigration-doc-type-X3',
+				'X4': 'individual-non-citizenship-immigration-doc-type-X4',
+				'S': 'individual-non-citizenship-immigration-doc-type-S',
+				'T': 'individual-non-citizenship-immigration-doc-type-T',
+				'W1': 'individual-non-citizenship-immigration-doc-type-W1',
+				'X1': 'individual-non-citizenship-immigration-doc-type-X1',
+				'X2': 'individual-non-citizenship-immigration-doc-type-X2'
+			},
+			immigrationStatusTypes: {
+				'A1': 'individual-non-citizenship-immigration-status-A1',
+				'A2': 'individual-non-citizenship-immigration-status-A2',
+				'A3': 'individual-non-citizenship-immigration-status-A3',
+				'A4': 'individual-non-citizenship-immigration-status-A4',
+				'A5': 'individual-non-citizenship-immigration-status-A5',
+				'A6': 'individual-non-citizenship-immigration-status-A6',
+				'A7': 'individual-non-citizenship-immigration-status-A7',
+				'A8': 'individual-non-citizenship-immigration-status-A8',
+				'A9': 'individual-non-citizenship-immigration-status-A9',
+				'A10': 'individual-non-citizenship-immigration-status-A10',
+				'A11': 'individual-non-citizenship-immigration-status-A11',
+				'A12': 'individual-non-citizenship-immigration-status-A12',
+				'A13': 'individual-non-citizenship-immigration-status-A13',
+				'A14': 'individual-non-citizenship-immigration-status-A14',
+				'A15': 'individual-non-citizenship-immigration-status-A15',
+				'A16': 'individual-non-citizenship-immigration-status-A16',
+				'A17': 'individual-non-citizenship-immigration-status-A17',
+				'A18': 'individual-non-citizenship-immigration-status-A18',
+				'A19': 'individual-non-citizenship-immigration-status-A19',
+				'A20': 'individual-non-citizenship-immigration-status-A20',
+				'A21': 'individual-non-citizenship-immigration-status-A21',
+				'A22': 'individual-non-citizenship-immigration-status-A22',
+				'A23': 'individual-non-citizenship-immigration-status-A23',
+				'A24': 'individual-non-citizenship-immigration-status-A24',
+				'A25': 'individual-non-citizenship-immigration-status-A25',
+				'A26': 'individual-non-citizenship-immigration-status-A26',
+				'A27': 'individual-non-citizenship-immigration-status-A27',
+				'A28': 'individual-non-citizenship-immigration-status-A28',
+				'A29': 'individual-non-citizenship-immigration-status-A29',
+				'A30': 'individual-non-citizenship-immigration-status-A30',
+				'A31': 'individual-non-citizenship-immigration-status-A31',
+				'A32': 'individual-non-citizenship-immigration-status-A32',
+				'A33': 'individual-non-citizenship-immigration-status-A33',
+				'A34': 'individual-non-citizenship-immigration-status-A34',
+				'A35': 'individual-non-citizenship-immigration-status-A35',
+				'A36': 'individual-non-citizenship-immigration-status-A36',
+				'A37': 'individual-non-citizenship-immigration-status-A37',
+				'A38': 'individual-non-citizenship-immigration-status-A38',
+				'A39': 'individual-non-citizenship-immigration-status-A39',
+				'A40': 'individual-non-citizenship-immigration-status-A40',
+				'A41': 'individual-non-citizenship-immigration-status-A41',
+				'A42': 'individual-non-citizenship-immigration-status-A42',
+				'A43': 'individual-non-citizenship-immigration-status-A43',
+				'A44': 'individual-non-citizenship-immigration-status-A44',
+				'A45': 'individual-non-citizenship-immigration-status-A45',
+				'A46': 'individual-non-citizenship-immigration-status-A46',
+				'A47': 'individual-non-citizenship-immigration-status-A47'
+			}
+		},
+		optionsArray = <span class="cstat-no" title="statement not covered" >{};</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	Object.keys(options).forEach(<span class="fstat-no" title="function not covered" >op</span>tion =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >		Object.keys(options[option]).forEach(<span class="fstat-no" title="function not covered" >(c</span>ode) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			if (!optionsArray[option]) <span class="cstat-no" title="statement not covered" >optionsArray[option] = [];</span></span>
+<span class="cstat-no" title="statement not covered" >			optionsArray[option].push({ value: code, label: props.intl.messageIfExists(options[option][code]) });</span>
+		});
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-8"&gt;
+			&lt;ConditionalField condition={props.getFormValue('isUSNational') === 'N'}&gt;
+				&lt;DropDown
+					label={props.intl.messageIfExists('individual-non-citizenship-immigration-doc-type-label', props.i18nValues)}
+					customAriaLabel={props.intl.messageIfExists('individual-non-citizenship-immigration-doc-type-label', props.i18nValues)}
+					name="citizenship.immigrationDocumentType"
+					id="citizenship.immigrationDocumentType"
+					options={optionsArray.immigrationDocTypes}
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('citizenship.immigrationDocumentType')}
+					requiredError={props.intl.messageIfExists('individual-non-citizenship-immigration-doc-type-error')}
+					required
+					placeholder=' '
+				/&gt;
+				&lt;DropDown
+					label={props.intl.messageIfExists('individual-non-citizenship-immigration-status-label', props.i18nValues)}
+					customAriaLabel={props.intl.messageIfExists('individual-non-citizenship-immigration-status-label', props.i18nValues)}
+					name="citizenship.immigrationStatusType"
+					id="citizenship.immigrationStatusType"
+					options={optionsArray.immigrationStatusTypes}
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('citizenship.immigrationStatusType')}
+					requiredError={props.intl.messageIfExists('individual-non-citizenship-immigration-status-error')}
+					required
+					placeholder=' '
+				/&gt;
+			&lt;/ConditionalField&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;
+class NonCitizenDocumentNumberFormBase extends Component {
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >		super(props);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.state = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		Object.assign(this.state, this.getCountriesState());</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.binds = {</span>
+			updateCountriesStore: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >				this.setState(this.getCountriesState());</span>
+			}
+		};
+<span class="cstat-no" title="statement not covered" >		IndividualInfoActions.getCountryList();</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ge</span>tCountriesState() {
+<span class="cstat-no" title="statement not covered" >		return {</span>
+			countries: CountriesStore.getAll()
+		};
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentDidMount() {
+<span class="cstat-no" title="statement not covered" >		CountriesStore.on('change', this.binds.updateCountriesStore);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >		CountriesStore.removeListener('change', this.binds.updateCountriesStore);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	re</span>nder() {
+		let props = <span class="cstat-no" title="statement not covered" >this.props,</span>
+			immigrationDocumentType = <span class="cstat-no" title="statement not covered" >props.getFormValue('citizenship.immigrationDocumentType'),</span>
+			alienOrUSCISNumberDocsToValidate = <span class="cstat-no" title="statement not covered" >['A','D','N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M','F', 'W1', 'X2', 'B', 'E'],</span>
+			receiptOrCardNumberDocsToValidate = <span class="cstat-no" title="statement not covered" >['B', 'D'],</span>
+			fields = <span class="cstat-no" title="statement not covered" >{</span>
+				documentDescription: {
+					component: TextInput,
+					immigrationDocumentType: ['W1', 'X1'],
+					optional: ['W1', 'X1'],
+					props: {
+						validations: {
+							matchRegexp: /^[0-9a-zA-Z]{8}$/
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('alienOrUSCISNumber-matchRegexp-error-' + immigrationDocumentType) || props.intl.messageIfExists('alienOrUSCISNumber-matchRegexp-error')
+						}
+					}
+				},
+				alienOrUSCISNumber: {
+					component: TextInput,
+					immigrationDocumentType: ['A', 'C', 'B', 'D', 'E', 'F', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X2'],
+					optional: ['A', 'C', 'B', 'D', 'E', 'F', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1','X2'],
+					props: {
+						validations: {
+							matchRegexp: alienOrUSCISNumberDocsToValidate.indexOf(immigrationDocumentType) &gt;= 0 ? /^[0-9a-zA-Z]{9}$/ :/^.*$/,
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('alienOrUSCISNumber-required-error-' + immigrationDocumentType) || props.intl.messageIfExists('alienOrUSCISNumber-required-error')
+						},
+						maxLength: alienOrUSCISNumberDocsToValidate.indexOf(immigrationDocumentType) &gt;= 0 ? 9 : ''
+					}
+				},
+&nbsp;
+				receiptOrCardNumber: {
+					component: TextInput,
+					immigrationDocumentType: ['B', 'D', 'X2'],
+					optional: ['B', 'D', 'X2'],
+					props: {
+						validations: {
+							matchRegexp: receiptOrCardNumberDocsToValidate.indexOf(immigrationDocumentType) &gt;= 0 ? /^[0-9a-zA-Z]{13}$/ :/^.*$/
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('receiptOrCardNumber-valid-error-' + immigrationDocumentType) || props.intl.messageIfExists('receiptOrCardNumber-valid-error-D')
+						},
+						maxLength: receiptOrCardNumberDocsToValidate.indexOf(immigrationDocumentType) &gt;= 0 ? 13 : ''
+					}
+				},
+				i94Number: {
+					component: NumericInput,
+					immigrationDocumentType: ['G', 'I', 'J', 'K', 'L', 'X1', 'X2'],
+					optional: ['G', 'I', 'J', 'K', 'L', 'X1', 'X2'],
+					props: {
+						validations: {
+							matchRegexp: ['K', 'L', 'X1', 'X2'].indexOf(immigrationDocumentType) &gt;= 0 ? /^[0-9]{11}$/ : /^.*$/
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('i94Number-matchRegexp-error-' + immigrationDocumentType) || props.intl.messageIfExists('i94Number-matchRegexp-error')
+						}
+					}
+				},
+				visaNumber: {
+					component: TextInput,
+					immigrationDocumentType: ['E', 'I', 'X2'],
+					optional: ['E', 'I', 'X2'],
+					props: {
+						validations: {
+							matchRegexp: /^[0-9a-zA-Z]{8}$/
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('visaNumber-matchRegexp-error-' + immigrationDocumentType) || props.intl.messageIfExists('visaNumber-matchRegexp-error')
+						}
+					}
+				},
+				passportNumber: {
+					component: TextInput,
+					immigrationDocumentType: ['E', 'F', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					optional: ['E', 'F', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					props: {
+						validations: {
+							matchRegexp: /^(?=.*\d)(?=.*[a-zA-Z]).{6,12}$/
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('passportNumber-matchRegexp-error-' + immigrationDocumentType) || props.intl.messageIfExists('passportNumber-matchRegexp-error')
+						}
+					}
+				},
+				countryOfIssuance: {
+					component: DropDown,
+					immigrationDocumentType: ['E', 'F', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					optional: ['E', 'F', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					props: {
+						options: this.state.countries
+					}
+				},
+				sevisId: {
+					component: TextInput,
+					immigrationDocumentType: ['G', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					optional: ['G', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					props: {
+						validations: {
+							matchRegexp: /^N[0-9a-zA-Z]{10}$/
+						},
+						validationErrors: {
+							matchRegexp: props.intl.messageIfExists('sevisId-matchRegexp-error-' + immigrationDocumentType) || props.intl.messageIfExists('sevisId-matchRegexp-error')
+						}
+					}
+				},
+				documentExpirationDate: {
+					component: DateInput,
+					immigrationDocumentType: ['A', 'C', 'B', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					optional: ['A', 'C', 'B', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'X3', 'X4', 'S', 'T', 'M', 'W1', 'X1', 'X2'],
+					props: {
+						showIcon: false,
+						datepickerEnabled: false,
+						validations: { dateIsGreaterThanNow: true },
+						validationErrors: {
+							dateIsGreaterThanNow: props.intl.messageIfExists('documentExpirationDate-date-is-future-or-now')
+						},
+						/*If the field is optional, pass the validation as a custom error message*/
+						customErrorMessage: props.intl.messageIfExists('documentExpirationDate-date-is-future-or-now')
+					}
+				}
+			};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return (</span>
+			&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+				{
+					Object.keys(fields)
+						.filter(<span class="fstat-no" title="function not covered" >fi</span>eldName =&gt; <span class="cstat-no" title="statement not covered" >fields[fieldName].immigrationDocumentType &amp;&amp; fields[fieldName].immigrationDocumentType.indexOf(immigrationDocumentType) &gt;= 0)</span>
+						.map(<span class="fstat-no" title="function not covered" >(f</span>ieldName, i) =&gt; {
+							var field = <span class="cstat-no" title="statement not covered" >fields[fieldName],</span>
+								fieldProps = <span class="cstat-no" title="statement not covered" >Object.assign({</span>
+									key: i,
+									label: props.intl.messageIfExists(fieldName + '-label-' + immigrationDocumentType, props.i18nValues) || props.intl.messageIfExists(fieldName + '-label', props.i18nValues),
+									'aria-label': props.intl.messageIfExists(fieldName + '-label-' + immigrationDocumentType, props.i18nValues) || props.intl.messageIfExists(fieldName + '-label', props.i18nValues),
+									customAriaLabel: props.intl.messageIfExists(fieldName + '-label-' + immigrationDocumentType, props.i18nValues) || props.intl.messageIfExists(fieldName + '-label', props.i18nValues),
+									id: 'citizenship.' + fieldName,
+									name: 'citizenship.' + fieldName,
+									value: props[field.component === DateInput ? 'getDateValue' : 'getFormValue']('citizenship.' + fieldName),
+									onChange: props.handleFieldChange,
+								}, field.props || {});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >							if (field.required &amp;&amp; field.required.indexOf(immigrationDocumentType) &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >								fieldProps.required = field.component === DateInput ? 'requireValidationNullDate' : true;</span>
+<span class="cstat-no" title="statement not covered" >								fieldProps.requiredError = props.intl.messageIfExists(fieldName + '-required-error-' + immigrationDocumentType, props.i18nValues)</span>
+									|| props.intl.messageIfExists(fieldName + '-required-error', props.i18nValues);
+							}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >							if (field.optional &amp;&amp; field.optional.indexOf(immigrationDocumentType) &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >								fieldProps.optional = true;</span>
+							}
+							
+							// pass a custom error message to the underlying component
+<span class="cstat-no" title="statement not covered" >							if(typeof field.customErrorMessage === 'string' ) {</span>
+<span class="cstat-no" title="statement not covered" >								fieldProps.customErrorMessage = field.customErrorMessage;</span>
+							}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >							return React.createElement(field.component, fieldProps);</span>
+						})
+				}
+			&lt;/FormColumn&gt;
+		);
+	}
+}
+&nbsp;
+const NonCitizenDocumentNumberForm = injectIntl(FormHOC(NonCitizenDocumentNumberFormBase));
+export { NonCitizenDocumentNumberForm };
+&nbsp;
+export const NonCitizenshipDocumentInformationForm = injectIntl(FormHOC(<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+&nbsp;
+	var suffixDropdownOptions = <span class="cstat-no" title="statement not covered" >[</span>
+		{ value: 'JR', label: props.intl.messageIfExists('household-review--person-suffix--value-JR') },
+		{ value: 'SR', label: props.intl.messageIfExists('household-review--person-suffix--value-SR') },
+		{ value: 'I', label: props.intl.messageIfExists('household-review--person-suffix--value-I') },
+		{ value: 'II', label: props.intl.messageIfExists('household-review--person-suffix--value-II') },
+		{ value: 'III', label: props.intl.messageIfExists('household-review--person-suffix--value-III') },
+		{ value: 'IV', label: props.intl.messageIfExists('household-review--person-suffix--value-IV') },
+	];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return (</span>
+		&lt;FormColumn columnClassName="col-sm-12 col-md-12"&gt;
+			&lt;TextInput
+				label={props.intl.messageIfExists('immigration-document-first-name-label', props.i18nValues)}
+				id="citizenship.firstNameAsPerDocument"
+				name="citizenship.firstNameAsPerDocument"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('citizenship.firstNameAsPerDocument',props.getFormValue('firstName'))}
+				pattern="(?!\s)[a-zA-Z'\s\.\-0-9]{0,50}"
+				requiredError={props.intl.messageIfExists('immigration-document-first-name-error', props.i18nValues)}
+				required
+			/&gt;
+			&lt;TextInput
+				label={props.intl.messageIfExists('immigration-document-middle-name-label', props.i18nValues)}
+				id="citizenship.middleNameAsPerDocument"
+				name="citizenship.middleNameAsPerDocument"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('citizenship.middleNameAsPerDocument',props.getFormValue('middleName'))}
+				pattern="(?!\s)[a-zA-Z'\s\.\-0-9]{0,50}"
+				optional
+			/&gt;
+			&lt;TextInput
+				label={props.intl.messageIfExists('immigration-document-last-name-label', props.i18nValues)}
+				id="citizenship.lastNameAsPerDocument"
+				name="citizenship.lastNameAsPerDocument"
+				onChange={props.handleFieldChange}
+				value={props.getFormValue('citizenship.lastNameAsPerDocument',props.getFormValue('lastName'))}
+				pattern="(?!\s)[a-zA-Z'\s\.\-0-9]{0,50}"
+				requiredError={props.intl.messageIfExists('immigration-document-last-name-error', props.i18nValues)}
+				required
+			/&gt;
+			&lt;DropDown
+				label={props.intl.messageIfExists('immigration-document-suffix-label', props.i18nValues)}
+				name="citizenship.suffixAsPerDocument"
+				id="citizenship.suffixAsPerDocument"
+				value={props.getFormValue('citizenship.suffixAsPerDocument')}
+				options={suffixDropdownOptions}
+				onChange={props.handleFieldChange}
+				optional
+			/&gt;
+		&lt;/FormColumn&gt;
+	);
+}));
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

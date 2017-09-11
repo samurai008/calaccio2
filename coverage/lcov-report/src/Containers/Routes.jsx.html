@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Routes.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Containers</a> Routes.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>5/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/7</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//A Component used for Routing through the Income section based on path
+&nbsp;
+import React from 'react';
+import { Router, IndexRoute, Route, Link, useRouterHistory } from 'react-router';
+import { createHistory } from 'history';
+import NavActions from '../Actions/NavActions.js';
+import App from './App.jsx';
+import Components from './Components.jsx';
+import Overview from './IncomeApp/Overview.jsx';
+import IncomeSummary from './IncomeApp/IncomeSummary.jsx';
+import SinglePerson from './IncomeApp/SinglePerson.jsx';
+import IncomeContainer from './IncomeApp/IncomeContainer.jsx';
+import IncomeCategoryOverview from './IncomeApp/IncomeCategoryOverview.jsx';
+import { IncomeEntryMain } from './IncomeApp/IncomeEntry.jsx';
+import DeductionsContainer from './IncomeApp/DeductionsContainer.jsx';
+import DeductionsIntro from './IncomeApp/DeductionsIntro.jsx';
+import DeductionsOverview from './IncomeApp/DeductionsOverview.jsx';
+import IndividualIncomeReview from './IncomeApp/IncomeReview.jsx';
+import { DeductionEntryMain } from './IncomeApp/DeductionEntry.jsx';
+import ApplicationStart from './ApplicationStart/ApplicationStart.jsx';
+import OptIn from './ApplicationStart/OptIn.jsx';
+import ApplicationMenu from './ApplicationMenu/ApplicationMenu.jsx';
+import AccountCreation from './AccountCreation/AccountCreation.jsx';
+import Login from './AccountCreation/Login.jsx';
+import LoggedOut from './AccountCreation/LoggedOut.jsx';
+import CreateAccount from './AccountCreation/CreateAccount.jsx';
+import NewAccountReview from './AccountCreation/NewAccountReview.jsx';
+import SecurityQuestions from './AccountCreation/SecurityQuestions.jsx';
+import PasswordRecovery from './AccountCreation/PasswordRecovery.jsx';
+import AccountHome from './AccountCreation/AccountHome.jsx';
+import Household from './Household/Household.jsx';
+import HouseholdMenu from './Household/HouseholdMenu.jsx';
+import BuildHousehold from './Household/BuildHousehold.jsx';
+import AddHouseholdMember from './Household/AddHouseholdMember.jsx';
+import ReviewMember from './Household/ReviewMember.jsx';
+import {
+	MemberInformationForm,
+	MemberInformationForm2,
+	MemberInformationSex,
+	MemberInformationMarriage,
+	MemberInformationLanguage,
+	MemberContactPreferencesForm,
+	MemberRelationshipsForm,
+	MemberInformationOptionalQuestions
+} from '../Components/Household/MemberInformationForm.jsx';
+import {
+	QLEInformationForm,
+	PrimaryContactInformationForm,
+	ConfirmIdentityForm,
+	HouseholdMemberAddressForm,
+	PrimaryCaretakerForm,
+	WhosApplyingForm,
+	FosterCareForm,
+	MedicareForm,
+	CitizenshipForm,
+	PregnancyForm,
+	AiAnForm
+} from '../Components/Household/HouseholdInformationForm.jsx';
+import {
+	PrimaryFilerForm,
+	PlanToFileForm,
+	RequiredToFileForm,
+	TaxDependantsForm
+} from '../Components/Household/TaxInformationForm.jsx';
+import {
+	CurrentEnrollment,
+	AiAnPlan,
+	HelpWithPastMedicalExpensesForm,
+	HelpWithLongTermServicesForm,
+	DisabilitiesForm,
+	ThirdPartyLiabilityForm,
+	CitizenshipSocialSecurityNumber,
+	NonCitizenshipImmigrationForm,
+	NonCitizenDocumentNumberForm,
+	NonCitizenshipDocumentInformationForm
+} from '../Components/Household/IndividualInformationForm.jsx';
+import InformationOverview from './Household/InformationOverview.jsx';
+import HouseholdInformation from './Household/HouseholdInformation.jsx';
+import TaxOverview from './Household/TaxOverview.jsx';
+import TaxInformation from './Household/TaxInformation.jsx';
+import HouseholdTaxReview from './Household/TaxReview.jsx';
+import IndividualInfo from './IndividualInfo/IndividualInfo.jsx';
+import IndividualInfoMenu from './IndividualInfo/Menu.jsx';
+import IndividualForms from './IndividualInfo/Forms.jsx';
+import IndividualReview from './IndividualInfo/Review.jsx';
+import Sogi from './Eligibility/Sogi.jsx';
+import ReviewMain from './Review/Main.jsx';
+import HouseholdReview from './Review/HouseholdReview.jsx';
+import HouseholdMenuReview from './Household/HouseholdReview.jsx';
+import TaxReview from './Review/TaxReview.jsx';
+import IncomeReview from './Review/IncomeReview.jsx';
+import IndividualInformationReview from './Review/IndividualReview.jsx';
+import VoterRegistration from './Review/VoterRegistration.jsx';
+import ApplicationSignature from './Review/ApplicationSignature.jsx';
+import RenewalMain from './Renewal/Main.jsx';
+import RenewalStart from './Renewal/Start.jsx';
+import RenewalHouseholdReview from './Renewal/HouseholdReview.jsx';
+import RenewalOptIn from './Renewal/OptIn.jsx';
+import RenewalTaxReview from './Renewal/TaxReview.jsx';
+import RenewalIncomeReview from './Renewal/IncomeReview.jsx';
+import RenewalIndividualReview from './Renewal/IndividualReview.jsx';
+import RenewalVoterRegistration from './Renewal/VoterRegistration.jsx';
+import RenewalApplicationSignature from './Renewal/ApplicationSignature.jsx';
+import ConfigStore from '../Stores/ConfigStore.js';
+&nbsp;
+const history = useRouterHistory(createHistory)({
+	basename: process.env.basePath
+});
+&nbsp;
+const DefaultIndex = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >&lt;AccountCreation&gt;&lt;Login/&gt;&lt;/AccountCreation&gt;;</span>
+&nbsp;
+const Routes = props =&gt; {
+	return (
+		&lt;Router history={history}&gt;
+			&lt;Route path="/" component={App} onChange={routeChangeHandler}&gt;
+				&lt;IndexRoute component={DefaultIndex} /&gt;
+				{ process.env.appConfig === 'development'
+					? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Route path="/components" component={Components} /&gt;</span>
+					: ''
+				}
+				&lt;Route path="application-start" component={ApplicationStart} /&gt;
+				&lt;Route path="application-start/opt-in" component={OptIn} /&gt;
+				&lt;Route path="application-menu" component={ApplicationMenu} /&gt;
+				&lt;Route path="household-menu" component={HouseholdMenu} /&gt;
+				&lt;Route path="household" component={Household}&gt;
+					&lt;IndexRoute component={HouseholdMenu} /&gt;
+					&lt;Route path="menu" component={HouseholdMenu} /&gt;
+					&lt;Route path="build" component={BuildHousehold} /&gt;
+					&lt;Route path="(add)(edit(-review)(-renewal)(/:personId))" component={AddHouseholdMember}&gt;
+						&lt;Route path="basic-info" component={MemberInformationForm} /&gt;
+						&lt;Route path="basic-info2" component={MemberInformationForm2} /&gt;
+						&lt;Route path="basic-info3" component={MemberInformationSex} /&gt;
+						&lt;Route path="basic-info4" component={MemberInformationMarriage} /&gt;
+						&lt;Route path="basic-info5" component={MemberInformationLanguage} /&gt;
+						&lt;Route path="basic-info6" component={MemberContactPreferencesForm} /&gt;
+						&lt;Route path="relationship-info/:relationshipPersonId" component={MemberRelationshipsForm} /&gt;
+						&lt;Route path="optional-questions" component={MemberInformationOptionalQuestions} /&gt;
+					&lt;/Route&gt;
+					&lt;Route path="add(/:personId)" component={AddHouseholdMember}&gt;
+						&lt;Route path="basic-info" component={MemberInformationForm} /&gt;
+						&lt;Route path="basic-info2" component={MemberInformationForm2} /&gt;
+						&lt;Route path="basic-info3" component={MemberInformationSex} /&gt;
+						&lt;Route path="basic-info4" component={MemberInformationMarriage} /&gt;
+						&lt;Route path="basic-info5" component={MemberInformationLanguage} /&gt;
+						&lt;Route path="basic-info6" component={MemberContactPreferencesForm} /&gt;
+						&lt;Route path="relationship-info/:relationshipPersonId" component={MemberRelationshipsForm} /&gt;
+						&lt;Route path="optional-questions" component={MemberInformationOptionalQuestions} /&gt;
+					&lt;/Route&gt;
+					&lt;Route path="review/:personId" component={ReviewMember} /&gt;
+					&lt;Route path="begin" component={InformationOverview} /&gt;
+					&lt;Route path="information(/edit(-renewal))" component={HouseholdInformation}&gt;
+						&lt;IndexRoute component={PrimaryContactInformationForm} /&gt;
+						&lt;Route path="qle" component={QLEInformationForm} /&gt;
+						&lt;Route path="qualifying-life-event" component={QLEInformationForm} /&gt;
+						&lt;Route path="primary-contact" component={PrimaryContactInformationForm} /&gt;
+						&lt;Route path="confirm-identity" component={ConfirmIdentityForm} /&gt;
+						&lt;Route path="household-member-addresses" component={HouseholdMemberAddressForm} /&gt;
+						&lt;Route path="primary-caretaker" component={PrimaryCaretakerForm} /&gt;
+						&lt;Route path="whos-applying" component={WhosApplyingForm} /&gt;
+						&lt;Route path="foster-care" component={FosterCareForm} /&gt;
+						&lt;Route path="medicare" component={MedicareForm} /&gt;
+						&lt;Route path="citizenship" component={CitizenshipForm} /&gt;
+						&lt;Route path="pregnancy" component={PregnancyForm} /&gt;
+						&lt;Route path="ai-an" component={AiAnForm} /&gt;
+						&lt;Route path="review" component={HouseholdMenuReview} /&gt;
+					&lt;/Route&gt;
+					
+					&lt;Route path="tax-overview" component={TaxOverview} /&gt;
+					&lt;Route path="tax-information(/edit(-review)(-renewal))" component={TaxInformation}&gt;
+						&lt;Route path="primary-filer" component={PrimaryFilerForm} /&gt;
+						&lt;Route path="plan-to-file" component={PlanToFileForm} /&gt;
+						&lt;Route path="required-to-file" component={RequiredToFileForm} /&gt;
+						&lt;Route path="dependents" component={TaxDependantsForm} /&gt;
+					&lt;/Route&gt;
+					&lt;Route path="tax-review" component={HouseholdTaxReview} /&gt;
+					
+				&lt;/Route&gt;
+				&lt;Route path="individual" component={IndividualInfo}&gt;
+					&lt;IndexRoute component={IndividualInfoMenu} /&gt;
+					&lt;Route path="menu" component={IndividualInfoMenu} /&gt;
+					&lt;Route path="(edit(-review)(-renewal)/):personId" component={IndividualForms}&gt;
+						&lt;Route path="current-enrollment" component={CurrentEnrollment} /&gt;
+						&lt;Route path="ai-an-plan" component={AiAnPlan} /&gt;
+						&lt;Route path="help-with-past-medical-expenses" component={HelpWithPastMedicalExpensesForm} /&gt;
+						&lt;Route path="help-with-long-term-services" component={HelpWithLongTermServicesForm} /&gt;
+						&lt;Route path="disabilities" component={DisabilitiesForm} /&gt;
+						&lt;Route path="third-party-liability" component={ThirdPartyLiabilityForm} /&gt;
+						&lt;Route path="social-security-number" component={CitizenshipSocialSecurityNumber} /&gt;
+						&lt;Route path="immigration" component={NonCitizenshipImmigrationForm} /&gt;
+						&lt;Route path="document-number" component={NonCitizenDocumentNumberForm} /&gt;
+						&lt;Route path="document-information" component={NonCitizenshipDocumentInformationForm} /&gt;
+					&lt;/Route&gt;
+					&lt;Route path="review/:personId" component={IndividualReview} /&gt;
+				&lt;/Route&gt;
+				&lt;Route path="account-creation" component={AccountCreation}&gt;
+					&lt;IndexRoute component={Login} /&gt;
+					&lt;Route path="login" component={Login} /&gt;
+					&lt;Route path="create(/:mode)" component={CreateAccount} /&gt;
+					&lt;Route path="review" component={NewAccountReview} /&gt;
+					&lt;Route path="security-questions" component={SecurityQuestions} /&gt;
+					&lt;Route path="password-recovery" component={PasswordRecovery} /&gt;
+				&lt;/Route&gt;
+				&lt;Route path="account-home" component={AccountHome} /&gt;
+				&lt;Route path="sogi" component={Sogi} /&gt;
+				&lt;Route path="income"&gt;
+					&lt;IndexRoute component={Overview} /&gt;
+					&lt;Route path="overview" component={Overview} /&gt;
+					&lt;Route path="summary" component={IncomeSummary} /&gt;
+					&lt;Route path="review" component={IncomeSummary} /&gt;
+					&lt;Route path="person/:personId" component={SinglePerson}&gt;
+						&lt;Route path="income" component={IncomeContainer}&gt;
+							&lt;IndexRoute component={IncomeCategoryOverview} /&gt;
+							&lt;Route path=":categoryType" component={IncomeCategoryOverview} /&gt;
+							&lt;Route path="add-income/:typeId" component={IncomeEntryMain} /&gt;
+						&lt;/Route&gt;
+						&lt;Route path="deductions" component={DeductionsContainer}&gt;
+							&lt;IndexRoute component={DeductionsIntro} /&gt;
+							&lt;Route path="intro" component={DeductionsIntro} /&gt;
+							&lt;Route path="overview" component={DeductionsOverview} /&gt;
+							&lt;Route path="add-deduction/:typeId" component={DeductionEntryMain} /&gt;
+						&lt;/Route&gt;
+						&lt;Route path="review" component={IndividualIncomeReview} /&gt;
+					&lt;/Route&gt;
+				&lt;/Route&gt;
+				&lt;Route path="review" component={ReviewMain}&gt;
+					&lt;Route path="household" component={HouseholdReview} /&gt;
+					&lt;Route path="tax-information" component={TaxReview} /&gt;
+					&lt;Route path="income" component={IncomeReview} /&gt;
+					&lt;Route path="individual" component={IndividualInformationReview} /&gt;
+					&lt;Route path="voter-registration" component={VoterRegistration} /&gt;
+					&lt;Route path="application-signature" component={ApplicationSignature} /&gt;
+				&lt;/Route&gt;
+				&lt;Route path="renewal" component={RenewalMain}&gt;
+					&lt;IndexRoute component={RenewalStart} /&gt;
+					&lt;Route path="review"&gt;
+						&lt;Route path="household" component={RenewalHouseholdReview} /&gt;
+						&lt;Route path="tax-information" component={RenewalTaxReview} /&gt;
+						&lt;Route path="income" component={RenewalIncomeReview} /&gt;
+						&lt;Route path="individual(/:personId)" component={RenewalIndividualReview} /&gt;
+						&lt;Route path="voter-registration" component={RenewalVoterRegistration} /&gt;
+						&lt;Route path="application-signature" component={RenewalApplicationSignature} /&gt;
+					&lt;/Route&gt;
+					&lt;Route path="opt-in" component={RenewalOptIn} /&gt;
+				&lt;/Route&gt;
+				/* Add more routes here... */
+				&lt;Route path="logged-out" component={LoggedOut} /&gt;
+			&lt;/Route&gt;
+		&lt;/Router&gt;
+	);
+};
+&nbsp;
+/**
+ * onChange handler for the top-level Route. When called when a Route changes, generates a new UUID
+ * value for use as the Correlation Id for all REST requests from Actions from the current page.
+ * 
+ * Since the UUID value is not changed again until the next Route change, all REST requests
+ * originating from Action calls from the same page will be stamped with the same UUID 
+ * Correlation Id value.
+ * 
+ * This Correlation Id value is used by Operations to correlate related REST requests coming from a
+ * specific page for a user.
+ * 
+ * @param previousRoute
+ * @param nextRoute
+ */
+const routeChangeHandler = <span class="fstat-no" title="function not covered" >(p</span>reviousRoute, nextRoute) =&gt; {
+<span class="cstat-no" title="statement not covered" >	ConfigStore.createNewUUIDForRouteChange();</span>
+	//console.log("Router change for:[" + nextRoute.location.pathname + "], new CorrelationId: "
+	//	+ ConfigStore.getRouteChangeBasedUUIDCorrelationId());
+<span class="cstat-no" title="statement not covered" >	ConfigStore.setPageIdAndNameForRouteChange(nextRoute.location.pathname);</span>
+&nbsp;
+}
+&nbsp;
+export default Routes;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

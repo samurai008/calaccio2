@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Components/Review/ApplicationSignatureForm.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Components/Review</a> ApplicationSignatureForm.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.27% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">51.72% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.65% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>23/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import Formsy from 'formsy-react';
+import FormHOC from '../../Components/Forms/FormHOC.jsx';
+import NumericInput from '../../Components/Inputs/NumericInput.jsx';
+import Checkbox from '../../Components/Inputs/CheckBox.jsx';
+import RadioInput from '../../Components/Inputs/RadioInput.jsx';
+import DropDown from '../../Components/Inputs/DropDown.jsx';
+import TextInput from '../../Components/Inputs/TextInput.jsx';
+import ConditionalField from '../../Components/ConditionalField.jsx';
+import ConfigStore from '../../Stores/ConfigStore.js';
+import { ApplicationChangeList } from './ApplicationChangeList.jsx';
+import AuthStore from '../../Stores/AuthStore.js';
+let pinRef,
+	termsRef,
+	checkedAgreeAfterReadingTerms = true;
+&nbsp;
+const ApplicationSignatureForm = (props) =&gt; {
+	
+	Formsy.addValidationRule('isValidPin', () =&gt; props.isValidPin);
+	
+	/* custom formsy validation method that errors if terms agreement is false */
+	Formsy.addValidationRule('wereTermsAgreedTo', () =&gt; {
+		let agreed = props.getFormValue('appSignature.agreeToLegalTermsAndConditions', false);
+		return agreed === true || agreed === 'Y';
+	});
+	
+	/* custom formsy validation method that returns thecurrent state of custom boolean
+	 * to show error message for checking the terms box without scrolling first
+	 */
+	Formsy.addValidationRule('checkedAgreeAfterReadingTerms', () =&gt; {
+		return checkedAgreeAfterReadingTerms;	
+	});
+	
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(pinRef &amp;&amp; !props.isValidPin){
+<span class="cstat-no" title="statement not covered" >		setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			pinRef.setValue(props.getFormValue('appSignature.electronicPIN'));	</span>
+<span class="cstat-no" title="statement not covered" >			props.onPinRefSubmit();</span>
+		}, 0);	
+	}
+&nbsp;
+	let dropDownOptions = [
+			{ value: '5', label: props.intl.messageIfExists('application-signature-years', {years: '5'}) },
+			{ value: '4', label: props.intl.messageIfExists('application-signature-years', {years: '4'}) },
+			{ value: '3', label: props.intl.messageIfExists('application-signature-years', {years: '3'}) },
+			{ value: '2', label: props.intl.messageIfExists('application-signature-years', {years: '2'}) },
+			{ value: '1', label: props.intl.messageIfExists('application-signature-year', {years: '1'}) },
+			{ value: '0', label: props.intl.messageIfExists('application-signature-years', {years: '0'}) }
+		],
+		profileUrl = ConfigStore.get('navigation-profile-url')
+			.replace("{portalURL}", ConfigStore.get('portalURL'))
+			.replace("{appURL}", window.location.origin),
+		proxyUser = ['agent', 'cec', 'admin'].some(role =&gt; AuthStore.userHasRole(role)),
+		householdHasChildren = (Array.isArray(props.householdMembers) &amp;&amp; props.householdMembers.some((m) =&gt; parseInt(m.age) &lt;= 20)),
+		sections = [
+			(
+				&lt;div&gt;
+					&lt;br /&gt;
+					&lt;FormattedHTMLMessage id="application-signature-legal-agreement-text" tagName="p" /&gt;
+					&lt;br /&gt;
+					&lt;Checkbox
+						className="application-signature-checkbox"
+						label={&lt;FormattedMessage id="application-signature-legal-agreement-label" /&gt;}
+						aria-label={&lt;FormattedMessage id="application-signature-legal-agreement-label" /&gt;}
+						name="appSignature.agreeToLegalReportingRequirements"
+						id="legal-agreement"
+						onChange={props.handleFieldChange}
+						value={props.getFormValue('appSignature.agreeToLegalReportingRequirements')}
+						required
+					/&gt;
+				&lt;/div&gt;
+			),
+			(
+				&lt;DropDown
+					className="application-signature-dropdown"
+					label={&lt;FormattedMessage id="application-signature-verify-consent-length-label" /&gt;}
+					aria-label={&lt;FormattedMessage id="application-signature-verify-consent-length-label" /&gt;}
+					customAriaLabel={props.intl.messageIfExists("application-signature-verify-consent-length-label")}
+					tooltip={&lt;FormattedHTMLMessage id="application-signature-verify-consent-length-tooltip" /&gt;}
+					name="appSignature.consentForYears"
+					id="consent"
+					options={dropDownOptions}
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('appSignature.consentForYears')}
+					required
+				/&gt;
+			),
+			(
+				&lt;div&gt;
+					&lt;FormattedHTMLMessage id="application-signature-terms-text" tagName="p" /&gt;
+					&lt;br /&gt;
+					&lt;div
+						onScroll={props.onScroll}
+						className="scroll-container"&gt;
+						{ ConfigStore.get('enrollmentPeriod') === 'SPE'
+							? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;FormattedHTMLMessage</span>
+								id="application-signature-terms-disclaimer-special-enrollment"
+								tagName="p" className="first-bold"/&gt;
+							: ''
+						}
+						{
+							(props.householdMembers.some(person =&gt;
+							person.pregnancy
+							&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >person.pregnancy.pregnancyFlag === 'Y'</span>
+							&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >person.applyingForHealthCoverage === 'Y')</span>)
+							&amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.applicationDetails </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >props.applicationDetails.subsidizedApplication === 'Y'</span>
+								? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;FormattedHTMLMessage</span>
+									id="application-signature-terms-disclaimer-pregnancy"
+									tagName="p"/&gt;
+								: ''
+						}
+						{
+							householdHasChildren &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >props.applicationDetails </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >props.applicationDetails.subsidizedApplication === 'Y'</span>
+								? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;FormattedHTMLMessage</span>
+									id="application-signature-terms-disclaimer-children"
+									tagName="p"/&gt;
+								: ''
+						}
+						&lt;FormattedHTMLMessage id="application-signature-terms-disclaimer-medical" tagName="p" /&gt;
+						&lt;FormattedHTMLMessage id="application-signature-terms-disclaimer-nondiscrimination" tagName="p" className="first-bold"/&gt;
+						&lt;FormattedHTMLMessage id="application-signature-terms-disclaimer-certify" tagName="p" /&gt;
+						&lt;p id="signature-agreement-last-phrase"&gt;&amp;nbsp;&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;Checkbox
+						className="application-signature-checkbox"
+						label={&lt;FormattedMessage id="application-signature-terms-agree-label" /&gt;}
+						aria-label={&lt;FormattedMessage id="application-signature-terms-agree-label" /&gt;}
+						name="appSignature.agreeToLegalTermsAndConditions"
+						id="legal-agreement"
+						ref={r =&gt; termsRef = r}
+						onChange={<span class="fstat-no" title="function not covered" >(n</span>ame, value) =&gt; {
+							/* unset the checkbox if checked before terms are scrolled */
+<span class="cstat-no" title="statement not covered" >							checkedAgreeAfterReadingTerms = true;</span>
+<span class="cstat-no" title="statement not covered" >							if(props.getFormValue('termsAndConditionsRead', false) === false) {</span>
+<span class="cstat-no" title="statement not covered" >								checkedAgreeAfterReadingTerms = false;</span>
+<span class="cstat-no" title="statement not covered" >								termsRef.setValue(false);</span>
+<span class="cstat-no" title="statement not covered" >								value = false;</span>
+							}
+<span class="cstat-no" title="statement not covered" >							props.handleFieldChange(name, value);</span>
+						}}
+						value={props.getFormValue('appSignature.agreeToLegalTermsAndConditions', false)}
+						validations={{
+							checkedAgreeAfterReadingTerms: true,
+							wereTermsAgreedTo: true
+						}}
+						validationErrors={{
+							checkedAgreeAfterReadingTerms: props.intl.messageIfExists('application-signature-terms-error-checkbox-warning'),
+							wereTermsAgreedTo: props.intl.messageIfExists('application-signature-terms-error-must-certify')
+						}}
+						required
+					/&gt;
+				&lt;/div&gt;
+			),
+			(
+				&lt;div&gt;
+					&lt;ConditionalField condition={proxyUser === true}&gt;
+						&lt;div&gt;&lt;FormattedHTMLMessage id="application-signature-electronic-signature-text-admin" tagName="p" /&gt;&lt;/div&gt;
+					&lt;/ConditionalField&gt;
+&nbsp;
+						&lt;FormattedHTMLMessage id="application-signature-electronic-signature-text" tagName="p" /&gt;
+						&lt;NumericInput
+							className="pin"
+							label={&lt;FormattedMessage id="application-signature-electronic-signature-pin-label" /&gt;}
+							aria-label={props.intl.messageIfExists('application-signature-electronic-signature-pin-label')}
+							placeholder={props.intl.messageIfExists('application-signature-electronic-signature-pin-hint')}
+							tooltip={props.intl.messageIfExists('application-signature-electronic-signature-pin-tooltip', {url: profileUrl})}
+							name="appSignature.electronicPIN"
+							id="pin"
+							masked={true}
+							value={props.getFormValue('appSignature.electronicPIN')}
+							onChange={props.handleFieldChange}
+							ref={(input) =&gt; {pinRef = input}}
+							pattern="[0-9]{0,4}"
+							maxLength="4"
+							validations={{
+								isLength: 4,
+								isValidPin: true
+							}}
+							validationErrors={{
+								isLength: props.intl.formatHTMLMessage({id: 'application-signature-electronic-signature-pin-required-error'}, {url: profileUrl}),
+								isValidPin: props.intl.formatHTMLMessage({id: 'application-signature-electronic-signature-pin-required-error'}, {url: profileUrl})
+							}}
+							requiredError={&lt;FormattedHTMLMessage id="application-signature-electronic-signature-pin-required-error" values={{url: profileUrl}}/&gt;}
+							required
+						/&gt;
+&nbsp;
+					
+						&lt;TextInput
+							label={&lt;FormattedMessage id="application-signature-electronic-signature-name-label" /&gt;}
+							aria-label={props.intl.messageIfExists('application-signature-electronic-signature-name-label')}
+							placeholder={props.intl.messageIfExists('application-signature-electronic-signature-name-hint')}
+							id="signature"
+							name="appSignature.electronicSignature"
+							value={props.getFormValue('appSignature.electronicSignature')}
+							pattern="(?!\s)[a-zA-Z\s\d]{0,100}"
+							onChange={props.handleFieldChange}
+							requiredError={props.intl.messageIfExists('application-signature-electronic-signature-name-required-error')}
+							required
+						/&gt;
+					
+					&lt;ConditionalField condition={proxyUser === true}&gt;
+						&lt;Checkbox
+							className="application-signature-admin-checkbox"
+							label={&lt;FormattedMessage id="application-signature-terms-admin-agree-label" /&gt;}
+							aria-label={&lt;FormattedMessage id="application-signature-terms-admin-agree-label" /&gt;}
+							name="appSignature.confirmApplicantPermission"
+							id="legal-admin-agreement"
+							onChange={props.handleFieldChange}
+							value={props.getFormValue('appSignature.confirmApplicantPermission')}
+							required
+						/&gt;
+					&lt;/ConditionalField&gt;
+				&lt;/div&gt;
+			)
+		];
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(props.showTextStep) {
+<span class="cstat-no" title="statement not covered" >		sections.splice(2, 0, (</span>
+			&lt;div&gt;
+				&lt;FormattedHTMLMessage id="renewal-application-signature-text-message-text" /&gt;
+				&lt;RadioInput
+					id="consentToReceiveTextMessages"
+					name="appSignature.consentToReceiveTextMessages"
+					onChange={props.handleFieldChange}
+					value={props.getFormValue('appSignature.consentToReceiveTextMessages')}
+					options={{ Y: props.intl.messageIfExists('Yes'), N: props.intl.messageIfExists('No') }}
+				/&gt;
+			&lt;/div&gt;
+		));
+	}
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(props.isRAC) {
+<span class="cstat-no" title="statement not covered" >		sections.unshift((</span>
+			&lt;div&gt;
+				&lt;FormattedMessage id="application-signature-changelog-text" tagName="p" /&gt;
+				&lt;FormattedMessage 
+					id="application-signature-changelog-year" 
+					values={{enrollmentYear: ConfigStore.get('enrollmentYear')}} 
+					tagName="b" 
+				/&gt;
+				&lt;br /&gt;
+				&lt;ApplicationChangeList
+					householdMemberChanges={props.getFormValue('appSignature.persons', [])}
+					onChange={props.handleFieldChange}
+				/&gt;
+				&lt;br/&gt;
+			&lt;/div&gt;
+		));
+	}
+&nbsp;
+&nbsp;
+	return (
+		&lt;div&gt;
+			{
+				sections.map((section, i) =&gt; {
+					return (
+						&lt;div className="row" key={i}&gt;
+							&lt;div className={'submit-step ic_number' + (i + 1)} /&gt;
+							{section}
+						&lt;/div&gt;
+					)
+				})
+			}
+		&lt;/div&gt;
+	);
+};
+&nbsp;
+ApplicationSignatureForm.propTypes = {
+	intl: intlShape.isRequired,
+	householdMembers: React.PropTypes.array.isRequired,
+	applicationDetails: React.PropTypes.object.isRequired,
+	onScroll: React.PropTypes.func.isRequired,
+	showTextStep: React.PropTypes.bool,
+	isRAC: React.PropTypes.bool
+};
+&nbsp;
+ApplicationSignatureForm.defaultProps = {
+	showTextStep: false,
+	isRAC: false
+};
+&nbsp;
+export default injectIntl(FormHOC(ApplicationSignatureForm));
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,2363 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Containers/Household/HouseholdInformation.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Containers/Household</a> HouseholdInformation.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/300</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/244</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.02% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/295</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import Libs &amp; Components
+import React, { Component } from 'react';
+import AppDispatcher from '../../Dispatchers/AppDispatcher.js';
+import { Link } from 'react-router';
+import { intlShape, injectIntl, FormattedMessage, FormattedDate, FormattedHTMLMessage } from 'react-intl';
+import PeopleStore from '../../Stores/PeopleStore.js';
+import ApplicationStore from '../../Stores/ApplicationStore.js';
+import HouseholdMemberActions from '../../Actions/HouseholdMemberActions.js';
+import { ContentIntro, ContentCard, CardNavigation } from '../../Components/Layout/Layout.jsx';
+import HouseholdMemberSegmentedControl from '../../Components/Household/HouseholdMemberSegmentedControl.jsx';
+import { ForwardBack } from '../../Components/ActionsRow.jsx';
+import { deepGet } from '../../Components/Forms/FormHOC.jsx';
+import moment from '../../TimeshifterMoment';
+import NavActions from '../../Actions/NavActions.js';
+import ConfigStore from '../../Stores/ConfigStore.js';
+import { Modal, NoticeModal, ConfirmModal, ModalHeader, ProgressModal } from '../../Components/Modal.jsx';
+&nbsp;
+class HouseholdInformation extends Component {
+	/**
+	 *
+	 * @param props
+	 */
+<span class="fstat-no" title="function not covered" >	co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >		super(props);</span>
+<span class="cstat-no" title="statement not covered" >		this.pathOrder = [</span>
+			'qualifying-life-event',
+			'primary-contact',
+			'confirm-identity',
+			'household-member-addresses',
+			'primary-caretaker',
+			'whos-applying',
+			'foster-care',
+			'medicare',
+			'citizenship',
+			'pregnancy',
+			'ai-an'
+		];
+&nbsp;
+		/**
+		 * simple hash to map the path to the action method on HouseholdMemberActions
+		 * that should be called on completion of the path (via onForward)
+		 */
+<span class="cstat-no" title="statement not covered" >		this.pathHouseholdMemberActions = {</span>
+			'qualifying-life-event': 'updateQLEDetails',
+			'primary-contact': 'updatePrimaryContact',
+			'confirm-identity':           '',
+			'household-member-addresses': 'updatePrimaryContactDependents',
+			'primary-caretaker': 'updatePrimaryCaretaker',
+			'whos-applying': 'updateHealthCoverageDetails',
+			'foster-care': 'updateFosterCareDetails',
+			'medicare': 'updateMedicareDetails',
+			'citizenship': 'updateCitizenshipDetails',
+			'pregnancy': 'updatePregnancyDetails',
+			'ai-an': 'updateAIANDetails'
+		};
+&nbsp;
+		// Parse URL
+		var urlInfo = <span class="cstat-no" title="statement not covered" >props.location.pathname.match(/\/household\/information\/?(edit-renewal|edit)?\/?([0-9a-zA-Z-\/]+)?/);</span>
+&nbsp;
+		// Set initial state, modal is not open by default
+<span class="cstat-no" title="statement not covered" >		this.state = {</span>
+			formData: {
+				primaryContactId:               null,
+				selectedPersonsNotLivingWithPC: [],
+				lifeEvent: PeopleStore.getLifeEvent()
+			},
+			formIsValid:      false,
+			formIsDirty: false,
+			householdMembers: [],
+			currentPathIndex: this.pathOrder.indexOf(urlInfo[2].split('/').shift()),
+			mode: urlInfo[1] &amp;&amp; urlInfo[1].indexOf('edit') === 0 ? 'edit' : 'create',	// Should be 'edit' or 'create'
+			appContext: urlInfo[1] || 'create'	// Could be 'edit-*'
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.binds = {</span>
+			householdUpdate: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+				let members = <span class="cstat-no" title="statement not covered" >PeopleStore.getAll(),</span>
+					primaryContactData = <span class="cstat-no" title="statement not covered" >this.getPrimaryContactFormData(),</span>
+					applyingForHealthCoverage = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >						if(person.applyingForHealthCoverage === 'Y') {</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					primaryContact = <span class="cstat-no" title="statement not covered" >PeopleStore.getPersonById(this.state.formData.primaryContactId),</span>
+					initialPreferredContactMethod = <span class="cstat-no" title="statement not covered" >primaryContact !== null &amp;&amp; primaryContact.contact &amp;&amp; primaryContact.contact.prefModeOfCommunication,</span>
+					primaryCareTakerIds = <span class="cstat-no" title="statement not covered" >[],</span>
+					primaryCareTakerIdsByPerson = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >						if(typeof person.primaryCareTakerId !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							if(primaryCareTakerIds.indexOf(person.primaryCareTakerId) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >								primaryCareTakerIds.push(person.primaryCareTakerId);</span>
+							}
+<span class="cstat-no" title="statement not covered" >							prev['primaryCareTakerId[' + person.personId + ']'] = person.primaryCareTakerId;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					pregnancyDeliveryDates = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let date = <span class="cstat-no" title="statement not covered" >deepGet('pregnancy.expectedDeliveryDate', person);</span>
+<span class="cstat-no" title="statement not covered" >						if(moment.isMoment(date)) {</span>
+<span class="cstat-no" title="statement not covered" >							prev['expectedDeliveryDate[' + person.personId + ']'] = date;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					pregnancyChildCounts = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let childCount = <span class="cstat-no" title="statement not covered" >deepGet('pregnancy.noOfBabiesExpected', person);</span>
+<span class="cstat-no" title="statement not covered" >						if(typeof childCount !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							prev['noOfBabiesExpected[' + person.personId + ']'] = childCount;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					fosterLocation = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let location = <span class="cstat-no" title="statement not covered" >deepGet('fosterCare.fosterCareLocation', person);</span>
+<span class="cstat-no" title="statement not covered" >						if(typeof location !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							prev['fosterCareLocation[' + person.personId + ']'] = location;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					personMilitaryStatus = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let milStatus = <span class="cstat-no" title="statement not covered" >deepGet('militaryStatus', person);</span>
+<span class="cstat-no" title="statement not covered" >						prev['militaryStatus[' + person.personId + ']'] = milStatus;</span>
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					nativeAmericanNCount = <span class="cstat-no" title="statement not covered" >0,</span>
+					nativeAmericans = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let isNativeAmerican = <span class="cstat-no" title="statement not covered" >deepGet('nativeAmerican.isNativeAmerican', person);</span>
+<span class="cstat-no" title="statement not covered" >						if(isNativeAmerican === 'Y') {</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(isNativeAmerican === 'N') {</span>
+<span class="cstat-no" title="statement not covered" >							nativeAmericanNCount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(members.length === nativeAmericanNCount) {</span>
+<span class="cstat-no" title="statement not covered" >							prev.push("nobody");</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					tribeMembers = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let tribeMember = <span class="cstat-no" title="statement not covered" >deepGet('nativeAmerican.isTribeMember', person);</span>
+<span class="cstat-no" title="statement not covered" >						prev['isTribeMember[' + person.personId + ']'] = (tribeMember === 'Y') ? 'Y' : 'N';</span>
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					tribeStates = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let tribeState = <span class="cstat-no" title="statement not covered" >deepGet('nativeAmerican.tribeState', person);</span>
+<span class="cstat-no" title="statement not covered" >						if(typeof tribeState !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							prev['tribeState[' + person.personId + ']'] = tribeState;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					memberAddressSameAsMailing = <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let sameAsMailing = <span class="cstat-no" title="statement not covered" >deepGet('mailingSameWithHome', person);</span>
+<span class="cstat-no" title="statement not covered" >						prev['memberAddressSameAsMailing[' + person.personId + ']'] = sameAsMailing;</span>
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					memberPhysicalAddresses= <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let physicalAddress = <span class="cstat-no" title="statement not covered" >deepGet('physicalAddress', person);</span>
+<span class="cstat-no" title="statement not covered" >						prev['memberPhysicalAddresses[' + person.personId + ']'] = physicalAddress;</span>
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					memberMailingAddresses= <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let mailingAddress = <span class="cstat-no" title="statement not covered" >deepGet('mailingAddress', person);</span>
+<span class="cstat-no" title="statement not covered" >						prev['memberMailingAddresses[' + person.personId + ']'] = mailingAddress;</span>
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					enrolledMedicarePartANCount = <span class="cstat-no" title="statement not covered" >0,</span>
+					enrolledMedicarePartAYCount = <span class="cstat-no" title="statement not covered" >this.enrolledMedicarePartAYesCount(),</span>
+					enrolledMedicarePartA = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if(person.enrolledMedicarePartA === 'Y') {</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(person.enrolledMedicarePartA === 'N' || typeof person.enrolledMedicarePartA === "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							enrolledMedicarePartANCount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(members.length === enrolledMedicarePartANCount){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push('nobody');</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+&nbsp;
+					}, [])),
+					eligibleMedicarePartANCount = <span class="cstat-no" title="statement not covered" >0,</span>
+					eligibleMedicarePartA = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if(person.eligibleMedicarePartA === 'Y') {</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(person.eligibleMedicarePartA === 'N' || typeof person.eligibleMedicarePartA === "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							eligibleMedicarePartANCount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if((members.length - enrolledMedicarePartAYCount) === eligibleMedicarePartANCount){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push('nobody');</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					pregnancyFlagNCount = <span class="cstat-no" title="statement not covered" >0,</span>
+					pregnancyFlaggedPersons = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >						if(deepGet('pregnancy.pregnancyFlag', person) === 'Y'){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(deepGet('pregnancy.pregnancyFlag', person) === 'N') {</span>
+<span class="cstat-no" title="statement not covered" >							pregnancyFlagNCount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(members.length === pregnancyFlagNCount){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push('nobody');</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					usNationalNCount = <span class="cstat-no" title="statement not covered" >0,</span>
+					usNationals =  <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >						if(person.isUSNational === 'Y'){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(person.isUSNational === 'N'){</span>
+<span class="cstat-no" title="statement not covered" >							usNationalNCount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(members.length === usNationalNCount){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push('nobody');</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					immigrationDocumentStatusNCount = <span class="cstat-no" title="statement not covered" >0,</span>
+					immigrationDocumentStatus = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if(person.immigrationDocumentStatus === 'Y') {</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(person.immigrationDocumentStatus === 'N'){</span>
+<span class="cstat-no" title="statement not covered" >							immigrationDocumentStatusNCount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if((members.length - usNationalYCount)  === immigrationDocumentStatusNCount){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push('nobody');</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					fosterCareNcount = <span class="cstat-no" title="statement not covered" >0,</span>
+					isFosterCare = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if(deepGet('fosterCare.isFosterCare', person) === 'Y'){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push(person.personId);</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if(deepGet('fosterCare.isFosterCare', person) === 'N') {</span>
+<span class="cstat-no" title="statement not covered" >							fosterCareNcount += 1;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if(members.length === fosterCareNcount){</span>
+<span class="cstat-no" title="statement not covered" >							prev.push('nobody');</span>
+<span class="cstat-no" title="statement not covered" >							return prev;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, [])),
+					usNationalYCount = <span class="cstat-no" title="statement not covered" >this.usNationalYesCount(),</span>
+					tribeNames =  <span class="cstat-no" title="statement not covered" >members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+						let tribeName = <span class="cstat-no" title="statement not covered" >deepGet('nativeAmerican.tribeName', person);</span>
+<span class="cstat-no" title="statement not covered" >						if(typeof tribeName !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >							prev['tribeName[' + person.personId + ']'] = tribeName;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, {}),
+					selectedPersonsNotLivingWithPC = <span class="cstat-no" title="statement not covered" >_emptyArrayToString(members.reduce(<span class="fstat-no" title="function not covered" >(p</span>rev, person) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >						if(person.personLiveWithPrimaryContact === 'N') <span class="cstat-no" title="statement not covered" >prev.push(person.personId);</span></span>
+<span class="cstat-no" title="statement not covered" >						return prev;</span>
+					}, []));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.setState({</span>
+					householdMembers: members,
+					initialPreferredContactMethod: initialPreferredContactMethod,
+					confirmSaveAndExitModalIsOpen: false,
+					formData: Object.assign(this.state.formData, {
+							// default to empty string to avoid validating on empty
+							applyingForHealthCoverage: applyingForHealthCoverage,
+							// medicare
+							enrolledMedicarePartA: enrolledMedicarePartA,
+							eligibleMedicarePartA: eligibleMedicarePartA,
+							selectedPersonsNotLivingWithPC: selectedPersonsNotLivingWithPC,
+							primaryCaretakerIsSame: primaryCareTakerIds.length &lt;= 1 ? 'Y' : 'N',
+							primaryCareTakerId: primaryCareTakerIds.length === 1 ? primaryCareTakerIds[0] : '',
+							pregnancy: Object.assign({
+									pregnancyFlag: pregnancyFlaggedPersons
+								},
+								pregnancyDeliveryDates,
+								pregnancyChildCounts
+							),
+							// need foster care, medicare, us citizens / non citizens / aian
+							lifeEvent: PeopleStore.getLifeEvent(),
+							//	fosterCare: ,
+							fosterCare: Object.assign({
+									isFosterCare: isFosterCare,
+								},
+								fosterLocation
+							),
+							// usCitizen
+							isUSNational: usNationals,
+							//militaryStatus:Object.assign(
+							immigrationDocumentStatus: immigrationDocumentStatus,
+							// prepoulate tribe names by state
+							nativeAmerican: Object.assign({
+									isNativeAmerican: nativeAmericans
+								},
+								tribeMembers,
+								tribeStates,
+								tribeNames)
+						},
+						primaryCareTakerIdsByPerson,
+						primaryContactData,
+						personMilitaryStatus,
+						memberPhysicalAddresses,
+						memberAddressSameAsMailing,
+						memberMailingAddresses)
+				});
+			}
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.state = Object.assign(this.state, this.getPrimaryContactFormData());</span>
+	}
+<span class="fstat-no" title="function not covered" >	en</span>rolledMedicarePartAYesCount(){
+		let count = <span class="cstat-no" title="statement not covered" >0,</span>
+			householdMembers = <span class="cstat-no" title="statement not covered" >PeopleStore.getAll();</span>
+<span class="cstat-no" title="statement not covered" >		for(var i = 0; i &lt; householdMembers.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >			if(householdMembers[i].enrolledMedicarePartA === 'Y'){</span>
+<span class="cstat-no" title="statement not covered" >				count += 1;</span>
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		return count;</span>
+	}
+<span class="fstat-no" title="function not covered" >	us</span>NationalYesCount(){
+		let count = <span class="cstat-no" title="statement not covered" >0,</span>
+			householdMembers = <span class="cstat-no" title="statement not covered" >PeopleStore.getAll();</span>
+<span class="cstat-no" title="statement not covered" >		for(var i = 0; i &lt; householdMembers.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >			if(householdMembers[i].isUSNational === 'Y'){</span>
+<span class="cstat-no" title="statement not covered" >				count += 1;</span>
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		return count;</span>
+	}
+<span class="fstat-no" title="function not covered" >	ge</span>tPrimaryContactFormData() {
+		// todo: populate selectedPersonsNotLivingWithPC from flags on user
+&nbsp;
+		let formData = <span class="cstat-no" title="statement not covered" >{},</span>
+			householdMembers = <span class="cstat-no" title="statement not covered" >PeopleStore.getAll(),</span>
+			primaryContact = <span class="cstat-no" title="statement not covered" >householdMembers.find(<span class="fstat-no" title="function not covered" >p </span>=&gt; <span class="cstat-no" title="statement not covered" >p.primaryContact === 'Y')</span>;</span>
+&nbsp;
+		// set primary contact form data if the flag is set on a household member
+<span class="cstat-no" title="statement not covered" >		if(primaryContact) {</span>
+			// assign the person data into formData to prefill the form
+<span class="cstat-no" title="statement not covered" >			Object.assign(formData, {</span>
+				primaryContactId: primaryContact.personId
+			}, {
+				primaryContactData: Object.assign({}, primaryContact, {
+					// since the primary contact is coming from the store, their address will already be valid, so allow it to skip
+					addressIsValid: Array.isArray(primaryContact.addressList) &amp;&amp; primaryContact.addressList.length &gt; 0
+				})
+			});
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return formData;</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentDidMount() {
+		
+<span class="cstat-no" title="statement not covered" >		PeopleStore.on('change', this.binds.householdUpdate);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		HouseholdMemberActions.getLifeEvent();</span>
+<span class="cstat-no" title="statement not covered" >		this.dispatcherId = AppDispatcher.register(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >			switch (data.action.type) {</span>
+				/**
+				 * when primary contact is saved, trigger the update contact preference action
+				 */
+				case 'PRIMARY_CONTACT_SAVED':
+<span class="cstat-no" title="statement not covered" >					setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >						HouseholdMemberActions.updateContactPreference(this.state.formData, this.props.intl.locale);</span>
+					}, 0);
+<span class="cstat-no" title="statement not covered" >					break;</span>
+				case 'SAVE_EXIT_REQUESTED':
+<span class="cstat-no" title="statement not covered" >					this.setState({ </span>
+						confirmValidSaveAndExitModalIsOpen: this.state.formIsValid === true,
+						confirmInvalidSaveAndExitModalIsOpen: this.state.formIsValid === false 
+					});
+<span class="cstat-no" title="statement not covered" >					break;</span>
+			}
+		});
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >		PeopleStore.removeListener('change', this.binds.householdUpdate);</span>
+<span class="cstat-no" title="statement not covered" >		AppDispatcher.unregister(this.dispatcherId);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillReceiveProps(nextProps) {
+		// always get the correct path index from the route to account for direct page loads or back button clicks.
+		let routes = <span class="cstat-no" title="statement not covered" >this.context.router.routes.slice(0),</span>
+			path = <span class="cstat-no" title="statement not covered" >routes.pop().path;</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			currentPathIndex: this.pathOrder.indexOf(path),
+			currentPathName: path
+			//mode: 'edit'
+		});
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	co</span>mponentWillUpdate(nextProps, nextState) {
+		//console.log(nextState);
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleCloseInvalidSaveAndExitModal(e) {
+<span class="cstat-no" title="statement not covered" >		this.setState({confirmInvalidSaveAndExitModalIsOpen: false});</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	ha</span>ndleConfirmSaveAndExitModal(e) {
+<span class="cstat-no" title="statement not covered" >		if (this.state.formIsDirty === true &amp;&amp; this.state.formIsValid === true){</span>
+			let routes = <span class="cstat-no" title="statement not covered" >this.context.router.routes.slice(0),</span>
+				path = <span class="cstat-no" title="statement not covered" >routes.pop().path,</span>
+				endpointAction = <span class="cstat-no" title="statement not covered" >this.pathHouseholdMemberActions[path];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if(endpointAction !== '' &amp;&amp; typeof HouseholdMemberActions[endpointAction] === "function") {</span>
+<span class="cstat-no" title="statement not covered" >				HouseholdMemberActions[endpointAction](this.state.formData, this.props.intl.locale);</span>
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			confirmValidSaveAndExitModalIsOpen: false,
+			confirmInvalidSaveAndExitModalIsOpen: false 
+		});
+<span class="cstat-no" title="statement not covered" >		this.context.router.push('/account-home');</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormChange(data) {
+<span class="cstat-no" title="statement not covered" >		if(data.primaryContactId !== this.state.formData.primaryContactId) {</span>
+			// blow away primary contact info in formData if person changes
+			let person = <span class="cstat-no" title="statement not covered" >PeopleStore.getPersonById(data.primaryContactId);</span>
+<span class="cstat-no" title="statement not covered" >			person.primaryContact = 'Y';</span>
+			let formData = <span class="cstat-no" title="statement not covered" >Object.assign({}, this.state.formData, data, {</span>
+				selectedPersonsNotLivingWithPC: [],
+				primaryContactData: person
+			});
+<span class="cstat-no" title="statement not covered" >			return this.setState({ formData: formData });</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(data.isUSNational === "") {</span>
+<span class="cstat-no" title="statement not covered" >			data.immigrationDocumentStatus = "";</span>
+<span class="cstat-no" title="statement not covered" >			Object.keys(data).forEach( <span class="fstat-no" title="function not covered" >ke</span>y =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >				if (key.indexOf('militaryStatus') !== -1) <span class="cstat-no" title="statement not covered" >data[key] = null;</span></span>
+			});
+		}
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(Array.isArray(data.applyingForHealthCoverage)) {</span>
+<span class="cstat-no" title="statement not covered" >			data.applyingForHealthCoverage.forEach( <span class="fstat-no" title="function not covered" >pe</span>rsonId =&gt; {</span>
+				let person = <span class="cstat-no" title="statement not covered" >PeopleStore.getPersonById(personId);</span>
+<span class="cstat-no" title="statement not covered" >				if(person.applyingForHealthCoverage === 'N' &amp;&amp; this.state.formData.applyingForHealthCoverage.indexOf(personId) === 'Y'){</span>
+<span class="cstat-no" title="statement not covered" >					data['militaryStatus[' + personId + ']'] = null;</span>
+				}
+			});
+		}
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(Array.isArray(data.isUSNational) &amp;&amp; Array.isArray(data.immigrationDocumentStatus)) {</span>
+<span class="cstat-no" title="statement not covered" >			data.isUSNational.forEach( <span class="fstat-no" title="function not covered" >pe</span>rsonId =&gt; {</span>
+				let personIndex = <span class="cstat-no" title="statement not covered" >data.immigrationDocumentStatus.indexOf(personId);</span>
+<span class="cstat-no" title="statement not covered" >				if( personIndex !== -1) {</span>
+<span class="cstat-no" title="statement not covered" >					data.immigrationDocumentStatus.splice(personIndex, 1);</span>
+				}
+<span class="cstat-no" title="statement not covered" >				data['militaryStatus[' + personId + ']'] = null;</span>
+			});
+		}
+		
+		//Reset AI/AN data if member removed from that list
+<span class="cstat-no" title="statement not covered" >		if(typeof data.nativeAmerican !== "undefined" &amp;&amp; Array.isArray(data.nativeAmerican.isNativeAmerican)) {</span>
+			//List of current personIds for nativeAmerican, and make sure tribe meta data aligns
+<span class="cstat-no" title="statement not covered" >			Object.keys(data.nativeAmerican).forEach( <span class="fstat-no" title="function not covered" >ke</span>y =&gt; {</span>
+				var matches = <span class="cstat-no" title="statement not covered" >key.match(/\[(.*?)\]/);</span>
+<span class="cstat-no" title="statement not covered" >				if (matches) {</span>
+					var personId = <span class="cstat-no" title="statement not covered" >matches[1];</span>
+				}
+&nbsp;
+				//If member isNativeAmerican but !isTribeMember, clear tribeState/tribeName
+<span class="cstat-no" title="statement not covered" >				if (key.indexOf('isTribeMember[' + personId + ']') !== -1 &amp;&amp; data.nativeAmerican[key] === "N") {</span>
+<span class="cstat-no" title="statement not covered" >					delete data.nativeAmerican['tribeState[' + personId + ']'];</span>
+<span class="cstat-no" title="statement not covered" >					delete data.nativeAmerican['tribeName[' + personId + ']'];</span>
+				}
+				
+<span class="cstat-no" title="statement not covered" >				if (key.indexOf('isTribeMember[' + personId + ']') !== -1 &amp;&amp; data.nativeAmerican.isNativeAmerican.indexOf(personId) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >					delete data.nativeAmerican[key];</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (key.indexOf('tribeState[' + personId + ']') !== -1 &amp;&amp; data.nativeAmerican.isNativeAmerican.indexOf(personId) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >					delete data.nativeAmerican[key];</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (key.indexOf('tribeName[' + personId + ']') !== -1 &amp;&amp; data.nativeAmerican.isNativeAmerican.indexOf(personId) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >					delete data.nativeAmerican[key];</span>
+				}
+			});
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(data.primaryContactData &amp;&amp; data.primaryContactData.contact &amp;&amp; typeof data.primaryContactData.contact.cellPhoneNumber !== "undefined") {</span>
+            // if user previously entered a cell phone number and has since cleared the field, clear the value for isCoverageDetailsRequired
+<span class="cstat-no" title="statement not covered" >            if (data.primaryContactData.contact.cellPhoneNumber.length === 0 &amp;&amp; typeof data.primaryContactData.contact.isCoverageDetailsRequired !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >                delete data.primaryContactData.contact.isCoverageDetailsRequired;</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsDirty: true, formData: Object.assign(this.state.formData, data) });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	is</span>SSNValid(ssn) {
+<span class="cstat-no" title="statement not covered" >		return (ssn[0] === '9' || ssn.length &lt; 9) ? false : true;</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormValid() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsValid: true });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>FormInValid() {
+<span class="cstat-no" title="statement not covered" >		this.setState({ formIsValid: false });</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	sh</span>ouldShowRoute(index) {
+		// Skip some routes
+		// do not show foster care if there are no household members applying for healthcare between 18 -26
+		// householdMembers doesn't always get updated in time to show applying for health coverage, but formdata does
+		let haveFosterCareEligibleMembers = <span class="cstat-no" title="statement not covered" >this.state.householdMembers.some(<span class="fstat-no" title="function not covered" >m </span>=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >				if(parseInt(m.age) &gt;= 18 &amp;&amp; parseInt(m.age) &lt;= 26 </span>
+				&amp;&amp; typeof this.state.formData.applyingForHealthCoverage !== 'undefined' 
+				&amp;&amp; this.state.formData.applyingForHealthCoverage.indexOf(m.personId) &gt;= 0)
+<span class="cstat-no" title="statement not covered" >				return true;</span>
+			}),
+			householdSize = <span class="cstat-no" title="statement not covered" >this.state.householdMembers.length,</span>
+			haveMemberAgedAtLeastTwenty = <span class="cstat-no" title="statement not covered" >this.state.householdMembers.some(<span class="fstat-no" title="function not covered" >me</span>mber =&gt; <span class="cstat-no" title="statement not covered" >member.age &lt;= 20)</span>,</span>
+			isSubsidized = <span class="cstat-no" title="statement not covered" >ApplicationStore.getDetails().subsidizedApplication,</span>
+			path = <span class="cstat-no" title="statement not covered" >this.pathOrder[index]; </span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (path === 'primary-caretaker' &amp;&amp; (haveMemberAgedAtLeastTwenty === false || householdSize === 1)) {</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(['primary-caretaker','foster-care','pregnancy'].indexOf(path) &gt;= 0 &amp;&amp; isSubsidized === 'N') {</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(path === 'foster-care' &amp;&amp; haveFosterCareEligibleMembers === false) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(path === 'household-member-addresses' &amp;&amp; householdSize &lt; 2) {</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(path === 'confirm-identity' &amp;&amp; ApplicationStore.isIdentityVerified() === true) {</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+&nbsp;
+		// skip qle page during open enrollment for new applications
+<span class="cstat-no" title="statement not covered" >		if(path === 'qualifying-life-event' &amp;&amp; ApplicationStore.isNewApplication() === true &amp;&amp; ConfigStore.getEnrollmentPeriod() === 'OPN') {</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+		
+<span class="cstat-no" title="statement not covered" >		return true;</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>Forward() {
+		// call the Action for the current path before moving on
+		let routes = <span class="cstat-no" title="statement not covered" >this.context.router.routes.slice(0),</span>
+			path = <span class="cstat-no" title="statement not covered" >routes.pop().path,</span>
+			endpointAction = <span class="cstat-no" title="statement not covered" >this.pathHouseholdMemberActions[path];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(endpointAction !== '' &amp;&amp; typeof HouseholdMemberActions[endpointAction] === "function") {</span>
+<span class="cstat-no" title="statement not covered" >			HouseholdMemberActions[endpointAction](this.state.formData, this.props.intl.locale);</span>
+			//setTimeout(() =&gt; { NavActions.enableSafeToExit() } , 0);
+		}
+&nbsp;
+		let nextIndex = <span class="cstat-no" title="statement not covered" >this.state.currentPathIndex + 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		while(nextIndex &lt; this.pathOrder.length &amp;&amp; this.shouldShowRoute(nextIndex) === false) {</span>
+<span class="cstat-no" title="statement not covered" >			nextIndex++;</span>
+		}
+		/*
+		 Business rules indicate that once we enter edit mode, we have to step back through all the form pages.
+		 HOWEVER, If we should exit here during edit mode, uncomment this block.
+		 */
+		// if(this.state.mode === 'edit' &amp;&amp; this.shouldBeDoneDuringEdit()) {
+		// 	this.context.router.push('/review/household');
+		// 	return;
+		// }
+&nbsp;
+		// Go to the next form screen...
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(ApplicationStore.isRACApplication() === true &amp;&amp; ApplicationStore.isEditingRACApplication() === false ) {</span>
+<span class="cstat-no" title="statement not covered" >			return this.context.router.push('/review/household');</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if(this.state.currentPathIndex + 1 &lt; this.pathOrder.length) {</span>
+			var newPath = <span class="cstat-no" title="statement not covered" >'/household/information/' + (this.state.mode === 'edit' ? this.state.appContext + '/' : '') + this.pathOrder[nextIndex];</span>
+<span class="cstat-no" title="statement not covered" >			this.context.router.push(newPath);</span>
+<span class="cstat-no" title="statement not covered" >			this.setState({ currentPathIndex: nextIndex, formIsDirty: false });</span>
+		}
+		else {
+			// HouseholdMemberActions.addMember(this.state.formData);
+<span class="cstat-no" title="statement not covered" >			this.context.router.push(this.state.appContext === 'edit-renewal' ? '/renewal/review/household' : '/household/menu');</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	on</span>Back() {
+<span class="cstat-no" title="statement not covered" >		if(this.state.mode === 'edit') {</span>
+			// don't persist an invalid SSN
+<span class="cstat-no" title="statement not covered" >			if(typeof this.state.formData.primaryContactData.citizenship !== "undefined" &amp;&amp; typeof this.state.formData.primaryContactData.citizenship.ssn !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >				if(!this.isSSNValid(this.state.formData.primaryContactData.citizenship.ssn)) {</span>
+					let formData = <span class="cstat-no" title="statement not covered" >Object.assign({}, this.state.formData);</span>
+<span class="cstat-no" title="statement not covered" >					delete formData.primaryContactData.citizenship.ssn;</span>
+<span class="cstat-no" title="statement not covered" >					this.setState({ formData });</span>
+				}
+			}
+<span class="cstat-no" title="statement not covered" >			this.context.router.push(this.state.appContext === 'edit-renewal' ? '/renewal/review/household' : '/review/household');</span>
+<span class="cstat-no" title="statement not covered" >			return;</span>
+		}
+&nbsp;
+		let nextIndex = <span class="cstat-no" title="statement not covered" >this.state.currentPathIndex - 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		while(nextIndex &lt; this.pathOrder.length &amp;&amp; this.shouldShowRoute(nextIndex) === false) {</span>
+<span class="cstat-no" title="statement not covered" >			nextIndex--;</span>
+		}
+&nbsp;
+		// Go to the previous form screen...
+<span class="cstat-no" title="statement not covered" >		if(this.state.currentPathIndex - 1 &gt;= 0) {</span>
+			var newPath = <span class="cstat-no" title="statement not covered" >'/household/information/' + (this.state.mode === 'edit' ? this.state.appContext + '/' : '') + this.pathOrder[nextIndex];</span>
+<span class="cstat-no" title="statement not covered" >			this.context.router.push(newPath);</span>
+<span class="cstat-no" title="statement not covered" >			this.setState({ currentPathIndex: nextIndex });</span>
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			this.context.router.push('/household/begin');</span>
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	sh</span>ouldBeDoneDuringEdit() {
+		// If we need to continue on to other forms, add conditions here. See IndividualInfo/Forms.jxs for example
+<span class="cstat-no" title="statement not covered" >		return true;</span>
+	}			
+&nbsp;
+	/**
+	 * component output
+	 * @returns {XML}
+	 */
+<span class="fstat-no" title="function not covered" >	re</span>nder() {
+		var primaryContact = <span class="cstat-no" title="statement not covered" >this.state.formData.primaryContactId ? Object.assign({}, PeopleStore.getPersonById(this.state.formData.primaryContactId)) : null,</span>
+			preferredContactMethod = <span class="cstat-no" title="statement not covered" >primaryContact !== null &amp;&amp; primaryContact.contact &amp;&amp; primaryContact.contact.prefModeOfCommunication,</span>
+			// if the prefModeOfCommunication is set on the person, it gets stored separately in i18nValues so that both stored value of prefModeOfCommunication and currently selected can be referenced
+			i18nValues = <span class="cstat-no" title="statement not covered" >Object.assign({</span>
+				preferredContactMethod: this.props.intl.messageIfExists('household-primary-contact-form-preferred-contact-' + preferredContactMethod),
+				initialPreferredContactMethod: this.props.intl.messageIfExists('household-primary-contact-form-preferred-contact-' + this.state.initialPreferredContactMethod)
+			}, primaryContact || { firstName: '' }),
+			forwardTextKey = <span class="cstat-no" title="statement not covered" >this.state.mode === 'edit'</span>
+				? (this.state.formIsDirty ? 'household-information-update' : 'household-information-confirm')
+				: (this.state.currentPathIndex === this.pathOrder.length - 1
+					? 'household-information-done'
+					: 'household-information-next'),
+			backTextKey = <span class="cstat-no" title="statement not covered" >this.state.mode === 'edit'</span>
+				? 'household-information-cancel'
+				: 'household-information-back';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return (</span>
+			&lt;div className="household-information"&gt;
+&nbsp;
+				&lt;ContentIntro className="hidden-xs" /&gt;
+&nbsp;
+				&lt;ContentCard&gt;
+					{
+						ApplicationStore.isRACApplication() === false || ApplicationStore.isEditingRACApplication() === true
+							?
+							&lt;CardNavigation
+								text={this.props.intl.messageIfExists('household-build-menu-link')}
+								link="/household/menu"
+							&gt;
+								&lt;em&gt;&lt;FormattedMessage id="household-build-menu-text"/&gt;&lt;/em&gt;
+							&lt;/CardNavigation&gt;
+							: ''
+					}
+&nbsp;
+					{
+						React.cloneElement(this.props.children, {
+							formData: this.state.formData,
+							onChange: this.onFormChange.bind(this),
+							onFormValid: this.onFormValid.bind(this),
+							onFormInValid: this.onFormInValid.bind(this),
+							i18nValues: i18nValues,
+							householdMembers: this.state.householdMembers,
+							primaryContact: primaryContact,
+							// paths that need extra validation beyond Formsy
+							requireInternalFormValidation: ['primary-contact','confirm-identity','household-member-addresses','primary-caretaker'].some(<span class="fstat-no" title="function not covered" >(k</span>) =&gt; <span class="cstat-no" title="statement not covered" >k === this.pathOrder[this.state.currentPathIndex])</span>
+						})
+					}
+					{
+						this.state.currentPathName !== 'review'
+						?	&lt;ForwardBack
+								id="household-information-forwardback"
+								forwardText={&lt;FormattedMessage id={forwardTextKey} /&gt;}
+								forwardIsDisabled={(this.pathOrder[this.state.currentPathIndex] !== 'qualifying-life-event' &amp;&amp; (!this.state.formData.primaryContactId) || !this.state.formIsValid)}
+								backText={&lt;FormattedMessage id={backTextKey} /&gt;}
+								showBack={ApplicationStore.isRACApplication() === false || ApplicationStore.isEditingRACApplication() === true}
+								onForward={this.onForward.bind(this)}
+								onBack={this.onBack.bind(this)}
+							/&gt;
+						: ''
+					}
+&nbsp;
+				&lt;/ContentCard&gt;
+&nbsp;
+				&lt;ConfirmModal
+					isOpen={this.state.confirmInvalidSaveAndExitModalIsOpen === true}
+					onRequestClose={this.handleCloseInvalidSaveAndExitModal.bind(this)}
+					onRequestConfirm={this.handleConfirmSaveAndExitModal.bind(this)}
+					shouldCloseOnOverlayClick={false}
+					fullScreenMobile={true}
+					title={&lt;FormattedMessage id="global-element-confirm-save-and-exit-invalid-modal-header" /&gt;}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-confirm-save-and-exit-invalid-modal-header' })}
+					cancelText={&lt;FormattedMessage id="account-creation-username-exists-modal-button-cancel" /&gt;}
+					confirmText={&lt;FormattedMessage id="account-creation-username-exists-modal-button"/&gt;}
+				&gt;
+					&lt;FormattedHTMLMessage id="global-element-confirm-save-and-exit-invalid-modal-hhm-body" 
+					values={{
+						expirationDate: ApplicationStore.getExpirationDate()
+						}}  
+					/&gt;
+				&lt;/ConfirmModal&gt;
+&nbsp;
+				&lt;NoticeModal
+					isOpen={this.state.confirmValidSaveAndExitModalIsOpen === true}
+					onRequestClose={this.handleConfirmSaveAndExitModal.bind(this)}
+					shouldCloseOnOverlayClick={false}
+					fullScreenMobile={true}
+					title={&lt;FormattedMessage id="global-element-confirm-save-and-exit-modal-header" /&gt;}
+					contentLabel={this.props.intl.formatMessage({ id: 'global-element-confirm-save-and-exit-modal-header' })}
+					confirmText={&lt;FormattedMessage id="sr-close"/&gt;}
+				&gt;
+					&lt;FormattedHTMLMessage id="global-element-confirm-save-and-exit-modal-body" 
+					values={{
+						expirationDate: ApplicationStore.getExpirationDate()
+						}}  
+					/&gt;
+				&lt;/NoticeModal&gt;
+&nbsp;
+			&lt;/div&gt;
+		);
+	}
+}
+&nbsp;
+/* empty arrays need to be returned as strings to mark HouseholdMemberSegmentedControl inputs as invalid */
+let _emptyArrayToString = <span class="fstat-no" title="function not covered" >(a</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >Array.isArray(arr) &amp;&amp; arr.length &gt; 0 ? arr : '';</span>
+&nbsp;
+HouseholdInformation.propTypes = {
+	intl: intlShape.isRequired
+};
+&nbsp;
+HouseholdInformation.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
+&nbsp;
+export default injectIntl(HouseholdInformation);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

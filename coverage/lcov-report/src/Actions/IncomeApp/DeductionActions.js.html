@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Actions/IncomeApp/DeductionActions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/Actions/IncomeApp</a> DeductionActions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.73% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>29/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import AppDispatcher from '../../Dispatchers/AppDispatcher';
+import AuthStore from '../../Stores/AuthStore';
+import ConfigStore from '../../Stores/ConfigStore';
+import PeopleStore from '../../Stores/PeopleStore';
+import ApplicationStore from '../../Stores/ApplicationStore.js';
+import request from 'superagent';
+import moment from '../../TimeshifterMoment';
+import uuidv4 from 'uuid/v4';
+&nbsp;
+var DeductionActions = {
+	addDeduction: function (personId, deductionRecord) {
+		var apiUrl = ConfigStore.getURL('apiEndpointDeductionURI');
+&nbsp;
+		this.transformPayloadData(deductionRecord);
+&nbsp;
+		var payload = {
+			pendingAppId: ApplicationStore.getPendingAppId(),
+			person: {
+				personId: personId,
+				deductions:  [deductionRecord]
+			}
+		};
+&nbsp;
+		request
+			.post(apiUrl)
+			.send(payload)
+			.set('X-Auth-Token', AuthStore.getToken())
+			.set('X-APP-ID', ApplicationStore.getPendingAppId())
+			.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+			.set('X-Correlation-Id', uuidv4())
+			.set('X-Page-Id', ConfigStore.getPageId())
+			.set('X-Page-Name', ConfigStore.getPageName())			
+			.set('Accept', 'application/json')
+			.end((err, response) =&gt; {
+				<span class="missing-if-branch" title="else path not taken" >E</span>if(!err || (<span class="branch-1 cbranch-no" title="branch not covered" >process.env.appConfig === 'development')</span>) {
+					// trigger event with person as payload for any updates needed
+					this.dispatch('LOCAL_DATA_CLEAN');
+					var responsePayload = {
+						existingDeductionId: deductionRecord.id,
+						projectedHouseholdIncome: response &amp;&amp; response.body &amp;&amp; response.body.projectedHouseholdIncome || null,
+						person: response &amp;&amp; response.body &amp;&amp; response.body.person || null
+					};
+					return this.dispatch('DEDUCTION_ADD', responsePayload);
+				}
+<span class="cstat-no" title="statement not covered" >				this.handleError(err, response);</span>
+			});
+	},
+&nbsp;
+	createDeductionRecord: function(personId, deductionType) {
+		return PeopleStore.createDeduction(personId, deductionType);
+	},
+	getDeductionRecord: function(personId, deductionId) {
+		return PeopleStore.getDeduction(personId, deductionId);
+	},
+	beginDeductionEntry: function() {
+		this.dispatch('LOCAL_DATA_DIRTY', 'deduction');
+	},
+	deleteDeductionRecord: <span class="fstat-no" title="function not covered" >fu</span>nction(personId, deductionId) {
+<span class="cstat-no" title="statement not covered" >		this.dispatch('LOCAL_DATA_CLEAN');</span>
+<span class="cstat-no" title="statement not covered" >		return this.dispatch('DEDUCTION_DELETE', { deductionId: deductionId, personId: personId });</span>
+	},
+	requestCancelAdd: function() {
+		this.dispatch('DEDUCTION_ADD_REQUEST_CANCEL');
+	},
+	confirmCancelAdd: function() {
+		this.dispatch('DEDUCTION_ADD_CANCEL_CONFIRMED');
+	},
+	updateDeduction: function (personId, deductionRecord) {
+		var apiUrl = ConfigStore.getURL('apiEndpointDeductionURI');
+&nbsp;
+		this.transformPayloadData(deductionRecord);
+&nbsp;
+		var payload = {
+			pendingAppId: ApplicationStore.getPendingAppId(),
+			person: {
+				personId: personId,
+				deductions:  [deductionRecord]
+			}
+		};
+		request
+			.put(apiUrl)
+			.send(payload)
+			.set('X-Auth-Token', AuthStore.getToken())
+			.set('X-APP-ID', ApplicationStore.getPendingAppId())
+			.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+			.set('X-Correlation-Id', uuidv4())
+			.set('X-Page-Id', ConfigStore.getPageId())
+			.set('X-Page-Name', ConfigStore.getPageName())			
+			.set('Accept', 'application/json')
+			.end((err, response) =&gt; {
+				// trigger event with person as payload for any updates needed
+				<span class="missing-if-branch" title="else path not taken" >E</span>if(!err || (<span class="branch-1 cbranch-no" title="branch not covered" >process.env.appConfig === 'development')</span>) {
+					var responsePayload = {
+						projectedHouseholdIncome: this.getPayloadValue(response.body, "projectedHouseholdIncome"),
+						person: this.getPayloadValue(response.body, "person")
+					};
+					this.dispatch('LOCAL_DATA_CLEAN');
+					return this.dispatch('DEDUCTION_UPDATE', responsePayload);
+				}
+<span class="cstat-no" title="statement not covered" >				this.handleError(err, response);</span>
+			});
+	},
+&nbsp;
+	/**
+	 * delete remote deduction record (and local)
+	 * @param personId
+	 * @param deductionId
+	 */
+	deleteDeduction: function (personId, deductionId) {
+		var apiUrl = ConfigStore.getURL('apiEndpointIncomeURI')
+				+ ConfigStore.get('apiEndpointDeleteURI')
+				.replace('{recordId}', deductionId)
+				.replace('{personId}', encodeURIComponent(personId));
+&nbsp;
+		request
+			.delete(apiUrl)
+			.set('X-AUTH-TOKEN', AuthStore.getToken())
+			.set('X-APP-ID', ApplicationStore.getPendingAppId())
+			.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+			.set('X-Correlation-Id', uuidv4())
+			.set('X-Page-Id', ConfigStore.getPageId())
+			.set('X-Page-Name', ConfigStore.getPageName())
+			.set('Accept', 'application/json')
+			.end((err, response) =&gt; {
+				<span class="missing-if-branch" title="else path not taken" >E</span>if(!err || (<span class="branch-1 cbranch-no" title="branch not covered" >process.env.appConfig === 'development')</span>) {
+					this.dispatch('LOCAL_DATA_CLEAN');
+					return this.dispatch('DEDUCTION_DELETE', {
+						deductionId:              deductionId,
+						personId:                 personId,
+						projectedHouseholdIncome: this.getPayloadValue(response.body, "projectedHouseholdIncome"),
+						person:                   this.getPayloadValue(response.body, "person")
+					});
+				}
+<span class="cstat-no" title="statement not covered" >				this.handleError(err, response);</span>
+&nbsp;
+			});
+	},
+&nbsp;
+	dispatch: function(actionType, data) {
+		// Dispatch the event, the appropriate Stores will do the rest.
+		AppDispatcher.dispatch({
+			action: {
+				type: actionType,
+				payload: data
+			}
+		});
+	},
+	getPayloadValue: function(object, path) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof object === "undefined" || object === null) <span class="cstat-no" title="statement not covered" >return null;</span>
+		if(typeof object[path] === "undefined") return null;
+		return object[path];
+	},
+	/**
+	 * clean up fields before transmission
+	 *
+	 * @param record
+	 */
+	transformPayloadData: function(record) {
+		// ensure this value is always present
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (!record.sharedWithRDP) {
+			record.sharedWithRDP = "N";
+		}
+		// dates need to be passed as MM/DD/YYYY
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (moment.isMoment(record.beginDate)) {
+<span class="cstat-no" title="statement not covered" >			record.beginDate = record.beginDate.format('L');</span>
+		}
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (moment.isMoment(record.endDate)) {
+<span class="cstat-no" title="statement not covered" >			record.endDate = record.endDate.format('L');</span>
+		}
+&nbsp;
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof record.amount === 'string') {
+<span class="cstat-no" title="statement not covered" >			record.amount = record.amount.replace(/[^0-9.]/g, '');</span>
+		}
+	},
+	handleError(err, response) {
+		if(err &amp;&amp; response.body &amp;&amp; response.body.ahbxError) {
+			this.dispatch('SERVER_ERROR', {
+				errorCode: response.body.ahbxError.appErrorCode,
+				errorNumber: response.body.ahbxError.appErrorNumber
+			});
+		} 
+		else <span class="missing-if-branch" title="else path not taken" >E</span>if(err) {
+			this.dispatch('OTHER_ERROR');
+		}
+&nbsp;
+	}
+};
+&nbsp;
+export default DeductionActions;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

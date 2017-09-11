@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Actions/ApplicationActions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/Actions</a> ApplicationActions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.2% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>92/102</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.05% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>64/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>21/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.63% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>88/95</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">162x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">218x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Import dependencies
+import request from 'superagent';
+import moment from '../TimeshifterMoment';
+import AuthStore from '../Stores/AuthStore';
+import ConfigStore from '../Stores/ConfigStore';
+import ApplicationStore from '../Stores/ApplicationStore.js';
+import EndpointUtils from './EndpointActionUtils';
+import uuidv4 from 'uuid/v4';
+&nbsp;
+const endpointBaseURL = ConfigStore.getURL('apiEndpointApplicationBaseURL');
+const endpointHomeServiceBaseURL = ConfigStore.getURL('apiEndpointUserHomeBaseURL');
+const endpointApplicationBaseURLWithAlt = ConfigStore.getURL('apiEndpointApplicationBaseURLWithAlt');
+&nbsp;
+const ApplicationActions = {
+	startRACEdit: () =&gt; {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(ApplicationStore.isRACApplication()) {
+			EndpointUtils.dispatch('APPLICATION_EDIT_RAC');
+		}
+	},
+	saveProgress: (data) =&gt; {
+		EndpointUtils.dispatch('APPLICATION_START_SAVE_PROGRESS', data);
+	},
+	setApplicationId: (appId) =&gt; {
+		EndpointUtils.dispatch('APPLICATION_SET_ID', appId);
+	},
+	/**
+	 * get the application data from the endpoint, if a pendingAppId exists in app context
+	 */
+	loadApplication: () =&gt; {
+		
+		// save the request in a closure in case the JWT token is not available
+		let req = () =&gt; {
+			// remove this method as a listener first
+			AuthStore.removeListener('change', req);
+&nbsp;
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (ApplicationStore.getPendingAppId() === null) {
+<span class="cstat-no" title="statement not covered" >				return;</span>
+			}
+			
+			// if pendingAppId is now set, clear the listener
+			ApplicationStore.removeListener('change', req);
+			
+			// then make the request
+			request
+				.get(endpointBaseURL)
+				.set('Accept', 'application/json')
+				.set('X-Auth-Token', AuthStore.getToken())
+				.set('X-App-Id', ApplicationStore.getPendingAppId())
+				.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+				.set('X-Correlation-Id', uuidv4())
+				.set('X-Page-Id', ConfigStore.getPageId())
+				.set('X-Page-Name', ConfigStore.getPageName())						
+				.end((err, response) =&gt; {
+					<span class="missing-if-branch" title="else path not taken" >E</span>if (!err || (process.env.appConfig === 'development')) {
+						return EndpointUtils.dispatch('APPLICATION_LOAD', _transformResponsePayload(EndpointUtils.getPayloadValue(response, 'body')));
+					}
+					// Other server error
+					else {
+						// todo: handle application not found
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						EndpointUtils.handleError(response);</span>
+					}
+				});
+		};
+&nbsp;
+		// make the request immediately if JWT token has been received and pendingAppId is set
+		if(AuthStore.loggedIn() === true &amp;&amp; ApplicationStore.getPendingAppId() !== null) {
+			return req();
+		}
+		// otherwise save it until login occurs
+		AuthStore.on('change', req);
+		// listen to application store as long as pendingAppId is null
+		ApplicationStore.on('change', req);
+	},
+&nbsp;
+	startApplication: (data) =&gt; {
+		let payload = _transformPayloadData(data);
+		
+		// never send pendingAppId to this endpoint.
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(typeof payload.pendingAppId !== "undefined") delete payload.pendingAppId;
+		request
+			.post(endpointApplicationBaseURLWithAlt)
+			.send(payload)
+			.set('X-Auth-Token', AuthStore.getToken())
+			.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+			.set('X-Correlation-Id', uuidv4())
+			.set('X-Page-Id', ConfigStore.getPageId())
+			.set('X-Page-Name', ConfigStore.getPageName())					
+			.set('Accept', 'application/json')
+			.end((err, response) =&gt; {
+				if(!err || (process.env.appConfig === 'development')) {
+					/** to facilitate testing, remove before merging upstream */
+					<span class="missing-if-branch" title="else path not taken" >E</span>if(process.env.appConfig === 'development' &amp;&amp; payload.zipCode !== '11111') {
+						response.body = payload;
+					}
+					return EndpointUtils.dispatch('APPLICATION_CREATE_SUCCESS', _transformResponsePayload(EndpointUtils.getPayloadValue(response, 'body')));
+				}
+				// Other server error
+				else {
+					EndpointUtils.handleError(response);
+				}
+			});
+	},
+	updateApplication: (data) =&gt; {
+		let payload = _transformPayloadData(data);
+		request
+			.put(endpointBaseURL)
+			.send(payload)
+			.set('X-Auth-Token', AuthStore.getToken())
+			.set('X-App-Id', ApplicationStore.getPendingAppId())
+			.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+			.set('X-Correlation-Id', uuidv4())
+			.set('X-Page-Id', ConfigStore.getPageId())
+			.set('X-Page-Name', ConfigStore.getPageName())			
+			.set('Accept', 'application/json')
+			.end((err, response) =&gt; {
+				if(!err || (process.env.appConfig === 'development')) {
+					/** to facilitate testing, remove before merging upstream */
+					<span class="missing-if-branch" title="else path not taken" >E</span>if(process.env.appConfig === 'development' &amp;&amp; payload.zipCode !== '11111') {
+						response.body = payload;
+					}
+					return EndpointUtils.dispatch('APPLICATION_UPDATE_SUCCESS', _transformResponsePayload(EndpointUtils.getPayloadValue(response, 'body')));
+				}
+				// Other server error
+				else {
+					EndpointUtils.handleError(response);
+				}
+			});
+	},
+	withdrawApplication: (appId) =&gt; {
+		let apiUrl = endpointHomeServiceBaseURL + ConfigStore.getURL('withdrawApplicationEndpoint'),
+			req = () =&gt; {
+				AuthStore.removeListener('change', req);
+				request
+					.post(apiUrl)
+					.set('X-AUTH-TOKEN', AuthStore.getToken())
+					.set('X-APP-ID', appId)
+					.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+					.set('X-Correlation-Id', uuidv4())
+					.set('X-Page-Id', ConfigStore.getPageId())
+					.set('X-Page-Name', ConfigStore.getPageName())								
+					.set('Accept', 'application/json')
+					.send({})
+					.end((err, response) =&gt; {
+							<span class="missing-if-branch" title="else path not taken" >E</span>if(!err &amp;&amp; response.body) {
+								EndpointUtils.dispatch('OPEN_PROGRESS_MODAL');
+								EndpointUtils.dispatch('GET_USER_HOME_DETAILS', response.body);
+								EndpointUtils.dispatch('APPLICATION_WITHDRAWN');
+								return;
+							}
+<span class="cstat-no" title="statement not covered" >							EndpointUtils.handleError(response);</span>
+						}
+					);
+			};
+&nbsp;
+		// make the request immediately if JWT token has been received
+		if(AuthStore.loggedIn() === true) {
+			return req();
+		}
+		// otherwise save it until login occurs
+		AuthStore.on('change', req);
+	},
+	withdrawRAC: (appId) =&gt; {
+		let apiUrl = endpointHomeServiceBaseURL + ConfigStore.getURL('withdrawRACEndpoint'),
+			req = () =&gt; {
+				AuthStore.removeListener('change', req);
+				request
+					.post(apiUrl)
+					.set('X-APP-ID', appId)
+					.set('X-AUTH-TOKEN', AuthStore.getToken())
+					.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+					.set('X-Correlation-Id', uuidv4())
+					.set('X-Page-Id', ConfigStore.getPageId())
+					.set('X-Page-Name', ConfigStore.getPageName())
+					.set('Accept', 'application/json')
+					.send({})
+					.end((err, response) =&gt; {
+							<span class="missing-if-branch" title="else path not taken" >E</span>if(!err &amp;&amp; response.body) {
+								EndpointUtils.dispatch('GET_USER_HOME_DETAILS', response.body);
+								EndpointUtils.dispatch('WITHDRAW_RAC');
+								return;
+							}
+<span class="cstat-no" title="statement not covered" >							EndpointUtils.handleError(response);</span>
+						}
+					);
+			};
+&nbsp;
+		// make the request immediately if JWT token has been received
+		if(AuthStore.loggedIn() === true) {
+			return req();
+		}
+		// otherwise save it until login occurs
+		AuthStore.on('change', req);
+	},
+	/**
+	 * validates that a zipcode is in california
+	 * @param zipcode
+	 * @returns {boolean}
+	 */
+	validateCaliforniaZipcode: function(zipcode) {
+		// ensure zipcode is present and has a value
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (EndpointUtils.validateRequestString(zipcode) === false) <span class="cstat-no" title="statement not covered" >return false;</span>
+&nbsp;
+		let apiUrl = endpointBaseURL
+			+ ConfigStore.get('apiEndpointZipcodeValidationURI').replace('{zipCode}', zipcode);
+&nbsp;
+		request
+			.get(apiUrl)			
+			.set('X-Auth-Token', AuthStore.getToken())
+			.set('X-Pageview-Id', ConfigStore.getRouteChangeBasedUUIDCorrelationId())
+			.set('X-Correlation-Id', uuidv4())
+			.set('X-Page-Id', ConfigStore.getPageId())
+			.set('X-Page-Name', ConfigStore.getPageName())			
+			.set('Accept', 'application/json')
+			.end((err, response) =&gt; {
+				<span class="missing-if-branch" title="else path not taken" >E</span>if (!err || (process.env.appConfig === 'development')) {
+					let isValid = EndpointUtils.getPayloadValue(response.body, 'isValidZipCode');
+&nbsp;
+					/** for facilitating testing, to be removed before merging upstream **/
+					if (process.env.appConfig === 'development'
+						&amp;&amp; (['11111','22222','33333'].indexOf(zipcode) !== -1)) {
+						isValid = true;
+					}
+&nbsp;
+					return EndpointUtils.dispatch('ZIPCODE_'+ (isValid ? 'VALID' : 'INVALID') + '_CA', { zipCode: zipcode });
+				}
+				// Other server error
+				else {
+<span class="cstat-no" title="statement not covered" >					EndpointUtils.handleError(response);</span>
+				}
+			});
+	}
+};
+&nbsp;
+/**
+ * clean up fields before transmission
+ *
+ * @param payload
+ */
+const _transformPayloadData = payload =&gt; {
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof payload !== "object") <span class="cstat-no" title="statement not covered" >return null;</span>
+	// copy the payload object to avoid modifying references
+	let newPayload = Object.assign({}, payload);
+&nbsp;
+	// convert booleans to string
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(typeof newPayload.agreeToConsent === 'boolean') {
+		newPayload.agreeToConsent = EndpointUtils.boolToString(newPayload.agreeToConsent);
+	}
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(newPayload.applicationDate === null) newPayload.applicationDate = moment();
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(moment.isMoment(newPayload.applicationDate)) newPayload.applicationDate = EndpointUtils.momentToDateString(newPayload.applicationDate);
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(newPayload.applicationSource === null || newPayload.applicationSource === '') <span class="cstat-no" title="statement not covered" >newPayload.applicationSource = 'EMAIL';</span>
+&nbsp;
+	// attempt to populate pendingAppId. if not present in store, will return null, and get removed by the below null removal
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(typeof newPayload.pendingAppId === "undefined" || newPayload.pendingAppId === null) {
+		newPayload.pendingAppId = ApplicationStore.getPendingAppId();
+	}
+	
+	// remove nulls and invalid keys
+	Object.keys(newPayload).forEach((key) =&gt; {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(newPayload[key] === null || ['applicationMenu', 'isEditingInRAC'].indexOf(key) !== -1) {
+<span class="cstat-no" title="statement not covered" >			delete newPayload[key];</span>
+		}
+	});
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof newPayload.zipCode === "undefined"){
+<span class="cstat-no" title="statement not covered" >		newPayload.zipCode = ApplicationStore.getDetails().zipCode;</span>
+	}
+	
+	newPayload.enrollmentYear = ConfigStore.get('enrollmentYear');
+&nbsp;
+	return newPayload;
+};
+&nbsp;
+/**
+ * transform incoming data to formats the app expects
+ * @param payload
+ * @returns {*}
+ * @private
+ */
+const _transformResponsePayload = (payload) =&gt; {
+	if(payload === null) return;
+	
+	if(typeof payload.applicationDate === "string") {
+		payload.applicationDate = moment(payload.applicationDate, 'L');
+	}
+	// converting to bool since used in boolean comparisons and not in radio
+	if(typeof payload.agreeToConsent === "string") {
+		payload.agreeToConsent = payload.agreeToConsent === 'Y';
+	}
+&nbsp;
+	delete payload.message;
+&nbsp;
+	return payload;
+};
+&nbsp;
+export default ApplicationActions;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 19:27:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>
